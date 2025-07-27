@@ -50,10 +50,10 @@ export default function Component() {
       ctx.fillStyle = isDark ? 'white' : 'black'
       ctx.save()
       
-      // Improved responsive logo sizing based on container height
+      // Improved responsive logo sizing - much smaller for mobile
       const logoHeight = isMobile ? 
-        Math.min(180, canvas.height * 0.25) : // Mobile: max 180px or 25% of container height
-        Math.min(350, canvas.height * 0.4)    // Desktop: max 350px or 40% of container height
+        Math.min(120, canvas.height * 0.18) : // Mobile: max 120px or 18% of container height
+        Math.min(300, canvas.height * 0.35)   // Desktop: max 300px or 35% of container height
       
       // AWS logo actual dimensions from the path coordinates
       const awsActualWidth = 177 // Based on path coordinates
@@ -61,10 +61,11 @@ export default function Component() {
       const awsScale = logoHeight / awsActualHeight
       const awsDisplayWidth = awsActualWidth * awsScale
       
-      // Center the logo properly with slight vertical adjustment for mobile
-      const verticalOffset = isMobile ? -20 : 0
+      // Center the logo properly with better mobile positioning
+      const verticalOffset = isMobile ? -30 : 0
+      const horizontalOffset = isMobile ? 0 : 0 // Keep centered horizontally
       ctx.translate(
-        canvas.width / 2 - awsDisplayWidth / 2, 
+        canvas.width / 2 - awsDisplayWidth / 2 + horizontalOffset, 
         canvas.height / 2 - logoHeight / 2 + verticalOffset
       )
 
@@ -114,8 +115,8 @@ export default function Component() {
     function createInitialParticles(scale: number) {
       if (!canvas) return // Added null check to fix linter error
       
-      // Responsive particle count based on screen size and device capability
-      const baseParticleCount = isMobile ? 4000 : 7000 // Reduced for mobile performance
+      // Responsive particle count - fewer particles for smaller mobile logo
+      const baseParticleCount = isMobile ? 2500 : 6000 // Further reduced for mobile performance and smaller logo
       const screenSizeMultiplier = Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
       const particleCount = Math.floor(baseParticleCount * screenSizeMultiplier)
       
@@ -177,8 +178,8 @@ export default function Component() {
         }
       }
 
-      // Maintain particle count
-      const baseParticleCount = isMobile ? 4000 : 7000
+      // Maintain particle count - consistent with creation
+      const baseParticleCount = isMobile ? 2500 : 6000
       const screenSizeMultiplier = Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
       const targetParticleCount = Math.floor(baseParticleCount * screenSizeMultiplier)
       
@@ -257,7 +258,7 @@ export default function Component() {
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-screen flex flex-col items-center justify-center bg-[hsl(var(--app-background))] overflow-hidden"
+      className=" relative w-full h-screen flex flex-col items-center justify-center bg-[hsl(var(--app-background))] overflow-hidden"
     >
       <canvas 
         ref={canvasRef} 
@@ -265,12 +266,12 @@ export default function Component() {
         aria-label="Interactive particle effect with Outhad logo"
       />
       <div className={`absolute z-10 text-center px-4 sm:px-6 ${
-        isMobile ? 'bottom-[80px]' : 'bottom-[100px]'
+        isMobile ? 'bottom-[60px]' : 'bottom-[100px]'
       }`}>
-        <p className={`font-mono text-[hsl(var(--app-text-muted))] leading-relaxed mt-[-200px] ${
+        <p className={`font-mono text-[hsl(var(--app-text-muted))] leading-relaxed ${
           isMobile 
-            ? 'text-sm px-2 max-w-sm mx-auto' 
-            : 'text-base md:text-lg max-w-2xl mx-auto'
+            ? 'text-xs sm:text-sm px-2 max-w-xs mx-auto mt-[-350px]' 
+            : 'text-base md:text-lg max-w-2xl mx-auto mt-[-200px]'
         }`}>
           Building{' '}
           <a 

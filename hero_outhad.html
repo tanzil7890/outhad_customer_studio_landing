@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outhad AI — Predictive Journeys</title>
+  <meta name="description" content="Unified profiles, real‑time intent recognition, and explainable decisioning for omnichannel growth.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .bg-orb{
+      background:
+        radial-gradient(900px 600px at 50% 10%, rgba(59,130,246,.10), transparent 60%),
+        radial-gradient(700px 500px at 10% 70%, rgba(16,185,129,.10), transparent 60%),
+        radial-gradient(700px 500px at 90% 60%, rgba(168,85,247,.08), transparent 60%);
+    }
+    .phone-notch:before{
+      content:''; position:absolute; top:10px; left:50%; transform:translateX(-50%);
+      width:96px; height:14px; border-radius:8px; background:#e5e7eb;
+    }
+  </style>
+</head>
+<body class="bg-[#eef7fb] text-gray-900 bg-orb">
+  <header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-xl bg-gray-900 text-white grid place-content-center font-extrabold">OA</div>
+      <span class="font-semibold">Outhad AI</span>
+    </div>
+    <a href="#" class="px-4 py-2 rounded-xl bg-gray-900 text-white text-sm font-semibold">Book a demo</a>
+  </header>
+
+  <main class="relative overflow-hidden">
+    <section class="max-w-7xl mx-auto px-6 pt-6 pb-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Copy -->
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-600">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Unified Profiles • Intent Recognition • Explainable AI
+          </div>
+          <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight">
+            AI that <span class="underline decoration-emerald-400 decoration-4 underline-offset-4">recognizes intent</span> and personalizes every step.
+          </h1>
+          <p class="mt-4 text-lg text-gray-600 max-w-xl">
+            Fuse first‑party + third‑party signals into a single customer view. Sequence‑model behaviors, predict conversion trajectories,
+            and trigger the next‑best‑action in real time—grounded in privacy‑first governance.
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#" class="px-5 py-3 rounded-xl bg-gray-900 text-white font-semibold">See it on your data</a>
+            <a href="#" class="px-5 py-3 rounded-xl border border-gray-300 font-semibold bg-white">How it works</a>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="relative">
+          <!-- faint nodes left -->
+          <div class="absolute -left-10 top-10 opacity-30 hidden md:block">
+            <div class="w-24 h-16 bg-white/70 rounded-2xl border border-gray-200"></div>
+            <div class="mt-4 w-32 h-20 bg-white/70 rounded-2xl border border-gray-200"></div>
+          </div>
+
+          <!-- phone -->
+          <div class="relative mx-auto w-[320px] sm:w-[360px]">
+            <div class="relative phone-notch rounded-[38px] border border-gray-200 bg-white shadow-xl overflow-hidden">
+              <!-- phone header -->
+              <div class="px-5 pt-6 pb-3 flex items-center justify-between">
+                <div class="text-sm font-semibold tracking-tight">Outhad</div>
+                <div class="flex items-center gap-2 text-gray-500">
+                  <div class="w-4 h-4 rounded-full border"></div>
+                  <div class="w-4 h-4 rounded-full border"></div>
+                  <div class="w-4 h-4 rounded-full border"></div>
+                </div>
+              </div>
+              <!-- phone search -->
+              <div class="px-5 pb-3">
+                <div class="h-10 rounded-xl bg-gray-100 border border-gray-200 flex items-center px-3 text-gray-500 text-sm">Search</div>
+              </div>
+              <!-- hero image substitute -->
+              <div class="relative h-56 mx-5 rounded-2xl overflow-hidden border bg-gradient-to-b from-gray-200 to-gray-300">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_10%,rgba(255,255,255,.9),transparent_40%)]"></div>
+                <div class="absolute bottom-4 left-4">
+                  <div class="text-2xl font-extrabold tracking-tight">Up to 30% OFF</div>
+                  <div class="text-xs text-gray-700">on performance gear selected by Outhad AI</div>
+                </div>
+              </div>
+              <!-- CTA -->
+              <div class="px-5 py-5">
+                <button class="w-full px-4 py-3 rounded-xl border border-gray-300 font-semibold">Shop the collection</button>
+              </div>
+            </div>
+
+            <!-- AI labels on phone -->
+            <div class="absolute -left-8 top-36">
+              <div class="px-3 py-2 rounded-full bg-white shadow-md border border-gray-200 text-xs font-medium flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-full bg-indigo-600 text-white text-[10px]">AI</span>
+                category_recommendation: Hiking
+              </div>
+            </div>
+            <div class="absolute -right-8 bottom-20">
+              <div class="px-3 py-2 rounded-full bg-white shadow-md border border-gray-200 text-xs font-medium flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-full bg-indigo-600 text-white text-[10px]">AI</span>
+                purchase_recency: 90 days
+              </div>
+            </div>
+          </div>
+
+          <!-- connector to decision card -->
+          <svg class="absolute hidden md:block right-56 top-40 w-40 h-24" viewBox="0 0 200 120" fill="none">
+            <path d="M0 60 C 60 60, 80 100, 200 100" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+
+          <!-- AI Decisioning card -->
+          <div class="absolute right-0 top-20 w-72 bg-white/90 backdrop-blur border border-gray-200 rounded-2xl shadow-lg p-5">
+            <div class="text-sm font-semibold">AI Decisioning</div>
+            <div class="mt-1 text-xs text-gray-500">Reasoning</div>
+            <div class="mt-3 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Sequence model (LSTM/Transformer)</span><span>38%</span></div>
+                <div class="h-2 bg-gray-100 rounded"><div class="h-2 w-[38%] rounded bg-indigo-500"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Behavioral pattern mining</span><span>27%</span></div>
+                <div class="h-2 bg-gray-100 rounded"><div class="h-2 w-[27%] rounded bg-indigo-500"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Attribution & channel synergy</span><span>21%</span></div>
+                <div class="h-2 bg-gray-100 rounded"><div class="h-2 w-[21%] rounded bg-indigo-500"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Recency & frequency</span><span>14%</span></div>
+                <div class="h-2 bg-gray-100 rounded"><div class="h-2 w-[14%] rounded bg-indigo-500"></div></div>
+              </div>
+            </div>
+            <div class="mt-4 text-xs text-gray-500">Confidence: 0.82 • Privacy‑first governance</div>
+          </div>
+
+          <!-- small avatars on far right -->
+          <div class="absolute right-0 -mr-10 top-72 hidden md:flex flex-col gap-3">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-300 to-indigo-500 border-2 border-white"></div>
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 border-2 border-white"></div>
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-300 to-pink-500 border-2 border-white"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof points -->
+    <section class="max-w-7xl mx-auto px-6 pb-16 -mt-8">
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="p-4 rounded-2xl bg-white border text-sm">
+          <div class="font-semibold">Unified Profiles</div>
+          <div class="text-gray-600 mt-1">First‑ & third‑party data stitched for a single customer view.</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border text-sm">
+          <div class="font-semibold">Real‑time Intent</div>
+          <div class="text-gray-600 mt-1">Sequence modeling + attention to detect purchase hesitation or momentum.</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border text-sm">
+          <div class="font-semibold">Explainable & Private</div>
+          <div class="text-gray-600 mt-1">Feature attributions, data minimization, and regional controls.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 border-t bg-white/60">
+    <div class="max-w-7xl mx-auto px-6 text-sm text-gray-500">© <span id="year"></span> Outhad AI</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
