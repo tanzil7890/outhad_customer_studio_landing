@@ -12,7 +12,7 @@ const Companies = () => {
             </div>
 
             <Container delay={0.1}>
-                <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-3xl mx-auto pt-8 sm:pt-12 md:pt-16 text-muted-foreground transition-all">
+                <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-full overflow-x-auto px-4 pt-8 sm:pt-12 md:pt-16 text-muted-foreground transition-all whitespace-nowrap">
                     <Images.company1 className="h-5 sm:h-6 md:h-7 w-auto hover:text-[hsl(var(--app-text))] transition-colors duration-300" />
                     <Images.company2 className="h-5 sm:h-6 md:h-7 w-auto hover:text-[hsl(var(--app-text))] transition-colors duration-300" />
                     <Images.company3 className="h-5 sm:h-6 md:h-7 w-auto hover:text-[hsl(var(--app-text))] transition-colors duration-300" />

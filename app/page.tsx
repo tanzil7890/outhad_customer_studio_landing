@@ -30,8 +30,10 @@ export default function SyntheticV0PageForDeployment() {
   return (
     <div className="min-h-screen">
       {/* Main hero section with particle animation */}
+      
       <div className="h-screen relative overflow-hidden" ref={containerRef}>
         <div ref={componentRef} className="absolute inset-0 flex items-center justify-center">
+          
           <Component />
         </div>
         
@@ -220,7 +222,7 @@ export default function SyntheticV0PageForDeployment() {
           className="hidden sm:block"
         />
         
-        {/* Orbiting Circles - Mobile Responsive */}
+        {/* Orbiting Circles - Right Bottom Corner */}
         <div className="absolute -bottom-48 -right-48 sm:-bottom-96 sm:-right-96 z-20 pointer-events-none">
           <div className="relative w-[400px] h-[400px] sm:w-[768px] sm:h-[768px] flex items-center justify-center">
             
@@ -306,10 +308,105 @@ export default function SyntheticV0PageForDeployment() {
               </OrbitingCircles>
           </div>
         </div>
+
+        {/* Orbiting Circles - Left Bottom Corner */}
+        <div className="absolute -bottom-48 -left-48 sm:-bottom-96 sm:-left-96 z-20 pointer-events-none">
+          <div className="relative w-[400px] h-[400px] sm:w-[768px] sm:h-[768px] flex items-center justify-center">
+            
+              {/* Mobile: Smaller radii, Desktop: Full size */}
+              <OrbitingCircles
+                speed={0.5}
+                radius={60}
+                className="sm:hidden"
+                reverse
+              >
+                <Icons.circle1 className="size-3 text-[hsl(var(--app-text-muted))] opacity-70" />
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-80" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.25}
+                radius={90}
+                className="sm:hidden"
+                reverse
+              >
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-50" />
+                <Icons.circle1 className="size-3 text-[hsl(var(--app-text-muted))] opacity-60" />
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-90" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.1}
+                radius={120}
+                className="sm:hidden"
+                reverse
+              >
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-50" />
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-90" />
+                <Icons.circle1 className="size-3 text-[hsl(var(--app-text-muted))] opacity-60" />
+              </OrbitingCircles>
+              
+              {/* Desktop: Original larger sizes */}
+              <OrbitingCircles
+                speed={0.5}
+                radius={120}
+                className="hidden sm:block"
+                reverse
+              >
+                <Icons.circle1 className="size-4 text-[hsl(var(--app-text-muted))] opacity-70" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-80" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.25}
+                radius={180}
+                className="hidden sm:block"
+                reverse
+              >
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-50" />
+                <Icons.circle1 className="size-4 text-[hsl(var(--app-text-muted))] opacity-60" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-90" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.1}
+                radius={240}
+                className="hidden sm:block"
+                reverse
+              >
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-50" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-90" />
+                <Icons.circle1 className="size-4 text-[hsl(var(--app-text-muted))] opacity-60" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-90" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.05}
+                radius={300}
+                className="hidden sm:block"
+                reverse
+              >
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-40" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-60" />
+                <Icons.circle1 className="size-3 text-[hsl(var(--app-text-muted))] opacity-50" />
+              </OrbitingCircles>
+              
+              <OrbitingCircles
+                speed={0.08}
+                radius={360}
+                className="hidden sm:block"
+                reverse
+              >
+                <Icons.circle2 className="size-1 text-[hsl(var(--app-text-muted))] opacity-40" />
+                <Icons.circle2 className="size-2 text-[hsl(var(--app-text-muted))] opacity-60" />
+                <Icons.circle1 className="size-3 text-[hsl(var(--app-text-muted))] opacity-50" />
+              </OrbitingCircles>
+          </div>
+        </div>
       </div>
       
       {/* Companies section below */}
-      <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[-150px]">
+      <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[80px]">
         <Companies />
       </div>
       
