@@ -71,6 +71,13 @@ export default function Header() {
               Workflow Studio
             </Link> */}
             <Link 
+              href="https://cloud.outhad.com/signin" 
+              target="_blank"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              Outhad Studios
+            </Link>
+            <Link 
               href="/manifesto" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
