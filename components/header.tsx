@@ -52,9 +52,9 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto bg-black/30 backdrop-blur-lg rounded-full sm:rounded-full px-3 sm:px-4 py-2 sm:py-1">
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
-          <div className="flex items-center space-x-3">
-            <span  className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md">outhad</span>
-          </div>
+          <Link href="/" className="flex items-center space-x-3">
+            <span className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md hover:text-[hsl(var(--app-text-muted))] transition-colors duration-300">outhad</span>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex font-mono items-center space-x-6 lg:space-x-8 border-2 border-white/50 border-[0.5px] rounded-full px-4 py-2">
@@ -70,13 +70,13 @@ export default function Header() {
             >
               Workflow Studio
             </Link> */}
-            {/* <Link 
+            <Link 
               href="/manifesto" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Manifesto
             </Link>
-            <Link 
+            {/* <Link 
               href="/use-cases" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
@@ -102,15 +102,15 @@ export default function Header() {
               )}
             </button>
             
-            <Button 
-              variant="outline"
-              size="sm"
-              className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
-              href="https://cal.com/tanzilouthad"
-              target="_blank"
-            >
-              Join Waitlist
-            </Button>
+            <Link href="https://cal.com/tanzilouthad" target="_blank">
+              <Button 
+                variant="outline"
+                size="sm"
+                className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+              >
+                Join Waitlist
+              </Button>
+            </Link>
           </div>
           
 
@@ -188,18 +188,18 @@ export default function Header() {
                 )}
               </button>
             </div>
-            
-            <Button 
-              variant="outline"
-              size="sm"
-              onClick={closeMobileMenu}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-white/10 text-sm mt-2 mx-2"
-            >
-              Join Waitlist
-            </Button>
+            <Link href="https://cal.com/tanzilouthad" target="_blank" onClick={closeMobileMenu}>
+              <Button 
+                variant="outline"
+                size="sm"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-white/10 text-sm mt-2 mx-2"
+              >
+                Join Waitlist
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
     </header>
   )
-} 
+}
