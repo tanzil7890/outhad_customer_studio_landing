@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { AWS_LOGO_PATH } from './outhad-logo-path'
+/* import { Button } from '../ui/toast/button' */
 
 export default function Component() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -293,6 +294,13 @@ export default function Component() {
             }
           `}</style>
         </p>
+       {/*  <Button 
+              variant="outline"
+              size="sm"
+              className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+            >
+              Join Waitlist
+            </Button> */}
       </div>
     </div>
   )

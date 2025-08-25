@@ -53,12 +53,12 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center space-x-3">
-            <span className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md">outhad</span>
+            <span  className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md">outhad</span>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex font-mono items-center space-x-6 lg:space-x-8 border-2 border-white/50 border-[0.5px] rounded-full px-4 py-2">
-            <Link 
+            {/* <Link 
               href="/agent-studio" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
@@ -69,8 +69,8 @@ export default function Header() {
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Workflow Studio
-            </Link>
-            <Link 
+            </Link> */}
+            {/* <Link 
               href="/manifesto" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
@@ -81,7 +81,7 @@ export default function Header() {
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Use Cases
-            </Link>
+            </Link> */}
           </div>
 
           {/* Desktop Theme Toggle & CTA Button */}
