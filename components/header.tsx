@@ -105,7 +105,9 @@ export default function Header() {
             <Button 
               variant="outline"
               size="sm"
-              className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+              className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+              href="https://cal.com/tanzilouthad"
+              target="_blank"
             >
               Join Waitlist
             </Button>
