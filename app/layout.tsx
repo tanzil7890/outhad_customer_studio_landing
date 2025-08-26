@@ -92,6 +92,10 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="icon" href="/logo-black.ico" />
+        <link rel="icon" href="/logo-black.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/logo-black.ico" />
+        <link rel="apple-touch-icon" href="/logo-black.ico" />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
