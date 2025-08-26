@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from './ui/toast/button'
 
 export default function Header() {
@@ -52,7 +53,14 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto bg-black/30 backdrop-blur-lg rounded-full sm:rounded-full px-3 sm:px-4 py-2 sm:py-1">
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-2">
+            <Image 
+              src={theme === 'dark' ? "/logo-white.png" : "/logo-black.png"}
+              alt="Outhad Logo"
+              width={24}
+              height={24}
+              className="w-5 h-5 sm:w-6 sm:h-6"
+            />
             <span className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md hover:text-[hsl(var(--app-text-muted))] transition-colors duration-300">outhad</span>
           </Link>
 
