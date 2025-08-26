@@ -287,13 +287,19 @@ export default function Component() {
           <span className="transition-colors duration-300">
             {' '} know Your Customers. In Real Time. Everywhere.
           </span> Unlock higher conversions with AI-powered, omnichannel marketing and seamless engagement.
-        
+          
           <style>{`
             a.invite-link:hover + span + span {
               color: #FF9900;
             }
           `}</style>
         </p>
+        <div className='pt-5'></div>
+        <p className={`font-mono text-[hsl(var(--app-text-muted))] transition-colors  ${
+            isMobile ? 'text-xs' : 'text-sm md:text-base'
+          }`}>
+            ✓ Live Unified Profiles • ✓ In-Session Orchestration • ✓ Autonomous Experimentation
+          </p>
        {/*  <Button 
               variant="outline"
               size="sm"
