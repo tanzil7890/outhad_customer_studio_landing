@@ -19,6 +19,6 @@ Transform every{' '}
               isMobile ? 'text-sm' : 'text-base'
             }`}
           >
-            Join Waitlist - Start Free Trial
+            Book Demo - Start Free Trial
           </Link>
         </div>

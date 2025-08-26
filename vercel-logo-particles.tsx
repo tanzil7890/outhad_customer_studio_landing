@@ -305,7 +305,7 @@ export default function Component() {
               size="sm"
               className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
             >
-              Join Waitlist
+              Book Demo
             </Button> */}
       </div>
     </div>

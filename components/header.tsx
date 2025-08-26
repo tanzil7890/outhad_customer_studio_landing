@@ -79,11 +79,18 @@ export default function Header() {
               Workflow Studio
             </Link> */}
             <Link 
-              href="https://cloud.outhad.com/signin" 
+              href="https://studio.outhad.com/" 
               target="_blank"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Outhad Studios
+            </Link>
+            <Link 
+              href="https://aisearch.outhad.com/" 
+              target="_blank"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              Outhad Search
             </Link>
             <Link 
               href="/manifesto" 
@@ -123,7 +130,7 @@ export default function Header() {
                 size="sm"
                 className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
               >
-                Join Waitlist
+                Book Demo
               </Button>
             </Link>
           </div>
@@ -155,7 +162,7 @@ export default function Header() {
           isMobileMenuOpen ? 'max-h-80 opacity-100 mt-4' : 'max-h-0 opacity-0'
         }`}>
           <div className="flex flex-col space-y-4 pb-4 pt-2 border-t border-white/10">
-            <Link 
+           {/*  <Link 
               href="/agent-studio" 
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
@@ -168,6 +175,20 @@ export default function Header() {
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >
               Workflow Studio
+            </Link> */}
+            <Link 
+              href="https://cloud.outhad.com/signin" 
+              target="_blank"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              Outhad Studios
+            </Link>
+            <Link 
+              href="https://aisearch.outhad.com/" 
+              target="_blank"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              Outhad Search
             </Link>
             <Link 
               href="/manifesto" 
@@ -176,13 +197,13 @@ export default function Header() {
             >
               Manifesto
             </Link>
-            <Link 
+            {/* <Link 
               href="/use-cases" 
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >
               Use Cases
-            </Link>
+            </Link> */}
             
             {/* Mobile Theme Toggle */}
             <div className="flex items-center justify-between mt-2 mx-2">
@@ -209,7 +230,7 @@ export default function Header() {
                 size="sm"
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-white/10 text-sm mt-2 mx-2"
               >
-                Join Waitlist
+                Book Demo
               </Button>
             </Link>
           </div>
