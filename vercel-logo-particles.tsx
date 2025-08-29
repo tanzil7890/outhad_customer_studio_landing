@@ -274,19 +274,19 @@ export default function Component() {
             ? 'text-xs sm:text-sm px-2 max-w-sm sm:max-w-md mx-auto mt-[-350px]' 
             : 'text-base md:text-lg max-w-xl lg:max-w-4xl mx-auto mt-[-200px]'
         }`}>
-          Building{' '}
+         Transform every{' '}
           <a 
             href="https://vercel.fyi/v0-reinvent"
             target="_blank"
             rel="noopener noreferrer"
             className="invite-link text-[hsl(var(--app-text-muted))] hover:text-cyan-400 transition-colors duration-300 underline-offset-4 hover:underline"
           >
-            Customer Activation Platform 
+            click, scroll, and pause 
           </a>{' '}
-          <span>which</span>
+          <span>into instant revenue.</span>
           <span className="transition-colors duration-300">
-            {' '} know Your Customers. In Real Time. Everywhere.
-          </span> Unlock higher conversions with AI-powered, omnichannel marketing and seamless engagement.
+            {' '}  Outhad AI delivers real-time personalization, cart recovery, and unified customer profiles to boost conversions by 15-30% and eliminate cart abandonment.
+          </span> 
           
           <style>{`
             a.invite-link:hover + span + span {
