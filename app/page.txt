@@ -1,74 +1,7 @@
-"use client"
-
-import Component from "../components/vercel-logo-particles"
-import Companies from "../components/companies"
-import Footer from "../components/footer"
-import { OrbitingCircles } from "../components/ui/orbiting-circles"
-import Icons from "../components/global/icons"
-import AnimatedBeamDemo from "../components/ui/magicui/animated-beam-demo"
-import { AnimatedBeam } from "../components/ui/magicui/animated-beam"
-
-import IPhoneMockup from "../components/iphone-mockup"
-import { useRef } from "react"
-import { Button } from "../components/ui/button"
-import Link from "next/link"
-
-export default function SyntheticV0PageForDeployment() {
-  // Refs for animated beams
-  const componentRef = useRef<HTMLDivElement>(null)
-  const aiSignalsRef = useRef<HTMLDivElement>(null)
-  const aiDecisioningRef = useRef<HTMLDivElement>(null)
-  const personasRef = useRef<HTMLDivElement>(null)
-  const capabilitiesRef = useRef<HTMLDivElement>(null)
-  const intentRef = useRef<HTMLDivElement>(null)
-  const performanceRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  
-
-  return (
-    <div className="min-h-screen">
-      {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-20 pb-5 sm:py-32 px-4">
-        <div className="text-center  ">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
-            Deliver 1:1 Personalization, not just campaigns to your Shoppers
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[hsl(var(--app-text-muted))] mb-8 max-w-4xl mx-auto leading-relaxed font-mono" >
-            Outhad AI is the all‑in‑one marketing platform that turns live shopper behavior into revenue. Deliver real‑time personalization, recover carts, and build unified customer profiles to boost conversions by 15–30% and eliminate abandonment.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="https://cal.com/tanzilouthad" target="_blank">
-              <Button 
-                variant="outline"
-                size="sm"
-                className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
-              >
-                Book Demo
-              </Button>
-            </Link>
-            <Link href="https://cal.com/tanzilouthad" target="_blank">
-              <Button 
-                variant="outline"
-                size="sm"
-                className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
-              >
-                See Outhad in action
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Outhad in action */}
-      <div className="h-screen relative overflow-hidden" ref={containerRef}>
-        {/* <div ref={componentRef} className="absolute inset-0 flex items-center justify-center">
+<div className="h-screen relative overflow-hidden" ref={containerRef}>
+        <div ref={componentRef} className="absolute inset-0 flex items-center justify-center">
           
           <Component />
-        </div> */}
-
-        {/* iPhone Mockup - Center Display */}
-        <div ref={componentRef} className="absolute inset-0 flex items-center justify-center z-40">
-          <IPhoneMockup />
         </div>
         
         {/* Feature Cards - Floating around the hero */}
@@ -204,46 +137,54 @@ export default function SyntheticV0PageForDeployment() {
           </div>
         </div>
 
-        {/* Animated Beams connecting cards directly to the iPhone center */}
+        {/* Invisible halfway target points */}
+        <div ref={halfwayTopLeftRef} className="absolute top-[35%] left-[25%] w-1 h-1 pointer-events-none" />
+        <div ref={halfwayTopRightRef} className="absolute top-[35%] right-[25%] w-1 h-1 pointer-events-none" />
+        <div ref={halfwayMiddleLeftRef} className="absolute top-1/2 left-[30%] w-1 h-1 pointer-events-none" />
+        <div ref={halfwayMiddleRightRef} className="absolute top-1/2 right-[30%] w-1 h-1 pointer-events-none" />
+        <div ref={halfwayBottomLeftRef} className="absolute bottom-[35%] left-[25%] w-1 h-1 pointer-events-none" />
+        <div ref={halfwayBottomRightRef} className="absolute bottom-[35%] right-[25%] w-1 h-1 pointer-events-none" />
+
+        {/* Animated Beams connecting cards halfway to the center */}
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={aiSignalsRef}
-          toRef={componentRef}
+          toRef={halfwayTopLeftRef}
           curvature={-30}
           className="hidden sm:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={aiDecisioningRef}
-          toRef={componentRef}
+          toRef={halfwayTopRightRef}
           curvature={30}
           className="hidden md:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={personasRef}
-          toRef={componentRef}
+          toRef={halfwayMiddleLeftRef}
           curvature={-20}
           className="hidden lg:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={capabilitiesRef}
-          toRef={componentRef}
+          toRef={halfwayMiddleRightRef}
           curvature={20}
           className="hidden lg:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={intentRef}
-          toRef={componentRef}
+          toRef={halfwayBottomLeftRef}
           curvature={-30}
           className="hidden sm:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={performanceRef}
-          toRef={componentRef}
+          toRef={halfwayBottomRightRef}
           curvature={30}
           className="hidden sm:block"
         />
@@ -430,38 +371,3 @@ export default function SyntheticV0PageForDeployment() {
           </div>
         </div>
       </div>
-      
-      {/* Companies section below */}
-      <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[80px]">
-        <Companies />
-      </div>
-
-      {/* Particle Component Section */}
-      <div className="bg-[hsl(var(--app-background))] relative z-10">
-        <Component />
-      </div>
-
-      {/* Footer */}
-      <Footer />
-      
-            {/* Animated Beam Demo Section - Mobile Optimized */}
-      {/* <div className="bg-[hsl(var(--app-background))] relative z-10 py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-[hsl(var(--app-text))] mb-3 sm:mb-4 leading-tight">
-              AI Integration Network
-            </h2>
-            <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] font-mono max-w-2xl mx-auto px-4">
-              Connect your tools and automate workflows with AI-powered integrations
-            </p>
-          </div>
-          
-         
-          <div className="w-full overflow-hidden">
-            <AnimatedBeamDemo />
-          </div>
-        </div>
-      </div> */}
-    </div>
-  )
-}

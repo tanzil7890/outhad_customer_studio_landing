@@ -6,7 +6,7 @@ const Companies = () => {
     return (
         <div className="relative flex flex-col items-center justify-center w-full py-12 sm:py-16 md:py-20 mt-8 sm:mt-12 md:mt-16 companies overflow-hidden">
             <div className="flex flex-col items-center justify-center px-4 sm:px-6 text-center">
-                <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono text-[hsl(var(--app-text-muted))] leading-relaxed ">
+                <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono text-[hsl(var(--app-text-muted))] leading-relaxed " style={{fontFamily: 'var(--font-nib-pro)'}}>
                     Engineers at <span className="font-subheading italic text-cyan-400">leading</span> companies use Outhad AI
                 </h4>
             </div>

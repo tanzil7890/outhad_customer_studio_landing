@@ -96,11 +96,13 @@ export default function RootLayout({
         <link rel="icon" href="/logo-black.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/logo-black.ico" />
         <link rel="apple-touch-icon" href="/logo-black.ico" />
+        <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
   --font-sans: ${GeistSans.variable};
   --font-mono: ${GeistMono.variable};
+  --font-nib-pro: 'Nib Pro', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
       </head>

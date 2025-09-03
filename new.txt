@@ -22,3 +22,19 @@ Transform every{' '}
             Book Demo - Start Free Trial
           </Link>
         </div>
+
+
+                  Building{' '}
+          <a 
+            href="https://vercel.fyi/v0-reinvent"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="invite-link text-[hsl(var(--app-text-muted))] hover:text-cyan-400 transition-colors duration-300 underline-offset-4 hover:underline"
+          >
+            Customer Activation Platform 
+          </a>{' '}
+          <span>which</span>
+          <span className="transition-colors duration-300">
+            {' '} know Your Customers. In Real Time. Everywhere.
+          </span> Unlock higher conversions with AI-powered, omnichannel marketing and seamless engagement.
+          

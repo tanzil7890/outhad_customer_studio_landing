@@ -266,7 +266,7 @@ export default function Component() {
         className="w-full h-full absolute top-0 left-0 touch-none mt-[-100px]"
         aria-label="Interactive particle effect with Outhad logo"
       />
-      <div className={`absolute z-10 text-center px-4 sm:px-8 md:px-12 lg:px-16 w-full ${
+      {/* <div className={`absolute z-10 text-center px-4 sm:px-8 md:px-12 lg:px-16 w-full ${
         isMobile ? 'bottom-[60px]' : 'bottom-[100px]'
       }`}>
         <p className={`font-mono text-[hsl(var(--app-text-muted))] leading-relaxed ${
@@ -299,7 +299,7 @@ export default function Component() {
             isMobile ? 'text-xs' : 'text-sm md:text-base'
           }`}>
             ✓ Live Unified Profiles • ✓ In-Session Orchestration • ✓ Autonomous Experimentation
-          </p>
+          </p> */}
        {/*  <Button 
               variant="outline"
               size="sm"
@@ -307,7 +307,7 @@ export default function Component() {
             >
               Book Demo
             </Button> */}
-      </div>
+      {/* </div> */}
     </div>
   )
 }

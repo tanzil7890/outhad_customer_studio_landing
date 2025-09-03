@@ -41,6 +41,8 @@ npm run lint
 
 - `components/` - Reusable React components
   - `header.tsx` - Fixed navigation header with theme toggle and mobile menu
+  - `hero-section.tsx` - Main hero section with tagline and CTA buttons
+  - `iphone-mockup.tsx` - Animated iPhone displaying e-commerce screenshots
   - `companies.tsx` - Company logos/testimonials section
   - `ui/` - shadcn/ui component library
   - `global/` - Global utility components (analytics, container, icons, images, wrapper)
