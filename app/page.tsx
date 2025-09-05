@@ -9,9 +9,10 @@ import AnimatedBeamDemo from "../components/ui/magicui/animated-beam-demo"
 import { AnimatedBeam } from "../components/ui/magicui/animated-beam"
 
 import IPhoneMockup from "../components/iphone-mockup"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Button } from "../components/ui/button"
 import Link from "next/link"
+import CustomerActivation from "@/components/customer-activation"
 
 export default function SyntheticV0PageForDeployment() {
   // Refs for animated beams
@@ -30,13 +31,25 @@ export default function SyntheticV0PageForDeployment() {
       {/* Hero Content */}
       <div className="bg-[hsl(var(--app-background))] pt-20 pb-5 sm:py-32 px-4">
         <div className="text-center  ">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
+          <h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
             Deliver 1:1 Personalization, not just campaigns to your Shoppers
           </h1>
+          {/* style={{fontFamily: 'var(--font-labil-grotesk)'}} */}
           <p className="text-base sm:text-lg md:text-xl text-[hsl(var(--app-text-muted))] mb-8 max-w-4xl mx-auto leading-relaxed font-mono" >
             Outhad AI is the all‑in‑one marketing platform that turns live shopper behavior into revenue. Deliver real‑time personalization, recover carts, and build unified customer profiles to boost conversions by 15–30% and eliminate abandonment.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
+            {/* Add Arrow Image */}
+            <img 
+              src="/images/arrows/arrow-11.svg" 
+              alt="Arrow pointing to Book Demo" 
+              className="w-20 h-20 text-[hsl(var(--app-text-muted))] opacity-70 pointer-events-none hidden sm:block animate-bounce mr-2"
+              style={{
+                filter: 'brightness(0) saturate(100%) invert(21%) sepia(0%) saturate(2%) hue-rotate(346deg) brightness(95%) contrast(86%)',
+                transform: 'scaleY(-1)',
+                transformOrigin: 'center'
+              }}
+            />
             <Link href="https://cal.com/tanzilouthad" target="_blank">
               <Button 
                 variant="outline"
@@ -55,6 +68,15 @@ export default function SyntheticV0PageForDeployment() {
                 See Outhad in action
               </Button>
             </Link>
+            <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, transform: 'scale3d(1, 1, 1) translate3d(0vw, 0vh, 0px)', width: '300px', top: '-100px', right: '0px'}} />
+            
+          </div>
+
+          <div className="mt-6 text-sm text-[hsl(var(--app-text-muted))] italic max-w-2xl mx-auto">
+            Trusted by fast-growing brands like 
+            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">OutdoorX</span>, 
+            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">StyleHub</span>, and 
+            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">TechGear</span>
           </div>
         </div>
       </div>
@@ -435,6 +457,11 @@ export default function SyntheticV0PageForDeployment() {
       <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[80px]">
         <Companies />
       </div>
+
+      {/* <CustomerActivation /> */}
+
+
+
 
       {/* Particle Component Section */}
       <div className="bg-[hsl(var(--app-background))] relative z-10">

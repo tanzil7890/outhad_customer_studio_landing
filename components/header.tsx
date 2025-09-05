@@ -7,7 +7,7 @@ import { Button } from './ui/toast/button'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
 
   // Initialize theme on component mount
   React.useEffect(() => {
@@ -15,7 +15,7 @@ export default function Header() {
     const savedTheme = localStorage.getItem('theme')
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
-    let initialTheme = 'dark' // Default to dark
+    let initialTheme = 'light' // Default to light
     if (savedTheme) {
       initialTheme = savedTheme
     } else if (systemPrefersDark) {
@@ -49,8 +49,8 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
-      <nav className="max-w-7xl mx-auto bg-black/30 backdrop-blur-lg rounded-full sm:rounded-full px-3 sm:px-4 py-2 sm:py-1">
+    <header className="fixed top-0 left-0 right-0 z-50 p-0 md:p-4">
+      <nav className="w-full md:max-w-7xl mx-auto bg-[hsl(var(--app-surface))]/75 backdrop-blur-lg border border-[hsl(var(--app-border))] shadow-sm rounded-none md:rounded-full px-3 sm:px-4 py-2 sm:py-1">
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <Link href="/" className="flex items-center space-x-2">
@@ -65,7 +65,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex font-mono items-center space-x-6 lg:space-x-8 border-2 border-white/50 border-[0.5px] rounded-full px-4 py-2">
+          <div className="hidden md:flex font-mono items-center space-x-6 lg:space-x-8 rounded-full px-4 py-2 border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))]/40">
             {/* <Link 
               href="/agent-studio" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
@@ -79,18 +79,19 @@ export default function Header() {
               Workflow Studio
             </Link> */}
             <Link 
-              href="https://studio.outhad.com/" 
+              href="/outhad-history" 
               target="_blank"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
-              Outhad Studios
+              Products
+              
             </Link>
             <Link 
-              href="https://aisearch.outhad.com/" 
+              href="/outhad-history" 
               target="_blank"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
-              Outhad Search
+              Our History
             </Link>
             <Link 
               href="/manifesto" 
@@ -108,9 +109,9 @@ export default function Header() {
 
           {/* Desktop Theme Toggle & CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            <button
+            {/* <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 text-white transition-all duration-300 shadow-lg hover:shadow-white/10"
+              className="p-2 rounded-full bg-[hsl(var(--app-surface))]/60 hover:bg-[hsl(var(--app-surface))]/80 backdrop-blur-sm border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -122,13 +123,13 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
-            </button>
+            </button> */}
             
             <Link href="https://cal.com/tanzilouthad" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
-                className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+                className="font-mono bg-transparent border border-[hsl(var(--app-text))]/10 text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] rounded-full transition-colors duration-200 text-xs sm:text-sm"
               >
                 Book Demo
               </Button>
@@ -139,7 +140,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
-            className="md:hidden text-white p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
+            className="md:hidden text-[hsl(var(--app-text))] p-2 rounded-xl bg-[hsl(var(--app-surface))]/60 backdrop-blur-sm border border-[hsl(var(--app-border))] hover:bg-[hsl(var(--app-surface))]/80 transition-all duration-200"
             aria-label="Toggle mobile menu"
           >
             <svg 
@@ -161,7 +162,7 @@ export default function Header() {
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? 'max-h-80 opacity-100 mt-4' : 'max-h-0 opacity-0'
         }`}>
-          <div className="flex flex-col space-y-4 pb-4 pt-2 border-t border-white/10">
+          <div className="flex flex-col space-y-4 pb-4 pt-2 border-t border-[hsl(var(--app-border))]">
            {/*  <Link 
               href="/agent-studio" 
               onClick={closeMobileMenu}
@@ -176,20 +177,6 @@ export default function Header() {
             >
               Workflow Studio
             </Link> */}
-            <Link 
-              href="https://cloud.outhad.com/signin" 
-              target="_blank"
-              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
-            >
-              Outhad Studios
-            </Link>
-            <Link 
-              href="https://aisearch.outhad.com/" 
-              target="_blank"
-              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
-            >
-              Outhad Search
-            </Link>
             <Link 
               href="/manifesto" 
               onClick={closeMobileMenu}
@@ -207,10 +194,10 @@ export default function Header() {
             
             {/* Mobile Theme Toggle */}
             <div className="flex items-center justify-between mt-2 mx-2">
-              <span className="text-[hsl(var(--app-text-muted))] text-sm">Theme</span>
+              <span className="text-[hsl(var(--app-text))] text-sm">Theme</span>
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 text-white transition-all duration-300"
+                className="p-2 rounded-full bg-[hsl(var(--app-surface))]/60 hover:bg-[hsl(var(--app-surface))]/80 backdrop-blur-sm border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] transition-all duration-200"
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? (
@@ -228,7 +215,7 @@ export default function Header() {
               <Button 
                 variant="outline"
                 size="sm"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-white/10 text-sm mt-2 mx-2"
+                className="bg-transparent hover:bg-[hsl(var(--app-text))] text-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] border border-[hsl(var(--app-text))]/70 rounded-full font-medium transition-colors duration-200 text-sm mt-2 mx-2"
               >
                 Book Demo
               </Button>

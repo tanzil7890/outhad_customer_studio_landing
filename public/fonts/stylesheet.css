@@ -118,3 +118,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Labil Grotesk';
+    src: url('Labil Grotesk/Web Fonts/3624085123711a73a22276b47ea3e323.eot');
+    src: url('Labil Grotesk/Web Fonts/3624085123711a73a22276b47ea3e323.eot?#iefix') format('embedded-opentype'),
+         url('Labil Grotesk/Web Fonts/3624085123711a73a22276b47ea3e323.woff2') format('woff2'),
+         url('Labil Grotesk/Web Fonts/3624085123711a73a22276b47ea3e323.woff') format('woff'),
+         url('Labil Grotesk/Web Fonts/3624085123711a73a22276b47ea3e323.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

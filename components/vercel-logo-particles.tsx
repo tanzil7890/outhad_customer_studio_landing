@@ -132,10 +132,8 @@ export default function Component() {
     function animate(scale: number) {
       if (!ctx || !canvas) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      // Get background color from CSS custom property
-      const computedStyle = getComputedStyle(document.documentElement)
-      const isDark = document.documentElement.classList.contains('dark')
-      ctx.fillStyle = isDark ? 'black' : 'white'
+      // Use specific light background color
+      ctx.fillStyle = '#f5f4f2'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       const { x: mouseX, y: mouseY } = mousePositionRef.current
@@ -259,7 +257,8 @@ export default function Component() {
   return (
     <div 
       ref={containerRef}
-      className=" relative w-full h-screen flex flex-col items-center justify-center bg-[hsl(var(--app-background))] overflow-hidden"
+      className=" relative w-full h-screen flex flex-col items-center justify-center overflow-hidden"
+      style={{ backgroundColor: '#f5f4f2' }}
     >
       <canvas 
         ref={canvasRef} 

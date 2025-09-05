@@ -103,6 +103,7 @@ html {
   --font-sans: ${GeistSans.variable};
   --font-mono: ${GeistMono.variable};
   --font-nib-pro: 'Nib Pro', ui-sans-serif, system-ui, sans-serif;
+  --font-labil-grotesk: 'Labil Grotesk', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
       </head>
