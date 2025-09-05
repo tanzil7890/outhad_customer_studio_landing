@@ -7,30 +7,6 @@ import { Button } from './ui/toast/button'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [theme, setTheme] = useState('light')
-
-  // Initialize theme on component mount
-  React.useEffect(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem('theme')
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    let initialTheme = 'light' // Default to light
-    if (savedTheme) {
-      initialTheme = savedTheme
-    } else if (systemPrefersDark) {
-      initialTheme = 'dark'
-    } else {
-      initialTheme = 'light'
-    }
-    
-    setTheme(initialTheme)
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [])
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -40,14 +16,6 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark'
-    setTheme(newTheme)
-    document.documentElement.classList.toggle('dark')
-    // Save theme preference to localStorage
-    localStorage.setItem('theme', newTheme)
-  }
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-0 md:p-4">
       <nav className="w-full md:max-w-7xl mx-auto bg-[hsl(var(--app-surface))]/75 backdrop-blur-lg border border-[hsl(var(--app-border))] shadow-sm rounded-none md:rounded-full px-3 sm:px-4 py-2 sm:py-1">
@@ -55,7 +23,7 @@ export default function Header() {
           {/* Logo/Brand */}
           <Link href="/" className="flex items-center space-x-2">
             <Image 
-              src={theme === 'dark' ? "/logo-white.png" : "/logo-black.png"}
+              src="/logo-black.png"
               alt="Outhad Logo"
               width={24}
               height={24}
@@ -107,24 +75,8 @@ export default function Header() {
             </Link> */}
           </div>
 
-          {/* Desktop Theme Toggle & CTA Button */}
+          {/* Desktop CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            {/* <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-[hsl(var(--app-surface))]/60 hover:bg-[hsl(var(--app-surface))]/80 backdrop-blur-sm border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button> */}
-            
             <Link href="https://cal.com/tanzilouthad" target="_blank">
               <Button 
                 variant="outline"
@@ -192,25 +144,6 @@ export default function Header() {
               Use Cases
             </Link> */}
             
-            {/* Mobile Theme Toggle */}
-            <div className="flex items-center justify-between mt-2 mx-2">
-              <span className="text-[hsl(var(--app-text))] text-sm">Theme</span>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full bg-[hsl(var(--app-surface))]/60 hover:bg-[hsl(var(--app-surface))]/80 backdrop-blur-sm border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] transition-all duration-200"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? (
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                )}
-              </button>
-            </div>
             <Link href="https://cal.com/tanzilouthad" target="_blank" onClick={closeMobileMenu}>
               <Button 
                 variant="outline"

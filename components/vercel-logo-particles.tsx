@@ -47,8 +47,7 @@ export default function Component() {
     function createTextImage() {
       if (!ctx || !canvas) return 0
 
-      const isDark = document.documentElement.classList.contains('dark')
-      ctx.fillStyle = isDark ? 'white' : 'black'
+      ctx.fillStyle = 'black'
       ctx.save()
       
       // Improved responsive logo sizing - much smaller for mobile
@@ -102,7 +101,7 @@ export default function Component() {
             baseX: x,
             baseY: y,
             size: Math.random() * 1 + 0.5,
-            color: 'white', 
+            color: 'black', 
             scatteredColor: '#FF9900', // All particles use AWS orange color
             isAWS: true,
             life: Math.random() * 100 + 50
@@ -159,8 +158,7 @@ export default function Component() {
         } else {
           p.x += (p.baseX - p.x) * 0.1
           p.y += (p.baseY - p.y) * 0.1
-          const isDark = document.documentElement.classList.contains('dark')
-          ctx.fillStyle = isDark ? 'white' : 'black'
+          ctx.fillStyle = 'black'
         }
 
         ctx.fillRect(p.x, p.y, p.size, p.size)

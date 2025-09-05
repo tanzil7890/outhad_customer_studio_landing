@@ -68,7 +68,7 @@ export default function SyntheticV0PageForDeployment() {
                 See Outhad in action
               </Button>
             </Link>
-            <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, transform: 'scale3d(1, 1, 1) translate3d(0vw, 0vh, 0px)', width: '300px', top: '-100px', right: '0px'}} />
+            <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '-100px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
             
           </div>
 

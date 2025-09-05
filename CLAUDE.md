@@ -30,7 +30,7 @@ npm run lint
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **Fonts**: Geist Sans and Geist Mono
 - **Animation**: Framer Motion, custom animated components
-- **State Management**: React hooks with localStorage for theme persistence
+- **State Management**: React hooks for component state management
 
 ### Project Structure
 
@@ -40,7 +40,7 @@ npm run lint
   - `globals.css` - Tailwind base styles and custom CSS variables
 
 - `components/` - Reusable React components
-  - `header.tsx` - Fixed navigation header with theme toggle and mobile menu
+  - `header.tsx` - Fixed navigation header with mobile menu
   - `hero-section.tsx` - Main hero section with tagline and CTA buttons
   - `iphone-mockup.tsx` - Animated iPhone displaying e-commerce screenshots
   - `companies.tsx` - Company logos/testimonials section
@@ -51,11 +51,10 @@ npm run lint
 
 ### Key Features
 
-**Theme System**: Dark/light theme toggle with:
-- CSS custom properties in `globals.css` for theme colors
-- localStorage persistence
-- System preference detection
-- Custom `--app-*` color variables for consistent theming
+**Color System**: Light theme design with:
+- CSS custom properties in `globals.css` for consistent colors
+- Custom `--app-*` color variables for brand consistency
+- Vibrant blue and purple accent colors
 
 **Animation System**:
 - Custom `AnimatedBeam` components for connecting UI elements
@@ -95,6 +94,6 @@ npm run lint
 
 - Next.js config ignores TypeScript and ESLint errors during builds for faster development
 - Images are set to `unoptimized: true` in Next.js config
-- Custom CSS variables provide theme consistency across components
+- Custom CSS variables provide color consistency across components
 - Mobile-specific optimizations prevent zoom on form inputs
 - All text elements allow selection for better UX
