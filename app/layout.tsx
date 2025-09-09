@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Outhad AI',
     images: [
       {
-        url: '/placeholder.jpg', // You'll need to add actual OG image
+        url: '/images/outhad-customer-activation-platform/hero-home.png',
         width: 1200,
         height: 630,
         alt: 'Outhad AI - Real-Time Customer Activation Platform',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Outhad AI - Real-Time Customer Activation & Personalization Platform',
     description: 'Transform every click, scroll, and pause into instant revenue. Boost conversions by 15-30% with real-time AI personalization.',
-    images: ['/placeholder.jpg'], // You'll need to add actual Twitter image
+    images: ['/images/outhad-customer-activation-platform/hero-home.png'],
     creator: '@outhad',
   },
   robots: {
@@ -117,7 +117,7 @@ html {
               name: 'Outhad AI',
               description: 'Real-time customer activation and personalization platform that transforms every click, scroll, and pause into instant revenue.',
               url: 'https://outhad.com',
-              logo: 'https://outhad.com/placeholder-logo.svg',
+              logo: 'https://outhad.com/logo-black.png',
               foundingDate: '2024',
               industry: 'Software',
               category: 'E-commerce Technology',
