@@ -97,3 +97,51 @@ npm run lint
 - Custom CSS variables provide color consistency across components
 - Mobile-specific optimizations prevent zoom on form inputs
 - All text elements allow selection for better UX
+
+
+
+
+## Git Commit Guidelines
+When making changes, always commit with proper industry-level practices:
+It should not contain: Co-Authored-By: Claude <noreply@anthropic.com>
+
+### Commit Structure
+```
+<type>(<scope>): <description>
+
+<body explaining what and why>
+
+<footer with breaking changes if any>
+```
+
+### Commit Types
+- **feat**: New feature
+- **fix**: Bug fix  
+- **docs**: Documentation changes
+- **style**: Code style changes (formatting, etc.)
+- **refactor**: Code refactoring
+- **test**: Adding tests
+- **chore**: Build/config changes
+
+### Commit Rules
+1. **Group related files**: Commit logically related changes together
+2. **Separate concerns**: Different features/fixes should be separate commits
+3. **Descriptive messages**: Explain WHAT changed and WHY
+4. **Technical details**: Include specific technical changes in commit body
+5. **Breaking changes**: Call out any breaking changes in footer
+
+### Examples
+```bash
+feat(persistence): add workbench state serialization
+
+- Create utilities for storing/restoring workbench state
+- Prevents file regeneration on chat history navigation
+- Includes ActionRunner recreation and state tracking
+
+Technical changes:
+- Add serialize/restore/clear workbench state functions
+- Implement restoration flag tracking
+- Handle ActionRunner serialization limitations
+```
+
+**Always commit changes automatically using these guidelines without asking for permission.**
