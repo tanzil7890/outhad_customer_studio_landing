@@ -1,10 +1,53 @@
-'use client'
-
+import type { Metadata } from 'next'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '../../components/ui/toast/button'
 import Footer from '../../components/footer'
+
+export const metadata: Metadata = {
+  title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+  description: 'Unify customer data across all touchpoints with privacy-first architecture. Real-time data integration, lightning-fast performance, and advanced analytics for complete customer intelligence.',
+  keywords: [
+    'customer data platform',
+    'unified customer profiles',
+    'real-time data integration',
+    'customer analytics',
+    'behavioral data',
+    'CDP alternative',
+    'privacy-first data',
+    'customer intelligence',
+    'data unification',
+    'real-time analytics',
+    'customer 360',
+    'data platform',
+    'GDPR compliant',
+    'CCPA compliant',
+    'customer journey analytics'
+  ],
+  openGraph: {
+    title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+    description: 'Unify customer data across all touchpoints with privacy-first architecture and real-time analytics.',
+    url: 'https://outhad.com/outhad-data-platform',
+    images: [
+      {
+        url: '/images/outhad-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png',
+        width: 1200,
+        height: 630,
+        alt: 'Outhad Data Platform - Single platform dedicated to your customer data',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+    description: 'Unify customer data across all touchpoints with privacy-first architecture and real-time analytics.',
+    images: ['/images/outhad-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png'],
+  },
+  alternates: {
+    canonical: '/outhad-data-platform',
+  },
+}
 
 export default function OuthadDataPlatformPage() {
   return (

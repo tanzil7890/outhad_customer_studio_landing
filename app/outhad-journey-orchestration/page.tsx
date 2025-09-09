@@ -1,10 +1,53 @@
-'use client'
-
+import type { Metadata } from 'next'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '../../components/ui/toast/button'
 import Footer from '../../components/footer'
+
+export const metadata: Metadata = {
+  title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+  description: 'Design and automate personalized customer journeys that adapt in real-time. Multi-channel orchestration, AI-powered optimization, and advanced segmentation for maximum engagement and conversion.',
+  keywords: [
+    'customer journey orchestration',
+    'personalized customer journeys',
+    'journey automation',
+    'multi-channel orchestration',
+    'customer experience automation',
+    'behavioral triggers',
+    'journey mapping',
+    'real-time personalization',
+    'customer lifecycle management',
+    'automated marketing',
+    'journey optimization',
+    'cross-channel marketing',
+    'customer engagement',
+    'retention automation',
+    'onboarding automation'
+  ],
+  openGraph: {
+    title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+    description: 'Design and automate personalized customer journeys with real-time adaptation and multi-channel orchestration.',
+    url: 'https://outhad.com/outhad-journey-orchestration',
+    images: [
+      {
+        url: '/images/outhad-customer-activation-platform/outhad-orchestration.png',
+        width: 1200,
+        height: 630,
+        alt: 'Outhad Journey Orchestration - Automated customer journey flows',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+    description: 'Design and automate personalized customer journeys with real-time adaptation and multi-channel orchestration.',
+    images: ['/images/outhad-customer-activation-platform/outhad-orchestration.png'],
+  },
+  alternates: {
+    canonical: '/outhad-journey-orchestration',
+  },
+}
 
 export default function OuthadJourneyOrchestrationPage() {
   return (
