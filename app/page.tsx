@@ -9,10 +9,19 @@ import AnimatedBeamDemo from "../components/ui/magicui/animated-beam-demo"
 import { AnimatedBeam } from "../components/ui/magicui/animated-beam"
 
 import IPhoneMockup from "../components/iphone-mockup"
-import { useRef, useState, useEffect } from "react"
+import { useRef } from "react"
 import { Button } from "../components/ui/button"
 import Link from "next/link"
 import CustomerActivation from "@/components/customer-activation"
+import ProblemsWeSolve from "@/components/problems-we-solve"
+import Storylines from "@/components/storylines"
+import HowItWorks from "@/components/how-it-works"
+import Outcomes from "@/components/outcomes"
+import IcpValue from "@/components/icp-value"
+import Integrations from "@/components/integrations"
+import PrivacySecurity from "@/components/privacy-security"
+import FinalCta from "@/components/final-cta"
+import WhyUs from "@/components/why-us"
 
 export default function SyntheticV0PageForDeployment() {
   // Refs for animated beams
@@ -29,7 +38,7 @@ export default function SyntheticV0PageForDeployment() {
   return (
     <div className="min-h-screen">
       {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-20 pb-5 sm:py-32 px-4">
+      <div className="bg-[hsl(var(--app-background))] pt-48 pb-5 sm:pt-56 sm:pb-16 px-4">
         <div className="text-center  ">
           <h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
             Deliver 1:1 Personalization, not just campaigns to your Shoppers
@@ -458,7 +467,16 @@ export default function SyntheticV0PageForDeployment() {
         <Companies />
       </div>
 
-      {/* <CustomerActivation /> */}
+      <ProblemsWeSolve />
+      <CustomerActivation />
+      <Storylines />
+      <HowItWorks />
+      <WhyUs />
+      <Outcomes />
+      <IcpValue />
+      <Integrations />
+      <PrivacySecurity />
+      <FinalCta />
 
 
 

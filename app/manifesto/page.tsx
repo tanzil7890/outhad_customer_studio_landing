@@ -7,7 +7,7 @@ export default function ManifestoPage() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl sm:text-4xl font-mono font-bold text-[hsl(var(--app-text))] mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[hsl(var(--app-text))] mb-4 font-title">
             Outhad AI Manifesto
           </h1>
         </div>
@@ -26,28 +26,28 @@ export default function ManifestoPage() {
           <div className="space-y-8">
             
             <div>
-              <h3 className="text-lg font-mono text-[hsl(var(--app-text))] font-semibold mb-3">Unified Intelligence</h3>
+              <h3 className="text-lg text-[hsl(var(--app-text))] font-semibold mb-3 font-title">Unified Intelligence</h3>
               <p className="text-[hsl(var(--app-text-muted))] font-mono leading-relaxed">
                 We unify fragmented behaviors into live, evolving shopper profiles that understand who users are and what they need—before they even know it themselves.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-mono text-[hsl(var(--app-text))] font-semibold mb-3">Hyper-Personalization</h3>
+              <h3 className="text-lg text-[hsl(var(--app-text))] font-semibold mb-3 font-title">Hyper-Personalization</h3>
               <p className="text-[hsl(var(--app-text-muted))] font-mono leading-relaxed">
                 We deliver hyper-personalized experiences, fueled by real-time behavior and AI: dynamic nudges, upsells, offers, and optimizations that feel intuitive, not intrusive.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-mono text-[hsl(var(--app-text))] font-semibold mb-3">Autonomous Optimization</h3>
+              <h3 className="text-lg text-[hsl(var(--app-text))] font-semibold mb-3 font-title">Autonomous Optimization</h3>
               <p className="text-[hsl(var(--app-text-muted))] font-mono leading-relaxed">
                 We strip away the manual grind of experimentation. With our AI-powered autonomy, every test writes its own future, continuously learning, optimizing, and deploying—no engineers required.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-mono text-[hsl(var(--app-text))] font-semibold mb-3">Real-Time Integration</h3>
+              <h3 className="text-lg text-[hsl(var(--app-text))] font-semibold mb-3 font-title">Real-Time Integration</h3>
               <p className="text-[hsl(var(--app-text-muted))] font-mono leading-relaxed">
                 We inject real-time intelligence into the heart of your stack—layering on top of CDPs, ESPs, checkout platforms, and ad networks—so you build powerful growth workflows in days instead of months.
               </p>
@@ -57,9 +57,7 @@ export default function ManifestoPage() {
 
           {/* Our Promise */}
           <div>
-            <h3 className="text-xl font-mono text-[hsl(var(--app-text))] font-semibold mb-6">
-              Our Promise
-            </h3>
+            <h3 className="text-xl text-[hsl(var(--app-text))] font-semibold mb-6 font-title">Our Promise</h3>
             
             <div className="space-y-4">
               <p className="font-mono text-[hsl(var(--app-text))]">
@@ -86,41 +84,39 @@ export default function ManifestoPage() {
 
           {/* Why This Works */}
           <div className="pt-12 border-t border-[hsl(var(--app-border))]">
-            <h3 className="text-xl font-mono text-[hsl(var(--app-text))] font-semibold mb-6">
-              Why This Works
-            </h3>
+            <h3 className="text-xl text-[hsl(var(--app-text))] font-semibold mb-6 font-title">Why This Works</h3>
             
             <div className="space-y-4">
               <div>
-                <h4 className="font-mono text-[hsl(var(--app-text))] font-semibold mb-2">Rallies Emotion & Clarity</h4>
+                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Rallies Emotion & Clarity</h4>
                 <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
                   It starts with a bold claim and anchors the brand in the philosophy that real-time behavior matters.
                 </p>
               </div>
               
               <div>
-                <h4 className="font-mono text-[hsl(var(--app-text))] font-semibold mb-2">Speaks in Real-Time</h4>
+                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Speaks in Real-Time</h4>
                 <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
                   The focus on "live," "real time," and "session-aware" ties back to your key differentiator—acting within the moment.
                 </p>
               </div>
               
               <div>
-                <h4 className="font-mono text-[hsl(var(--app-text))] font-semibold mb-2">Human Touch</h4>
+                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Human Touch</h4>
                 <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
                   Phrases like "we believe" and "listening to signals" give warmth and intention.
                 </p>
               </div>
               
               <div>
-                <h4 className="font-mono text-[hsl(var(--app-text))] font-semibold mb-2">Emphasizes Impact</h4>
+                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Emphasizes Impact</h4>
                 <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
                   It clearly states the benefits—conversion, personalization, lean tech stack.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-mono text-[hsl(var(--app-text))] font-semibold mb-2">Aligned with Strategy</h4>
+                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Aligned with Strategy</h4>
                 <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
                   Reinforces your value props of autonomous experimentation, unified profiles, cart/session rescue, and omnichannel consistency.
                 </p>

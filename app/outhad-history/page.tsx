@@ -19,7 +19,7 @@ export default function OuthadHistoryPage() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl sm:text-4xl font-mono font-bold text-[hsl(var(--app-text))] mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[hsl(var(--app-text))] mb-4 font-title">
             Outhad AI History
           </h1>
         </div>
@@ -36,7 +36,7 @@ export default function OuthadHistoryPage() {
 
           {/* What We Built Before */}
           <section className="relative">
-            <h2 className="text-2xl font-mono font-bold text-[hsl(var(--app-text))] mb-6">
+            <h2 className="text-2xl font-bold text-[hsl(var(--app-text))] mb-6 font-title">
               What We Built Before
             </h2>
             <p className="font-mono text-[hsl(var(--app-text-muted))] mb-8">
@@ -55,7 +55,7 @@ export default function OuthadHistoryPage() {
                       Outhad Agent & Workflow Studio
                     </span>
                   </div>
-                  <h3 className="text-lg font-mono font-semibold text-[hsl(var(--app-text))] mb-2">
+                  <h3 className="text-lg font-semibold text-[hsl(var(--app-text))] mb-2 font-title">
                     Visual Agent Orchestration for Real Work
                   </h3>
                   <p className="text-sm font-mono leading-relaxed text-[hsl(var(--app-text-muted))]">
@@ -94,7 +94,7 @@ export default function OuthadHistoryPage() {
                       Outhad Search
                     </span>
                   </div>
-                  <h3 className="text-lg font-mono font-semibold text-[hsl(var(--app-text))] mb-2">
+                  <h3 className="text-lg font-semibold text-[hsl(var(--app-text))] mb-2 font-title">
                     AI-Powered, Context-Aware Commerce Search
                   </h3>
                   <p className="text-sm font-mono leading-relaxed text-[hsl(var(--app-text-muted))]">

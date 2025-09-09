@@ -82,6 +82,11 @@
     height: 100%;
   }
   
+  /* Use Nib Pro on all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-nib-pro);
+  }
+
   body {
     @apply bg-background text-foreground;
     /* Improve touch scrolling on iOS */
@@ -120,4 +125,9 @@
   input, select, textarea {
     font-size: 16px !important;
   }
+}
+
+/* Utility to apply Nib Pro to non-heading title elements */
+@layer utilities {
+  .font-title { font-family: var(--font-nib-pro); }
 }
