@@ -1,4 +1,39 @@
-'use client'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+  description: 'Our mission to transform commerce through real-time customer activation, privacy-first data practices, and AI that serves human needs. Read our manifesto on the future of personalized commerce.',
+  keywords: [
+    'company manifesto',
+    'customer-first commerce',
+    'AI ethics',
+    'privacy-first data',
+    'commerce transformation',
+    'real-time personalization ethics',
+    'responsible AI',
+    'customer activation philosophy',
+    'data privacy manifesto',
+    'ethical commerce',
+    'AI transparency',
+    'customer empowerment',
+    'digital commerce future',
+    'human-centered AI'
+  ],
+  openGraph: {
+    title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+    description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
+    url: 'https://outhad.com/manifesto',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+    description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
+  },
+  alternates: {
+    canonical: '/manifesto',
+  },
+}
 
 export default function ManifestoPage() {
   return (
