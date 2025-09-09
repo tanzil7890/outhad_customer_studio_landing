@@ -7,6 +7,7 @@ import { Button } from './ui/toast/button'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -14,6 +15,18 @@ export default function Header() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
+  }
+
+  const handleProductsMouseEnter = () => {
+    setIsProductsDropdownOpen(true)
+  }
+
+  const handleProductsMouseLeave = () => {
+    setIsProductsDropdownOpen(false)
+  }
+
+  const toggleProductsDropdown = () => {
+    setIsProductsDropdownOpen(!isProductsDropdownOpen)
   }
 
   return (
@@ -46,14 +59,94 @@ export default function Header() {
             >
               Workflow Studio
             </Link> */}
-            <Link 
-              href="/outhad-history" 
-              target="_blank"
-              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
-            >
-              Products
+            <div className="relative group" onMouseEnter={handleProductsMouseEnter} onMouseLeave={handleProductsMouseLeave}>
+              <button 
+                onClick={toggleProductsDropdown}
+                className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm flex items-center gap-1"
+              >
+                Products
+                <svg className={`w-3 h-3 transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
               
-            </Link>
+              {/* Products Dropdown */}
+              <div className={`absolute top-full left-0 mt-2 w-[720px] bg-[hsl(var(--app-background))] border border-[hsl(var(--app-border))] rounded-lg shadow-lg transition-all duration-200 ${isProductsDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                <div className="p-4">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="group/item rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                      <div className="flex flex-col items-center text-center gap-3">
+                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V7M4 7l8-4 8 4M4 7l8 4 8-4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Data Platform</h4>
+                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Unify customer data across all touchpoints</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="group/item rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                      <div className="flex flex-col items-center text-center gap-3">
+                        <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Journey Orchestration</h4>
+                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Design and automate customer journeys</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="group/item rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                      <div className="flex flex-col items-center text-center gap-3">
+                        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Audiences</h4>
+                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Build and manage customer segments</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="group/item rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                      <div className="flex flex-col items-center text-center gap-3">
+                        <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad AI Engine</h4>
+                          <p className="text-xs text-[hsl(var(--app-text-muted))]">AI-powered customer insights and predictions</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="group/item rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-span-3">
+                      <div className="flex flex-col items-center text-center gap-3">
+                        <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Reporting</h4>
+                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Advanced analytics and reporting dashboard</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <Link 
               href="/outhad-history" 
               target="_blank"
