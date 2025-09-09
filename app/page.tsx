@@ -40,6 +40,16 @@ export default function SyntheticV0PageForDeployment() {
       {/* Hero Content */}
       <div className="bg-[hsl(var(--app-background))] pt-48 pb-5 sm:pt-56 sm:pb-16 px-4">
         <div className="text-center  ">
+          <Link href={"https://gwaycapital.com/"} target="_blank" rel="noopener noreferrer" className="inline-block mb-6 hover:text-[hsl(var(--app-text-muted))]" >
+          <div className="mb-6 font-mono">
+            Backed by 
+            <img 
+              src="https://gwaycapital.com/wp-content/uploads/2021/05/Gateway.png" 
+              alt="Gateway Capital" 
+              className="inline-block h-10 mx-4 opacity-80"
+            />
+          </div>
+          </Link>
           <h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
             Deliver 1:1 Personalization, not just campaigns to your Shoppers
           </h1>
