@@ -321,7 +321,7 @@ export default function CustomerActivation() {
                         
                         {/* Chart visualization */}
                         <div className="relative h-16 md:h-20 w-full mb-2">
-                          <svg viewBox="0 0 100 60" className="w-full h-full">
+                        <svg viewBox="0 0 100 60" className="w-full h-full hidden md:block">
                             {/* Chart grid */}
                             <defs>
                               <pattern id="chartGrid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -478,7 +478,7 @@ export default function CustomerActivation() {
                             ))}
                             
                             {/* Connection lines */}
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ transform: 'scale(2)' }}>
+                            <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ transform: 'scale(2)' }}>
                               <motion.circle
                                 cx="20" cy="20"
                                 r="12"
@@ -536,7 +536,7 @@ export default function CustomerActivation() {
                     </div>
 
                     {/* Connection Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" style={{ overflow: 'visible' }}>
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-20 hidden md:block" style={{ overflow: 'visible' }}>
                       <defs>
                         <linearGradient id="dataGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
@@ -612,7 +612,7 @@ export default function CustomerActivation() {
                     </motion.div>
 
                     {/* Connection Lines (kept behind the center hub) */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ overflow: 'visible' }}>
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" style={{ overflow: 'visible' }}>
                       <g mask={`url(#centerMask-${index})`}>
                         {/* Connection from Web Data to Central Hub */}
                       <motion.path
@@ -1207,7 +1207,7 @@ export default function CustomerActivation() {
 
                         <div className="flex items-center justify-center mb-3">
                           <div className="relative w-full">
-                            <svg viewBox="0 0 200 70" className="w-full h-20" preserveAspectRatio="none">
+                            <svg viewBox="0 0 200 70" className="w-full h-20 hidden md:block" preserveAspectRatio="none">
                               <defs>
                                 <linearGradient id={`dpGradA-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
                                   <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.7" />
@@ -1386,7 +1386,7 @@ export default function CustomerActivation() {
                     </div>
 
                     {/* Connection Lines (masked under the center hub) */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ overflow: 'visible' }}>
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden md:block" style={{ overflow: 'visible' }}>
                       <defs>
                         <linearGradient id="orchestrationGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
@@ -2440,7 +2440,7 @@ export default function CustomerActivation() {
                     </div>
 
                     {/* Flywheel Connection Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ overflow: 'visible' }}>
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden md:block" style={{ overflow: 'visible' }}>
                       <defs>
                         <linearGradient id="flywheelGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
@@ -2578,7 +2578,7 @@ export default function CustomerActivation() {
                         
                         {/* Mini chart visualization */}
                         <div className="w-full h-16 md:h-20 rounded-lg bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] relative overflow-hidden mb-2">
-                          <svg className="w-full h-full p-2" viewBox="0 0 100 40">
+                          <svg className="w-full h-full p-2 hidden md:block" viewBox="0 0 100 40">
                             <defs>
                               <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
@@ -2886,7 +2886,7 @@ export default function CustomerActivation() {
                       <div className="pointer-events-none absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
                       <div className="absolute inset-0">
                         {/* Animated grid */}
-                        <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
+                        <svg className="absolute inset-0 w-full h-full opacity-30 hidden md:block" preserveAspectRatio="none">
                           <defs>
                             <pattern id={`grid-${index}`} width="24" height="24" patternUnits="userSpaceOnUse">
                               <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.5" />
