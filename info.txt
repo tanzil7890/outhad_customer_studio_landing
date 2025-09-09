@@ -1,0 +1,113 @@
+Great brief. Here’s how I’d map your document into Customer Activation without editing yet.
+
+What to replace in the current section
+
+Features list: Replace the 6 features with “What we do” to match your messaging.
+Suggested features content
+
+Title: Live Unified Profiles
+Subtitle: Understand intent as it happens.
+Description: Stitch anonymous and known activity across devices and channels into a single live profile that updates in real time.
+Visual: “Live profile stitching across sessions, devices, and channels.”
+
+Title: In‑Session Orchestration
+Subtitle: Nudge at the moment of intent.
+Description: Trigger the right bundles, upsells, reminders, or incentives during the session—before the shopper bounces.
+Visual: “Real‑time nudge decisioning overlay on PDP/checkout.”
+
+Title: Cart & Browse Recovery
+Subtitle: Recover even without email.
+Description: Re‑engage abandoners (including anonymous) using friction‑free identity capture and smart follow‑ups across channels.
+Visual: “Exit intent popup + SMS/email recovery flow.”
+
+Title: Mobile & Social Continuity
+Subtitle: Keep context across platforms.
+Description: Preserve context from QR, Instagram, and external links so shoppers continue seamlessly through checkout.
+Visual: “IG → PDP → Checkout continuity path.”
+
+Title: Auto‑Experimentation
+Subtitle: Always‑on learning.
+Description: Replace slow, manual A/Bs with continuous learning loops that test, deploy, and improve without analyst drag.
+Visual: “Loop of test → learn → deploy with metrics.”
+
+Title: Command Center
+Subtitle: One place to run growth.
+Description: Unified control for checkout, analytics, journeys, notifications, and marketing—no more dashboard sprawl.
+Visual: “Single dashboard with journeys, alerts, KPIs.”
+New sections to add below features
+
+About Outhad AI
+
+Copy: Outhad AI turns every click, scroll, and pause into real‑time action. We unify fragmented session and customer data into a single live profile and orchestrate the next best message, offer, or experience across web, checkout, email, SMS, and ads—automatically.
+Why It Matters
+
+Bullets:
+Higher conversions: Act in‑session to capture intent when it happens.
+Fewer lost sessions: Intercept drop‑offs with adaptive nudges and recovery.
+Smarter ROAS: Replace guesswork with signal‑driven personalization.
+How It Fits
+
+Copy: Outhad layers on top of your stack—commerce platforms, ESPs, ad networks, CDPs—so teams launch in days, not months. Privacy‑first and first‑party by design.
+The Result
+
+Copy: From first touch to checkout and beyond, Outhad standardizes the experience, eliminates manual busywork, and continuously optimizes every journey—so you stop leaving money on the table and start compounding growth in real time.
+Problem Statements (stat grid)
+
+Conversion stagnation: “~2–4%” baseline; systems react too late.
+Abandonment: “~70–98%” leave without completing checkout.
+Fragmented data: 68% struggle with silos; only ~11% effectively unify multi‑type data.
+UX loss: Poor experiences risk 23% of online revenue; trillions at risk globally.
+Slow experiments: Weeks for A/Bs; miss micro‑moments.
+Anonymous traffic: No identity → no re‑engagement; mobile/social flows break context.
+Storylines (interactive cards or tabs)
+
+Exit‑Intent Recovery (Headphones)
+Trigger: Pause + scroll on checkout.
+Action: Personal popup (10% + free shipping), capture identity, instant SMS/email follow‑up.
+Outcome: Recover ~15–28% of abandoners.
+Autonomous Product Promotion (Stanley Bottles)
+Detect: Surge in interest + who’s engaging.
+Segment: High‑propensity cohort (e.g., demographics, geo).
+Orchestrate: Recommendations, notifications, ads across channels—autonomously.
+Journey Churn Prevention (Anna, Jamal, Priya)
+Anna: IG traffic → show shipping earlier/free delivery; reduce bounce.
+Jamal: High‑AOV repeat → auto‑fill, trim steps, same‑session reminder.
+Priya: Scroller → recommend bundles + “see it on you” to move from browse to add‑to‑cart.
+ICP & Value Proposition
+
+ICP: Mid‑market to enterprise consumer brands (Apparel, Beauty, Electronics, Home/Lifestyle; high SKU breadth).
+Value Prop: Turn overlooked behavior into predictable, compounding revenue via real‑time engagement powered by adaptive AI and a unified commerce intelligence layer.
+Key Pillars (accordion or numbered list)
+
+Real‑Time Intent → Real‑Time Action
+AI‑Powered Personalization at Every Touchpoint
+Unified Profiles & Session Memory
+Autonomous Experimentation & Learning
+All‑in‑One Growth Stack (replace 5–8 tools)
+Cart & Session Rescue Engine
+Mobile & Social Commerce Optimization
+Outcomes (KPI band)
+
++15–30% conversion via session‑aware nudging.
++25% ROAS by removing budget guesswork.
+Fewer tools and silos, more control.
+Amazon‑level personalization without a 500‑person data team.
+Pain Signal / Why Now (callout panel)
+
+Conversion stuck ~2–4% (room for lift via in‑session nudges).
+Abandonment ~70%; batch channels miss the moment.
+A/B speed limits learning; continuous loops win.
+Anonymous ≫ known; identity capture and continuity are critical.
+Minimal code sketch (to plug into the existing component shape)
+
+Replace features array:
+Use the 6 “What we do” items above.
+Add sections as additional blocks after the features map:
+About, Why It Matters, How It Fits, Result: simple <motion.div> blocks.
+Problem Statements: a 2–3 column grid of compact stat cards.
+Storylines: tabs or a small motion carousel with 3 slides.
+ICP & Value Prop: single card with two columns (ICP, Tools).
+Pillars: accordion using your existing design system or a simple toggled list.
+Outcomes: KPI band using large numbers and short labels.
+Pain Signal: bordered card with concise bullets.
+If you want, I can turn this into a clean PR: swap the features copy, then add the new sections with your current framer‑motion patterns and Nib Pro for titles.
