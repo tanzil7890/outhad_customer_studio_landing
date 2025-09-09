@@ -9,7 +9,7 @@ const Footer = () => {
           
           {/* Logo/Brand Section */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold font-mono text-[hsl(var(--app-text))] mb-2">
+            <h3 className="text-xl font-bold text-[hsl(var(--app-text))] mb-2 font-title">
               Outhad AI
             </h3>
             <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono max-w-xs mx-auto md:mx-0">
@@ -19,7 +19,7 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div className="text-center">
-            <h4 className="text-sm font-semibold font-mono text-[hsl(var(--app-text))] mb-4">
+            <h4 className="text-sm font-semibold text-[hsl(var(--app-text))] mb-4 font-title">
               Contact
             </h4>
             <Link 
@@ -32,7 +32,7 @@ const Footer = () => {
 
           {/* Social Links Section */}
           <div className="text-center md:text-right">
-            <h4 className="text-sm font-semibold font-mono text-[hsl(var(--app-text))] mb-4">
+            <h4 className="text-sm font-semibold text-[hsl(var(--app-text))] mb-4 font-title">
               Follow Us
             </h4>
             <div className="flex justify-center md:justify-end space-x-4">
@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t border-[hsl(var(--app-border))] text-center">
           <p className="text-xs text-[hsl(var(--app-text-muted))] font-mono">
-            © 2024 Outhad AI. All rights reserved.
+            © 2025 Outhad AI. All rights reserved.
           </p>
         </div>
       </div>
