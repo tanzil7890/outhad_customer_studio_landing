@@ -473,9 +473,9 @@ export default function SyntheticV0PageForDeployment() {
       </div>
       
       {/* Companies section below */}
-      <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[80px]">
+      {/* <div className="bg-[hsl(var(--app-background))] relative z-10 mt-[80px]">
         <Companies />
-      </div>
+      </div> */}
 
       <ProblemsWeSolve />
       <CustomerActivation />
