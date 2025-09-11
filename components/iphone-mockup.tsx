@@ -20,8 +20,9 @@ export default function IPhoneMockup() {
   }, [])
 
   return (
-    <div className="ml-auto mr-auto flex items-center justify-center">
-      <div className="relative aspect-[1950/3958] h-[500px] sm:h-[650px] lg:h-[800px] w-auto max-w-full">
+    <div className="ml-auto mr-auto flex items-center justify-center w-full">
+      {/* Mobile Debug - Simplified Version for small screens */}
+      <div className="relative aspect-[9/16] h-[360px] w-auto max-w-full min-w-0 sm:aspect-[1950/3958] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px]">
         <div className="absolute inset-0 px-[5%] py-[4%]">
           <div className="bg-white relative h-full w-full overflow-hidden [border-radius:10%/5%]">
             {/* Layer 1 - Home View */}
@@ -35,7 +36,7 @@ export default function IPhoneMockup() {
                 />
               </div>
               {/* User Avatar Overlay */}
-              <div className="absolute top-4 right-16 w-8 h-8 rounded-full border-2 border-white shadow-lg overflow-hidden z-20">
+              <div className="absolute top-2 right-8 sm:top-4 sm:right-16 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white shadow-lg overflow-hidden z-20">
                 <Image
                   src="/images/Avatar.png"
                   alt="User Avatar"
@@ -60,7 +61,7 @@ export default function IPhoneMockup() {
                 />
               </div>
               {/* Cart Badge Overlay */}
-              <div className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-white border border-gray-300 flex items-center justify-center shadow-lg z-20">
+              <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-white border border-gray-300 flex items-center justify-center shadow-lg z-20">
                 <span className="text-sm">🛒</span>
                 <div className="absolute -top-1 -right-1 w-5 h-5 bg-[hsl(72,100%,50%)] rounded-full flex items-center justify-center">
                   <span className="text-xs font-bold">1</span>
@@ -72,16 +73,16 @@ export default function IPhoneMockup() {
             <div className="absolute inset-0 z-20 bg-black transition-opacity duration-1000 opacity-25"></div>
             
             {/* Outhad AI Overlay */}
-            <div className="absolute top-8 right-6 bg-gradient-to-r from-[hsl(252,100%,37%)] to-[hsl(231,73%,58%)] text-white px-3 py-2 rounded-full z-30 shadow-lg">
+            <div className="absolute top-4 right-3 sm:top-8 sm:right-6 bg-gradient-to-r from-[hsl(252,100%,37%)] to-[hsl(231,73%,58%)] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full z-30 shadow-lg">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-[hsl(72,100%,50%)] rounded-full animate-pulse"></div>
-                <span className="text-sm font-mono font-bold">AI: 0.89</span>
+                <span className="text-xs sm:text-sm font-mono font-bold">AI: 0.89</span>
               </div>
             </div>
 
             {/* Floating Personalization Indicator */}
-            <div className="absolute bottom-10 right-6 w-12 h-12 bg-gradient-to-r from-[hsl(72,100%,50%)] to-yellow-400 rounded-full shadow-lg flex items-center justify-center z-30 animate-pulse">
-              <span className="text-lg">🎯</span>
+            <div className="absolute bottom-6 right-3 sm:bottom-10 sm:right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-[hsl(72,100%,50%)] to-yellow-400 rounded-full shadow-lg flex items-center justify-center z-30 animate-pulse">
+              <span className="text-sm sm:text-lg">🎯</span>
             </div>
           </div>
         </div>

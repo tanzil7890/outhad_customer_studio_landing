@@ -101,15 +101,56 @@ export default function SyntheticV0PageForDeployment() {
       </div>
 
       {/* Outhad in action */}
-      <div className="h-screen relative overflow-hidden" ref={containerRef}>
+      {/* Mobile: avoid full viewport height to remove large top gap */}
+      <div
+        className="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen lg:h-screen"
+        ref={containerRef}
+      >
         {/* <div ref={componentRef} className="absolute inset-0 flex items-center justify-center">
           
           <Component />
         </div> */}
 
         {/* iPhone Mockup - Center Display */}
-        <div ref={componentRef} className="absolute inset-0 flex items-center justify-center z-40">
+        {/* Desktop/Tablet: keep centered absolute; Mobile handled below */}
+        <div
+          ref={componentRef}
+          className="hidden sm:flex absolute inset-0 items-center justify-center z-40 px-4"
+        >
           <IPhoneMockup />
+        </div>
+
+        {/* Mobile: phone on top, feature cards stacked below */}
+        <div className="sm:hidden z-40 px-4 pt-6 flex flex-col items-center gap-4">
+          <IPhoneMockup />
+
+          <div className="w-full max-w-[320px] flex flex-col gap-3">
+            {/* Compact summary, same style as previous mobile compact card */}
+            <div className="bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-lg p-3 shadow-lg backdrop-blur-sm bg-opacity-80">
+              <div className="text-xs font-mono text-[hsl(var(--app-text))] mb-2">AI Customer Intelligence</div>
+              <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                <div className="bg-[hsl(var(--app-background))] px-2 py-1 rounded text-[hsl(var(--app-text-muted))]">Intent: 0.82</div>
+                <div className="bg-[hsl(var(--app-background))] px-2 py-1 rounded text-[hsl(var(--app-text-muted))]">LTV: High</div>
+              </div>
+            </div>
+            {/* AI Decisioning */}
+            <div className="bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-lg p-3 shadow-lg backdrop-blur-sm bg-opacity-80">
+              <div className="text-xs font-mono text-[hsl(var(--app-text))] mb-2">AI Decisioning • Reasoning</div>
+              <div className="space-y-1">
+                {[
+                  { label: "Browsing sequence model", weight: 0.38 },
+                  { label: "Behavioral pattern mining", weight: 0.27 },
+                  { label: "Attribution & channel synergy", weight: 0.21 },
+                ].map((f, i) => (
+                  <div key={i} className="flex justify-between items-center text-xs font-mono">
+                    <span className="text-[hsl(var(--app-text-muted))]">{f.label}</span>
+                    <span className="text-[hsl(var(--app-text))] bg-[hsl(var(--app-background))] px-2 py-0.5 rounded">{f.weight}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Note: Remaining feature cards hidden on mobile to keep only two */}
+          </div>
         </div>
         
         {/* Feature Cards - Floating around the hero */}
@@ -230,20 +271,7 @@ export default function SyntheticV0PageForDeployment() {
           </div>
         </div>
 
-        {/* Mobile Compact Card */}
-        <div className="absolute bottom-20 left-4 right-4 z-30 sm:hidden">
-          <div className="bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-lg p-3 shadow-lg backdrop-blur-sm bg-opacity-80">
-            <div className="text-xs font-mono text-[hsl(var(--app-text))] mb-2">AI Customer Intelligence</div>
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-              <div className="bg-[hsl(var(--app-background))] px-2 py-1 rounded text-[hsl(var(--app-text-muted))]">
-                Intent: 0.82
-              </div>
-              <div className="bg-[hsl(var(--app-background))] px-2 py-1 rounded text-[hsl(var(--app-text-muted))]">
-                LTV: High
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Mobile Compact Card (legacy) removed — replaced with stacked cards under phone */}
 
         {/* Animated Beams connecting cards directly to the iPhone center */}
         <AnimatedBeam

@@ -58,15 +58,15 @@ export default function ProblemsWeSolve() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="lg:flex-1 lg:max-w-md flex justify-center lg:justify-end"
+              className="lg:flex-1 lg:max-w-md flex justify-center lg:justify-end mt-2 sm:mt-3"
             >
               <Image
                 src="/images/outhad-customer-activation-platform/outhad-problem-we-solve.avif"
                 alt="Problems We Solve visualization"
-                width={200}
-                height={80}
-                sizes="(max-width: 1024px) 90vw, 200px"
-                className="w-auto h-50 md:h-60 opacity-90"
+                width={320}
+                height={200}
+                sizes="(max-width: 640px) 70vw, (max-width: 1024px) 40vw, 320px"
+                className="w-[70vw] max-w-[220px] sm:max-w-[260px] md:max-w-[300px] h-auto object-contain opacity-90"
                 priority={false}
               />
             </motion.div>
@@ -95,4 +95,3 @@ export default function ProblemsWeSolve() {
     </section>
   )
 }
-
