@@ -24,9 +24,9 @@ export default function CustomerActivation() {
   // New, concise feature set (What we do)
   const featuresNew = [
     {
-      title: "Outhad Data Platform",
+      title: "Convertive Data Platform",
       subtitle: "Data done right.",
-      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Outhad, you can.",
+      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Convertive, you can.",
       visual: "A phone display an IAM simple survey.",
     },
     {
@@ -35,8 +35,8 @@ export default function CustomerActivation() {
       description:
         'Stitch anonymous and known activity across devices and channels into a single live profile that updates in real time.',
       visual: 'Live profile stitching across sessions, devices, and channels.',
-      image: '/images/outhad-customer-activation-platform/outhad-unifiedprofile.png',
-      alt: 'Outhad unified profile visualization',
+      image: '/images/convertive-customer-activation-platform/convertive-unifiedprofile.png',
+      alt: 'Convertive unified profile visualization',
     },
     {
       title: 'In‑Session Orchestration',
@@ -44,8 +44,8 @@ export default function CustomerActivation() {
       description:
         'Trigger the right bundles, upsells, reminders, or incentives during the session—before the shopper bounces.',
       visual: 'Real‑time nudge decisioning overlay on PDP/checkout.',
-      image: '/images/outhad-customer-activation-platform/outhad-insession-orchestration.png',
-      alt: 'Outhad in-session orchestration visualization',
+      image: '/images/convertive-customer-activation-platform/convertive-insession-orchestration.png',
+      alt: 'Convertive in-session orchestration visualization',
     },
     {
       title: 'Cart & Browse Recovery',
@@ -83,9 +83,9 @@ export default function CustomerActivation() {
 
   const features = [
     {
-      title: "Outhad Data Platform",
+      title: "Convertive Data Platform",
       subtitle: "Data done right.",
-      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Outhad, you can.",
+      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Convertive, you can.",
       visual: "A phone display an IAM simple survey."
     },
     {
@@ -95,22 +95,22 @@ export default function CustomerActivation() {
       visual: "Live profile stitching across sessions, devices, and channels."
     },
     {
-      title: "outhadAI™",
+      title: "convertiveAI™",
       subtitle: "AI for Growth.",
-      description: "Employ outhadAI™, the world's smartest marketing advisor. As you learn Outhad, outhadAI™ learns your brand, helping you to create on-brand content and creative, personalize journeys, and double down on winning strategies that multiply returns.",
-      visual: "Elements from the the Outhad Sage AI interface connected to parts a push notification they control."
+      description: "Employ convertiveAI™, the world's smartest marketing advisor. As you learn Convertive, convertiveAI™ learns your brand, helping you to create on-brand content and creative, personalize journeys, and double down on winning strategies that multiply returns.",
+      visual: "Elements from the the Convertive Sage AI interface connected to parts a push notification they control."
     },
     {
       title: "Journey Orchestration",
       subtitle: "Build a Better Path.",
-      description: "Manage campaigns. Move to journey orchestration. No matter where you are today, highly-intelligent, always-on journey orchestration is where you'll want to be tomorrow. See how Outhad is helping brands of all sizes modernize their marketing approach.",
+      description: "Manage campaigns. Move to journey orchestration. No matter where you are today, highly-intelligent, always-on journey orchestration is where you'll want to be tomorrow. See how Convertive is helping brands of all sizes modernize their marketing approach.",
       visual: "An example of an engagement campaign built with Canvas Flow."
     },
     {
       title: "Cross-Channel Messaging",
       subtitle: "Cross-Channel Your Creativity.",
       description: "Never be on fewer channels than your customers. Whether you start with email or another channel, you'll want to keep expanding to keep up with customers. See how cross-channel marketing on a single platform can drive revenue and steer your team toward the future.",
-      visual: "A list of messaging channels supported by Outhad"
+      visual: "A list of messaging channels supported by Convertive"
     },
     {
       title: "Real-time Execution",
@@ -162,7 +162,7 @@ export default function CustomerActivation() {
               variants={item}
             >
               <Image
-                src="/images/outhad-customer-activation-platform/outhad-features.avif"
+                src="/images/convertive-customer-activation-platform/convertive-features.avif"
                 alt="Customer activation features visualization"
                 width={300}
                 height={250}
@@ -222,8 +222,8 @@ export default function CustomerActivation() {
 
               {/* Visual */}
               <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                {feature.title === 'Outhad Data Platform' ? (
-                  // Special dashboard visualization for Outhad Data Platform
+                {feature.title === 'Convertive Data Platform' ? (
+                  // Special dashboard visualization for Convertive Data Platform
                   <div className="relative h-[300px] md:h-[600px] overflow-visible">
                     {/* Main container background */}
                     <motion.div
@@ -512,7 +512,7 @@ export default function CustomerActivation() {
                     <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
                       <div className="text-center">
                         <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
-                          Outhad Data Platform
+                          Convertive Data Platform
                         </div>
                         <motion.div
                           className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center"
@@ -1031,8 +1031,8 @@ export default function CustomerActivation() {
                           viewport={{ once: true }}
                         >
                           <Image
-                            src="/images/outhad-unified2.avif"
-                            alt="Outhad Unified Customer Profile"
+                            src="/images/convertive-unified2.avif"
+                            alt="Convertive Unified Customer Profile"
                             fill
                             sizes="(max-width: 768px) 96px, 128px"
                             className="object-contain"
@@ -1371,8 +1371,8 @@ export default function CustomerActivation() {
                           viewport={{ once: true }}
                         >
                           <Image
-                            src="/images/outhad-customer-activation-platform/in-session.avif"
-                            alt="Outhad In-Session Orchestration"
+                            src="/images/convertive-customer-activation-platform/in-session.avif"
+                            alt="Convertive In-Session Orchestration"
                             fill
                             sizes="(max-width: 768px) 96px, 128px"
                             className="object-contain"
@@ -2417,7 +2417,7 @@ export default function CustomerActivation() {
                             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                           >
                             <div className="text-center relative z-10">
-                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">OUTHAD</div>
+                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">CONVERTIVE</div>
                               <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-1">AI Engine</div>
                             </div>
                             {/* Orbiting dots */}
@@ -2763,7 +2763,7 @@ export default function CustomerActivation() {
                         >
                           <div className="w-full h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/20 to-[hsl(var(--app-secondary))]/20 flex items-center justify-center">
                             <div className="text-center">
-                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">OUTHAD</div>
+                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">CONVERTIVE</div>
                               <motion.div
                                 className="w-12 h-1 md:w-16 md:h-1 bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] rounded-full mx-auto mt-1"
                                 animate={{ opacity: [0.5, 1, 0.5] }}

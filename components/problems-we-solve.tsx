@@ -50,7 +50,7 @@ export default function ProblemsWeSolve() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="text-center lg:text-left lg:flex-1">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Problems We Solve</h2>
-              <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Real‑time intent is perishable. Outhad acts before the moment passes.</p>
+              <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Real‑time intent is perishable. Convertive acts before the moment passes.</p>
             </div>
             
             <motion.div
@@ -61,7 +61,7 @@ export default function ProblemsWeSolve() {
               className="lg:flex-1 lg:max-w-md flex justify-center lg:justify-end mt-2 sm:mt-3"
             >
               <Image
-                src="/images/outhad-customer-activation-platform/outhad-problem-we-solve.avif"
+                src="/images/convertive-customer-activation-platform/convertive-problem-we-solve.avif"
                 alt="Problems We Solve visualization"
                 width={320}
                 height={200}

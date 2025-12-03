@@ -41,7 +41,7 @@ export default function Storylines() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Storylines</h2>
-          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Three real moments Outhad activates—right when it matters.</p>
+          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Three real moments Convertive activates—right when it matters.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
