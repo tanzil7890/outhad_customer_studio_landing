@@ -42,12 +42,12 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <Image 
               src="/logo-black.png"
-              alt="Outhad Logo"
+              alt="Convertive Logo"
               width={24}
               height={24}
               className="w-5 h-5 sm:w-6 sm:h-6"
             />
-            <span className="text-[hsl(var(--app-text))] font-semibold font-mono text-lg sm:text-md hover:text-[hsl(var(--app-text-muted))] transition-colors duration-300">outhad</span>
+            <span className="font-title font-bold sm:text-md hover:text-[hsl(var(--app-text-muted))] transition-colors duration-300">Convertive</span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -79,7 +79,7 @@ export default function Header() {
               <div className={`absolute top-full left-0 mt-2 w-[960px] bg-[hsl(var(--app-background))] border border-[hsl(var(--app-border))] rounded-lg shadow-lg transition-all duration-200 ${isProductsDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                 <div className="p-4">
                   <div className="grid grid-cols-4 gap-4">
-                    <Link href="/outhad-data-platform" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                    <Link href="/convertive-data-platform" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
                       <div className="flex flex-col items-center text-center gap-3">
                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                           <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,13 +87,13 @@ export default function Header() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Data Platform</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Data Platform</h4>
                           <p className="text-xs text-[hsl(var(--app-text-muted))]">Unify customer data across all touchpoints</p>
                         </div>
                       </div>
                     </Link>
                     
-                    <Link href="/outhad-journey-orchestration" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                    <Link href="/convertive-journey-orchestration" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
                       <div className="flex flex-col items-center text-center gap-3">
                         <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                           <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,13 +101,13 @@ export default function Header() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Journey Orchestration</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Journey Orchestration</h4>
                           <p className="text-xs text-[hsl(var(--app-text-muted))]">Design and automate customer journeys</p>
                         </div>
                       </div>
                     </Link>
                     
-                    <Link href="/outhad-audiences" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
+                    <Link href="/convertive-audiences" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
                       <div className="flex flex-col items-center text-center gap-3">
                         <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                           <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,13 +115,13 @@ export default function Header() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Audiences</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Audiences</h4>
                           <p className="text-xs text-[hsl(var(--app-text-muted))]">Build and manage customer segments</p>
                         </div>
                       </div>
                     </Link>
                     
-                    <Link href="/outhad-ai-engine" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-2">
+                    <Link href="/convertive-ai-engine" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-2">
                       <div className="flex flex-col items-center text-center gap-3">
                         <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                           <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,13 +129,13 @@ export default function Header() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad AI Engine</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Engine</h4>
                           <p className="text-xs text-[hsl(var(--app-text-muted))]">AI-powered customer insights and predictions</p>
                         </div>
                       </div>
                     </Link>
                     
-                    <Link href="/outhad-reporting" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-3">
+                    <Link href="/convertive-reporting" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-3">
                       <div className="flex flex-col items-center text-center gap-3">
                         <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                           <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,13 +143,13 @@ export default function Header() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Outhad Reporting</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Reporting</h4>
                           <p className="text-xs text-[hsl(var(--app-text-muted))]">Advanced analytics and reporting dashboard</p>
                         </div>
                       </div>
                     </Link>
                     
-                    {/* Fourth Column - Outhad AI Decisioning */}
+                    {/* Fourth Column - Convertive Decisioning */}
                     <div className="group/item rounded-md p-3 border border-transparent col-start-4 row-start-1 row-span-2 border-l border-[hsl(var(--app-border))] pl-4">
                       <div className="flex flex-col text-left gap-3">
                         <div className="flex items-center gap-2 mb-2">
@@ -158,7 +158,7 @@ export default function Header() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
                           </div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm">Outhad AI Decisioning</h4>
+                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm">Convertive Decisioning</h4>
                         </div>
                         
                         <div className="space-y-3">
@@ -184,7 +184,7 @@ export default function Header() {
                                 </svg>
                               </div>
                               <div className="transition-colors">
-                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Outhad AI Stream & Reinforcement Learning</p>
+                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Convertive Stream & Reinforcement Learning</p>
                                 <p className="text-xs text-[hsl(var(--app-text-muted))] mt-0.5 group-hover:text-[hsl(var(--app-text))]/80">Continuous optimization</p>
                               </div>
                             </div>
@@ -198,7 +198,7 @@ export default function Header() {
                                 </svg>
                               </div>
                               <div className="transition-colors">
-                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Outhad Memory Layer</p>
+                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Convertive Memory Layer</p>
                                 <p className="text-xs text-[hsl(var(--app-text-muted))] mt-0.5 group-hover:text-[hsl(var(--app-text))]/80">Persistent context and learning storage</p>
                               </div>
                             </div>
@@ -210,13 +210,13 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link 
-              href="/outhad-history" 
+            {/* <Link 
+              href="/convertive-history" 
               target="_blank"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Our History
-            </Link>
+            </Link> */}
             <Link 
               href="/manifesto" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
@@ -233,7 +233,7 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            <Link href="https://cal.com/tanzilouthad" target="_blank">
+            <Link href="https://cal.com/tanzilconvertive" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
@@ -302,24 +302,24 @@ export default function Header() {
               id="mobile-products-panel"
               className={`grid grid-cols-1 gap-2 px-1 transition-[grid-template-rows,opacity] duration-300 ${isMobileProductsOpen ? 'opacity-100' : 'opacity-0 hidden'}`}
             >
-              <Link href="/outhad-data-platform" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad Data Platform</div>
+              <Link href="/convertive-data-platform" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Data Platform</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Unify customer data across all touchpoints</div>
               </Link>
-              <Link href="/outhad-journey-orchestration" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad Journey Orchestration</div>
+              <Link href="/convertive-journey-orchestration" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Journey Orchestration</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Design and automate customer journeys</div>
               </Link>
-              <Link href="/outhad-audiences" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad Audiences</div>
+              <Link href="/convertive-audiences" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Audiences</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Build and manage customer segments</div>
               </Link>
-              <Link href="/outhad-ai-engine" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad AI Engine</div>
+              <Link href="/convertive-ai-engine" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Engine</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">AI-powered customer insights and predictions</div>
               </Link>
-              <Link href="/outhad-reporting" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad Reporting</div>
+              <Link href="/convertive-reporting" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Reporting</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Advanced analytics and reporting dashboard</div>
               </Link>
 
@@ -331,11 +331,11 @@ export default function Header() {
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Deliver 1:1 experiences at scale</div>
               </Link>
               <Link href="#" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md hover:bg-[hsl(var(--app-surface))]/50">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad AI Stream & Reinforcement Learning</div>
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Stream & Reinforcement Learning</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Continuous optimization</div>
               </Link>
               <Link href="#" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md hover:bg-[hsl(var(--app-surface))]/50">
-                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Outhad Memory Layer</div>
+                <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Memory Layer</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Persistent context and learning storage</div>
               </Link>
             </div>
@@ -354,7 +354,7 @@ export default function Header() {
               Use Cases
             </Link> */}
             
-            <Link href="https://cal.com/tanzilouthad" target="_blank" onClick={closeMobileMenu}>
+            <Link href="https://cal.com/tanzilconvertive" target="_blank" onClick={closeMobileMenu}>
               <Button 
                 variant="outline"
                 size="sm"
