@@ -112,6 +112,18 @@ html {
   --font-labil-grotesk: 'Labil Grotesk', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5GM4GLEPM"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-T5GM4GLEPM');
+            `,
+          }}
+        />
       </head>
       <body className="h-full bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased">
         <script
