@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Logo/Brand Section */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-[hsl(var(--app-text))] mb-2 font-title">
-              Outhad AI
+              Convertive
             </h3>
             <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono max-w-xs mx-auto md:mx-0">
               Real-time customer activation and personalization platform
@@ -23,10 +23,10 @@ const Footer = () => {
               Contact
             </h4>
             <Link 
-              href="mailto:info@outhad.com"
+              href="mailto:info@tryconvertive.com"
               className="text-sm text-[hsl(var(--app-text-muted))] font-mono hover:text-[hsl(var(--app-text))] transition-colors duration-300"
             >
-              info@outhad.com
+              info@tryconvertive.com
             </Link>
           </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
             </h4>
             <div className="flex justify-center md:justify-end space-x-4">
               <Link 
-                href="https://www.linkedin.com/company/outhadai/"
+                href="https://www.linkedin.com/company/convertiveai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"
@@ -49,7 +49,7 @@ const Footer = () => {
               </Link>
               
               <Link 
-                href="https://x.com/outhadai"
+                href="https://x.com/convertiveai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"
@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t border-[hsl(var(--app-border))] text-center">
           <p className="text-xs text-[hsl(var(--app-text-muted))] font-mono">
-            © 2025 Outhad AI. All rights reserved.
+            © 2025 Convertive. All rights reserved.
           </p>
         </div>
       </div>
