@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "SimpleOuthadStealth" - a Next.js landing page for Outhad, a Customer Activation Platform that uses data and AI. The application features an animated hero section with particle effects, orbiting circles, and animated beams connecting floating feature cards.
+This is "SimpleOuthadStealth" - a Next.js landing page for Convertive, a Customer Activation Platform that uses data and AI. The application features an animated hero section with particle effects, orbiting circles, and animated beams connecting floating feature cards.
 
 ## Development Commands
 
