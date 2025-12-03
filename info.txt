@@ -36,9 +36,9 @@ Description: Unified control for checkout, analytics, journeys, notifications, a
 Visual: “Single dashboard with journeys, alerts, KPIs.”
 New sections to add below features
 
-About Outhad AI
+About Convertive
 
-Copy: Outhad AI turns every click, scroll, and pause into real‑time action. We unify fragmented session and customer data into a single live profile and orchestrate the next best message, offer, or experience across web, checkout, email, SMS, and ads—automatically.
+Copy: Convertive turns every click, scroll, and pause into real‑time action. We unify fragmented session and customer data into a single live profile and orchestrate the next best message, offer, or experience across web, checkout, email, SMS, and ads—automatically.
 Why It Matters
 
 Bullets:
@@ -47,10 +47,10 @@ Fewer lost sessions: Intercept drop‑offs with adaptive nudges and recovery.
 Smarter ROAS: Replace guesswork with signal‑driven personalization.
 How It Fits
 
-Copy: Outhad layers on top of your stack—commerce platforms, ESPs, ad networks, CDPs—so teams launch in days, not months. Privacy‑first and first‑party by design.
+Copy: Convertive layers on top of your stack—commerce platforms, ESPs, ad networks, CDPs—so teams launch in days, not months. Privacy‑first and first‑party by design.
 The Result
 
-Copy: From first touch to checkout and beyond, Outhad standardizes the experience, eliminates manual busywork, and continuously optimizes every journey—so you stop leaving money on the table and start compounding growth in real time.
+Copy: From first touch to checkout and beyond, Convertive standardizes the experience, eliminates manual busywork, and continuously optimizes every journey—so you stop leaving money on the table and start compounding growth in real time.
 Problem Statements (stat grid)
 
 Conversion stagnation: “~2–4%” baseline; systems react too late.
