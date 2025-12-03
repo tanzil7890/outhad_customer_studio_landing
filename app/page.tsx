@@ -55,7 +55,7 @@ export default function SyntheticV0PageForDeployment() {
           </h1>
           {/* style={{fontFamily: 'var(--font-labil-grotesk)'}} */}
           <p className="text-base sm:text-lg md:text-xl text-[hsl(var(--app-text-muted))] mb-8 max-w-4xl mx-auto leading-relaxed font-mono" >
-            Outhad AI is the all‑in‑one marketing platform that turns live shopper behavior into revenue. Deliver real‑time personalization, recover carts, and build unified customer profiles to boost conversions by 15–30% and eliminate abandonment.
+            Convertive is the all‑in‑one marketing platform that turns live shopper behavior into revenue. Deliver real‑time personalization, recover carts, and build unified customer profiles to boost conversions by 15–30% and eliminate abandonment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
             {/* Add Arrow Image */}
@@ -69,7 +69,7 @@ export default function SyntheticV0PageForDeployment() {
                 transformOrigin: 'center'
               }}
             />
-            <Link href="https://cal.com/tanzilouthad" target="_blank">
+            <Link href="https://cal.com/tanzilconvertive" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
@@ -78,13 +78,13 @@ export default function SyntheticV0PageForDeployment() {
                 Book Demo
               </Button>
             </Link>
-            <Link href="https://cal.com/tanzilouthad" target="_blank">
+            <Link href="https://cal.com/tanzilconvertive" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
                 className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
               >
-                See Outhad in action
+                See Convertive in action
               </Button>
             </Link>
             <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '-100px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
@@ -100,7 +100,7 @@ export default function SyntheticV0PageForDeployment() {
         </div>
       </div>
 
-      {/* Outhad in action */}
+      {/* Convertive in action */}
       {/* Mobile: avoid full viewport height to remove large top gap */}
       <div
         className="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen lg:h-screen"
