@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+  title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
   description: 'Our mission to transform commerce through real-time customer activation, privacy-first data practices, and AI that serves human needs. Read our manifesto on the future of personalized commerce.',
   keywords: [
     'company manifesto',
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     'human-centered AI'
   ],
   openGraph: {
-    title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+    title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
     description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
-    url: 'https://outhad.com/manifesto',
+    url: 'https://tryconvertive.com/manifesto',
     type: 'article',
   },
   twitter: {
     card: 'summary',
-    title: 'Outhad AI Manifesto - Our Vision for Customer-First Commerce',
+    title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
     description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
   },
   alternates: {
@@ -43,7 +43,7 @@ export default function ManifestoPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-3xl sm:text-4xl font-bold text-[hsl(var(--app-text))] mb-4 font-title">
-            Outhad AI Manifesto
+            Convertive Manifesto
           </h1>
         </div>
 
@@ -53,7 +53,7 @@ export default function ManifestoPage() {
           {/* Opening Statement */}
           <div className="mb-12">
             <p className="text-lg font-mono text-[hsl(var(--app-text))] leading-relaxed">
-              At Outhad AI, we believe every digital action—every click, scroll, and hesitation—is a signal of intent, not noise. We exist to listen in real time and transform that intent into immersive, predictive commerce, delivered across web, mobile, email, SMS, and ads without delay.
+              At Convertive, we believe every digital action—every click, scroll, and hesitation—is a signal of intent, not noise. We exist to listen in real time and transform that intent into immersive, predictive commerce, delivered across web, mobile, email, SMS, and ads without delay.
             </p>
           </div>
 
