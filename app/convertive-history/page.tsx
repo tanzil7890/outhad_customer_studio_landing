@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-export default function OuthadHistoryPage() {
+export default function ConvertiveHistoryPage() {
   return (
     <div 
       className="min-h-screen pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-[hsl(var(--app-background))] relative"
@@ -20,7 +20,7 @@ export default function OuthadHistoryPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-3xl sm:text-4xl font-bold text-[hsl(var(--app-text))] mb-4 font-title">
-            Outhad AI History
+            Convertive History
           </h1>
         </div>
 
@@ -30,7 +30,7 @@ export default function OuthadHistoryPage() {
           {/* Opening Statement */}
           <div className="mb-12">
             <p className="text-lg font-mono text-[hsl(var(--app-text))] leading-relaxed">
-              Outhad is a AI Research Lab and Product Company. Some products we have worked on is:
+              Convertive is a AI Research Lab and Product Company. Some products we have worked on is:
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function OuthadHistoryPage() {
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-flex items-center rounded-md bg-[hsl(var(--accent-foreground))]/10 border border-[hsl(var(--accent-foreground))]/20 px-2 py-1 text-xs font-mono text-[hsl(var(--accent-foreground))]">
-                      Outhad Agent & Workflow Studio
+                      Convertive Agent & Workflow Studio
                     </span>
                   </div>
                   <h3 className="text-lg font-semibold text-[hsl(var(--app-text))] mb-2 font-title">
@@ -62,9 +62,9 @@ export default function OuthadHistoryPage() {
                     Build, test, and ship AI agents that connect to your stack with ready-made connectors and actions. Chain tools, call APIs, and automate multi-step workflows across data sources like Salesforce, Slack, Shopify, Snowflake, Stripe, and more.
                   </p>
                   <div className="mt-4 flex items-center gap-3">
-                    <span className="text-xs font-mono text-[hsl(var(--app-text-muted))]">studio.outhad.com</span>
+                    <span className="text-xs font-mono text-[hsl(var(--app-text-muted))]">studio.tryconvertive.com</span>
                     <a
-                      href="https://studio.outhad.com/"
+                      href="https://studio.tryconvertive.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ml-auto inline-flex items-center gap-1 text-[hsl(var(--accent-foreground))] font-mono text-sm hover:underline underline-offset-4"
@@ -75,14 +75,14 @@ export default function OuthadHistoryPage() {
                 </div>
               </div>
 
-              {/* Outhad Search Card */}
+              {/* Convertive Search Card */}
               <div
                 className="group rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/70 backdrop-blur-sm overflow-hidden transition hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:border-[hsl(var(--accent-foreground))]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
-                    src="/images/aisearch/outhad-aisearch1.png"
-                    alt="Outhad AI Search - context-aware e-commerce search"
+                    src="/images/aisearch/convertive-aisearch1.png"
+                    alt="Convertive Search - context-aware e-commerce search"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
@@ -91,7 +91,7 @@ export default function OuthadHistoryPage() {
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-flex items-center rounded-md bg-[hsl(var(--accent-foreground))]/10 border border-[hsl(var(--accent-foreground))]/20 px-2 py-1 text-xs font-mono text-[hsl(var(--accent-foreground))]">
-                      Outhad Search
+                      Convertive Search
                     </span>
                   </div>
                   <h3 className="text-lg font-semibold text-[hsl(var(--app-text))] mb-2 font-title">
@@ -101,9 +101,9 @@ export default function OuthadHistoryPage() {
                     Context-aware search with high accuracy, personalized shopping guidance, and real-time insights to lift discovery and conversions. Designed for natural language queries, smarter recommendations, and measurable impact on revenue.
                   </p>
                   <div className="mt-4 flex items-center gap-3">
-                    <span className="text-xs font-mono text-[hsl(var(--app-text-muted))]">aisearch.outhad.com</span>
+                    <span className="text-xs font-mono text-[hsl(var(--app-text-muted))]">aisearch.tryconvertive.com</span>
                     <a
-                      href="https://aisearch.outhad.com/"
+                      href="https://aisearch.tryconvertive.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ml-auto inline-flex items-center gap-1 text-[hsl(var(--accent-foreground))] font-mono text-sm hover:underline underline-offset-4"

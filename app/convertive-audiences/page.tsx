@@ -179,7 +179,7 @@ const AudienceSegmentationChart = () => {
   )
 }
 
-export default function OuthadAudiencesPage() {
+export default function ConvertiveAudiencesPage() {
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-48 sm:pt-56">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,13 +187,13 @@ export default function OuthadAudiencesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-[hsl(var(--app-text))] mb-6" style={{fontFamily: 'Nib Pro, sans-serif'}}>
-              Outhad Audiences
+              Convertive Audiences
             </h1>
             <p className="text-xl text-[hsl(var(--app-text-muted))] mb-8 font-mono">
               Build and manage dynamic customer segments that update in real-time based on behavior, purchase history, and AI-powered insights to deliver hyper-personalized experiences at scale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilouthad" target="_blank">
+              <Link href="https://cal.com/tanzilconvertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -361,7 +361,7 @@ export default function OuthadAudiencesPage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform generic campaigns into personalized experiences that drive 15-30% higher conversion rates through intelligent audience targeting.
           </p>
-          <Link href="https://cal.com/tanzilouthad" target="_blank">
+          <Link href="https://cal.com/tanzilconvertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

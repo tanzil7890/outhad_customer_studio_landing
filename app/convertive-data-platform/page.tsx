@@ -6,7 +6,7 @@ import { Button } from '../../components/ui/toast/button'
 import Footer from '../../components/footer'
 
 export const metadata: Metadata = {
-  title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+  title: 'Convertive Data Platform - Unified Customer Data & Real-Time Analytics',
   description: 'Unify customer data across all touchpoints with privacy-first architecture. Real-time data integration, lightning-fast performance, and advanced analytics for complete customer intelligence.',
   keywords: [
     'customer data platform',
@@ -26,30 +26,30 @@ export const metadata: Metadata = {
     'customer journey analytics'
   ],
   openGraph: {
-    title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+    title: 'Convertive Data Platform - Unified Customer Data & Real-Time Analytics',
     description: 'Unify customer data across all touchpoints with privacy-first architecture and real-time analytics.',
-    url: 'https://outhad.com/outhad-data-platform',
+    url: 'https://tryconvertive.com/convertive-data-platform',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png',
+        url: '/images/convertive-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png',
         width: 1200,
         height: 630,
-        alt: 'Outhad Data Platform - Single platform dedicated to your customer data',
+        alt: 'Convertive Data Platform - Single platform dedicated to your customer data',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outhad Data Platform - Unified Customer Data & Real-Time Analytics',
+    title: 'Convertive Data Platform - Unified Customer Data & Real-Time Analytics',
     description: 'Unify customer data across all touchpoints with privacy-first architecture and real-time analytics.',
-    images: ['/images/outhad-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png'],
+    images: ['/images/convertive-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png'],
   },
   alternates: {
-    canonical: '/outhad-data-platform',
+    canonical: '/convertive-data-platform',
   },
 }
 
-export default function OuthadDataPlatformPage() {
+export default function ConvertiveDataPlatformPage() {
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-48 sm:pt-56">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,13 +57,13 @@ export default function OuthadDataPlatformPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-[hsl(var(--app-text))] mb-6" style={{fontFamily: 'Nib Pro, sans-serif'}}>
-              Outhad Data Platform
+              Convertive Data Platform
             </h1>
             <p className="text-xl text-[hsl(var(--app-text-muted))] mb-8 font-mono">
               Unify customer data across all touchpoints with our comprehensive data platform that brings together every interaction, transaction, and behavioral signal into a single source of truth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilouthad" target="_blank">
+              <Link href="https://cal.com/tanzilconvertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -85,8 +85,8 @@ export default function OuthadDataPlatformPage() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <Image
-                src="/images/outhad-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png"
-                alt="Outhad Data Platform - Single platform dedicated to your customer data"
+                src="/images/convertive-customer-activation-platform/ea_single_platform_dedicated_to_your_customer_data.png"
+                alt="Convertive Data Platform - Single platform dedicated to your customer data"
                 width={600}
                 height={400}
                 className=""
@@ -163,9 +163,9 @@ export default function OuthadDataPlatformPage() {
         <div className="text-center bg-[hsl(var(--app-surface))]/30 backdrop-blur-sm border border-[hsl(var(--app-border))] rounded-2xl p-12 mb-16">
           <h2 className="text-3xl text-[hsl(var(--app-text))] mb-4" style={{fontFamily: 'Nib Pro, sans-serif'}}>Ready to unify your customer data?</h2>
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
-            Transform your scattered data into actionable insights with the Outhad Data Platform.
+            Transform your scattered data into actionable insights with the Convertive Data Platform.
           </p>
-          <Link href="https://cal.com/tanzilouthad" target="_blank">
+          <Link href="https://cal.com/tanzilconvertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

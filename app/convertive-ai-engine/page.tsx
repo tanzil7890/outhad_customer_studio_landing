@@ -197,14 +197,14 @@ const AIEngineVisualization = () => {
 
         {/* AI Engine Label */}
         <text x="300" y="380" textAnchor="middle" fill="#64748B" fontSize="14" fontFamily="monospace" fontWeight="bold">
-          OUTHAD AI ENGINE
+          Convertive ENGINE
         </text>
       </svg>
     </div>
   )
 }
 
-export default function OuthadAIEnginePage() {
+export default function ConvertiveAIEnginePage() {
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-48 sm:pt-56">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,13 +212,13 @@ export default function OuthadAIEnginePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-[hsl(var(--app-text))] mb-6" style={{fontFamily: 'Nib Pro, sans-serif'}}>
-              Outhad AI Engine
+              Convertive Engine
             </h1>
             <p className="text-xl text-[hsl(var(--app-text-muted))] mb-8 font-mono">
               Power your customer activation with advanced machine learning algorithms that predict behavior, personalize experiences, and optimize engagement in real-time across every touchpoint.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilouthad" target="_blank">
+              <Link href="https://cal.com/tanzilconvertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -363,7 +363,7 @@ export default function OuthadAIEnginePage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform your customer activation strategy with machine learning that delivers measurable results.
           </p>
-          <Link href="https://cal.com/tanzilouthad" target="_blank">
+          <Link href="https://cal.com/tanzilconvertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

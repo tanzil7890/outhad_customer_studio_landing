@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Outhad AI Engine - Machine Learning for Customer Activation',
+  title: 'Convertive Engine - Machine Learning for Customer Activation',
   description: 'Power your customer activation with advanced ML algorithms that predict behavior, personalize experiences, and optimize engagement in real-time. Predictive analytics, smart recommendations, and automated optimization.',
   keywords: [
     'AI customer activation',
@@ -21,26 +21,26 @@ export const metadata: Metadata = {
     'predictive modeling'
   ],
   openGraph: {
-    title: 'Outhad AI Engine - Machine Learning for Customer Activation',
+    title: 'Convertive Engine - Machine Learning for Customer Activation',
     description: 'Advanced ML algorithms that predict behavior, personalize experiences, and optimize engagement in real-time.',
-    url: 'https://outhad.com/outhad-ai-engine',
+    url: 'https://tryconvertive.com/convertive-ai-engine',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/Optimized-Customer-AI-Assistants.webp',
+        url: '/images/convertive-customer-activation-platform/Optimized-Customer-AI-Assistants.webp',
         width: 1200,
         height: 630,
-        alt: 'Outhad AI Engine - Machine learning powered customer activation',
+        alt: 'Convertive Engine - Machine learning powered customer activation',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outhad AI Engine - Machine Learning for Customer Activation',
+    title: 'Convertive Engine - Machine Learning for Customer Activation',
     description: 'Advanced ML algorithms that predict behavior, personalize experiences, and optimize engagement in real-time.',
-    images: ['/images/outhad-customer-activation-platform/Optimized-Customer-AI-Assistants.webp'],
+    images: ['/images/convertive-customer-activation-platform/Optimized-Customer-AI-Assistants.webp'],
   },
   alternates: {
-    canonical: '/outhad-ai-engine',
+    canonical: '/convertive-ai-engine',
   },
 }
 

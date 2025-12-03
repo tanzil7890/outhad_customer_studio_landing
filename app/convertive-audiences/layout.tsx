@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Outhad Audiences - Advanced Customer Segmentation & Targeting',
+  title: 'Convertive Audiences - Advanced Customer Segmentation & Targeting',
   description: 'Build and manage precise customer segments with real-time behavioral data, predictive analytics, and AI-powered targeting. Dynamic audience updates and cross-platform activation.',
   keywords: [
     'customer segmentation',
@@ -21,26 +21,26 @@ export const metadata: Metadata = {
     'lookalike audiences'
   ],
   openGraph: {
-    title: 'Outhad Audiences - Advanced Customer Segmentation & Targeting',
+    title: 'Convertive Audiences - Advanced Customer Segmentation & Targeting',
     description: 'Build and manage precise customer segments with real-time behavioral data and AI-powered targeting.',
-    url: 'https://outhad.com/outhad-audiences',
+    url: 'https://tryconvertive.com/convertive-audiences',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/segementation_precise_targeting.webp',
+        url: '/images/convertive-customer-activation-platform/segementation_precise_targeting.webp',
         width: 1200,
         height: 630,
-        alt: 'Outhad Audiences - Advanced customer segmentation and targeting',
+        alt: 'Convertive Audiences - Advanced customer segmentation and targeting',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outhad Audiences - Advanced Customer Segmentation & Targeting',
+    title: 'Convertive Audiences - Advanced Customer Segmentation & Targeting',
     description: 'Build and manage precise customer segments with real-time behavioral data and AI-powered targeting.',
-    images: ['/images/outhad-customer-activation-platform/segementation_precise_targeting.webp'],
+    images: ['/images/convertive-customer-activation-platform/segementation_precise_targeting.webp'],
   },
   alternates: {
-    canonical: '/outhad-audiences',
+    canonical: '/convertive-audiences',
   },
 }
 

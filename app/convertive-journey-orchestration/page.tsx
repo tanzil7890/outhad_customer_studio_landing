@@ -6,7 +6,7 @@ import { Button } from '../../components/ui/toast/button'
 import Footer from '../../components/footer'
 
 export const metadata: Metadata = {
-  title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+  title: 'Journey Orchestration - Personalized Customer Journey Automation | Convertive',
   description: 'Design and automate personalized customer journeys that adapt in real-time. Multi-channel orchestration, AI-powered optimization, and advanced segmentation for maximum engagement and conversion.',
   keywords: [
     'customer journey orchestration',
@@ -26,30 +26,30 @@ export const metadata: Metadata = {
     'onboarding automation'
   ],
   openGraph: {
-    title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+    title: 'Journey Orchestration - Personalized Customer Journey Automation | Convertive',
     description: 'Design and automate personalized customer journeys with real-time adaptation and multi-channel orchestration.',
-    url: 'https://outhad.com/outhad-journey-orchestration',
+    url: 'https://tryconvertive.com/convertive-journey-orchestration',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/outhad-orchestration.png',
+        url: '/images/convertive-customer-activation-platform/convertive-orchestration.png',
         width: 1200,
         height: 630,
-        alt: 'Outhad Journey Orchestration - Automated customer journey flows',
+        alt: 'Convertive Journey Orchestration - Automated customer journey flows',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Journey Orchestration - Personalized Customer Journey Automation | Outhad',
+    title: 'Journey Orchestration - Personalized Customer Journey Automation | Convertive',
     description: 'Design and automate personalized customer journeys with real-time adaptation and multi-channel orchestration.',
-    images: ['/images/outhad-customer-activation-platform/outhad-orchestration.png'],
+    images: ['/images/convertive-customer-activation-platform/convertive-orchestration.png'],
   },
   alternates: {
-    canonical: '/outhad-journey-orchestration',
+    canonical: '/convertive-journey-orchestration',
   },
 }
 
-export default function OuthadJourneyOrchestrationPage() {
+export default function ConvertiveJourneyOrchestrationPage() {
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-48 sm:pt-56">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ export default function OuthadJourneyOrchestrationPage() {
               Design and automate personalized customer journeys that adapt in real-time based on behavior, preferences, and business rules to maximize engagement and conversion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilouthad" target="_blank">
+              <Link href="https://cal.com/tanzilconvertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -85,8 +85,8 @@ export default function OuthadJourneyOrchestrationPage() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <Image
-                src="/images/outhad-customer-activation-platform/outhad-orchestration.png"
-                alt="Outhad Journey Orchestration - Automated customer journey flows"
+                src="/images/convertive-customer-activation-platform/convertive-orchestration.png"
+                alt="Convertive Journey Orchestration - Automated customer journey flows"
                 width={600}
                 height={400}
                 className=" "
@@ -215,7 +215,7 @@ export default function OuthadJourneyOrchestrationPage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform one-size-fits-all campaigns into personalized experiences that drive engagement and growth.
           </p>
-          <Link href="https://cal.com/tanzilouthad" target="_blank">
+          <Link href="https://cal.com/tanzilconvertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

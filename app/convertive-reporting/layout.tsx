@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Outhad Reporting - Advanced Analytics & Real-Time Dashboards',
+  title: 'Convertive Reporting - Advanced Analytics & Real-Time Dashboards',
   description: 'Transform data into actionable insights with advanced analytics, real-time dashboards, and comprehensive reporting tools. Custom report builder, automated alerts, and collaborative sharing.',
   keywords: [
     'customer analytics',
@@ -21,26 +21,26 @@ export const metadata: Metadata = {
     'analytics platform'
   ],
   openGraph: {
-    title: 'Outhad Reporting - Advanced Analytics & Real-Time Dashboards',
+    title: 'Convertive Reporting - Advanced Analytics & Real-Time Dashboards',
     description: 'Transform data into actionable insights with advanced analytics and real-time dashboards.',
-    url: 'https://outhad.com/outhad-reporting',
+    url: 'https://tryconvertive.com/convertive-reporting',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/outhad-features.avif',
+        url: '/images/convertive-customer-activation-platform/convertive-features.avif',
         width: 1200,
         height: 630,
-        alt: 'Outhad Reporting - Advanced analytics and real-time dashboards',
+        alt: 'Convertive Reporting - Advanced analytics and real-time dashboards',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outhad Reporting - Advanced Analytics & Real-Time Dashboards',
+    title: 'Convertive Reporting - Advanced Analytics & Real-Time Dashboards',
     description: 'Transform data into actionable insights with advanced analytics and real-time dashboards.',
-    images: ['/images/outhad-customer-activation-platform/outhad-features.avif'],
+    images: ['/images/convertive-customer-activation-platform/convertive-features.avif'],
   },
   alternates: {
-    canonical: '/outhad-reporting',
+    canonical: '/convertive-reporting',
   },
 }
 
