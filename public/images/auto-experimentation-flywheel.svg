@@ -30,7 +30,7 @@
   
   <!-- Central hub -->
   <circle cx="200" cy="200" r="40" fill="url(#blueGradient)" filter="url(#glow)"/>
-  <text x="200" y="205" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600">OUTHAD</text>
+  <text x="200" y="205" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600">CONVERTIVE</text>
   <!-- <text x="200" y="210" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600">AI</text> -->
   
   <!-- Test phase -->
