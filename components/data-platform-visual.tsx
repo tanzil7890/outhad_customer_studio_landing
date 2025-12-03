@@ -105,7 +105,7 @@ export default function DataPlatformVisual() {
               transition={{ duration: 3, repeat: Infinity }}
             >
               <div className="text-center">
-                <div className="text-white font-mono text-xs font-bold tracking-wider">OUTHAD</div>
+                <div className="text-white font-mono text-xs font-bold tracking-wider">CONVERTIVE</div>
                 <div className="text-white/80 font-mono text-[10px] mt-1">DATA CORE</div>
               </div>
               
