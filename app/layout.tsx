@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import Script from 'next/script'
 import './globals.css'
 import Header from '../components/header'
 
@@ -112,18 +113,6 @@ html {
   --font-labil-grotesk: 'Labil Grotesk', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5GM4GLEPM"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-T5GM4GLEPM');
-            `,
-          }}
-        />
       </head>
       <body className="h-full bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased">
         <script
@@ -201,6 +190,27 @@ html {
             })
           }}
         />
+
+        {/* Google Analytics - Using Next.js Script component for proper loading */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-T5GM4GLEPM`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-T5GM4GLEPM', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
         <Header />
         <main className="relative">
           {children}
