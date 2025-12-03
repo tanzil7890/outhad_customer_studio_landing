@@ -1,10 +1,10 @@
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Outhad AI',
+  name: 'Convertive',
   description: 'Real-time customer activation and personalization platform that transforms every click, scroll, and pause into instant revenue.',
-  url: 'https://outhad.com',
-  logo: 'https://outhad.com/logo-black.png',
+  url: 'https://tryconvertive.com',
+  logo: 'https://tryconvertive.com/logo-black.png',
   foundingDate: '2024',
   industry: 'Software',
   category: 'E-commerce Technology',
@@ -33,17 +33,17 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Sales',
-    url: 'https://cal.com/tanzilouthad'
+    url: 'https://cal.com/tanzilconvertive'
   },
   sameAs: [
-    'https://cloud.outhad.com'
+    'https://cloud.tryconvertive.com'
   ]
 }
 
 export const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Outhad AI Platform',
+  name: 'Convertive Platform',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   description: 'Real-time customer activation and personalization platform for e-commerce businesses.',
@@ -52,7 +52,7 @@ export const softwareApplicationSchema = {
     price: '0',
     priceCurrency: 'USD',
     description: 'Free demo available',
-    url: 'https://cal.com/tanzilouthad'
+    url: 'https://cal.com/tanzilconvertive'
   },
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -73,20 +73,20 @@ export const softwareApplicationSchema = {
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Outhad AI',
-  url: 'https://outhad.com',
+  name: 'Convertive',
+  url: 'https://tryconvertive.com',
   description: 'Real-time customer activation and personalization platform',
   publisher: {
     '@type': 'Organization',
-    name: 'Outhad AI',
+    name: 'Convertive',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://outhad.com/logo-black.png'
+      url: 'https://tryconvertive.com/logo-black.png'
     }
   },
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://outhad.com/search?q={search_term_string}',
+    target: 'https://tryconvertive.com/search?q={search_term_string}',
     'query-input': 'required name=search_term_string'
   }
 }
