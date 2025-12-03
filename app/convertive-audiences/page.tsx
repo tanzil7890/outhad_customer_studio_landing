@@ -193,7 +193,7 @@ export default function ConvertiveAudiencesPage() {
               Build and manage dynamic customer segments that update in real-time based on behavior, purchase history, and AI-powered insights to deliver hyper-personalized experiences at scale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilconvertive" target="_blank">
+              <Link href="https://cal.com/tanzil-convertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -361,7 +361,7 @@ export default function ConvertiveAudiencesPage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform generic campaigns into personalized experiences that drive 15-30% higher conversion rates through intelligent audience targeting.
           </p>
-          <Link href="https://cal.com/tanzilconvertive" target="_blank">
+          <Link href="https://cal.com/tanzil-convertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

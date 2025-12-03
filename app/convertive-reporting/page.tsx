@@ -236,7 +236,7 @@ export default function ConvertiveReportingPage() {
               Transform your data into actionable insights with advanced analytics, real-time dashboards, and comprehensive reporting tools that drive informed decision-making across your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzilconvertive" target="_blank">
+              <Link href="https://cal.com/tanzil-convertive" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -381,7 +381,7 @@ export default function ConvertiveReportingPage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform raw data into actionable insights with our comprehensive reporting and analytics platform.
           </p>
-          <Link href="https://cal.com/tanzilconvertive" target="_blank">
+          <Link href="https://cal.com/tanzil-convertive" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
