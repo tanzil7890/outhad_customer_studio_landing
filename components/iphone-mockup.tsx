@@ -72,7 +72,7 @@ export default function IPhoneMockup() {
             {/* Overlay Effects */}
             <div className="absolute inset-0 z-20 bg-black transition-opacity duration-1000 opacity-25"></div>
             
-            {/* Outhad AI Overlay */}
+            {/* Convertive Overlay */}
             <div className="absolute top-4 right-3 sm:top-8 sm:right-6 bg-gradient-to-r from-[hsl(252,100%,37%)] to-[hsl(231,73%,58%)] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full z-30 shadow-lg">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-[hsl(72,100%,50%)] rounded-full animate-pulse"></div>

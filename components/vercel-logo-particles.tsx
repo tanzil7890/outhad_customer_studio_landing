@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { AWS_LOGO_PATH } from './outhad-logo-path'
+import { AWS_LOGO_PATH } from './convertive-logo-path'
 /* import { Button } from '../ui/toast/button' */
 
 export default function Component() {
@@ -261,7 +261,7 @@ export default function Component() {
       <canvas 
         ref={canvasRef} 
         className="w-full h-full absolute top-0 left-0 touch-none mt-[-100px]"
-        aria-label="Interactive particle effect with Outhad logo"
+        aria-label="Interactive particle effect with Convertive logo"
       />
       {/* <div className={`absolute z-10 text-center px-4 sm:px-8 md:px-12 lg:px-16 w-full ${
         isMobile ? 'bottom-[60px]' : 'bottom-[100px]'
@@ -282,7 +282,7 @@ export default function Component() {
           </a>{' '}
           <span>into instant revenue.</span>
           <span className="transition-colors duration-300">
-            {' '}  Outhad AI delivers real-time personalization, cart recovery, and unified customer profiles to boost conversions by 15-30% and eliminate cart abandonment.
+            {' '}  Convertive delivers real-time personalization, cart recovery, and unified customer profiles to boost conversions by 15-30% and eliminate cart abandonment.
           </span> 
           
           <style>{`
