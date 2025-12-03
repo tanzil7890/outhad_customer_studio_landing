@@ -5,8 +5,8 @@ import './globals.css'
 import Header from '../components/header'
 
 export const metadata: Metadata = {
-  title: 'Outhad AI - Real-Time Customer Activation & Personalization Platform',
-  description: 'Transform every click, scroll, and pause into instant revenue. Outhad AI delivers real-time personalization, cart recovery, and unified customer profiles to boost conversions by 15-30% and reduce cart abandonment.',
+  title: 'Convertive - Real-Time Customer Activation & Personalization Platform',
+  description: 'Transform every click, scroll, and pause into instant revenue. Convertive delivers real-time personalization, cart recovery, and unified customer profiles to boost conversions by 15-30% and reduce cart abandonment.',
   keywords: [
     'real-time personalization',
     'customer activation platform',
@@ -28,29 +28,29 @@ export const metadata: Metadata = {
     'BigCommerce enhancement',
     'commerce intelligence'
   ],
-  authors: [{ name: 'Outhad AI' }],
-  creator: 'Outhad AI',
-  publisher: 'Outhad AI',
+  authors: [{ name: 'Convertive' }],
+  creator: 'Convertive',
+  publisher: 'Convertive',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://outhad.com'),
+  metadataBase: new URL('https://tryconvertive.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Outhad AI - Real-Time Customer Activation & Personalization Platform',
+    title: 'Convertive - Real-Time Customer Activation & Personalization Platform',
     description: 'Transform every click, scroll, and pause into instant revenue. Boost conversions by 15-30% with real-time AI personalization and cart recovery.',
-    url: 'https://outhad.com',
-    siteName: 'Outhad AI',
+    url: 'https://tryconvertive.com',
+    siteName: 'Convertive',
     images: [
       {
-        url: '/images/outhad-customer-activation-platform/hero-home.png',
+        url: '/images/convertive-customer-activation-platform/hero-home.png',
         width: 1200,
         height: 630,
-        alt: 'Outhad AI - Real-Time Customer Activation Platform',
+        alt: 'Convertive - Real-Time Customer Activation Platform',
       },
     ],
     locale: 'en_US',
@@ -58,10 +58,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outhad AI - Real-Time Customer Activation & Personalization Platform',
+    title: 'Convertive - Real-Time Customer Activation & Personalization Platform',
     description: 'Transform every click, scroll, and pause into instant revenue. Boost conversions by 15-30% with real-time AI personalization.',
-    images: ['/images/outhad-customer-activation-platform/hero-home.png'],
-    creator: '@outhad',
+    images: ['/images/convertive-customer-activation-platform/hero-home.png'],
+    creator: '@convertive',
   },
   robots: {
     index: true,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     // google: 'google-site-verification-code',
     // bing: 'bing-verification-code',
   },
-  generator: 'Outhad AI',
+  generator: 'Convertive',
 }
 
 export const viewport = {
@@ -120,10 +120,10 @@ html {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'Outhad AI',
+              name: 'Convertive',
               description: 'Real-time customer activation and personalization platform that transforms every click, scroll, and pause into instant revenue.',
-              url: 'https://outhad.com',
-              logo: 'https://outhad.com/logo-black.png',
+              url: 'https://tryconvertive.com',
+              logo: 'https://tryconvertive.com/logo-black.png',
               foundingDate: '2024',
               industry: 'Software',
               category: 'E-commerce Technology',
@@ -145,10 +145,10 @@ html {
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Sales',
-                url: 'https://cal.com/tanzilouthad'
+                url: 'https://cal.com/tanzilconvertive'
               },
               sameAs: [
-                'https://cloud.outhad.com'
+                'https://cloud.tryconvertive.com'
               ],
               aggregateRating: {
                 '@type': 'AggregateRating',
@@ -158,7 +158,7 @@ html {
               },
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Outhad AI Services',
+                name: 'Convertive Services',
                 itemListElement: [
                   {
                     '@type': 'Offer',
