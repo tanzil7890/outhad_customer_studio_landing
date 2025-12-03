@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://outhad.com'
+  const baseUrl = 'https://tryconvertive.com'
   const currentDate = new Date().toISOString()
 
   return [
@@ -12,31 +12,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/outhad-data-platform`,
+      url: `${baseUrl}/convertive-data-platform`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/outhad-journey-orchestration`,
+      url: `${baseUrl}/convertive-journey-orchestration`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/outhad-audiences`,
+      url: `${baseUrl}/convertive-audiences`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/outhad-ai-engine`,
+      url: `${baseUrl}/convertive-ai-engine`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/outhad-reporting`,
+      url: `${baseUrl}/convertive-reporting`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/outhad-history`,
+      url: `${baseUrl}/convertive-history`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
