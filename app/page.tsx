@@ -91,12 +91,12 @@ export default function SyntheticV0PageForDeployment() {
             
           </div>
 
-          <div className="mt-6 text-sm text-[hsl(var(--app-text-muted))] italic max-w-2xl mx-auto">
+          {/* <div className="mt-6 text-sm text-[hsl(var(--app-text-muted))] italic max-w-2xl mx-auto">
             Trusted by fast-growing brands like 
             <span className="font-semibold text-[hsl(var(--app-text))] mx-1">OutdoorX</span>, 
             <span className="font-semibold text-[hsl(var(--app-text))] mx-1">StyleHub</span>, and 
             <span className="font-semibold text-[hsl(var(--app-text))] mx-1">TechGear</span>
-          </div>
+          </div> */}
         </div>
       </div>
 
