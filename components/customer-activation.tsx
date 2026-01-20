@@ -1170,7 +1170,7 @@ export default function CustomerActivation() {
                         <div className="space-y-1 mt-2">
                           <div className="flex justify-between items-center">
                             <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Target</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-text))]">PDP > 2min • Abandoned once</span>
+                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-text))]">PDP &gt; 2min • Abandoned once</span>
                           </div>
                           <div className="flex justify-between items-center">
                             <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Variant</span>
