@@ -13,7 +13,7 @@ Transform every{' '}
             ✓ Live Unified Profiles • ✓ In-Session Orchestration • ✓ Autonomous Experimentation
           </p>
           <Link 
-            href="https://cal.com/tanzil-convertive"
+            href="https://cal.com/tanzil-meeting"
             target="_blank"
             className={`inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-mono font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 ${
               isMobile ? 'text-sm' : 'text-base'

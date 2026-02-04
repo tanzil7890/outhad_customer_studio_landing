@@ -63,7 +63,7 @@ export default function ConvertiveJourneyOrchestrationPage() {
               Design and automate personalized customer journeys that adapt in real-time based on behavior, preferences, and business rules to maximize engagement and conversion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzil-convertive" target="_blank">
+              <Link href="https://cal.com/tanzil-meeting" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -215,7 +215,7 @@ export default function ConvertiveJourneyOrchestrationPage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform one-size-fits-all campaigns into personalized experiences that drive engagement and growth.
           </p>
-          <Link href="https://cal.com/tanzil-convertive" target="_blank">
+          <Link href="https://cal.com/tanzil-meeting" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

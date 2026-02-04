@@ -218,7 +218,7 @@ export default function ConvertiveAIEnginePage() {
               Power your customer activation with advanced machine learning algorithms that predict behavior, personalize experiences, and optimize engagement in real-time across every touchpoint.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="https://cal.com/tanzil-convertive" target="_blank">
+              <Link href="https://cal.com/tanzil-meeting" target="_blank">
                 <Button 
                   size="lg"
                   className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"
@@ -363,7 +363,7 @@ export default function ConvertiveAIEnginePage() {
           <p className="text-lg text-[hsl(var(--app-text-muted))] mb-8 font-mono">
             Transform your customer activation strategy with machine learning that delivers measurable results.
           </p>
-          <Link href="https://cal.com/tanzil-convertive" target="_blank">
+          <Link href="https://cal.com/tanzil-meeting" target="_blank">
             <Button 
               size="lg"
               className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] hover:bg-[hsl(var(--app-text-muted))] rounded-full transition-colors duration-200 px-8"

@@ -33,7 +33,7 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Sales',
-    url: 'https://cal.com/tanzil-convertive'
+    url: 'https://cal.com/tanzil-meeting'
   },
   sameAs: [
     'https://cloud.tryconvertive.com'
@@ -52,7 +52,7 @@ export const softwareApplicationSchema = {
     price: '0',
     priceCurrency: 'USD',
     description: 'Free demo available',
-    url: 'https://cal.com/tanzil-convertive'
+    url: 'https://cal.com/tanzil-meeting'
   },
   aggregateRating: {
     '@type': 'AggregateRating',

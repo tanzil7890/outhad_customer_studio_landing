@@ -233,7 +233,7 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="https://cal.com/tanzil-meeting" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
@@ -354,7 +354,7 @@ export default function Header() {
               Use Cases
             </Link> */}
             
-            <Link href="https://cal.com/tanzil-convertive" target="_blank" onClick={closeMobileMenu}>
+            <Link href="https://cal.com/tanzil-meeting" target="_blank" onClick={closeMobileMenu}>
               <Button 
                 variant="outline"
                 size="sm"

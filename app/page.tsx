@@ -69,8 +69,8 @@ export default function SyntheticV0PageForDeployment() {
                 transformOrigin: 'center'
               }}
             />
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
-              <Button 
+            <Link href="https://cal.com/tanzil-meeting" target="_blank">
+              <Button
                 variant="outline"
                 size="sm"
                 className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
@@ -78,7 +78,7 @@ export default function SyntheticV0PageForDeployment() {
                 Book Demo
               </Button>
             </Link>
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="https://cal.com/tanzil-meeting" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
@@ -92,9 +92,9 @@ export default function SyntheticV0PageForDeployment() {
           </div>
 
           {/* <div className="mt-6 text-sm text-[hsl(var(--app-text-muted))] italic max-w-2xl mx-auto">
-            Trusted by fast-growing brands like 
-            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">OutdoorX</span>, 
-            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">StyleHub</span>, and 
+            Backed by industry leaders from  
+            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">Amazon</span>, 
+            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">Clorox</span>, and 
             <span className="font-semibold text-[hsl(var(--app-text))] mx-1">TechGear</span>
           </div> */}
         </div>

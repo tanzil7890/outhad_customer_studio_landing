@@ -146,7 +146,7 @@ html {
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Sales',
-                url: 'https://cal.com/tanzil-convertive'
+                url: 'https://cal.com/tanzil-meeting'
               },
               sameAs: [
                 'https://cloud.tryconvertive.com'
