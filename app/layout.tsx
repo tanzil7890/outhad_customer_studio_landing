@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import Script from 'next/script'
 import './globals.css'
 import Header from '../components/header'
+import CalFloatingButton from '../components/cal-floating-button'
 
 export const metadata: Metadata = {
   title: 'Convertive - Real-Time Customer Activation & Personalization Platform',
@@ -96,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="icon" href="/logo-black.ico" />
@@ -114,7 +115,10 @@ html {
 }
         `}</style>
       </head>
-      <body className="h-full bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased">
+      <body
+        className="h-full bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -146,7 +150,7 @@ html {
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Sales',
-                url: 'https://cal.com/tanzil-meeting'
+                url: 'https://cal.com/tanzil-convertive'
               },
               sameAs: [
                 'https://cloud.tryconvertive.com'
@@ -212,6 +216,7 @@ html {
         />
 
         <Header />
+        <CalFloatingButton />
         <main className="relative">
           {children}
         </main>
