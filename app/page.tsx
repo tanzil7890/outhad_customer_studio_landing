@@ -69,7 +69,7 @@ export default function SyntheticV0PageForDeployment() {
                 transformOrigin: 'center'
               }}
             />
-            <Link href="https://cal.com/tanzil-meeting" target="_blank">
+            <Link href="https://cal.com/tanzil-convertive" target="_blank">
               <Button
                 variant="outline"
                 size="sm"
@@ -78,7 +78,7 @@ export default function SyntheticV0PageForDeployment() {
                 Book Demo
               </Button>
             </Link>
-            <Link href="https://cal.com/tanzil-meeting" target="_blank">
+            <Link href="https://cal.com/tanzil-convertive" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
