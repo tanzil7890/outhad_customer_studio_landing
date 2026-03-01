@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Case Studies collection
+    match /caseStudies/{document=**} {
+      // Anyone can read published case studies
+      allow read: if true;
+      
+      // Only authenticated users can write (admin check done in app layer)
+      allow write: if request.auth != null;
+    }
+  }
+}
