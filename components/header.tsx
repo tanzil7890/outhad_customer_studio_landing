@@ -215,8 +215,14 @@ export default function Header() {
             >
               Our History
             </Link> */}
-            <Link 
-              href="/manifesto" 
+            <Link
+              href="/#storylines"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              How it works
+            </Link>
+            <Link
+              href="/manifesto"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Manifesto
@@ -337,8 +343,15 @@ export default function Header() {
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Persistent context and learning storage</div>
               </Link>
             </div>
-            <Link 
-              href="/manifesto" 
+            <Link
+              href="/#storylines"
+              onClick={closeMobileMenu}
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
+            >
+              How it works
+            </Link>
+            <Link
+              href="/manifesto"
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >

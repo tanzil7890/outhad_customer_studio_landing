@@ -32,7 +32,7 @@ export default function Outcomes() {
     <section id="outcomes" className="bg-[hsl(var(--app-background))] py-16 sm:py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Proven Results</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Results you will see</h2>
           <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Convert anonymous visitors in-session. Measurable impact from the same traffic.</p>
         </div>
 
