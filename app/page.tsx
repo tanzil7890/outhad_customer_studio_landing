@@ -22,6 +22,7 @@ import Integrations from "@/components/integrations"
 import PrivacySecurity from "@/components/privacy-security"
 import FinalCta from "@/components/final-cta"
 import WhyUs from "@/components/why-us"
+import BeforeAfterSection from "@/components/before-after-section"
 
 export default function SyntheticV0PageForDeployment() {
   // Refs for animated beams
@@ -51,11 +52,11 @@ export default function SyntheticV0PageForDeployment() {
           </div>
           </Link>
           <h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto" style={{fontFamily: 'var(--font-nib-pro)'}}>
-            Deliver 1:1 Personalization, not just campaigns to your Shoppers
+            Convert anonymous visitors before they leave. {/* <span className="text-[hsl(var(--app-accent))]">Convert Them Now.</span> */}
           </h1>
           {/* style={{fontFamily: 'var(--font-labil-grotesk)'}} */}
           <p className="text-base sm:text-lg md:text-xl text-[hsl(var(--app-text-muted))] mb-8 max-w-4xl mx-auto leading-relaxed font-mono" >
-            Convertive is the all‑in‑one marketing platform that turns live shopper behavior into revenue. Deliver real‑time personalization, recover carts, and build unified customer profiles to boost conversions by 15–30% and eliminate abandonment.
+            Convertive uses real-time AI to predict intent and intervene during the live session, converting anonymous visitors into buyers before they ever leave your site.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
             {/* Add Arrow Image */}
@@ -79,12 +80,12 @@ export default function SyntheticV0PageForDeployment() {
               </Button>
             </Link>
             <Link href="https://cal.com/tanzil-convertive" target="_blank">
-              <Button 
+              <Button
                 variant="outline"
                 size="sm"
                 className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
               >
-                See Convertive in action
+                See In-Session Demo
               </Button>
             </Link>
             <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '-100px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
@@ -505,6 +506,7 @@ export default function SyntheticV0PageForDeployment() {
         <Companies />
       </div> */}
 
+      <BeforeAfterSection />
       <ProblemsWeSolve />
       <CustomerActivation />
       <Storylines />
@@ -513,7 +515,7 @@ export default function SyntheticV0PageForDeployment() {
       <Outcomes />
       <IcpValue />
       <Integrations />
-      <PrivacySecurity />
+      {/* <PrivacySecurity /> */}
       <FinalCta />
 
 

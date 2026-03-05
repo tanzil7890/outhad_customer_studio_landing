@@ -5,32 +5,24 @@ import { motion } from 'framer-motion'
 export default function WhyUs() {
   const items = [
     {
-      title: 'Data → Decision → Delivery',
-      desc: 'Close the gap: warehouse truth + real‑time decisioning + cross‑channel execution.',
+      title: 'Real-Time Intervention, Not Batch Campaigns',
+      desc: 'Act in milliseconds during the session—not hours or days later via email. Shift from batch campaigns to in-session triggers and nudges that execute before they leave.',
     },
     {
-      title: 'Session latency',
-      desc: 'Shift from batch campaigns to in‑session triggers and nudges (ms–s).',
+      title: 'Anonymous-to-Known in One Session',
+      desc: 'Convert anonymous visitors before they leave—most tools can\'t even see them. Identity capture, cart recovery, and conversion all happen in-session without waiting for email.',
     },
     {
-      title: 'Fragmentation',
-      desc: 'One profile and audience everywhere—consistent traits across ads, email, SMS, app.',
+      title: 'AI Decisioning at Speed',
+      desc: 'Predictive AI chooses the perfect action in <100ms—fast enough to save the session. Real-time intent signals trigger the next-best intervention before the moment passes.',
     },
     {
-      title: 'Experimentation speed',
-      desc: 'Continuous learning loops with holdouts and real‑time treatment selection.',
+      title: 'Unified Data to Delivery',
+      desc: 'Close the gap: warehouse truth + real-time decisioning + cross-channel execution. One profile drives every touchpoint—web, email, SMS, ads—with consistent, governed data.',
     },
     {
-      title: 'Anonymous → known',
-      desc: 'Identity capture, cart/browse recovery, and channel suppression/activation in one loop.',
-    },
-    {
-      title: 'Ops overhead',
-      desc: 'Fewer bespoke pipelines; governed, observable syncs and reliable sends.',
-    },
-    {
-      title: 'ROI proof',
-      desc: 'Closed‑loop measurement back to the warehouse for incremental lift and ROAS.',
+      title: 'Measurable Incremental Lift',
+      desc: 'Closed-loop measurement back to the warehouse proves incremental lift and ROAS. No guesswork—just data-driven proof of in-session intervention impact.',
     },
   ]
 
@@ -38,45 +30,37 @@ export default function WhyUs() {
     <section id="why" className="bg-[hsl(var(--app-background))] py-16 sm:py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Why This Stack</h2>
-          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">From batch guessing to live, governed growth.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Why Convertive</h2>
+          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Act in-session, not after-the-fact. Convert anonymous visitors before the moment passes.</p>
         </div>
         <div className="grid grid-cols-12 gap-4 sm:gap-6">
           {items.map((it, i) => {
-            // Calculate content-based sizing
-            const titleLength = it.title.length
-            const descLength = it.desc.length
-            const totalContentLength = titleLength + descLength
-            
-            // Define card sizes based on content and strategic positioning
+            // Define card sizes based on strategic positioning
             let colSpan = 'col-span-12' // Default full width on mobile
             let smColSpan = 'sm:col-span-6' // Default half width on small screens
             let lgColSpan = 'lg:col-span-4' // Default third width on large screens
-            
-            // Strategic sizing based on content and position
+
+            // Strategic sizing for 5 cards
             if (i === 0) {
-              // First card - hero positioning, larger
-              lgColSpan = 'lg:col-span-6'
-            } else if (i === 1 || i === 2) {
-              // Second and third cards - balance the first card
-              lgColSpan = 'lg:col-span-3'
-            } else if (i === 3) {
-              // Fourth card - longer content, needs more space
+              // First card - hero positioning (Real-Time Intervention)
+              lgColSpan = 'lg:col-span-7'
+            } else if (i === 1) {
+              // Second card - Anonymous conversion
               lgColSpan = 'lg:col-span-5'
-            } else if (i === 4) {
-              // Fifth card - medium content
+            } else if (i === 2) {
+              // Third card - AI Speed
+              lgColSpan = 'lg:col-span-5'
+            } else if (i === 3) {
+              // Fourth card - Unified Data
               lgColSpan = 'lg:col-span-4'
-            } else if (i === 5) {
-              // Sixth card - shorter content
+            } else if (i === 4) {
+              // Fifth card - ROI
               lgColSpan = 'lg:col-span-3'
-            } else if (i === 6) {
-              // Last card - ensure it spans the remaining space properly
-              lgColSpan = 'lg:col-span-12'
             }
-            
+
             // Determine if this is a featured card (larger sizing)
-            const isFeatured = i === 0 || i === 6
-            const isCompact = i === 1 || i === 2 || i === 5
+            const isFeatured = i === 0
+            const isCompact = i === 4
             
             return (
               <motion.div

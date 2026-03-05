@@ -6,19 +6,24 @@ import Image from 'next/image'
 export default function ProblemsWeSolve() {
   const items = [
     {
-      title: 'Conversion stagnation',
-      stat: '~2–4% baseline',
-      desc: 'Teams miss in‑session intent; actions land too late.'
+      title: 'Anonymous traffic lost forever',
+      stat: '70-98% leave',
+      desc: '70-98% of visitors leave anonymous—with no way to re-engage. Mobile/social flows break context; identity is lost before you can act.'
     },
     {
-      title: 'Abandonment',
-      stat: '~70–98% leave',
-      desc: 'Friction + timing issues push shoppers out pre‑checkout.'
+      title: 'Timing is everything',
+      stat: 'Too late',
+      desc: 'By the time you send that cart recovery email, the moment is gone. Teams miss in-session intent—actions land too late to capture revenue.'
+    },
+    {
+      title: 'Real-time decision speed',
+      stat: 'Seconds, not weeks',
+      desc: 'Batch testing takes weeks. Intent signals expire in seconds. You need to act now, not later.'
     },
     {
       title: 'Fragmented data',
       stat: '68% siloed',
-      desc: 'Only ~11% unify multi‑type data into usable profiles.'
+      desc: 'Only ~11% unify multi-type data into usable profiles.'
     },
     {
       title: 'UX revenue loss',
@@ -26,14 +31,9 @@ export default function ProblemsWeSolve() {
       desc: 'Poor experiences drain revenue; attention windows are short.'
     },
     {
-      title: 'Slow experiments',
-      stat: 'Weeks per A/B',
-      desc: 'Batch testing can’t learn from micro‑moments.'
-    },
-    {
-      title: 'Anonymous traffic',
-      stat: 'No re‑engagement',
-      desc: 'Mobile/social flows break context; identity is lost.'
+      title: 'Conversion stagnation',
+      stat: '~2-4% baseline',
+      desc: 'Without in-session intervention, conversions remain stuck at industry lows.'
     }
   ]
 
