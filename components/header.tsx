@@ -227,12 +227,12 @@ export default function Header() {
             >
               Manifesto
             </Link>
-            {/* <Link 
-              href="/use-cases" 
+            <Link 
+              href="/case-studies" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
-              Use Cases
-            </Link> */}
+              Case Studies
+            </Link>
           </div>
 
           {/* Desktop CTA Button */}
@@ -357,13 +357,13 @@ export default function Header() {
             >
               Manifesto
             </Link>
-            {/* <Link 
-              href="/use-cases" 
+            <Link 
+              href="/case-studies" 
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >
-              Use Cases
-            </Link> */}
+              Case Studies
+            </Link>
             
             <Link href="https://cal.com/tanzil-convertive" target="_blank" onClick={closeMobileMenu}>
               <Button 
