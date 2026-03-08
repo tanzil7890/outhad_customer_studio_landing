@@ -22,6 +22,7 @@ import Integrations from "@/components/integrations"
 import PrivacySecurity from "@/components/privacy-security"
 import FinalCta from "@/components/final-cta"
 import WhyUs from "@/components/why-us"
+import CaseStudiesSection from "@/components/case-studies-section"
 
 export default function SyntheticV0PageForDeployment() {
   // Refs for animated beams
@@ -38,7 +39,7 @@ export default function SyntheticV0PageForDeployment() {
   return (
     <div className="min-h-screen">
       {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-48 pb-5 sm:pt-56 sm:pb-16 px-4">
+      <div className="bg-[hsl(var(--app-background))] pt-16 pb-5 sm:pt-20 sm:pb-16 px-4">
         <div className="text-center  ">
           <Link href={"https://gwaycapital.com/"} target="_blank" rel="noopener noreferrer" className="inline-block mb-6 hover:text-[hsl(var(--app-text-muted))]" >
           <div className="mb-6 font-mono">
@@ -516,6 +517,7 @@ export default function SyntheticV0PageForDeployment() {
       <PrivacySecurity />
       <FinalCta />
 
+      <CaseStudiesSection />
 
 
 

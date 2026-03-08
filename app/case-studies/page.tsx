@@ -100,20 +100,6 @@ export default function CaseStudiesPage() {
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">
-                    {/* Metrics badges */}
-                    {cs.metrics && cs.metrics.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {cs.metrics.slice(0, 3).map((m, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center bg-green-500/10 text-green-700 rounded-full px-2.5 py-0.5 text-xs font-mono font-medium"
-                          >
-                            {m.value}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
                     <h2 className="text-lg font-semibold text-[hsl(var(--app-text))] mb-2 group-hover:text-blue-600 transition-colors line-clamp-2" style={{ fontFamily: 'var(--font-nib-pro)' }}>
                       {cs.title}
                     </h2>

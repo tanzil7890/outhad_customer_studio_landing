@@ -57,6 +57,7 @@ export default function RichTextEditor({
   placeholder = 'Start writing your case study...',
 }: RichTextEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         codeBlock: false,
