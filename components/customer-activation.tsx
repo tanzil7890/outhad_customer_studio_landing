@@ -24,35 +24,35 @@ export default function CustomerActivation() {
   // New, concise feature set (What we do)
   const featuresNew = [
     {
-      title: "Convertive Data Platform",
-      subtitle: "Data done right.",
-      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Convertive, you can.",
-      visual: "A phone display an IAM simple survey.",
+      title: 'In-Session Orchestration',
+      subtitle: 'Act before they leave.',
+      description:
+        'Trigger the perfect offer in milliseconds—while they\'re still shopping, before they bounce. Real-time intervention at the moment of intent.',
+      visual: 'Real-time nudge decisioning overlay on PDP/checkout.',
+      image: '/images/convertive-customer-activation-platform/convertive-insession-orchestration.png',
+      alt: 'Convertive in-session orchestration visualization',
     },
     {
       title: 'Live Unified Profiles',
       subtitle: 'Understand intent as it happens.',
       description:
-        'Stitch anonymous and known activity across devices and channels into a single live profile that updates in real time.',
+        'Even anonymous visitors get real-time profiles. Stitch anonymous and known activity across devices and channels into a single live profile—treat first-time browsers like returning customers.',
       visual: 'Live profile stitching across sessions, devices, and channels.',
       image: '/images/convertive-customer-activation-platform/convertive-unifiedprofile.png',
       alt: 'Convertive unified profile visualization',
     },
     {
-      title: 'In‑Session Orchestration',
-      subtitle: 'Nudge at the moment of intent.',
+      title: 'Anonymous Visitor Conversion',
+      subtitle: 'Capture before they\'re gone.',
       description:
-        'Trigger the right bundles, upsells, reminders, or incentives during the session—before the shopper bounces.',
-      visual: 'Real‑time nudge decisioning overlay on PDP/checkout.',
-      image: '/images/convertive-customer-activation-platform/convertive-insession-orchestration.png',
-      alt: 'Convertive in-session orchestration visualization',
+        'Capture identity and convert anonymous traffic before they leave—using friction-free prompts at the perfect moment. Recover carts even without email using in-session intervention.',
+      visual: 'Exit intent popup + SMS/email recovery flow.',
     },
     {
-      title: 'Cart & Browse Recovery',
-      subtitle: 'Recover even without email.',
-      description:
-        'Re‑engage abandoners (including anonymous) using friction‑free identity capture and smart follow‑ups across channels.',
-      visual: 'Exit intent popup + SMS/email recovery flow.',
+      title: "Convertive Data Platform",
+      subtitle: "Data done right.",
+      description: "Start building stronger first-party relationships. Customers are giving you their data. What are you giving them in return? How about highly personalized, customized experiences? With Convertive, you can.",
+      visual: "A phone display an IAM simple survey.",
     },
     {
       title: 'Mobile & Social Continuity',
@@ -178,7 +178,7 @@ export default function CustomerActivation() {
             variants={item}
           />
           
-          <motion.div
+          {/* <motion.div
             className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12"
             variants={container}
           >
@@ -192,7 +192,7 @@ export default function CustomerActivation() {
                 {chip}
               </motion.span>
             ))}
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Features Section */}
@@ -223,833 +223,299 @@ export default function CustomerActivation() {
               {/* Visual */}
               <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                 {feature.title === 'Convertive Data Platform' ? (
-                  // Special dashboard visualization for Convertive Data Platform
-                  <div className="relative h-[300px] md:h-[600px] overflow-visible">
-                    {/* Main container background */}
-                    <motion.div
-                      className="absolute inset-4 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    >
-                      <div className="absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                    </motion.div>
-
-                    {/* Dashboard UI (Top Left) */}
-                    <motion.div
-                      className="absolute top-4 left-8 md:left-12 w-40 h-32 md:w-48 md:h-40 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: -5 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 p-3">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Real-time Dashboard</div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <motion.div 
-                                className="w-2 h-2 bg-emerald-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                              />
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Active Users</span>
-                            </div>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">24.7k</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <motion.div 
-                                className="w-2 h-2 bg-blue-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                              />
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Data Quality</span>
-                            </div>
-                            <span className="text-[8px] md:text-[10px] font-bold text-blue-500">97.2%</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <motion.div 
-                                className="w-2 h-2 bg-purple-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
-                              />
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Profiles</span>
-                            </div>
-                            <span className="text-[8px] md:text-[10px] font-bold text-purple-500">1.8M</span>
-                          </div>
-                          <div className="mt-2">
-                            <div className="flex justify-between text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))] mb-1">
-                              <span>Engagement</span>
-                              <span>94%</span>
-                            </div>
-                            <div className="h-1 bg-[hsl(var(--app-border))] rounded-full overflow-hidden">
-                              <motion.div 
-                                className="h-full bg-gradient-to-r from-emerald-500 to-blue-500"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: '94%' }}
-                                transition={{ duration: 1.5, delay: 0.5 }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Quality vs Reach Chart (Top Right) */}
-                    <motion.div
-                      className="absolute top-2 right-4 md:right-8 w-36 h-36 md:w-44 md:h-44 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: 8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 5 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/10 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Quality vs Reach</div>
-                        </div>
-                        
-                        {/* Chart visualization */}
-                        <div className="relative h-16 md:h-20 w-full mb-2">
-                        <svg viewBox="0 0 100 60" className="w-full h-full hidden md:block">
-                            {/* Chart grid */}
-                            <defs>
-                              <pattern id="chartGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="hsl(var(--app-border))" strokeWidth="0.5" opacity="0.3"/>
-                              </pattern>
-                            </defs>
-                            <rect width="100" height="60" fill="url(#chartGrid)" />
-                            
-                            {/* Third-party data point (low quality, high reach) */}
-                            <motion.circle 
-                              cx="75" cy="45" r="3" 
-                              fill="#ef4444" opacity="0.7"
-                              initial={{ scale: 0 }}
-                              whileInView={{ scale: 1 }}
-                              transition={{ duration: 0.5, delay: 0.5 }}
-                            />
-                            <text x="78" y="48" fontSize="4" fill="hsl(var(--app-text-muted))">3rd Party</text>
-                            
-                            {/* First-party data point (high quality, good reach) */}
-                            <motion.circle 
-                              cx="25" cy="15" r="4" 
-                              fill="hsl(var(--app-primary))" opacity="0.9"
-                              initial={{ scale: 0 }}
-                              whileInView={{ scale: 1 }}
-                              transition={{ duration: 0.5, delay: 0.8 }}
-                            >
-                              <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/>
-                            </motion.circle>
-                            <text x="8" y="12" fontSize="4" fill="hsl(var(--app-primary))">1st Party</text>
-                            
-                            {/* Axis labels */}
-                            <text x="50" y="58" fontSize="3" fill="hsl(var(--app-text-muted))" textAnchor="middle">Reach →</text>
-                            <text x="2" y="30" fontSize="3" fill="hsl(var(--app-text-muted))" transform="rotate(-90 2 30)">Quality ↑</text>
-                          </svg>
-                        </div>
-
-                        {/* Chart metrics */}
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">1st Party ROI</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-primary))]">8.3x</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Data Accuracy</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">97%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Checklist UI (Bottom Left) */}
-                    <motion.div
-                      className="absolute bottom-8 left-4 md:left-8 w-40 h-36 md:w-48 md:h-40 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: -8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -2 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Key Capabilities</div>
-                        </div>
-
+                  // Clean flex-column layout for Convertive Data Platform
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Data Sources + First-Party Quality stats side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Data Sources panel */}
+                      <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Ingestion</p>
                         <div className="space-y-2">
                           {[
-                            { label: 'Identity Resolution', delay: 0.5 },
-                            { label: 'Real-time Sync', delay: 0.7 },
-                            { label: 'Privacy Compliance', delay: 0.9 },
-                            { label: 'Cross-channel Unity', delay: 1.1 }
-                          ].map((item, idx) => (
-                            <motion.div 
-                              key={item.label}
-                              className="flex items-center space-x-2"
-                              initial={{ opacity: 0, x: -10 }}
+                            { label: 'Web Session', color: 'bg-blue-500', textColor: 'text-blue-500', val: 'Live' },
+                            { label: 'Mobile App', color: 'bg-purple-500', textColor: 'text-purple-500', val: 'Active' },
+                            { label: 'Email Events', color: 'bg-amber-500', textColor: 'text-amber-500', val: '12 events' },
+                            { label: 'POS / Store', color: 'bg-emerald-500', textColor: 'text-emerald-500', val: 'Syncing' },
+                          ].map((src, i) => (
+                            <div key={src.label} className="flex items-center justify-between">
+                              <div className="flex items-center gap-1.5">
+                                <motion.div
+                                  className={`w-1.5 h-1.5 rounded-full ${src.color}`}
+                                  animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                                  transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.35 }}
+                                />
+                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{src.label}</span>
+                              </div>
+                              <span className={`text-[8px] font-mono font-semibold ${src.textColor}`}>{src.val}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* First-Party Quality Stats */}
+                      <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">1st-Party</p>
+                        <div className="space-y-2.5">
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Accuracy</p>
+                            <p className="text-base font-mono font-bold text-emerald-500 leading-none">97%</p>
+                          </div>
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Profiles</p>
+                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">1.8M</p>
+                          </div>
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">ROI vs 3rd</p>
+                            <p className="text-base font-mono font-bold text-purple-500 leading-none">8.3x</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Row 2: Processing indicator pill */}
+                    <div className="flex items-center justify-center">
+                      <motion.div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200"
+                        animate={{ opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <motion.div
+                          className="w-2 h-2 rounded-full bg-emerald-500"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.2, repeat: Infinity }}
+                        />
+                        <span className="text-[9px] font-mono text-emerald-700 font-semibold">Building unified profiles in real-time…</span>
+                      </motion.div>
+                    </div>
+
+                    {/* Row 3: Unified Profile Hero Card */}
+                    <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Unified Profile</p>
+                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">customer_7f3d → sarah.k@gmail.com</p>
+                        </div>
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Resolved</span>
+                        </div>
+                      </div>
+                      {/* Attribute badges */}
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {[
+                          { label: 'Identity Resolved', cls: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+                          { label: 'Cross-Channel', cls: 'bg-blue-100 text-blue-700 border-blue-200' },
+                          { label: 'Privacy-Compliant', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
+                          { label: 'Real-Time', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
+                        ].map((badge) => (
+                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                            {badge.label}
+                          </span>
+                        ))}
+                      </div>
+                      {/* Profile completeness bar */}
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Profile Completeness</span>
+                          <span className="text-[8px] font-mono font-bold text-emerald-500">94%</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-[hsl(var(--app-primary))]"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '94%' }}
+                            transition={{ duration: 1.4, delay: 0.3, ease: 'easeOut' }}
+                            viewport={{ once: true }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Row 4: Platform health status bar */}
+                    <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5 flex items-center justify-between">
+                      <span className="text-[9px] font-mono font-semibold text-[hsl(var(--app-text))]">First-Party Foundation</span>
+                      <div className="flex items-center gap-3">
+                        {[
+                          { label: 'Sync', color: 'bg-emerald-500' },
+                          { label: 'Privacy', color: 'bg-blue-500' },
+                          { label: 'Match', color: 'bg-purple-500' },
+                        ].map((stat, i) => (
+                          <div key={stat.label} className="flex items-center gap-1">
+                            <motion.div
+                              className={`w-1.5 h-1.5 rounded-full ${stat.color}`}
+                              animate={{ opacity: [1, 0.4, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
+                            />
+                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{stat.label}</span>
+                          </div>
+                        ))}
+                        <span className="text-[8px] font-mono font-semibold text-emerald-500">Excellent</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : feature.title === 'Live Unified Profiles' ? (
+                  // Clean flex-column layout for Live Unified Profiles
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Data Sources + Anonymous Profile card side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Data Sources panel */}
+                      <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Sources</p>
+                        <div className="space-y-2">
+                          {[
+                            { label: 'Web Session', color: 'bg-blue-500', val: 'Live' },
+                            { label: 'Mobile App', color: 'bg-purple-500', val: 'Active' },
+                            { label: 'Email Clicks', color: 'bg-amber-500', val: '3 events' },
+                            { label: 'Social', color: 'bg-pink-500', val: 'Linked' },
+                          ].map((src, i) => (
+                            <motion.div
+                              key={src.label}
+                              className="flex items-center justify-between"
+                              initial={{ opacity: 0, x: -8 }}
                               whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.5, delay: item.delay }}
+                              transition={{ delay: 0.2 + i * 0.08 }}
                               viewport={{ once: true }}
                             >
-                              <motion.div 
-                                className="w-2 h-2 rounded-sm bg-emerald-500 flex items-center justify-center"
-                                initial={{ scale: 0 }}
-                                whileInView={{ scale: 1 }}
-                                transition={{ duration: 0.3, delay: item.delay + 0.2 }}
-                              >
-                                <div className="w-1 h-1 bg-white rounded-sm"></div>
-                              </motion.div>
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text))]">{item.label}</span>
+                              <div className="flex items-center gap-1.5">
+                                <motion.div
+                                  className={`w-1.5 h-1.5 rounded-full ${src.color}`}
+                                  animate={{ scale: [1, 1.4, 1] }}
+                                  transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+                                />
+                                <span className="text-[9px] font-mono text-[hsl(var(--app-text-muted))]">{src.label}</span>
+                              </div>
+                              <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">{src.val}</span>
                             </motion.div>
                           ))}
                         </div>
-
-                        <div className="mt-3 pt-2 border-t border-[hsl(var(--app-border))]/30">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Platform Health</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">Excellent</span>
-                          </div>
-                        </div>
                       </div>
-                    </motion.div>
 
-                    {/* Identity Stitching Diagram (Bottom Right) */}
-                    <motion.div
-                      className="absolute bottom-4 right-8 md:right-12 w-36 h-32 md:w-44 md:h-36 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: 12 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/5 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Identity Stitching</div>
-                        </div>
-
-                        <div className="flex items-center justify-center mb-3">
-                          <div className="relative">
-                            {/* Central identity hub */}
-                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center relative z-10">
-                              <div className="text-[6px] md:text-[8px] font-mono font-bold text-white">ID</div>
-                            </div>
-                            
-                            {/* Orbiting data sources */}
-                            {[
-                              { angle: 0, color: 'bg-blue-500', size: 'w-2 h-2' },
-                              { angle: 120, color: 'bg-green-500', size: 'w-2 h-2' },
-                              { angle: 240, color: 'bg-purple-500', size: 'w-2 h-2' }
-                            ].map((source, idx) => (
-                              <motion.div
-                                key={idx}
-                                className={`absolute ${source.color} ${source.size} rounded-full`}
-                                style={{
-                                  left: '50%',
-                                  top: '50%',
-                                  transformOrigin: '0 0'
-                                }}
-                                animate={{ 
-                                  rotate: 360,
-                                  x: Math.cos((source.angle + 360) * Math.PI / 180) * 16 - 4,
-                                  y: Math.sin((source.angle + 360) * Math.PI / 180) * 16 - 4
-                                }}
-                                transition={{
-                                  rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
-                                  x: { duration: 0 },
-                                  y: { duration: 0 }
-                                }}
-                              />
-                            ))}
-                            
-                            {/* Connection lines */}
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ transform: 'scale(2)' }}>
-                              <motion.circle
-                                cx="20" cy="20"
-                                r="12"
-                                fill="none"
-                                stroke="hsl(var(--app-primary))"
-                                strokeWidth="0.5"
-                                strokeDasharray="2 2"
-                                initial={{ pathLength: 0, opacity: 0 }}
-                                whileInView={{ pathLength: 1, opacity: 0.5 }}
-                                transition={{ duration: 2, delay: 0.5 }}
-                              />
+                      {/* Anonymous visitor partial profile */}
+                      <div className="w-28 flex-shrink-0 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col items-center gap-2">
+                        <div className="relative">
+                          <div className="w-10 h-10 rounded-full bg-[hsl(var(--app-primary))]/15 border-2 border-[hsl(var(--app-primary))]/30 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-[hsl(var(--app-primary))]/50" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
                             </svg>
                           </div>
-                        </div>
-
-                        {/* Stitching metrics */}
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Match Rate</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-purple-500">94.2%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Sources</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-indigo-500">12+</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Central Data Platform Hub */}
-                    <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                      <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
-                          Convertive Data Platform
-                        </div>
-                        <motion.div
-                          className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5, delay: 1.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <div className="text-black font-mono font-bold text-xs md:text-sm" style={{ marginLeft: '50px' }}>DATA</div>
                           <motion.div
-                            className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_40%,_rgba(255,255,255,0.2)_50%,_transparent_60%)]"
-                            animate={{ x: [-100, 100] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                          />
-                        </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
-                          First-Party Foundation
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Connection Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-20 hidden md:block" style={{ overflow: 'visible' }}>
-                      <defs>
-                        <linearGradient id="dataGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <linearGradient id="dataGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <mask id={`dataCenterMask-${index}`}>
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <circle cx="300" cy="300" r="64" fill="black" />
-                        </mask>
-                      </defs>
-                      <g mask={`url(#dataCenterMask-${index})`}>
-                        <motion.path
-                          d="M160 80 Q230 150 300 300"
-                          stroke="url(#dataGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M440 100 Q370 200 300 300"
-                          stroke="url(#dataGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.7 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M180 450 Q240 375 300 300"
-                          stroke="url(#dataGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.9 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M440 420 Q370 360 300 300"
-                          stroke="url(#dataGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 1.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                ) : feature.title === 'Live Unified Profiles' ? (
-                  // Special floating images layout for Live Unified Profiles
-                  <div className="relative h-[300px] md:h-[600px] overflow-visible">
-                    {/* Main container background */}
-                    <motion.div
-                      className="absolute inset-4 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    >
-                      <div className="absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                    </motion.div>
-
-                    {/* Connection Lines (kept behind the center hub) */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" style={{ overflow: 'visible' }}>
-                      <g mask={`url(#centerMask-${index})`}>
-                        {/* Connection from Web Data to Central Hub */}
-                      <motion.path
-                        d="M140 80 Q200 180 300 300"
-                        stroke="url(#gradient1)"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="6 4"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.6 }}
-                        transition={{ duration: 2, delay: 0.5 }}
-                        viewport={{ once: true }}
-                      />
-                      
-                        {/* Connection from Mobile Data to Central Hub */}
-                      <motion.path
-                        d="M420 100 Q380 200 300 300"
-                        stroke="url(#gradient2)"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="6 4"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.6 }}
-                        transition={{ duration: 2, delay: 0.7 }}
-                        viewport={{ once: true }}
-                      />
-                      
-                        {/* Connection from Social Data to Central Hub */}
-                      <motion.path
-                        d="M180 420 Q240 360 300 300"
-                        stroke="url(#gradient3)"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="6 4"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.6 }}
-                        transition={{ duration: 2, delay: 0.9 }}
-                        viewport={{ once: true }}
-                      />
-                      
-                        {/* Connection from AI Processing to Central Hub */}
-                      <motion.path
-                        d="M460 440 Q380 370 300 300"
-                        stroke="url(#gradient4)"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="6 4"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.6 }}
-                        transition={{ duration: 2, delay: 1.1 }}
-                        viewport={{ once: true }}
-                      />
-                      </g>
-
-                      <defs>
-                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.4" />
-                        </linearGradient>
-                        <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.4" />
-                        </linearGradient>
-                        {/* Mask to hide lines where the center hub sits */}
-                        <mask id={`centerMask-${index}`}>
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <circle cx="300" cy="300" r="64" fill="black" />
-                        </mask>
-                      </defs>
-                    </svg>
-
-                    {/* Data Flow Particles */}
-                    {/* Web Analytics to Center */}
-                    <motion.div
-                      className="absolute w-1.5 h-1.5 bg-[hsl(var(--app-primary))] rounded-full pointer-events-none z-10"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0],
-                        x: [140, 200, 300],
-                        y: [80, 180, 300]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0,
-                        ease: 'easeInOut'
-                      }}
-                    />
-                    {/* Mobile App to Center */}
-                    <motion.div
-                      className="absolute w-1.5 h-1.5 bg-[hsl(var(--app-secondary))] rounded-full pointer-events-none z-10"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0],
-                        x: [420, 380, 300],
-                        y: [100, 200, 300]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0.7,
-                        ease: 'easeInOut'
-                      }}
-                    />
-                    {/* Social Media to Center */}
-                    <motion.div
-                      className="absolute w-1.5 h-1.5 bg-[hsl(var(--app-primary))]/70 rounded-full pointer-events-none z-10"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0],
-                        x: [180, 240, 300],
-                        y: [420, 360, 300]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 1.4,
-                        ease: 'easeInOut'
-                      }}
-                    />
-                    {/* AI Processing to Center */}
-                    <motion.div
-                      className="absolute w-1.5 h-1.5 bg-[hsl(var(--app-secondary))]/70 rounded-full pointer-events-none z-10"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0],
-                        x: [460, 380, 300],
-                        y: [440, 370, 300]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 2.1,
-                        ease: 'easeInOut'
-                      }}
-                    />
-
-                    {/* Floating Image 1: Web Analytics (Top Left) */}
-                    <motion.div
-                      className="absolute -top-4 left-8 md:left-12 w-36 h-28 md:w-44 md:h-36 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: -5 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 p-3">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Web Analytics</div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <motion.div 
-                                className="w-2 h-2 bg-emerald-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                              />
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Live Sessions</span>
-                            </div>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">2.4k</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <motion.div 
-                                className="w-2 h-2 bg-orange-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                              />
-                              <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Page Views</span>
-                            </div>
-                            <span className="text-[8px] md:text-[10px] font-bold text-orange-500">18.7k</span>
-                          </div>
-                          <div className="mt-2">
-                            <div className="flex justify-between text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))] mb-1">
-                              <span>Engagement</span>
-                              <span>84%</span>
-                            </div>
-                            <div className="h-1 bg-[hsl(var(--app-border))] rounded-full overflow-hidden">
-                              <motion.div 
-                                className="h-full bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))]"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: '84%' }}
-                                transition={{ duration: 1.5, delay: 0.5 }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Floating Image 2: Mobile App Data (Top Right) */}
-                    <motion.div
-                      className="absolute -top-2 right-4 md:right-8 w-32 h-36 md:w-40 md:h-44 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: 8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 5 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/10 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Mobile App</div>
-                        </div>
-                        
-                        {/* Phone mockup */}
-                        <div className="w-12 h-20 md:w-16 md:h-24 rounded-lg bg-[hsl(var(--app-card))] border-2 border-[hsl(var(--app-border))] mx-auto mb-3 relative overflow-hidden">
-                          <div className="absolute top-1 left-1 right-1 h-3 bg-gradient-to-r from-[hsl(var(--app-primary))]/20 to-[hsl(var(--app-secondary))]/20 rounded flex items-center justify-center">
-                            <motion.div 
-                              className="w-4 h-[2px] bg-[hsl(var(--app-primary))] rounded-full"
-                              animate={{ opacity: [0.4, 1, 0.4] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                          </div>
-                          <div className="absolute bottom-2 left-1 right-1 space-y-1">
-                            <div className="flex justify-between items-center">
-                              <div className="h-[1px] bg-[hsl(var(--app-text-muted))] rounded w-6"></div>
-                              <motion.div 
-                                className="w-1 h-1 bg-emerald-500 rounded-full"
-                                animate={{ scale: [1, 1.3, 1] }}
-                                transition={{ duration: 1, repeat: Infinity }}
-                              />
-                            </div>
-                            <div className="h-[1px] bg-[hsl(var(--app-border))] rounded w-4"></div>
-                          </div>
-                        </div>
-
-                        {/* App metrics */}
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">DAU</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-purple-500">15.2k</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Retention</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-pink-500">72%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Floating Image 3: Social Media Data (Bottom Left) */}
-                    <motion.div
-                      className="absolute bottom-8 left-4 md:left-8 w-40 h-36 md:w-48 md:h-40 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: -8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -2 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Social Channels</div>
-                        </div>
-
-                        <div className="flex items-center justify-center mb-3">
-                          <div className="relative">
-                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[hsl(var(--app-primary))]/30 flex items-center justify-center bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10">
-                              <div className="text-[8px] md:text-[10px] font-mono font-bold text-[hsl(var(--app-primary))]">USER</div>
-                            </div>
-                            
-                            {/* Social platform indicators with better design */}
-                            <motion.div 
-                              className="absolute -top-1 left-1/2 w-3 h-3 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full shadow-lg flex items-center justify-center"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-                              style={{ transformOrigin: '50% 32px' }}
-                            >
-                              <div className="w-1 h-1 bg-white rounded-full"></div>
-                            </motion.div>
-                            
-                            <motion.div 
-                              className="absolute top-1/2 -right-1 w-3 h-3 bg-gradient-to-r from-pink-600 to-pink-500 rounded-full shadow-lg flex items-center justify-center"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 6, repeat: Infinity, ease: 'linear', delay: 1 }}
-                              style={{ transformOrigin: '-16px 50%' }}
-                            >
-                              <div className="w-1 h-1 bg-white rounded-full"></div>
-                            </motion.div>
-                            
-                            <motion.div 
-                              className="absolute -bottom-1 left-1/2 w-3 h-3 bg-gradient-to-r from-gray-900 to-gray-700 rounded-full shadow-lg flex items-center justify-center"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 10, repeat: Infinity, ease: 'linear', delay: 2 }}
-                              style={{ transformOrigin: '50% -32px' }}
-                            >
-                              <div className="w-1 h-1 bg-white rounded-full"></div>
-                            </motion.div>
-                            
-                            <motion.div 
-                              className="absolute top-1/2 -left-1 w-3 h-3 bg-gradient-to-r from-red-600 to-red-500 rounded-full shadow-lg flex items-center justify-center"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 7, repeat: Infinity, ease: 'linear', delay: 1.5 }}
-                              style={{ transformOrigin: '16px 50%' }}
-                            >
-                              <div className="w-1 h-1 bg-white rounded-full"></div>
-                            </motion.div>
-                          </div>
-                        </div>
-
-                        {/* Social metrics */}
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Reach</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-pink-500">127k</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Engagement</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-rose-500">8.4%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Floating Image 4: AI Processing Engine (Bottom Right) */}
-                    <motion.div
-                      className="absolute -bottom-4 right-8 md:right-12 w-36 h-32 md:w-44 md:h-36 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: 12 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/5 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">AI Processing</div>
-                        </div>
-
-                        <div className="flex items-center justify-center mb-3">
-                          <motion.div
-                            className="relative"
-                            animate={{ scale: [1, 1.05, 1] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                            className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-[hsl(var(--app-background))] flex items-center justify-center"
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
                           >
-                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center relative overflow-hidden shadow-lg">
-                              <div className="w-4 h-4 md:w-5 md:h-5 bg-[hsl(var(--app-background))] rounded-lg z-10 flex items-center justify-center">
-                                <motion.div 
-                                  className="w-2 h-2 bg-[hsl(var(--app-primary))] rounded"
-                                  animate={{ rotate: 360 }}
-                                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                                />
-                              </div>
-                              <motion.div
-                                className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_30%,_hsl(var(--app-background))/40_50%,_transparent_70%)]"
-                                animate={{ x: [-24, 24] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                              />
-                            </div>
-                            
-                            <motion.div
-                              className="absolute inset-0 rounded-xl bg-[hsl(var(--app-primary))]/20"
-                              animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
-                              transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-                            />
-
-                            {/* Neural network indicators */}
-                            <div className="absolute -bottom-3 left-0 right-0 flex justify-center space-x-1">
-                              {[0, 1, 2, 3].map((i) => (
-                                <motion.div
-                                  key={i}
-                                  className="w-[2px] bg-gradient-to-t from-[hsl(var(--app-secondary))] to-transparent rounded-full"
-                                  animate={{ height: [3, 8, 3] }}
-                                  transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.15, ease: 'easeInOut' }}
-                                />
-                              ))}
-                            </div>
+                            <span className="text-[5px] text-amber-900 font-bold">?</span>
                           </motion.div>
                         </div>
-
-                        {/* AI metrics */}
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Models</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">12</span>
+                        <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">anon_7f3d</p>
+                        <div className="w-full space-y-1">
+                          <div className="h-1.5 rounded bg-[hsl(var(--app-border))] overflow-hidden">
+                            <motion.div
+                              className="h-full bg-[hsl(var(--app-primary))]/50 rounded"
+                              initial={{ width: '0%' }}
+                              whileInView={{ width: '65%' }}
+                              transition={{ duration: 1.2, delay: 0.4 }}
+                              viewport={{ once: true }}
+                            />
                           </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Accuracy</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-teal-500">97.2%</span>
+                          <p className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] text-center">Building…</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Row 2: Stitching indicator */}
+                    <motion.div
+                      className="flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.7 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center gap-1.5 rounded-full border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-1">
+                        <motion.div
+                          className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--app-primary))]"
+                          animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
+                          transition={{ duration: 0.9, repeat: Infinity }}
+                        />
+                        <span className="text-[9px] font-mono text-[hsl(var(--app-text-muted))]">Stitching across devices &amp; sessions…</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Row 3: Resolved unified profile (hero) */}
+                    <motion.div
+                      className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-[hsl(var(--app-primary))]/5 p-3"
+                      initial={{ opacity: 0, y: 6 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.85 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="relative flex-shrink-0">
+                          <div className="w-10 h-10 rounded-full bg-[hsl(var(--app-primary))]/20 border-2 border-[hsl(var(--app-primary))]/50 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-[hsl(var(--app-primary))]" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[hsl(var(--app-background))]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Unified Profile</p>
+                            <span className="text-[7px] font-mono text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5">Live</span>
+                          </div>
+                          <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+                            {[
+                              { k: 'Intent', v: 'High' },
+                              { k: 'Device', v: 'Mobile' },
+                              { k: 'Category', v: 'Footwear' },
+                              { k: 'LTV est.', v: '$340' },
+                            ].map(attr => (
+                              <div key={attr.k} className="flex justify-between items-center">
+                                <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">{attr.k}</span>
+                                <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">{attr.v}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </div>
                     </motion.div>
 
-                    {/* Central Unified Profile Hub */}
-                    <div className="absolute z-30 pointer-events-none" style={{ left: '320px', top: '300px', transform: 'translate(-50%, -50%)' }}>
-                      <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
-                          Unified Customer Profile
-                        </div>
-                        <motion.div
-                          className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden  "
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5, delay: 1.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <Image
-                            src="/images/convertive-unified2.avif"
-                            alt="Convertive Unified Customer Profile"
-                            fill
-                            sizes="(max-width: 768px) 96px, 128px"
-                            className="object-contain"
-                            priority={true}
-                          />
-                          {/* <motion.div
-                            className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_40%,_hsl(var(--app-primary))/20_50%,_transparent_60%)]"
-                            animate={{ x: [-100, 100] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                          /> */}
-                        </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
-                          Real-time Stitching
-                        </div>
+                    {/* Row 4: Anonymous → Known progress bar */}
+                    <motion.div
+                      className="flex items-center gap-2 px-1"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 1.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center gap-1 flex-shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-amber-400" />
+                        <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Anonymous</span>
                       </div>
-                    </div>
-                  </div>
+                      <div className="flex-1 h-px bg-[hsl(var(--app-border))] relative overflow-hidden">
+                        <motion.div
+                          className="absolute inset-0 bg-[hsl(var(--app-primary))]"
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          transition={{ duration: 1.0, delay: 1.2 }}
+                          viewport={{ once: true }}
+                          style={{ transformOrigin: 'left' }}
+                        />
+                      </div>
+                      <div className="flex items-center gap-1 flex-shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">Known</span>
+                      </div>
+                    </motion.div>
+
+                  </motion.div>
                 ) : feature.title === 'In‑Session Orchestration' ? (
                   // Special live orchestration layout for In‑Session Orchestration
                   <div className="relative h-[300px] md:h-[600px] overflow-visible">
@@ -1452,6 +918,371 @@ export default function CustomerActivation() {
                       </g>
                     </svg>
                   </div>
+                ) : feature.title === 'In-Session Orchestration' ? (
+                  // In-Session Orchestration: clean flow layout
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Browser PDP + Intent Signals side-by-side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* PDP Browser Mock */}
+                      <motion.div
+                        className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] overflow-hidden shadow-sm"
+                        initial={{ opacity: 0, x: -12 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1, duration: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="h-5 bg-[hsl(var(--app-surface))] border-b border-[hsl(var(--app-border))] flex items-center px-2 gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                          <div className="ml-1.5 h-2 flex-1 bg-[hsl(var(--app-border))]/50 rounded-sm" />
+                        </div>
+                        <div className="p-2.5">
+                          <div className="w-full h-14 rounded-md bg-gradient-to-br from-blue-100/70 to-purple-100/70 mb-2 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-[hsl(var(--app-text-muted))]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="h-2 w-4/5 bg-[hsl(var(--app-text))]/20 rounded-sm" />
+                            <div className="h-1.5 w-1/2 bg-[hsl(var(--app-text))]/10 rounded-sm" />
+                            <div className="flex items-center gap-2 pt-0.5">
+                              <div className="h-2.5 w-8 bg-[hsl(var(--app-primary))]/50 rounded-sm" />
+                              <div className="h-2 w-6 bg-red-300/50 rounded-sm" />
+                            </div>
+                          </div>
+                          <motion.div
+                            className="mt-2 h-5 w-full rounded bg-[hsl(var(--app-primary))]/80 flex items-center justify-center"
+                            animate={{ opacity: [0.6, 1, 0.6] }}
+                            transition={{ duration: 2.5, repeat: Infinity }}
+                          >
+                            <span className="text-[7px] font-mono text-white font-bold tracking-wide">ADD TO CART</span>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+
+                      {/* Intent Signals panel */}
+                      <motion.div
+                        className="w-36 sm:w-40 flex-shrink-0 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] overflow-hidden shadow-sm"
+                        initial={{ opacity: 0, x: 12 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2, duration: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="p-2.5">
+                          <div className="flex items-center gap-1.5 mb-2.5">
+                            <motion.div
+                              className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"
+                              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.4, 1] }}
+                              transition={{ duration: 1.4, repeat: Infinity }}
+                            />
+                            <span className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text))]">Live Signals</span>
+                          </div>
+                          {[
+                            { label: 'Scroll depth', value: '78%', color: 'text-blue-500' },
+                            { label: 'Time on page', value: '1m 12s', color: 'text-purple-500' },
+                            { label: 'Exit risk', value: 'HIGH', color: 'text-orange-500' },
+                            { label: 'Price sensitivity', value: 'YES', color: 'text-red-500' },
+                          ].map((sig, si) => (
+                            <motion.div
+                              key={sig.label}
+                              className="flex items-center justify-between py-1 border-b border-[hsl(var(--app-border))]/40 last:border-0"
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              transition={{ delay: 0.3 + si * 0.08 }}
+                              viewport={{ once: true }}
+                            >
+                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{sig.label}</span>
+                              <span className={`text-[8px] font-mono font-bold ${sig.color}`}>{sig.value}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Row 2: AI decision arrow */}
+                    <motion.div
+                      className="flex items-center justify-center gap-2"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5, type: 'spring', stiffness: 260 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[hsl(var(--app-primary))]/30" />
+                      <motion.div
+                        className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-[hsl(var(--app-primary))]/40 bg-[hsl(var(--app-primary))]/8"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <svg className="w-3 h-3 text-[hsl(var(--app-primary))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span className="text-[9px] font-mono font-bold text-[hsl(var(--app-primary))]">AI deciding — &lt;100ms</span>
+                      </motion.div>
+                      <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[hsl(var(--app-primary))]/30" />
+                    </motion.div>
+
+                    {/* Row 3: Nudge popup — hero element */}
+                    <motion.div
+                      className="rounded-xl border border-[hsl(var(--app-primary))]/40 bg-[hsl(var(--app-background))] shadow-lg overflow-hidden"
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7, type: 'spring', stiffness: 220 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="h-0.5 w-full bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))]" />
+                      <div className="p-3 flex items-start gap-3">
+                        <div className="flex-1">
+                          <p className="text-[8px] font-mono uppercase tracking-widest text-[hsl(var(--app-text-muted))] mb-0.5">Convertive AI — in session</p>
+                          <p className="text-xs sm:text-sm font-title text-[hsl(var(--app-text))] mb-1.5">Complete your order &amp; save 10%</p>
+                          <p className="text-[9px] font-mono text-[hsl(var(--app-text-muted))] mb-2.5">Enter your email to unlock — today only.</p>
+                          <div className="flex items-center gap-2">
+                            <motion.div
+                              className="flex-1 h-6 rounded-lg bg-black flex items-center justify-center cursor-pointer"
+                              whileHover={{ scale: 1.03 }}
+                            >
+                              <span className="text-[8px] font-mono text-white font-bold">Claim Offer</span>
+                            </motion.div>
+                            <div className="h-6 px-2.5 rounded-lg border border-[hsl(var(--app-border))] flex items-center justify-center">
+                              <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Later</span>
+                            </div>
+                          </div>
+                        </div>
+                        <motion.div
+                          className="w-5 h-5 rounded-full bg-[hsl(var(--app-primary))]/15 flex items-center justify-center flex-shrink-0 mt-0.5"
+                          animate={{ scale: [1, 1.25, 1] }}
+                          transition={{ duration: 1.6, repeat: Infinity }}
+                        >
+                          <div className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--app-primary))]" />
+                        </motion.div>
+                      </div>
+                    </motion.div>
+
+                    {/* Row 4: Timeline strip */}
+                    <motion.div
+                      className="flex items-center pt-1"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 1.0 }}
+                      viewport={{ once: true }}
+                    >
+                      {[
+                        { t: '0:00', label: 'Arrives', done: true },
+                        { t: '0:15', label: 'Intent', done: true },
+                        { t: '0:18', label: 'Nudge', done: true },
+                        { t: '0:47', label: 'Converted', done: false },
+                      ].map((ev, ei, arr) => (
+                        <React.Fragment key={ev.t}>
+                          <motion.div
+                            className="flex flex-col items-center gap-0.5"
+                            initial={{ opacity: 0, y: 4 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1.0 + ei * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            {ev.done ? (
+                              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                            ) : (
+                              <motion.div
+                                className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--app-primary))]"
+                                animate={{ scale: [1, 1.6, 1], opacity: [1, 0.3, 1] }}
+                                transition={{ duration: 1.2, repeat: Infinity }}
+                              />
+                            )}
+                            <span className="text-[7px] font-mono font-bold text-[hsl(var(--app-text-muted))]">{ev.t}</span>
+                            <span className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/70">{ev.label}</span>
+                          </motion.div>
+                          {ei < arr.length - 1 && (
+                            <div className="flex-1 h-px bg-[hsl(var(--app-border))] mx-1 mb-4" />
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </motion.div>
+
+                  </motion.div>
+                ) : feature.title === 'Anonymous Visitor Conversion' ? (
+                  // Clean flex-column layout for Anonymous Visitor Conversion
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Visitor state + Trigger signals side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Left: Browser with visitor about to exit */}
+                      <motion.div
+                        className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] overflow-hidden"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1, duration: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        {/* Browser chrome */}
+                        <div className="h-5 bg-[hsl(var(--app-surface))] border-b border-[hsl(var(--app-border))] flex items-center px-2 gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                          <div className="ml-1.5 h-2 flex-1 bg-[hsl(var(--app-border))]/50 rounded-sm" />
+                        </div>
+                        {/* Page content mockup */}
+                        <div className="p-2 space-y-1.5">
+                          <div className="h-8 w-full rounded bg-[hsl(var(--app-border))]/30" />
+                          <div className="h-1.5 w-4/5 rounded bg-[hsl(var(--app-border))]/20" />
+                          <div className="h-1.5 w-3/5 rounded bg-[hsl(var(--app-border))]/20" />
+                          <div className="flex gap-1.5 pt-1">
+                            <div className="h-5 flex-1 rounded bg-[hsl(var(--app-primary))]/20 border border-[hsl(var(--app-primary))]/30" />
+                          </div>
+                        </div>
+                        {/* Exit cursor indicator */}
+                        <motion.div
+                          className="flex items-center gap-1 px-2 pb-2"
+                          animate={{ opacity: [0.5, 1, 0.5] }}
+                          transition={{ duration: 1.4, repeat: Infinity }}
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                          <span className="text-[7px] font-mono text-red-500">Exit intent detected</span>
+                        </motion.div>
+                      </motion.div>
+
+                      {/* Right: Trigger signals */}
+                      <div className="w-28 flex-shrink-0 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-2.5 flex flex-col gap-1.5">
+                        <p className="text-[7px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Signals</p>
+                        {[
+                          { label: 'Exit risk', value: 'High', color: 'text-red-500' },
+                          { label: 'Price sens.', value: 'High', color: 'text-amber-500' },
+                          { label: 'Time on page', value: '2:34', color: 'text-[hsl(var(--app-text))]' },
+                          { label: 'Cart value', value: '$129', color: 'text-[hsl(var(--app-text))]' },
+                        ].map((sig, i) => (
+                          <motion.div
+                            key={sig.label}
+                            className="flex flex-col"
+                            initial={{ opacity: 0, x: 6 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.15 + i * 0.07 }}
+                            viewport={{ once: true }}
+                          >
+                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{sig.label}</span>
+                            <span className={`text-[8px] font-mono font-semibold ${sig.color}`}>{sig.value}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Row 2: Exit-intent capture popup (hero) */}
+                    <motion.div
+                      className="rounded-xl border border-[hsl(var(--app-primary))]/40 bg-[hsl(var(--app-primary))]/5 p-3"
+                      initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ delay: 0.55, type: 'spring', stiffness: 180, damping: 20 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Popup header strip */}
+                      <div className="h-1 w-full rounded-t-sm bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] mb-2 -mx-3 -mt-3 w-[calc(100%+1.5rem)] rounded-t-xl" style={{ width: 'calc(100% + 1.5rem)', marginLeft: '-0.75rem', marginRight: '-0.75rem', marginTop: '-0.75rem', borderRadius: '0.75rem 0.75rem 0 0' }} />
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <div>
+                          <p className="text-[10px] font-mono font-bold text-[hsl(var(--app-text))] leading-tight">Wait! Complete your order</p>
+                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Get 10% off — enter email to claim</p>
+                        </div>
+                        <motion.div
+                          className="w-5 h-5 rounded-full bg-[hsl(var(--app-primary))]/15 flex items-center justify-center flex-shrink-0"
+                          animate={{ scale: [1, 1.25, 1] }}
+                          transition={{ duration: 1.6, repeat: Infinity }}
+                        >
+                          <div className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--app-primary))]" />
+                        </motion.div>
+                      </div>
+                      {/* Capture form */}
+                      <div className="flex gap-1.5 mb-2">
+                        <div className="flex-1 h-6 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] flex items-center px-2">
+                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">email or phone…</span>
+                        </div>
+                        <motion.div
+                          className="h-6 px-2.5 rounded-lg bg-[hsl(var(--app-primary))] flex items-center justify-center cursor-pointer"
+                          whileHover={{ scale: 1.03 }}
+                        >
+                          <span className="text-[8px] font-mono text-white font-bold">Claim</span>
+                        </motion.div>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                        <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">No credit card · Instant discount</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Row 3: Identity captured → profile created */}
+                    <motion.div
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.85 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Before */}
+                      <div className="flex items-center gap-1.5 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-2 py-1.5 flex-1">
+                        <div className="w-5 h-5 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center flex-shrink-0">
+                          <span className="text-[6px] text-amber-600 font-bold">?</span>
+                        </div>
+                        <div>
+                          <p className="text-[7px] font-mono font-semibold text-[hsl(var(--app-text-muted))]">Anonymous</p>
+                          <p className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/60">anon_7f3d</p>
+                        </div>
+                      </div>
+                      {/* Arrow */}
+                      <motion.div
+                        className="text-[hsl(var(--app-primary))] flex-shrink-0"
+                        animate={{ x: [0, 3, 0] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                      >
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </motion.div>
+                      {/* After */}
+                      <div className="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-2 py-1.5 flex-1">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-2.5 h-2.5 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-[7px] font-mono font-semibold text-emerald-600">Identified</p>
+                          <p className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/60">sarah@…</p>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Row 4: Recovery flow triggered */}
+                    <motion.div
+                      className="flex items-center gap-1.5"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 1.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] flex-shrink-0">Recovery:</span>
+                      {[
+                        { label: 'Email ✓', color: 'bg-blue-500/10 border-blue-500/30 text-blue-600' },
+                        { label: 'SMS ✓', color: 'bg-purple-500/10 border-purple-500/30 text-purple-600' },
+                        { label: 'Retarget ✓', color: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-600' },
+                      ].map((pill, i) => (
+                        <motion.span
+                          key={pill.label}
+                          className={`text-[7px] font-mono rounded-full border px-1.5 py-0.5 ${pill.color}`}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 1.15 + i * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          {pill.label}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+
+                  </motion.div>
                 ) : feature.title === 'Cart & Browse Recovery' ? (
                   // Special cart & browse recovery visualization
                   <div className="relative h-[300px] md:h-[600px] overflow-visible">
@@ -1818,1031 +1649,444 @@ export default function CustomerActivation() {
                     </svg>
                   </div>
                 ) : feature.title === 'Mobile & Social Continuity' ? (
-                  // Special mobile & social continuity visualization
-                  <div className="relative h-[300px] md:h-[600px] overflow-visible">
-                    {/* Main container background */}
-                    <motion.div
-                      className="absolute inset-4 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    >
-                      <div className="absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                    </motion.div>
-
-                    {/* QR Code Entry Point (Top Left) */}
-                    <motion.div
-                      className="absolute top-4 left-8 md:left-12 w-36 h-28 md:w-44 md:h-36 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: -5 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 p-3">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">QR Code Scan</div>
-                        </div>
-
-                        {/* QR Code mockup */}
-                        <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] rounded p-1">
-                          <div className="w-full h-full bg-[hsl(var(--app-text))] rounded-sm relative overflow-hidden">
-                            {/* QR pattern grid */}
-                            <div className="absolute inset-1 grid grid-cols-6 gap-[1px]">
-                              {Array.from({ length: 36 }).map((_, i) => (
-                                <motion.div
-                                  key={i}
-                                  className={`${Math.random() > 0.5 ? 'bg-white' : 'bg-transparent'} rounded-[0.5px]`}
-                                  initial={{ opacity: 0 }}
-                                  whileInView={{ opacity: 1 }}
-                                  transition={{ duration: 0.1, delay: i * 0.02 }}
-                                  viewport={{ once: true }}
-                                />
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Scan Success</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-primary))]">97%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Context Kept</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-secondary))]">100%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Social Media Links (Top Right) */}
-                    <motion.div
-                      className="absolute top-2 right-4 md:right-8 w-32 h-36 md:w-40 md:h-44 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: 8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 5 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/10 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[hsl(var(--app-secondary))] to-[hsl(var(--app-primary))] flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Social Links</div>
-                        </div>
-                        
-                        {/* Social post mockup */}
-                        <div className="w-full h-16 md:h-20 rounded-lg bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] p-2 mb-2">
-                          <div className="flex items-start space-x-2">
-                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))]"></div>
-                            <div className="flex-1">
-                              <div className="text-[4px] md:text-[5px] text-[hsl(var(--app-text))] mb-1">Check out this amazing deal!</div>
-                              <div className="h-6 md:h-8 bg-[hsl(var(--app-background))] rounded border border-[hsl(var(--app-primary))]/30 flex items-center justify-center">
-                                <motion.div
-                                  className="text-[3px] md:text-[4px] text-[hsl(var(--app-primary))] font-bold"
-                                  animate={{ opacity: [0.7, 1, 0.7] }}
-                                  transition={{ duration: 2, repeat: Infinity }}
-                                >
-                                  Shop Now →
-                                </motion.div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Click Rate</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-secondary))]">12.4%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Context Loss</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-primary))]">0%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Platform Transition (Bottom Left) */}
-                    <motion.div
-                      className="absolute bottom-8 left-4 md:left-8 w-40 h-36 md:w-48 md:h-40 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: -8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -2 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Platform Bridge</div>
-                        </div>
-
-                        {/* Platform transition visualization */}
-                        <div className="flex items-center justify-center space-x-3 mb-3">
-                          {/* Source platform */}
-                          <div className="flex flex-col items-center">
-                            <div className="w-8 h-10 md:w-10 md:h-12 rounded bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] relative overflow-hidden mb-1">
-                              <div className="absolute top-1 left-1 right-1 h-2 bg-gradient-to-r from-[hsl(var(--app-secondary))]/20 to-[hsl(var(--app-primary))]/20 rounded flex items-center justify-center">
-                                <div className="text-[3px] md:text-[4px] text-[hsl(var(--app-text))]">Web</div>
-                              </div>
-                              <div className="absolute bottom-1 left-1 right-1 top-4 bg-[hsl(var(--app-background))] rounded border border-[hsl(var(--app-border))] flex items-center justify-center">
-                                <div className="w-3 h-2 bg-[hsl(var(--app-secondary))]/40 rounded"></div>
-                              </div>
-                            </div>
-                            <div className="text-[4px] md:text-[5px] text-[hsl(var(--app-text-muted))]">Social</div>
-                          </div>
-
-                          {/* Continuity arrow */}
-                          <motion.div
-                            className="flex flex-col items-center"
-                            animate={{ x: [0, 2, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            <svg width="12" height="8" viewBox="0 0 12 8" className="text-[hsl(var(--app-primary))]">
-                              <path d="M0 4L10 4M8 2L10 4L8 6" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                            </svg>
-                            <div className="text-[3px] md:text-[4px] text-[hsl(var(--app-text-muted))] mt-1">Context</div>
-                          </motion.div>
-
-                          {/* Destination platform */}
-                          <div className="flex flex-col items-center">
-                            <div className="w-8 h-10 md:w-10 md:h-12 rounded bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] relative overflow-hidden mb-1">
-                              <div className="absolute top-1 left-1 right-1 h-2 bg-gradient-to-r from-[hsl(var(--app-primary))]/30 to-[hsl(var(--app-secondary))]/30 rounded flex items-center justify-center">
-                                <div className="text-[3px] md:text-[4px] text-[hsl(var(--app-text))]">App</div>
-                              </div>
-                              <div className="absolute bottom-1 left-1 right-1 top-4 bg-[hsl(var(--app-background))] rounded border border-[hsl(var(--app-border))] flex items-center justify-center">
-                                <motion.div
-                                  className="w-3 h-2 bg-[hsl(var(--app-primary))] rounded"
-                                  animate={{ opacity: [0.6, 1, 0.6] }}
-                                  transition={{ duration: 2, repeat: Infinity }}
-                                />
-                              </div>
-                            </div>
-                            <div className="text-[4px] md:text-[5px] text-[hsl(var(--app-text-muted))]">Mobile</div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Seamless Rate</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-primary))]">94%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Load Time</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-secondary))]">0.8s</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Checkout Completion (Bottom Right) */}
-                    <motion.div
-                      className="absolute bottom-4 right-8 md:right-12 w-36 h-32 md:w-44 md:h-36 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: 12 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/5 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded bg-gradient-to-r from-[hsl(var(--app-secondary))] to-[hsl(var(--app-primary))] flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Checkout Flow</div>
-                        </div>
-
-                        {/* Checkout progress steps */}
-                        <div className="space-y-2 mb-3">
+                  // Clean flex-column layout for Mobile & Social Continuity
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Entry Points + Context Carried panel side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Entry Points panel */}
+                      <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Entry Points</p>
+                        <div className="space-y-2">
                           {[
-                            { label: 'Cart', progress: 100, delay: 0.5 },
-                            { label: 'Info', progress: 85, delay: 1 },
-                            { label: 'Payment', progress: 60, delay: 1.5 }
-                          ].map((step, idx) => (
-                            <div key={step.label} className="flex items-center space-x-2">
-                              <motion.div
-                                className="w-2 h-2 rounded-full"
-                                style={{ 
-                                  backgroundColor: step.progress === 100 ? 'hsl(var(--app-primary))' : 
-                                                 step.progress > 50 ? 'hsl(var(--app-secondary))' : 
-                                                 'hsl(var(--app-text-muted))'
-                                }}
-                                animate={{ 
-                                  scale: [1, 1.2, 1],
-                                  opacity: step.progress === 100 ? [0.8, 1, 0.8] : 1
-                                }}
-                                transition={{ 
-                                  duration: 2, 
-                                  repeat: step.progress === 100 ? Infinity : 0,
-                                  delay: idx * 0.3 
-                                }}
-                              />
-                              <div className="flex-1 h-1 bg-[hsl(var(--app-background))] rounded border border-[hsl(var(--app-border))] relative overflow-hidden">
+                            { label: 'Instagram Story', icon: '📸', color: 'bg-pink-500', textColor: 'text-pink-500', val: 'Tapped' },
+                            { label: 'QR Code Scan', icon: '📷', color: 'bg-purple-500', textColor: 'text-purple-500', val: 'Scanned' },
+                            { label: 'External Link', icon: '🔗', color: 'bg-blue-500', textColor: 'text-blue-500', val: 'Clicked' },
+                          ].map((entry, i) => (
+                            <div key={entry.label} className="flex items-center justify-between">
+                              <div className="flex items-center gap-1.5">
                                 <motion.div
-                                  className="absolute inset-0 rounded"
-                                  style={{
-                                    backgroundColor: step.progress === 100 ? 'hsl(var(--app-primary))' :
-                                                    step.progress > 50 ? 'hsl(var(--app-secondary))' :
-                                                    'hsl(var(--app-text-muted))'
-                                  }}
-                                  initial={{ width: '0%', opacity: 0.3 }}
-                                  whileInView={{ width: `${step.progress}%`, opacity: 0.6 }}
-                                  transition={{ duration: 1.5, delay: step.delay }}
+                                  className={`w-1.5 h-1.5 rounded-full ${entry.color}`}
+                                  animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                                  transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
                                 />
+                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{entry.label}</span>
                               </div>
-                              <span className="text-[4px] md:text-[5px] text-[hsl(var(--app-text-muted))] w-6">{step.label}</span>
+                              <span className={`text-[8px] font-mono font-semibold ${entry.textColor}`}>{entry.val}</span>
                             </div>
                           ))}
                         </div>
+                      </div>
 
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Completion</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-primary))]">87%</span>
+                      {/* Context Preserved stats */}
+                      <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Context</p>
+                        <div className="space-y-2.5">
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Kept</p>
+                            <p className="text-base font-mono font-bold text-emerald-500 leading-none">100%</p>
                           </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Drop-off</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-[hsl(var(--app-secondary))]">13%</span>
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Drop-off</p>
+                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">−68%</p>
+                          </div>
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Load</p>
+                            <p className="text-base font-mono font-bold text-purple-500 leading-none">0.8s</p>
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Central Continuity Hub */}
-                    <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                      <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
-                          Context Continuity
-                        </div>
+                    {/* Row 2: Stitching indicator */}
+                    <div className="flex items-center justify-center">
+                      <motion.div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 border border-purple-200"
+                        animate={{ opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
                         <motion.div
-                          className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-gradient-to-br from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5, delay: 1.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <div className="text-black font-mono font-bold text-xs md:text-sm" style={{marginLeft: '10px'}}>LINK</div>
+                          className="w-2 h-2 rounded-full bg-purple-500"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.2, repeat: Infinity }}
+                        />
+                        <span className="text-[9px] font-mono text-purple-700 font-semibold">Stitching context across channels…</span>
+                      </motion.div>
+                    </div>
+
+                    {/* Row 3: PDP Continuity Hero Card */}
+                    <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
+                      <div className="flex items-start justify-between mb-2.5">
+                        <div>
+                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Product Page</p>
+                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">Trail Runner Pro — Size 10 (pre-selected)</p>
+                        </div>
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Context kept</span>
+                        </div>
+                      </div>
+                      {/* Context badges */}
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {[
+                          { label: 'From Instagram', cls: 'bg-pink-100 text-pink-700 border-pink-200' },
+                          { label: 'Cart pre-filled', cls: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+                          { label: 'No re-auth', cls: 'bg-blue-100 text-blue-700 border-blue-200' },
+                          { label: 'Offer applied', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
+                        ].map((badge) => (
+                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                            {badge.label}
+                          </span>
+                        ))}
+                      </div>
+                      {/* Checkout readiness bar */}
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Checkout Readiness</span>
+                          <span className="text-[8px] font-mono font-bold text-emerald-500">Ready</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
                           <motion.div
-                            className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_40%,_rgba(255,255,255,0.2)_50%,_transparent_60%)]"
-                            animate={{ x: [-100, 100] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                            className="h-full rounded-full bg-gradient-to-r from-purple-500 to-emerald-500"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '100%' }}
+                            transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
+                            viewport={{ once: true }}
                           />
-                        </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
-                          Seamless Journey
                         </div>
                       </div>
                     </div>
 
-                    {/* Continuity Flow Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" style={{ overflow: 'visible' }}>
-                      <defs>
-                        <linearGradient id="continuityGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.4" />
-                        </linearGradient>
-                        <linearGradient id="continuityGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.4" />
-                        </linearGradient>
-                        <mask id={`continuityCenterMask-${index}`}>
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <circle cx="300" cy="300" r="64" fill="black" />
-                        </mask>
-                        <marker id="continuityArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-                          <path d="M0 0 L0 6 L8 3 z" fill="hsl(var(--app-primary))" opacity="0.7"/>
-                        </marker>
-                      </defs>
-                      <g mask={`url(#continuityCenterMask-${index})`}>
-                        <motion.path
-                          d="M150 80 Q220 150 280 240"
-                          stroke="url(#continuityGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M440 100 Q370 170 320 240"
-                          stroke="url(#continuityGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.7 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M180 450 Q240 380 280 340"
-                          stroke="url(#continuityGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.9 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M440 420 Q370 360 320 340"
-                          stroke="url(#continuityGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 1.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                ) : feature.title === 'Auto‑Experimentation' ? (
-                  // Special auto-experimentation flywheel layout
-                  <div className="relative h-[300px] md:h-[600px] overflow-visible">
-                    {/* Main container background */}
-                    <motion.div
-                      className="absolute inset-4 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    >
-                      <div className="absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                    </motion.div>
-
-                    {/* TEST Phase (Top Right) */}
-                    <motion.div
-                      className="absolute top-8 right-8 md:top-12 md:right-12 w-32 h-24 md:w-40 md:h-32 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: -3 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -1 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-br from-purple-500/10 to-violet-500/10 p-3">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-4 h-4 rounded-lg bg-gradient-to-r from-purple-500 to-violet-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">TEST</div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Variants</span>
-                            <motion.span 
-                              className="text-[8px] md:text-[10px] font-bold text-purple-500"
-                              animate={{ opacity: [0.7, 1, 0.7] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            >A/B/C</motion.span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Traffic</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-violet-500">20%</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Confidence</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-purple-600">94%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* LEARN Phase (Bottom Right) */}
-                    <motion.div
-                      className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-36 h-28 md:w-44 md:h-36 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, x: 20, rotate: 8 }}
-                      whileInView={{ opacity: 1, x: 0, rotate: 3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">LEARN</div>
-                        </div>
-                        
-                        {/* Learning analytics visualization */}
-                        <div className="w-full h-16 md:h-20 rounded-lg bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] relative overflow-hidden mb-2">
-                          <div className="absolute inset-2 grid grid-cols-3 gap-1">
-                            <motion.div 
-                              className="bg-emerald-500/20 rounded"
-                              animate={{ height: ['40%', '80%', '60%'] }}
-                              transition={{ duration: 3, repeat: Infinity }}
-                            />
-                            <motion.div 
-                              className="bg-teal-500/20 rounded"
-                              animate={{ height: ['60%', '40%', '90%'] }}
-                              transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                            />
-                            <motion.div 
-                              className="bg-emerald-600/20 rounded"
-                              animate={{ height: ['80%', '60%', '40%'] }}
-                              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Winner</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">Variant B</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Lift</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-teal-500">+12.4%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* DEPLOY Phase (Bottom Left) */}
-                    <motion.div
-                      className="absolute bottom-8 left-8 md:bottom-12 md:left-12 w-40 h-32 md:w-48 md:h-36 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: -5 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -1 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-orange-500/10 to-amber-500/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">DEPLOY</div>
-                        </div>
-
-                        {/* Deployment progress visualization */}
-                        <div className="flex items-center justify-center mb-3">
-                          <div className="flex items-center space-x-2">
-                            <motion.div 
-                              className="w-6 h-6 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center"
-                              animate={{ scale: [1, 1.1, 1] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            >
-                              <div className="w-2 h-2 bg-orange-500 rounded-sm"></div>
-                            </motion.div>
-                            <motion.div 
-                              className="w-8 h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
-                            />
-                            <motion.div 
-                              className="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center"
-                              animate={{ scale: [1, 1.1, 1] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
-                            >
-                              <div className="w-2 h-2 bg-amber-500 rounded-sm"></div>
-                            </motion.div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Status</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">Live</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Traffic</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-orange-500">100%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Revenue Impact</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-amber-500">+$2.4K</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* IMPROVE Phase (Top Left) */}
-                    <motion.div
-                      className="absolute top-8 left-8 md:top-12 md:left-12 w-36 h-36 md:w-44 md:h-40 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, x: -20, rotate: -8 }}
-                      whileInView={{ opacity: 1, x: 0, rotate: -3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">IMPROVE</div>
-                        </div>
-
-                        {/* Improvement cycle visualization */}
-                        <div className="flex items-center justify-center mb-3">
-                          <motion.div
-                            className="relative w-16 h-16"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                          >
-                            <div className="absolute inset-0 rounded-full border-2 border-blue-500/20 border-dashed"></div>
-                            <motion.div 
-                              className="absolute top-0 left-1/2 w-2 h-2 bg-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1"
-                              animate={{ scale: [1, 1.5, 1] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                            <motion.div 
-                              className="absolute right-0 top-1/2 w-2 h-2 bg-cyan-500 rounded-full transform translate-x-1 -translate-y-1/2"
-                              animate={{ scale: [1, 1.5, 1] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                            />
-                            <motion.div 
-                              className="absolute bottom-0 left-1/2 w-2 h-2 bg-blue-600 rounded-full transform -translate-x-1/2 translate-y-1"
-                              animate={{ scale: [1, 1.5, 1] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                            />
-                            <motion.div 
-                              className="absolute left-0 top-1/2 w-2 h-2 bg-cyan-600 rounded-full transform -translate-x-1 -translate-y-1/2"
-                              animate={{ scale: [1, 1.5, 1] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-                            />
-                          </motion.div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Next Test</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-blue-500">Ready</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Hypothesis</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-cyan-500">CTA Color</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Auto Queue</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-blue-600">3 Tests</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Cycle Time</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-cyan-600">2.3 days</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Central AI Engine */}
-                    <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                      <div className="text-center">
-                      <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3" style={{marginLeft: '30px'}}>
-                          Auto-Experimentation Engine
-                        </div>
-                        <motion.div
-                          className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-[hsl(var(--app-card))] border-2 border-[hsl(var(--app-border))] overflow-hidden" style={{ boxShadow: '0 0 15px rgba(0,0,0,0.1)', marginLeft: '60px' }}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5, delay: 1.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <motion.div
-                            className="w-full h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/20 to-[hsl(var(--app-secondary))]/20 flex items-center justify-center relative"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                          >
-                            <div className="text-center relative z-10">
-                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">CONVERTIVE</div>
-                              <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-1">AI Engine</div>
-                            </div>
-                            {/* Orbiting dots */}
-                            <motion.div 
-                              className="absolute top-2 left-1/2 w-1.5 h-1.5 bg-[hsl(var(--app-primary))] rounded-full transform -translate-x-1/2"
-                              animate={{ rotate: -360 }}
-                              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            />
-                            <motion.div 
-                              className="absolute bottom-2 left-1/2 w-1.5 h-1.5 bg-[hsl(var(--app-secondary))] rounded-full transform -translate-x-1/2"
-                              animate={{ rotate: -360 }}
-                              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            />
-                          </motion.div>
-                        </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2" style={{marginLeft: '20px'}}>
-                          Always-On Learning
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Flywheel Connection Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden md:block" style={{ overflow: 'visible' }}>
-                      <defs>
-                        <linearGradient id="flywheelGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <linearGradient id="flywheelGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <mask id={`flywheelMask-${index}`}>
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <circle cx="300" cy="300" r="64" fill="black" />
-                        </mask>
-                        <marker id="flywheelArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-                          <path d="M0 0 L0 6 L8 3 z" fill="hsl(var(--app-primary))" opacity="0.7"/>
-                        </marker>
-                      </defs>
-                      <g mask={`url(#flywheelMask-${index})`}>
-                        {/* IMPROVE (top-left) to TEST (top-right) */}
-                        <motion.path
-                          d="M 220 120 Q 300 90 380 120"
-                          stroke="url(#flywheelGradient1)"
-                          strokeWidth="3"
-                          fill="none"
-                          strokeDasharray="6 4"
-                          markerEnd="url(#flywheelArrow)"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.8 }}
-                          transition={{ duration: 2, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        />
-                        {/* TEST (top-right) to LEARN (bottom-right) */}
-                        <motion.path
-                          d="M 480 160 Q 520 300 480 440"
-                          stroke="url(#flywheelGradient2)"
-                          strokeWidth="3"
-                          fill="none"
-                          strokeDasharray="6 4"
-                          markerEnd="url(#flywheelArrow)"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.8 }}
-                          transition={{ duration: 2, delay: 0.7 }}
-                          viewport={{ once: true }}
-                        />
-                        {/* LEARN (bottom-right) to DEPLOY (bottom-left) */}
-                        <motion.path
-                          d="M 380 480 Q 300 510 220 480"
-                          stroke="url(#flywheelGradient1)"
-                          strokeWidth="3"
-                          fill="none"
-                          strokeDasharray="6 4"
-                          markerEnd="url(#flywheelArrow)"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.8 }}
-                          transition={{ duration: 2, delay: 0.9 }}
-                          viewport={{ once: true }}
-                        />
-                        {/* DEPLOY (bottom-left) to IMPROVE (top-left) */}
-                        <motion.path
-                          d="M 120 440 Q 80 300 120 160"
-                          stroke="url(#flywheelGradient2)"
-                          strokeWidth="3"
-                          fill="none"
-                          strokeDasharray="6 4"
-                          markerEnd="url(#flywheelArrow)"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.8 }}
-                          transition={{ duration: 2, delay: 1.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                ) : feature.title === 'Command Center' ? (
-                  // Special command center dashboard layout
-                  <div className="relative h-[300px] md:h-[600px] overflow-visible">
-                    {/* Main container background */}
-                    <motion.div
-                      className="absolute inset-4 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    >
-                      <div className="absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                    </motion.div>
-
-                    {/* Checkout Module (Top Left) */}
-                    <motion.div
-                      className="absolute top-4 left-8 md:left-12 w-32 h-24 md:w-40 md:h-32 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: -5 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 p-3">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-4 h-4 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Checkout</div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">CVR</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-blue-500">4.2%</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Sessions</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-cyan-500">8.4K</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Revenue</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">$47.2K</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Analytics Module (Top Right) */}
-                    <motion.div
-                      className="absolute top-2 right-4 md:right-8 w-36 h-28 md:w-44 md:h-36 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: -20, rotate: 8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 5 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/10 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Analytics</div>
-                        </div>
-                        
-                        {/* Mini chart visualization */}
-                        <div className="w-full h-16 md:h-20 rounded-lg bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] relative overflow-hidden mb-2">
-                          <svg className="w-full h-full p-2 hidden md:block" viewBox="0 0 100 40">
-                            <defs>
-                              <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
-                                <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.4" />
-                              </linearGradient>
-                            </defs>
-                            <motion.polyline
-                              points="5,30 20,25 35,15 50,12 65,10 80,12 95,8"
-                              fill="none"
-                              stroke="url(#chartGrad)"
-                              strokeWidth="2"
-                              initial={{ pathLength: 0 }}
-                              whileInView={{ pathLength: 1 }}
-                              transition={{ duration: 1.5, delay: 0.5 }}
-                              viewport={{ once: true }}
-                            />
-                            <polygon
-                              points="5,40 5,30 20,25 35,15 50,12 65,10 80,12 95,8 95,40"
-                              fill="url(#chartGrad)"
-                              opacity="0.2"
-                            />
-                          </svg>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">LTV</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">+47%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">CAC</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-green-500">-18%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Journeys Module (Bottom Left) */}
-                    <motion.div
-                      className="absolute bottom-8 left-4 md:left-8 w-40 h-32 md:w-48 md:h-36 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: -8 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: -2 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-violet-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Journeys</div>
-                        </div>
-
-                        {/* Journey flow visualization */}
-                        <div className="flex items-center justify-center mb-3">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 rounded-full bg-purple-500/80 flex items-center justify-center">
-                              <div className="w-2 h-2 bg-white rounded-full"></div>
-                            </div>
-                            <motion.div 
-                              className="w-4 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500"
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                            <div className="w-4 h-4 rounded-sm bg-violet-500/80 flex items-center justify-center">
-                              <div className="w-2 h-2 bg-white rounded-sm"></div>
-                            </div>
-                            <motion.div 
-                              className="w-4 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500"
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                            />
-                            <div className="w-4 h-4 rounded bg-purple-500/80 flex items-center justify-center">
-                              <div className="w-2 h-2 bg-white rounded"></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Active</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-purple-500">24</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Optimizing</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-violet-500">3</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Recovery Rate</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">31.2%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Notifications & Marketing Module (Bottom Right) */}
-                    <motion.div
-                      className="absolute bottom-4 right-8 md:right-12 w-36 h-36 md:w-44 md:h-40 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] shadow-lg overflow-hidden z-10"
-                      initial={{ opacity: 0, y: 20, rotate: 12 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-                      whileHover={{ rotate: 0, scale: 1.05, z: 20 }}
-                      transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="p-3 h-full bg-gradient-to-br from-[hsl(var(--app-secondary))]/5 to-[hsl(var(--app-primary))]/10">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="w-4 h-4 rounded bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded"></div>
-                          </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Messages</div>
-                        </div>
-
-                        {/* Message channels visualization */}
-                        <div className="flex items-center justify-center mb-3">
-                          <div className="grid grid-cols-2 gap-2">
-                            <motion.div
-                              className="w-8 h-6 rounded-sm bg-orange-500/20 border border-orange-500/30 flex items-center justify-center"
-                              animate={{ opacity: [0.7, 1, 0.7] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            >
-                              <div className="text-[6px] text-orange-600 font-bold">📧</div>
-                            </motion.div>
-                            <motion.div
-                              className="w-8 h-6 rounded-sm bg-amber-500/20 border border-amber-500/30 flex items-center justify-center"
-                              animate={{ opacity: [0.7, 1, 0.7] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                            >
-                              <div className="text-[6px] text-amber-600 font-bold">📱</div>
-                            </motion.div>
-                            <motion.div
-                              className="w-8 h-6 rounded-sm bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center"
-                              animate={{ opacity: [0.7, 1, 0.7] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
-                            >
-                              <div className="text-[6px] text-yellow-600 font-bold">🔔</div>
-                            </motion.div>
-                            <motion.div
-                              className="w-8 h-6 rounded-sm bg-red-500/20 border border-red-500/30 flex items-center justify-center"
-                              animate={{ opacity: [0.7, 1, 0.7] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: 0.9 }}
-                            >
-                              <div className="text-[6px] text-red-600 font-bold">📣</div>
-                            </motion.div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Sent Today</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-orange-500">12.4K</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Delivered</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-amber-500">94%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">Campaigns</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-yellow-500">5 Live</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[6px] md:text-[8px] text-[hsl(var(--app-text-muted))]">ROAS</span>
-                            <span className="text-[8px] md:text-[10px] font-bold text-emerald-500">4.2x</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Central Command Hub */}
-                    <div className="absolute z-30 pointer-events-none" style={{ left: '55%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                      <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3" style={{ marginRight: '30px' }}>
-                          Command Center
-                        </div>
-                        <motion.div
-                          className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[hsl(var(--app-card))] border-2 border-[hsl(var(--app-border))] overflow-hidden" style={{marginLeft: '6px'}}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5, delay: 1.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <div className="w-full h-full bg-gradient-to-br from-[hsl(var(--app-primary))]/20 to-[hsl(var(--app-secondary))]/20 flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="text-[hsl(var(--app-text))] font-mono text-sm md:text-base font-bold">CONVERTIVE</div>
+                    {/* Row 4: Journey timeline */}
+                    <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5">
+                      <div className="flex items-center justify-between gap-1">
+                        {[
+                          { label: 'Instagram', color: 'bg-pink-500', done: true },
+                          { label: 'QR Scan', color: 'bg-purple-500', done: true },
+                          { label: 'PDP', color: 'bg-blue-500', done: true },
+                          { label: 'Checkout', color: 'bg-emerald-500', done: false },
+                        ].map((step, i) => (
+                          <React.Fragment key={step.label}>
+                            <div className="flex flex-col items-center gap-0.5">
                               <motion.div
-                                className="w-12 h-1 md:w-16 md:h-1 bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] rounded-full mx-auto mt-1"
-                                animate={{ opacity: [0.5, 1, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                                className={`w-2 h-2 rounded-full ${step.color}`}
+                                animate={step.done ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
                               />
-                              <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-1">Control Hub</div>
+                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] whitespace-nowrap">{step.label}</span>
                             </div>
+                            {i < 3 && (
+                              <motion.div
+                                className="flex-1 h-px bg-gradient-to-r from-[hsl(var(--app-primary))]/40 to-[hsl(var(--app-primary))]/10 mb-2.5"
+                                initial={{ scaleX: 0, originX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                transition={{ duration: 0.5, delay: 0.2 + i * 0.2 }}
+                                viewport={{ once: true }}
+                              />
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : feature.title === 'Auto‑Experimentation' ? (
+                  // Clean flex-column layout for Auto-Experimentation
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Active Tests panel + Live Results panel side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Active Tests */}
+                      <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Active Tests</p>
+                        <div className="space-y-2">
+                          {[
+                            { label: 'CTA Color', variants: 'A/B/C', traffic: '33%', color: 'bg-purple-500', textColor: 'text-purple-500' },
+                            { label: 'Headline Copy', variants: 'A/B', traffic: '50%', color: 'bg-blue-500', textColor: 'text-blue-500' },
+                            { label: 'Offer Timing', variants: 'A/B/C', traffic: '20%', color: 'bg-violet-500', textColor: 'text-violet-500' },
+                          ].map((test, i) => (
+                            <div key={test.label} className="flex items-center justify-between">
+                              <div className="flex items-center gap-1.5">
+                                <motion.div
+                                  className={`w-1.5 h-1.5 rounded-full ${test.color}`}
+                                  animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                                  transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
+                                />
+                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{test.label}</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className={`text-[8px] font-mono font-semibold ${test.textColor}`}>{test.variants}</span>
+                                <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{test.traffic}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Live Results */}
+                      <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Results</p>
+                        <div className="space-y-2.5">
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Winner</p>
+                            <p className="text-[11px] font-mono font-bold text-emerald-500 leading-none">Variant B</p>
                           </div>
-                        </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
-                          Unified Growth Platform
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">CVR Lift</p>
+                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">+12.4%</p>
+                          </div>
+                          <div>
+                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Confidence</p>
+                            <p className="text-base font-mono font-bold text-purple-500 leading-none">94%</p>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Connection Lines */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" style={{ overflow: 'visible' }}>
-                      <defs>
-                        <linearGradient id="commandGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-primary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <linearGradient id="commandGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="hsl(var(--app-secondary))" stopOpacity="0.6" />
-                          <stop offset="100%" stopColor="hsl(var(--app-primary))" stopOpacity="0.3" />
-                        </linearGradient>
-                        <mask id={`commandCenterMask-${index}`}>
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <circle cx="300" cy="300" r="64" fill="black" />
-                        </mask>
-                      </defs>
-                      <g mask={`url(#commandCenterMask-${index})`}>
-                        <motion.path
-                          d="M140 80 Q220 150 300 300"
-                          stroke="url(#commandGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.5 }}
-                          viewport={{ once: true }}
+                    {/* Row 2: AI auto-deploy indicator */}
+                    <div className="flex items-center justify-center">
+                      <motion.div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-50 border border-violet-200"
+                        animate={{ opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <motion.div
+                          className="w-2 h-2 rounded-full bg-violet-500"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <motion.path
-                          d="M460 100 Q380 200 300 300"
-                          stroke="url(#commandGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.7 }}
-                          viewport={{ once: true }}
+                        <span className="text-[9px] font-mono text-violet-700 font-semibold">AI detected winner — deploying automatically…</span>
+                      </motion.div>
+                    </div>
+
+                    {/* Row 3: Deployed Winner Hero Card */}
+                    <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
+                      <div className="flex items-start justify-between mb-2.5">
+                        <div>
+                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Deployed Winner</p>
+                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">Variant B — Blue CTA + Urgency Copy</p>
+                        </div>
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
+                          <motion.div
+                            className="w-1.5 h-1.5 rounded-full bg-emerald-500"
+                            animate={{ opacity: [1, 0.4, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Live</span>
+                        </div>
+                      </div>
+                      {/* Impact badges */}
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {[
+                          { label: '+12.4% CVR', cls: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+                          { label: '+$2.4K/day', cls: 'bg-blue-100 text-blue-700 border-blue-200' },
+                          { label: '100% Traffic', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
+                          { label: 'No analyst', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
+                        ].map((badge) => (
+                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                            {badge.label}
+                          </span>
+                        ))}
+                      </div>
+                      {/* Revenue impact bar */}
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Revenue Impact</span>
+                          <span className="text-[8px] font-mono font-bold text-emerald-500">+$2.4K/day</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full bg-gradient-to-r from-violet-500 to-emerald-500"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '78%' }}
+                            transition={{ duration: 1.4, delay: 0.3, ease: 'easeOut' }}
+                            viewport={{ once: true }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Row 4: Flywheel status bar */}
+                    <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5">
+                      <div className="flex items-center justify-between gap-1">
+                        {[
+                          { label: 'Test', color: 'bg-purple-500', done: true },
+                          { label: 'Learn', color: 'bg-blue-500', done: true },
+                          { label: 'Deploy', color: 'bg-emerald-500', done: true },
+                          { label: 'Improve', color: 'bg-violet-500', done: false },
+                        ].map((phase, i) => (
+                          <React.Fragment key={phase.label}>
+                            <div className="flex flex-col items-center gap-0.5">
+                              <motion.div
+                                className={`w-2 h-2 rounded-full ${phase.color}`}
+                                animate={phase.done ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
+                              />
+                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{phase.label}</span>
+                            </div>
+                            {i < 3 && (
+                              <motion.div
+                                className="flex-1 h-px bg-gradient-to-r from-[hsl(var(--app-primary))]/40 to-[hsl(var(--app-primary))]/10 mb-2.5"
+                                initial={{ scaleX: 0, originX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                transition={{ duration: 0.4, delay: 0.2 + i * 0.15 }}
+                                viewport={{ once: true }}
+                              />
+                            )}
+                          </React.Fragment>
+                        ))}
+                        <span className="text-[8px] font-mono font-semibold text-violet-500 ml-1">Always-On</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : feature.title === 'Command Center' ? (
+                  // Clean flex-column layout for Command Center
+                  <motion.div
+                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    {/* Row 1: Live KPIs panel + Alerts panel side by side */}
+                    <div className="flex gap-3 items-stretch">
+                      {/* Live KPIs */}
+                      <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Live KPIs</p>
+                        <div className="space-y-2">
+                          {[
+                            { label: 'Revenue Today', val: '$48.2K', color: 'bg-emerald-500', textColor: 'text-emerald-500' },
+                            { label: 'Active Sessions', val: '2,847', color: 'bg-blue-500', textColor: 'text-blue-500' },
+                            { label: 'CVR', val: '4.7%', color: 'bg-purple-500', textColor: 'text-purple-500' },
+                            { label: 'ROAS', val: '6.2x', color: 'bg-amber-500', textColor: 'text-amber-500' },
+                          ].map((kpi, i) => (
+                            <div key={kpi.label} className="flex items-center justify-between">
+                              <div className="flex items-center gap-1.5">
+                                <motion.div
+                                  className={`w-1.5 h-1.5 rounded-full ${kpi.color}`}
+                                  animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                                  transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.35 }}
+                                />
+                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{kpi.label}</span>
+                              </div>
+                              <span className={`text-[9px] font-mono font-bold ${kpi.textColor}`}>{kpi.val}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Smart Alerts */}
+                      <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col gap-2">
+                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Alerts</p>
+                        {[
+                          { msg: 'Journey live', color: 'bg-emerald-500', dot: 'text-emerald-600' },
+                          { msg: 'Test winner', color: 'bg-blue-500', dot: 'text-blue-600' },
+                          { msg: 'ROAS spike', color: 'bg-purple-500', dot: 'text-purple-600' },
+                        ].map((alert, i) => (
+                          <motion.div
+                            key={alert.msg}
+                            className="flex items-center gap-1.5 px-1.5 py-1 rounded-lg bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))]"
+                            initial={{ opacity: 0, x: 8 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + i * 0.2 }}
+                            viewport={{ once: true }}
+                          >
+                            <div className={`w-1.5 h-1.5 rounded-full ${alert.color} flex-shrink-0`} />
+                            <span className="text-[7px] font-mono text-[hsl(var(--app-text))]">{alert.msg}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Row 2: Unified control indicator */}
+                    <div className="flex items-center justify-center">
+                      <motion.div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200"
+                        animate={{ opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <motion.div
+                          className="w-2 h-2 rounded-full bg-blue-500"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <motion.path
-                          d="M200 450 Q250 375 300 300"
-                          stroke="url(#commandGradient1)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 0.9 }}
-                          viewport={{ once: true }}
-                        />
-                        <motion.path
-                          d="M460 420 Q380 360 300 300"
-                          stroke="url(#commandGradient2)"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="4 3"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 0.7 }}
-                          transition={{ duration: 2, delay: 1.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </g>
-                    </svg>
-                  </div>
+                        <span className="text-[9px] font-mono text-blue-700 font-semibold">All channels unified in one place</span>
+                      </motion.div>
+                    </div>
+
+                    {/* Row 3: Unified Dashboard Hero Card */}
+                    <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
+                      <div className="flex items-start justify-between mb-2.5">
+                        <div>
+                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Convertive Command Center</p>
+                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">No more dashboard sprawl — one view</p>
+                        </div>
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
+                          <motion.div
+                            className="w-1.5 h-1.5 rounded-full bg-emerald-500"
+                            animate={{ opacity: [1, 0.4, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">All Live</span>
+                        </div>
+                      </div>
+                      {/* Module badges */}
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {[
+                          { label: 'Journeys', cls: 'bg-blue-100 text-blue-700 border-blue-200' },
+                          { label: 'Analytics', cls: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+                          { label: 'Checkout', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
+                          { label: 'Notifications', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
+                          { label: 'Experiments', cls: 'bg-pink-100 text-pink-700 border-pink-200' },
+                        ].map((badge) => (
+                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                            {badge.label}
+                          </span>
+                        ))}
+                      </div>
+                      {/* Stack consolidation bar */}
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Tools Replaced</span>
+                          <span className="text-[8px] font-mono font-bold text-[hsl(var(--app-primary))]">7 tools → 1</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--app-primary))] to-emerald-500"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '85%' }}
+                            transition={{ duration: 1.4, delay: 0.3, ease: 'easeOut' }}
+                            viewport={{ once: true }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Row 4: Module status bar */}
+                    <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5 flex items-center justify-between">
+                      <span className="text-[9px] font-mono font-semibold text-[hsl(var(--app-text))]">Growth Control Center</span>
+                      <div className="flex items-center gap-3">
+                        {[
+                          { label: 'Data', color: 'bg-emerald-500' },
+                          { label: 'AI', color: 'bg-blue-500' },
+                          { label: 'Ops', color: 'bg-purple-500' },
+                        ].map((mod, i) => (
+                          <div key={mod.label} className="flex items-center gap-1">
+                            <motion.div
+                              className={`w-1.5 h-1.5 rounded-full ${mod.color}`}
+                              animate={{ opacity: [1, 0.4, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
+                            />
+                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{mod.label}</span>
+                          </div>
+                        ))}
+                        <span className="text-[8px] font-mono font-semibold text-emerald-500">Online</span>
+                      </div>
+                    </div>
+                  </motion.div>
                 ) : ('image' in feature && (feature as any).image) || ('video' in feature && (feature as any).video) ? (
                   // Full image/video display without aspect ratio constraints
                     <motion.div

@@ -5,14 +5,17 @@ import { motion } from 'framer-motion'
 export default function Storylines() {
   const stories = [
     {
-      title: 'Exit‑Intent Recovery',
-      persona: 'Headphones shopper',
+      title: 'Anonymous to Customer in 47 Seconds',
+      persona: 'Real-time conversion',
       steps: [
-        'Pause + scroll at checkout → detect exit intent',
-        'Personal popup (10% + free shipping)',
-        'Capture identity → SMS/email follow‑up in minutes'
+        '0:00 - Sarah lands from Instagram (anonymous)',
+        '0:15 - Browses hiking boots, adds $129 item to cart',
+        '0:32 - AI detects: high intent + price sensitivity + exit risk',
+        '0:33 - Shows: "Complete order + get 10% off today only"',
+        '0:38 - Sarah enters email for discount',
+        '0:47 - Purchase complete ($116.10 captured revenue)'
       ],
-      outcome: 'Recover ~15–28% of abandoners'
+      outcome: 'Anonymous visitor → Known customer → Sale in <1 minute'
     },
     {
       title: 'Autonomous Product Promotion',

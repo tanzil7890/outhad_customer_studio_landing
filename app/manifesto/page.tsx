@@ -117,48 +117,6 @@ export default function ManifestoPage() {
             </p>
           </div>
 
-          {/* Why This Works */}
-          <div className="pt-12 border-t border-[hsl(var(--app-border))]">
-            <h3 className="text-xl text-[hsl(var(--app-text))] font-semibold mb-6 font-title">Why This Works</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Rallies Emotion & Clarity</h4>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
-                  It starts with a bold claim and anchors the brand in the philosophy that real-time behavior matters.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Speaks in Real-Time</h4>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
-                  The focus on "live," "real time," and "session-aware" ties back to your key differentiator—acting within the moment.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Human Touch</h4>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
-                  Phrases like "we believe" and "listening to signals" give warmth and intention.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Emphasizes Impact</h4>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
-                  It clearly states the benefits—conversion, personalization, lean tech stack.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-[hsl(var(--app-text))] font-semibold mb-2 font-title">Aligned with Strategy</h4>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono">
-                  Reinforces your value props of autonomous experimentation, unified profiles, cart/session rescue, and omnichannel consistency.
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

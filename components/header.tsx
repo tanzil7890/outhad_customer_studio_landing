@@ -75,138 +75,136 @@ export default function Header() {
                 </svg>
               </button>
               
-              {/* Products Dropdown */}
-              <div className={`absolute top-full left-0 mt-2 w-[960px] bg-[hsl(var(--app-background))] border border-[hsl(var(--app-border))] rounded-lg shadow-lg transition-all duration-200 ${isProductsDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
-                <div className="p-4">
-                  <div className="grid grid-cols-4 gap-4">
-                    <Link href="/convertive-data-platform" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                      <div className="flex flex-col items-center text-center gap-3">
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V7M4 7l8-4 8 4M4 7l8 4 8-4" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Data Platform</h4>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Unify customer data across all touchpoints</p>
-                        </div>
-                      </div>
-                    </Link>
-                    
-                    <Link href="/convertive-journey-orchestration" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                      <div className="flex flex-col items-center text-center gap-3">
-                        <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Journey Orchestration</h4>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Design and automate customer journeys</p>
-                        </div>
-                      </div>
-                    </Link>
-                    
-                    <Link href="/convertive-audiences" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                      <div className="flex flex-col items-center text-center gap-3">
-                        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Audiences</h4>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Build and manage customer segments</p>
-                        </div>
-                      </div>
-                    </Link>
-                    
-                    <Link href="/convertive-ai-engine" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-2">
-                      <div className="flex flex-col items-center text-center gap-3">
-                        <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Engine</h4>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))]">AI-powered customer insights and predictions</p>
-                        </div>
-                      </div>
-                    </Link>
-                    
-                    <Link href="/convertive-reporting" className="group/item block rounded-md p-3 border border-transparent transition-all duration-200 hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20 col-start-3">
-                      <div className="flex flex-col items-center text-center gap-3">
-                        <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm mb-1">Convertive Reporting</h4>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))]">Advanced analytics and reporting dashboard</p>
-                        </div>
-                      </div>
-                    </Link>
-                    
-                    {/* Fourth Column - Convertive Decisioning */}
-                    <div className="group/item rounded-md p-3 border border-transparent col-start-4 row-start-1 row-span-2 border-l border-[hsl(var(--app-border))] pl-4">
-                      <div className="flex flex-col text-left gap-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              {/* Products Dropdown — Mega Menu */}
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[780px] bg-[hsl(var(--app-background))] border border-[hsl(var(--app-border))] rounded-2xl shadow-xl transition-all duration-200 ${isProductsDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                <div className="p-5 flex gap-5">
+
+                  {/* Left — Platform Products */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Platform</p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {[
+                        {
+                          href: '/convertive-data-platform',
+                          iconBg: 'bg-blue-100',
+                          iconColor: 'text-blue-600',
+                          icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 7v10c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V7M4 7l8-4 8 4M4 7l8 4 8-4" />,
+                          name: 'Data Platform',
+                          desc: 'First-party profiles for every anonymous visitor',
+                        },
+                        {
+                          href: '/convertive-journey-orchestration',
+                          iconBg: 'bg-purple-100',
+                          iconColor: 'text-purple-600',
+                          icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />,
+                          name: 'Journey Orchestration',
+                          desc: 'In-session intervention before visitors leave',
+                        },
+                        {
+                          href: '/convertive-audiences',
+                          iconBg: 'bg-emerald-100',
+                          iconColor: 'text-emerald-600',
+                          icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />,
+                          name: 'Audiences',
+                          desc: 'Live segments that update in milliseconds',
+                        },
+                        {
+                          href: '/convertive-ai-engine',
+                          iconBg: 'bg-orange-100',
+                          iconColor: 'text-orange-600',
+                          icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />,
+                          name: 'AI Engine',
+                          desc: 'Predict intent and act before they leave',
+                        },
+                        {
+                          href: '/convertive-reporting',
+                          iconBg: 'bg-rose-100',
+                          iconColor: 'text-rose-600',
+                          icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />,
+                          name: 'Reporting',
+                          desc: 'Track in-session lift and anonymous conversion',
+                        },
+                      ].map((product) => (
+                        <Link
+                          key={product.href}
+                          href={product.href}
+                          className="group flex items-start gap-3 p-3 rounded-xl border border-transparent hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20"
+                        >
+                          <div className={`w-9 h-9 ${product.iconBg} rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                            <svg className={`w-4.5 h-4.5 ${product.iconColor}`} style={{ width: '18px', height: '18px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              {product.icon}
                             </svg>
                           </div>
-                          <h4 className="font-medium text-[hsl(var(--app-text))] text-sm">Convertive Decisioning</h4>
-                        </div>
-                        
-                        <div className="space-y-3">
-                          <Link href="#" className="group block p-2 rounded-md border border-transparent hover:bg-[hsl(var(--app-surface))]/50 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                            <div className="flex items-start gap-2">
-                              <div className="w-6 h-6 bg-purple-100 rounded flex items-center justify-center mt-0.5 group-hover:bg-purple-200 transition-colors">
-                                <svg className="w-3 h-3 text-purple-600 group-hover:text-purple-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                              </div>
-                              <div className="transition-colors">
-                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">AI Agents</p>
-                                <p className="text-xs text-[hsl(var(--app-text-muted))] mt-0.5 group-hover:text-[hsl(var(--app-text))]/80">Deliver 1:1 experiences at scale</p>
-                              </div>
-                            </div>
-                          </Link>
-                          
-                          <Link href="#" className="group block p-2 rounded-md border border-transparent hover:bg-[hsl(var(--app-surface))]/50 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                            <div className="flex items-start gap-2">
-                              <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center mt-0.5 group-hover:bg-green-200 transition-colors">
-                                <svg className="w-3 h-3 text-green-600 group-hover:text-green-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                              </div>
-                              <div className="transition-colors">
-                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Convertive Stream & Reinforcement Learning</p>
-                                <p className="text-xs text-[hsl(var(--app-text-muted))] mt-0.5 group-hover:text-[hsl(var(--app-text))]/80">Continuous optimization</p>
-                              </div>
-                            </div>
-                          </Link>
-                          
-                          <Link href="#" className="group block p-2 rounded-md border border-transparent hover:bg-[hsl(var(--app-surface))]/50 hover:border-[hsl(var(--app-border))] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--app-text))]/20">
-                            <div className="flex items-start gap-2">
-                              <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mt-0.5 group-hover:bg-blue-200 transition-colors">
-                                <svg className="w-3 h-3 text-blue-600 group-hover:text-blue-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2M7 7h10" />
-                                </svg>
-                              </div>
-                              <div className="transition-colors">
-                                <p className="text-xs font-medium text-[hsl(var(--app-text))] group-hover:text-[hsl(var(--app-text))]">Convertive Memory Layer</p>
-                                <p className="text-xs text-[hsl(var(--app-text-muted))] mt-0.5 group-hover:text-[hsl(var(--app-text))]/80">Persistent context and learning storage</p>
-                              </div>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
+                          <div className="min-w-0">
+                            <p className="text-sm font-medium text-[hsl(var(--app-text))] leading-snug">{product.name}</p>
+                            <p className="text-[11px] text-[hsl(var(--app-text-muted))] leading-snug mt-0.5">{product.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
+
+                  {/* Vertical Divider */}
+                  <div className="w-px bg-[hsl(var(--app-border))] self-stretch" />
+
+                  {/* Right — Intelligence + CTA */}
+                  <div className="w-[200px] flex flex-col gap-4 flex-shrink-0">
+                    <div>
+                      <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Intelligence</p>
+                      <div className="space-y-0.5">
+                        {[
+                          {
+                            iconBg: 'bg-indigo-100', iconColor: 'text-indigo-600',
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />,
+                            name: 'AI Agents',
+                            desc: '1:1 experiences at scale',
+                          },
+                          {
+                            iconBg: 'bg-teal-100', iconColor: 'text-teal-600',
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M13 10V3L4 14h7v7l9-11h-7z" />,
+                            name: 'Stream & RL',
+                            desc: 'Continuous optimization loop',
+                          },
+                          {
+                            iconBg: 'bg-violet-100', iconColor: 'text-violet-600',
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2M7 7h10" />,
+                            name: 'Memory Layer',
+                            desc: 'Persistent context & learning',
+                          },
+                        ].map((item) => (
+                          <Link
+                            key={item.name}
+                            href="#"
+                            className="group flex items-start gap-2.5 p-2.5 rounded-xl border border-transparent hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] transition-all duration-150"
+                          >
+                            <div className={`w-7 h-7 ${item.iconBg} rounded-md flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                              <svg className={item.iconColor} style={{ width: '14px', height: '14px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                {item.icon}
+                              </svg>
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-medium text-[hsl(var(--app-text))] leading-snug">{item.name}</p>
+                              <p className="text-[10px] text-[hsl(var(--app-text-muted))] leading-snug mt-0.5">{item.desc}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA Box */}
+                    <div className="mt-auto rounded-xl bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 border border-[hsl(var(--app-primary))]/20 p-3.5">
+                      <p className="text-xs font-semibold text-[hsl(var(--app-text))] mb-1">See it live</p>
+                      <p className="text-[10px] text-[hsl(var(--app-text-muted))] leading-snug mb-3">Watch Convertive convert anonymous visitors in real-time.</p>
+                      <Link
+                        href="https://cal.com/tanzil-convertive"
+                        target="_blank"
+                        className="block w-full text-center text-[11px] font-mono font-semibold bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-lg py-2 hover:opacity-80 transition-opacity"
+                      >
+                        Book Demo →
+                      </Link>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -217,8 +215,14 @@ export default function Header() {
             >
               Our History
             </Link> */}
-            <Link 
-              href="/manifesto" 
+            <Link
+              href="/#storylines"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              How it works
+            </Link>
+            <Link
+              href="/manifesto"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
               Manifesto
@@ -304,23 +308,23 @@ export default function Header() {
             >
               <Link href="/convertive-data-platform" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Data Platform</div>
-                <div className="text-xs text-[hsl(var(--app-text-muted))]">Unify customer data across all touchpoints</div>
+                <div className="text-xs text-[hsl(var(--app-text-muted))]">Real-time profiles for anonymous and known visitors</div>
               </Link>
               <Link href="/convertive-journey-orchestration" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Journey Orchestration</div>
-                <div className="text-xs text-[hsl(var(--app-text-muted))]">Design and automate customer journeys</div>
+                <div className="text-xs text-[hsl(var(--app-text-muted))]">In-session intervention and real-time orchestration</div>
               </Link>
               <Link href="/convertive-audiences" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Audiences</div>
-                <div className="text-xs text-[hsl(var(--app-text-muted))]">Build and manage customer segments</div>
+                <div className="text-xs text-[hsl(var(--app-text-muted))]">Live segments updated in milliseconds</div>
               </Link>
               <Link href="/convertive-ai-engine" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Engine</div>
-                <div className="text-xs text-[hsl(var(--app-text-muted))]">AI-powered customer insights and predictions</div>
+                <div className="text-xs text-[hsl(var(--app-text-muted))]">Predict intent and act before they leave</div>
               </Link>
               <Link href="/convertive-reporting" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">Convertive Reporting</div>
-                <div className="text-xs text-[hsl(var(--app-text-muted))]">Advanced analytics and reporting dashboard</div>
+                <div className="text-xs text-[hsl(var(--app-text-muted))]">Track in-session impact and anonymous conversion</div>
               </Link>
 
               {/* AI side items in mobile list */}
@@ -339,8 +343,15 @@ export default function Header() {
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Persistent context and learning storage</div>
               </Link>
             </div>
-            <Link 
-              href="/manifesto" 
+            <Link
+              href="/#storylines"
+              onClick={closeMobileMenu}
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
+            >
+              How it works
+            </Link>
+            <Link
+              href="/manifesto"
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >

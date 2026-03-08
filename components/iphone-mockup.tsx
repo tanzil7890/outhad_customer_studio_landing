@@ -73,12 +73,12 @@ export default function IPhoneMockup() {
             <div className="absolute inset-0 z-20 bg-black transition-opacity duration-1000 opacity-25"></div>
             
             {/* Convertive Overlay */}
-            <div className="absolute top-4 right-3 sm:top-8 sm:right-6 bg-gradient-to-r from-[hsl(252,100%,37%)] to-[hsl(231,73%,58%)] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full z-30 shadow-lg">
+            {/* <div className="absolute top-4 right-3 sm:top-8 sm:right-6 bg-gradient-to-r from-[hsl(252,100%,37%)] to-[hsl(231,73%,58%)] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full z-30 shadow-lg">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-[hsl(72,100%,50%)] rounded-full animate-pulse"></div>
                 <span className="text-xs sm:text-sm font-mono font-bold">AI: 0.89</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Floating Personalization Indicator */}
             <div className="absolute bottom-6 right-3 sm:bottom-10 sm:right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-[hsl(72,100%,50%)] to-yellow-400 rounded-full shadow-lg flex items-center justify-center z-30 animate-pulse">
