@@ -6,7 +6,7 @@ category: "CDP & Data Infrastructure"
 
 # Convertive vs Hightouch: Historical Data Activation vs Real-Time Session Execution
 
-> Hightouch makes your warehouse data actionable. Convertive makes the current session actionable — in the 90 seconds before the shopper decides to buy or leave.
+> Hightouch makes your warehouse data actionable. Convertive makes the current session and warehouse data actionable — in the 90 seconds before the shopper decides to buy or leave.
 
 ## The Core Difference
 

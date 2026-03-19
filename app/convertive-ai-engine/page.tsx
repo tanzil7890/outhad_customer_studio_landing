@@ -55,14 +55,14 @@ export default function ConvertiveAIEnginePage() {
             context signals, and learning loops to select the next best action moment by moment.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="/demo" target="_blank">
               <Button className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8">
                 Book Demo
               </Button>
             </Link>
-            <Link href="/demo">
+            <Link href="/roi-calculator">
               <Button variant="outline" className="font-mono rounded-full px-8">
-                See In-Session Flow
+               Calculate Your ROI
               </Button>
             </Link>
           </div>

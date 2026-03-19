@@ -70,9 +70,9 @@ export default function ConvertiveAudiencesPage() {
                 Book Demo
               </Button>
             </Link>
-            <Link href="/demo">
+            <Link href="/roi-calculator">
               <Button variant="outline" className="font-mono rounded-full px-8">
-                See In-Session Flow
+                Calculate Your ROI
               </Button>
             </Link>
           </div>

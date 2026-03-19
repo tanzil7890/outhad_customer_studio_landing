@@ -80,13 +80,13 @@ export default function SyntheticV0PageForDeployment() {
                 Book Demo
               </Button>
             </Link>
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="/roi-calculator">
               <Button
                 variant="outline"
                 size="sm"
                 className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
               >
-                See In-Session Demo
+                Calculate Your ROI
               </Button>
             </Link>
             <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '-100px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
