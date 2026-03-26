@@ -3,55 +3,36 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://tryconvertive.com'
   const currentDate = new Date().toISOString()
+  const publicRoutes = [
+    '',
+    '/manifesto',
+    '/case-studies',
+    '/roi-calculator',
+    '/convertive-data-platform',
+    '/convertive-journey-orchestration',
+    '/convertive-audiences',
+    '/convertive-ai-engine',
+    '/convertive-reporting',
+    '/convertive-history',
+    '/demo',
+  ] as const
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/convertive-data-platform`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/convertive-journey-orchestration`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/convertive-audiences`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/convertive-ai-engine`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/convertive-reporting`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/manifesto`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/convertive-history`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-  ]
+  return publicRoutes.map((route) => ({
+    url: route ? `${baseUrl}${route}` : baseUrl,
+    lastModified: currentDate,
+    changeFrequency:
+      route === '/manifesto' || route === '/convertive-history' || route === '/demo'
+        ? 'monthly'
+        : 'weekly',
+    priority:
+      route === ''
+        ? 1
+        : route === '/convertive-history'
+          ? 0.6
+          : route === '/manifesto' || route === '/demo'
+            ? 0.7
+            : route === '/case-studies' || route === '/roi-calculator'
+              ? 0.8
+              : 0.9,
+  }))
 }

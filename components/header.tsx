@@ -51,7 +51,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex font-mono items-center space-x-6 lg:space-x-8 rounded-full px-4 py-2 border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))]/40">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 rounded-full px-4 py-2 border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))]/40">
             {/* <Link 
               href="/agent-studio" 
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
@@ -81,7 +81,7 @@ export default function Header() {
 
                   {/* Left — Platform Products */}
                   <div className="flex-1 min-w-0">
-                    <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Platform</p>
+                    <p className="text-[10px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Platform</p>
                     <div className="grid grid-cols-2 gap-1">
                       {[
                         {
@@ -150,7 +150,7 @@ export default function Header() {
                   {/* Right — Intelligence + CTA */}
                   <div className="w-[200px] flex flex-col gap-4 flex-shrink-0">
                     <div>
-                      <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Intelligence</p>
+                      <p className="text-[10px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Intelligence</p>
                       <div className="space-y-0.5">
                         {[
                           {
@@ -198,7 +198,7 @@ export default function Header() {
                       <Link
                         href="https://cal.com/tanzil-convertive"
                         target="_blank"
-                        className="block w-full text-center text-[11px] font-mono font-semibold bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-lg py-2 hover:opacity-80 transition-opacity"
+                        className="block w-full text-center text-[11px] font-semibold bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-lg py-2 hover:opacity-80 transition-opacity"
                       >
                         Book Demo →
                       </Link>
@@ -241,7 +241,7 @@ export default function Header() {
               <Button 
                 variant="outline"
                 size="sm"
-                className="font-mono bg-transparent border border-[hsl(var(--app-text))]/10 text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] rounded-full transition-colors duration-200 text-xs sm:text-sm"
+                className="bg-transparent border border-[hsl(var(--app-text))]/10 text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] rounded-full transition-colors duration-200 text-xs sm:text-sm"
               >
                 Book Demo
               </Button>
@@ -297,7 +297,7 @@ export default function Header() {
               aria-expanded={isMobileProductsOpen}
               aria-controls="mobile-products-panel"
             >
-              <span className="font-mono font-medium">Products</span>
+              <span className="font-medium">Products</span>
               <svg className={`w-4 h-4 transition-transform ${isMobileProductsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -329,7 +329,7 @@ export default function Header() {
 
               {/* AI side items in mobile list */}
               <div className="mt-2 pt-2 border-t border-[hsl(var(--app-border))]" />
-              <div className="px-2 text-xs font-mono text-[hsl(var(--app-text-muted))]">AI</div>
+              <div className="px-2 text-xs text-[hsl(var(--app-text-muted))]">AI</div>
               <Link href="#" onClick={closeMobileMenu} className="block px-3 py-2 rounded-md hover:bg-[hsl(var(--app-surface))]/50">
                 <div className="text-sm font-medium text-[hsl(var(--app-text))]">AI Agents</div>
                 <div className="text-xs text-[hsl(var(--app-text-muted))]">Deliver 1:1 experiences at scale</div>

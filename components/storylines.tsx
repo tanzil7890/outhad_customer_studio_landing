@@ -44,7 +44,7 @@ export default function Storylines() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Storylines</h2>
-          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Three real moments Convertive activates—right when it matters.</p>
+          <p className="mt-3 text-sm sm:text-base text-[hsl(var(--app-text-muted))]">Three real moments Convertive activates—right when it matters.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -59,17 +59,17 @@ export default function Storylines() {
             >
               <div className="flex items-center justify-between">
                 <h3 className="font-title text-lg text-[hsl(var(--app-text))]">{s.title}</h3>
-                <span className="text-[10px] font-mono text-[hsl(var(--app-text-muted))]">{s.persona}</span>
+                <span className="text-[10px] text-[hsl(var(--app-text-muted))]">{s.persona}</span>
               </div>
               <div className="mt-4 space-y-2">
                 {s.steps.map(step => (
-                  <div key={step} className="text-xs font-mono text-[hsl(var(--app-text))] flex items-start gap-2">
+                  <div key={step} className="text-xs text-[hsl(var(--app-text))] flex items-start gap-2">
                     <div className="mt-1 h-1.5 w-1.5 rounded-full bg-[hsl(var(--app-primary))]" />
                     <span>{step}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-3 border-t border-[hsl(var(--app-border))] text-xs font-mono text-[hsl(var(--app-text-muted))]">{s.outcome}</div>
+              <div className="mt-4 pt-3 border-t border-[hsl(var(--app-border))] text-xs text-[hsl(var(--app-text-muted))]">{s.outcome}</div>
             </motion.div>
           ))}
         </div>

@@ -12,7 +12,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-[hsl(var(--app-text))] mb-2 font-title">
               Convertive
             </h3>
-            <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono max-w-xs mx-auto md:mx-0">
+            <p className="text-sm text-[hsl(var(--app-text-muted))] max-w-xs mx-auto md:mx-0">
               Real-time customer activation and personalization platform
             </p>
           </div>
@@ -24,7 +24,7 @@ const Footer = () => {
             </h4>
             <Link 
               href="mailto:info@tryconvertive.com"
-              className="text-sm text-[hsl(var(--app-text-muted))] font-mono hover:text-[hsl(var(--app-text))] transition-colors duration-300"
+              className="text-sm text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"
             >
               info@tryconvertive.com
             </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t border-[hsl(var(--app-border))] text-center">
-          <p className="text-xs text-[hsl(var(--app-text-muted))] font-mono">
+          <p className="text-xs text-[hsl(var(--app-text-muted))]">
             © 2025 Convertive. All rights reserved.
           </p>
         </div>

@@ -50,7 +50,7 @@ export default function ProblemsWeSolve() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="text-center lg:text-left lg:flex-1">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Problems We Solve</h2>
-              <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Real‑time intent is perishable. Convertive acts before the moment passes.</p>
+              <p className="mt-3 text-sm sm:text-base text-[hsl(var(--app-text-muted))]">Real‑time intent is perishable. Convertive acts before the moment passes.</p>
             </div>
             
             <motion.div
@@ -85,9 +85,9 @@ export default function ProblemsWeSolve() {
             >
               <div className="flex items-baseline justify-between">
                 <h3 className="font-title text-[hsl(var(--app-text))] text-lg">{it.title}</h3>
-                <span className="text-xs font-mono text-[hsl(var(--app-text-muted))]">{it.stat}</span>
+                <span className="text-xs text-[hsl(var(--app-text-muted))]">{it.stat}</span>
               </div>
-              <p className="mt-2 text-sm font-mono text-[hsl(var(--app-text-muted))]">{it.desc}</p>
+              <p className="mt-2 text-sm text-[hsl(var(--app-text-muted))]">{it.desc}</p>
             </motion.div>
           ))}
         </div>

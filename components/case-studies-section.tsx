@@ -41,27 +41,26 @@ export default function CaseStudiesSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs sm:text-sm font-mono text-[hsl(var(--app-text-muted))] tracking-widest uppercase mb-4">
+          <p className="text-xs sm:text-sm text-[hsl(var(--app-text-muted))] tracking-widest uppercase mb-4">
             Customer Stories
           </p>
           <h2
             className="text-3xl sm:text-4xl md:text-5xl text-[hsl(var(--app-text))] mb-5 leading-tight"
-            style={{ fontFamily: 'var(--font-nib-pro)' }}
           >
             Real results, real brands
           </h2>
-          <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] font-mono max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] max-w-2xl mx-auto">
             See how leading companies use Convertive to transform their customer experience and drive measurable growth.
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {caseStudies.map((cs) => (
             <Link
               key={cs.id}
               href={`/case-studies/${cs.slug}`}
-              className="group block"
+              className="group block w-full md:w-[calc(33.333%-1rem)] md:max-w-sm"
             >
               <article className="bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] rounded-2xl overflow-hidden hover:border-[hsl(var(--app-text))]/30 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                 {cs.coverImage && (
@@ -75,17 +74,16 @@ export default function CaseStudiesSection() {
                 )}
                 <div className="p-6 flex flex-col flex-1">
                   {cs.industry && (
-                    <span className="text-xs font-mono text-[hsl(var(--app-text-muted))] bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-full px-3 py-1 w-fit mb-4">
+                    <span className="text-xs text-[hsl(var(--app-text-muted))] bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-full px-3 py-1 w-fit mb-4">
                       {cs.industry}
                     </span>
                   )}
                   <h3
                     className="text-lg font-semibold text-[hsl(var(--app-text))] mb-3 group-hover:text-blue-600 transition-colors line-clamp-2"
-                    style={{ fontFamily: 'var(--font-nib-pro)' }}
                   >
                     {cs.title}
                   </h3>
-                  <p className="text-sm text-[hsl(var(--app-text-muted))] font-mono leading-relaxed line-clamp-3 flex-1">
+                  <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed line-clamp-3 flex-1">
                     {cs.excerpt}
                   </p>
 
@@ -96,11 +94,10 @@ export default function CaseStudiesSection() {
                         <div key={i} className="flex-1 min-w-0">
                           <p
                             className="text-xl font-semibold text-[hsl(var(--app-text))]"
-                            style={{ fontFamily: 'var(--font-nib-pro)' }}
                           >
                             {m.value}
                           </p>
-                          <p className="text-xs text-[hsl(var(--app-text-muted))] font-mono truncate">
+                          <p className="text-xs text-[hsl(var(--app-text-muted))] truncate">
                             {m.label}
                           </p>
                         </div>
@@ -117,7 +114,7 @@ export default function CaseStudiesSection() {
         <div className="text-center mt-12">
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] rounded-full px-6 py-3 text-sm font-mono font-medium hover:bg-[hsl(var(--app-surface))] hover:border-[hsl(var(--app-text))]/30 transition-all duration-200"
+            className="inline-flex items-center gap-2 border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] rounded-full px-6 py-3 text-sm font-medium hover:bg-[hsl(var(--app-surface))] hover:border-[hsl(var(--app-text))]/30 transition-all duration-200"
           >
             View all case studies
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

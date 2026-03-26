@@ -86,9 +86,14 @@ html {
     height: 100%;
   }
   
-  /* Use Nib Pro on all headings */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-nib-pro);
+    font-family: var(--font-manrope), 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  p {
+    letter-spacing: 0.01em;
   }
 
   body {
@@ -131,9 +136,8 @@ html {
   }
 }
 
-/* Utility to apply Nib Pro to non-heading title elements */
 @layer utilities {
-  .font-title { font-family: var(--font-nib-pro); }
+  .font-title { font-family: var(--font-manrope), 'Manrope', ui-sans-serif, system-ui, sans-serif; }
 }
 
 /* ─── Tiptap Rich Text Editor Styles ─── */

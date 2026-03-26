@@ -22,7 +22,7 @@ function Counter({ to, label, suffix = '%', prefix = '' }: { to: number; label: 
       >
         {prefix}{value}{suffix}
       </motion.span>
-      <span className="text-xs sm:text-sm font-mono text-[hsl(var(--app-text-muted))]">{label}</span>
+      <span className="text-xs sm:text-sm text-[hsl(var(--app-text-muted))]">{label}</span>
     </motion.div>
   )
 }
@@ -33,7 +33,7 @@ export default function Outcomes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Results you will see</h2>
-          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Convert anonymous visitors in-session. Measurable impact from the same traffic.</p>
+          <p className="mt-3 text-sm sm:text-base text-[hsl(var(--app-text-muted))]">Convert anonymous visitors in-session. Measurable impact from the same traffic.</p>
         </div>
 
         {/* Primary Metrics */}

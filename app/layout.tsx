@@ -1,6 +1,13 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
+import { Manrope } from 'next/font/google'
 import { GeistMono } from 'geist/font/mono'
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-manrope',
+  display: 'swap',
+})
 import Script from 'next/script'
 import './globals.css'
 import Header from '../components/header'
@@ -97,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className={`h-full ${manrope.variable}`} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="icon" href="/logo-black.ico" />
@@ -107,11 +114,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
 html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-nib-pro: 'Nib Pro', ui-sans-serif, system-ui, sans-serif;
-  --font-labil-grotesk: 'Labil Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope);
+  --: ${GeistMono.variable};
+  --font-manrope: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
       </head>

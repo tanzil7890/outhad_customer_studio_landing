@@ -208,7 +208,7 @@ export default function RichTextEditor({
             active={editor.isActive('code')}
             title="Inline Code"
           >
-            <span className="text-xs font-mono">{`<>`}</span>
+            <span className="text-xs">{`<>`}</span>
           </ToolbarButton>
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleSuperscript().run()}

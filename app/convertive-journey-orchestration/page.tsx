@@ -48,20 +48,20 @@ export default function ConvertiveJourneyOrchestrationPage() {
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Orchestration</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Orchestration</p>
           <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl text-[hsl(var(--app-text))] font-title">Convertive Journey Orchestration</h1>
-          <p className="mt-6 text-lg text-[hsl(var(--app-text-muted))] font-mono max-w-4xl leading-relaxed">
+          <p className="mt-6 text-lg text-[hsl(var(--app-text-muted))] max-w-4xl leading-relaxed">
             Run coherent, session-aware journeys across web, checkout, email, SMS, and ads. Convertive coordinates
             message timing, suppression, and branching so shoppers see one intelligent sequence.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link href="https://cal.com/tanzil-convertive" target="_blank">
-              <Button className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8">
+              <Button className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8">
                 Book Demo
               </Button>
             </Link>
             <Link href="/roi-calculator">
-              <Button variant="outline" className="font-mono rounded-full px-8">
+              <Button variant="outline" className="rounded-full px-8">
                 Calculate Your ROI
               </Button>
             </Link>
@@ -72,7 +72,7 @@ export default function ConvertiveJourneyOrchestrationPage() {
           {orchestrationBlocks.map((item) => (
             <article key={item.title} className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/60 p-5">
               <h2 className="text-xl font-title text-[hsl(var(--app-text))]">{item.title}</h2>
-              <p className="mt-3 text-sm font-mono text-[hsl(var(--app-text-muted))] leading-relaxed">{item.text}</p>
+              <p className="mt-3 text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{item.text}</p>
             </article>
           ))}
         </section>
@@ -81,7 +81,7 @@ export default function ConvertiveJourneyOrchestrationPage() {
           <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-4">Operational controls that protect conversion quality</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {controlPoints.map((item) => (
-              <p key={item} className="text-sm font-mono text-[hsl(var(--app-text))]">
+              <p key={item} className="text-sm text-[hsl(var(--app-text))]">
                 - {item}
               </p>
             ))}

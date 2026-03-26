@@ -16,7 +16,7 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Detect → Decide → Deliver → Convert</h2>
-          <p className="mt-3 text-sm sm:text-base font-mono text-[hsl(var(--app-text-muted))]">Capture intent in real‑time, act instantly, convert before they leave—all within the same session.</p>
+          <p className="mt-3 text-sm sm:text-base text-[hsl(var(--app-text-muted))]">Capture intent in real‑time, act instantly, convert before they leave—all within the same session.</p>
         </div>
 
         <div className="relative">
@@ -32,12 +32,12 @@ export default function HowItWorks() {
                 className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/60 backdrop-blur-sm p-5"
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-full bg-[hsl(var(--app-primary))]/15 border border-[hsl(var(--app-border))] flex items-center justify-center font-mono text-[hsl(var(--app-text))]">
+                  <div className="h-8 w-8 rounded-full bg-[hsl(var(--app-primary))]/15 border border-[hsl(var(--app-border))] flex items-center justify-center text-[hsl(var(--app-text))]">
                     {i + 1}
                   </div>
                   <h3 className="font-title text-[hsl(var(--app-text))] text-lg">{s.title}</h3>
                 </div>
-                <p className="mt-3 text-sm font-mono text-[hsl(var(--app-text-muted))]">{s.desc}</p>
+                <p className="mt-3 text-sm text-[hsl(var(--app-text-muted))]">{s.desc}</p>
               </motion.div>
             ))}
           </div>

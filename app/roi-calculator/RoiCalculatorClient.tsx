@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Slider } from '@/components/ui/slider'
 import { cn } from '@/lib/utils'
 
 // ─────────────────────────────────────────────────────────────
@@ -77,7 +76,7 @@ export default function RoiCalculatorClient() {
   const storeName = searchParams.get('store') ?? 'Your store'
   const adminMode = searchParams.get('admin') === '1'
 
-  const [lift, setLift] = useState(0.4)
+  const [lift, setLift] = useState(0.5)
 
   // — form state
   const [formData, setFormData] = useState({
@@ -238,7 +237,7 @@ export default function RoiCalculatorClient() {
           >
             <button
               onClick={() => scrollTo('calculator')}
-              className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
+              className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
             >
               See My Revenue at Risk ↓
             </button>
@@ -246,7 +245,7 @@ export default function RoiCalculatorClient() {
               href="https://cal.com/tanzil-convertive"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
+              className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
             >
               Book a Free Audit →
             </a>
@@ -459,7 +458,7 @@ export default function RoiCalculatorClient() {
                 </div>
               </div>
 
-              {/* Lift Slider */}
+              {/* Lift Preset Buttons */}
               <div className="pt-2">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-sm font-semibold text-[#10182B]">
@@ -470,32 +469,39 @@ export default function RoiCalculatorClient() {
                   </span>
                 </div>
 
-                {/* custom-colored slider wrapper */}
-                <div
-                  style={
-                    {
-                      '--primary': '221 52% 45%',
-                      '--secondary': '220 14% 93%',
-                    } as React.CSSProperties
-                  }
-                >
-                  <Slider
-                    value={[lift]}
-                    onValueChange={([v]) => setLift(v)}
-                    min={0.1}
-                    max={2.0}
-                    step={0.1}
-                    className="my-1"
-                  />
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { label: 'Conservative', value: 0.3, sub: '+0.3%' },
+                    { label: 'Convertive Estimate', value: 0.5, sub: '+0.5%' },
+                    { label: 'Aggressive', value: 0.8, sub: '+0.8%' },
+                  ].map((preset) => (
+                    <button
+                      key={preset.label}
+                      type="button"
+                      onClick={() => setLift(preset.value)}
+                      className={cn(
+                        'flex flex-col items-center gap-0.5 rounded-xl border-2 px-3 py-3 text-center transition-all duration-200',
+                        lift === preset.value
+                          ? 'border-[#171717] bg-[#171717] text-white shadow-md'
+                          : 'border-[#EAECF0] bg-white text-[#10182B] hover:border-[#171717]/40'
+                      )}
+                    >
+                      <span className="text-xs font-semibold leading-tight">{preset.label}</span>
+                      <span
+                        className={cn(
+                          'text-base font-extrabold tabular-nums',
+                          lift === preset.value ? 'text-white' : 'text-[#33C0A7]'
+                        )}
+                      >
+                        {preset.sub}
+                      </span>
+                    </button>
+                  ))}
                 </div>
 
-                <div className="flex justify-between text-xs text-[#98A2B3] mt-2">
-                  <span>0.1% (conservative)</span>
-                  <span className="text-center text-[#667085] font-medium">
-                    Industry avg: 0.3–0.8%
-                  </span>
-                  <span>2.0% (aggressive)</span>
-                </div>
+                <p className="text-xs text-[#98A2B3] mt-2 text-center">
+                  Convertive clients typically see <span className="font-medium text-[#667085]">0.3–0.8%</span> lift in the first 60 days
+                </p>
               </div>
 
               {/* live summary */}
@@ -876,7 +882,7 @@ export default function RoiCalculatorClient() {
 
               {generatedLink && (
                 <div className="bg-white rounded-xl border border-amber-200 p-4">
-                  <p className="text-xs text-amber-700 break-all font-mono mb-3 leading-relaxed">
+                  <p className="text-xs text-amber-700 break-all mb-3 leading-relaxed">
                     {generatedLink}
                   </p>
                   <button

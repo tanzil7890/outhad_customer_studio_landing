@@ -105,8 +105,8 @@ export default function DataPlatformVisual() {
               transition={{ duration: 3, repeat: Infinity }}
             >
               <div className="text-center">
-                <div className="text-white font-mono text-xs font-bold tracking-wider">CONVERTIVE</div>
-                <div className="text-white/80 font-mono text-[10px] mt-1">DATA CORE</div>
+                <div className="text-white text-xs font-bold tracking-wider">CONVERTIVE</div>
+                <div className="text-white/80 text-[10px] mt-1">DATA CORE</div>
               </div>
               
               {/* Pulse Rings */}
@@ -166,13 +166,13 @@ export default function DataPlatformVisual() {
                       className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap"
                       animate={{ opacity: isActive ? 1 : 0.6, scale: isActive ? 1 : 0.9 }}
                     >
-                      <div className="text-[hsl(var(--app-text))] font-mono text-xs font-semibold">
+                      <div className="text-[hsl(var(--app-text))] text-xs font-semibold">
                         {point.label}
                       </div>
                       <AnimatePresence>
                         {isActive && (
                           <motion.div
-                            className="text-[hsl(var(--app-text-muted))] font-mono text-[10px] mt-1"
+                            className="text-[hsl(var(--app-text-muted))] text-[10px] mt-1"
                             initial={{ opacity: 0, y: -5 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -5 }}
@@ -248,7 +248,7 @@ export default function DataPlatformVisual() {
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="h-px bg-gradient-to-r from-transparent via-[hsl(var(--app-primary))] to-transparent flex-1" />
             <motion.div
-              className="px-3 py-1 bg-[hsl(var(--app-primary))] text-white font-mono text-xs rounded-full"
+              className="px-3 py-1 bg-[hsl(var(--app-primary))] text-white text-xs rounded-full"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -281,7 +281,7 @@ export default function DataPlatformVisual() {
               }}
               style={{ animationDelay: `${index * 0.5}s` }}
             >
-              <span className="text-[hsl(var(--app-text))] font-mono text-xs font-medium">
+              <span className="text-[hsl(var(--app-text))] text-xs font-medium">
                 {output}
               </span>
             </motion.div>
@@ -296,7 +296,7 @@ export default function DataPlatformVisual() {
           transition={{ duration: 0.6, delay: 2 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-between text-xs font-mono text-[hsl(var(--app-text-muted))]">
+          <div className="flex items-center justify-between text-xs text-[hsl(var(--app-text-muted))]">
             <div className="flex items-center gap-2">
               <motion.div
                 className="w-2 h-2 bg-green-400 rounded-full"

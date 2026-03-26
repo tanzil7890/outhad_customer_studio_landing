@@ -266,7 +266,7 @@ export default function Component() {
       {/* <div className={`absolute z-10 text-center px-4 sm:px-8 md:px-12 lg:px-16 w-full ${
         isMobile ? 'bottom-[60px]' : 'bottom-[100px]'
       }`}>
-        <p className={`font-mono text-[hsl(var(--app-text-muted))] leading-relaxed ${
+        <p className={`text-[hsl(var(--app-text-muted))] leading-relaxed ${
           isMobile 
             ? 'text-xs sm:text-sm px-2 max-w-sm sm:max-w-md mx-auto mt-[-350px]' 
             : 'text-base md:text-lg max-w-xl lg:max-w-4xl mx-auto mt-[-200px]'
@@ -292,7 +292,7 @@ export default function Component() {
           `}</style>
         </p>
         <div className='pt-5'></div>
-        <p className={`font-mono text-[hsl(var(--app-text-muted))] transition-colors  ${
+        <p className={`text-[hsl(var(--app-text-muted))] transition-colors  ${
             isMobile ? 'text-xs' : 'text-sm md:text-base'
           }`}>
             ✓ Live Unified Profiles • ✓ In-Session Orchestration • ✓ Autonomous Experimentation
@@ -300,7 +300,7 @@ export default function Component() {
        {/*  <Button 
               variant="outline"
               size="sm"
-              className="font-mono bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
+              className="bg-white/10 hover:bg-white backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 text-xs sm:text-sm"
             >
               Book Demo
             </Button> */}

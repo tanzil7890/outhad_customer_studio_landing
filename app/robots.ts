@@ -11,12 +11,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
           '/private/',
+          '/dashboard/',
         ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   }
 }

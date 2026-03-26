@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -126,14 +126,32 @@ export default function CustomerActivation() {
     }
   ]
 
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const sectionTop = sectionRef.current.getBoundingClientRect().top + window.scrollY
+      const relativeScroll = window.scrollY - sectionTop
+      const segmentHeight = window.innerHeight * 1.2
+      let idx = Math.floor(relativeScroll / segmentHeight)
+      idx = Math.max(0, Math.min(idx, featuresNew.length - 1))
+      setActiveIndex(idx)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [featuresNew.length])
+
   return (
-    <div className="bg-[hsl(var(--app-background))] relative z-10 py-16 sm:py-20 md:py-24 overflow-hidden">
+    <div className="bg-[hsl(var(--app-background))] relative z-10">
       {/* Soft background decorations */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="absolute -top-32 -left-20 h-72 w-72 rounded-full blur-3xl bg-[radial-gradient(closest-side,_hsl(var(--app-secondary))/20,_transparent)]" />
         <div className="absolute -bottom-32 -right-24 h-80 w-80 rounded-full blur-3xl bg-[radial-gradient(closest-side,_hsl(var(--app-primary))/15,_transparent)]" />
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24">
         {/* Header Section */}
         <motion.div
           className="text-center mb-16 sm:mb-20"
@@ -151,10 +169,10 @@ export default function CustomerActivation() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-6 sm:mb-8">
             
             <motion.p
-              className="text-lg sm:text-xl text-[hsl(var(--app-text-muted))] font-mono leading-relaxed lg:flex-1 text-left"
+              className="text-lg sm:text-xl text-[hsl(var(--app-text-muted))] leading-relaxed lg:flex-1 text-left"
               variants={item}
             >
-              Customers don't have campaigns, they have conversations. A majority of customers want personalized experiences from companies. Absolutely none of them want to be sold to. That's why the move from totally-siloed campaigns to fully-orchestrated journeys is so darn important. Here's how we're helping organizations on their journey.
+              Customers want experiences, not campaigns. Here's how Convertive turns every session into a personalized journey.
             </motion.p>
             
             <motion.div
@@ -185,7 +203,7 @@ export default function CustomerActivation() {
             {['Live Unified Profiles', 'In‑Session Orchestration', 'Recovery', 'Mobile & Social', 'Auto‑Experimentation', 'Command Center'].map((chip, index) => (
               <motion.span
                 key={index}
-                className="text-xs sm:text-sm font-mono text-[hsl(var(--app-text))] bg-[hsl(var(--app-card))] px-3 py-1.5 rounded-full border border-[hsl(var(--app-border))] shadow-[0_0_0_0_hsl(var(--app-primary)/0%)] hover:shadow-[0_0_0_4px_hsl(var(--app-primary)/10%)] transition-shadow"
+                className="text-xs sm:text-sm text-[hsl(var(--app-text))] bg-[hsl(var(--app-card))] px-3 py-1.5 rounded-full border border-[hsl(var(--app-border))] shadow-[0_0_0_0_hsl(var(--app-primary)/0%)] hover:shadow-[0_0_0_4px_hsl(var(--app-primary)/10%)] transition-shadow"
                 variants={item}
                 whileHover={{ y: -2 }}
               >
@@ -194,46 +212,80 @@ export default function CustomerActivation() {
             ))}
           </motion.div> */}
         </motion.div>
+      </div>
 
-        {/* Features Section */}
-        <div id="features" className="space-y-20 sm:space-y-24">
-          {featuresNew.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="group grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.06 }}
-              viewport={{ once: true, amount: 0.3 }}
+      {/* Features Section — Sticky Scroll Tabs */}
+      <div ref={sectionRef} className="relative">
+        {/* Tall scroll space — each feature gets 120vh of scroll distance */}
+        <div style={{ height: `${featuresNew.length * 120}vh` }}>
+          {/* Sticky viewport — stays pinned while parent scrolls */}
+          <div className="sticky top-[8vh] h-[68vh] overflow-hidden mx-4 sm:mx-8 lg:mx-16 rounded-2xl">
+            <div
+              className="h-full grid gap-3 lg:gap-4 px-3 sm:px-4 lg:px-6 py-3"
+              style={{ gridTemplateColumns: '0.32fr 1fr' }}
             >
-              {/* Content */}
-              <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <h3 className="text-2xl sm:text-3xl text-[hsl(var(--app-primary))] mb-2 font-title">
-                  {feature.title}
-                </h3>
-                <h4 className="text-xl sm:text-2xl text-[hsl(var(--app-text))] mb-6 font-title">
-                  {feature.subtitle}
-                </h4>
-                <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] font-mono leading-relaxed">
-                  {feature.description}
-                </p>
-                <div className="mt-6 h-[1px] w-24 bg-[linear-gradient(90deg,_hsl(var(--app-primary)),_transparent)]" />
+              {/* LEFT: stacked text panels, one visible at a time */}
+              <div className="relative rounded-2xl bg-[hsl(var(--app-surface))] p-4 sm:p-6 flex flex-col">
+                <div className="relative flex-1 overflow-hidden">
+                  {featuresNew.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="absolute inset-0 flex flex-col py-4 transition-opacity duration-500"
+                      style={{ opacity: activeIndex === i ? 1 : 0 }}
+                    >
+                      <p className="text-xs font-semibold text-[hsl(var(--app-primary))] tracking-[3px] uppercase mb-5">
+                        {String(i + 1).padStart(2, '0')} / {String(featuresNew.length).padStart(2, '0')}
+                      </p>
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-[hsl(var(--app-text))] leading-tight mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-base text-[hsl(var(--app-primary))] font-semibold mb-4">{feature.subtitle}</p>
+                      <div className="h-px w-full bg-[hsl(var(--app-border))] mb-4" />
+                      <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+                {/* Step indicator dots */}
+                <div className="flex items-center gap-2 mt-4">
+                  {featuresNew.map((_, i) => (
+                    <div
+                      key={i}
+                      className="rounded-full transition-all duration-300"
+                      style={{
+                        width: i === activeIndex ? '2rem' : '0.6rem',
+                        height: '0.6rem',
+                        backgroundColor: i === activeIndex
+                          ? 'hsl(var(--app-primary))'
+                          : 'hsl(var(--app-text-muted))',
+                        opacity: i === activeIndex ? 1 : 0.5,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Visual */}
-              <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              {/* RIGHT: stacked visual panels, one visible at a time */}
+              <div className="relative rounded-2xl overflow-hidden bg-[hsl(var(--app-card))]">
+                {featuresNew.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="absolute inset-0 p-2 overflow-hidden transition-opacity duration-500"
+                    style={{
+                      opacity: activeIndex === index ? 1 : 0,
+                      pointerEvents: activeIndex === index ? 'auto' : 'none',
+                    }}
+                  >
                 {feature.title === 'Convertive Data Platform' ? (
                   // Clean flex-column layout for Convertive Data Platform
                   <motion.div
-                    className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3"
-                    whileHover={{ scale: 1.01 }}
+                    className="w-full h-full rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3 overflow-auto"
                     transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                   >
                     {/* Row 1: Data Sources + First-Party Quality stats side by side */}
                     <div className="flex gap-3 items-stretch">
                       {/* Data Sources panel */}
                       <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Ingestion</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Ingestion</p>
                         <div className="space-y-2">
                           {[
                             { label: 'Web Session', color: 'bg-blue-500', textColor: 'text-blue-500', val: 'Live' },
@@ -248,9 +300,9 @@ export default function CustomerActivation() {
                                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                                   transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.35 }}
                                 />
-                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{src.label}</span>
+                                <span className="text-[9px] text-[hsl(var(--app-text))]">{src.label}</span>
                               </div>
-                              <span className={`text-[8px] font-mono font-semibold ${src.textColor}`}>{src.val}</span>
+                              <span className={`text-[8px] font-semibold ${src.textColor}`}>{src.val}</span>
                             </div>
                           ))}
                         </div>
@@ -258,19 +310,19 @@ export default function CustomerActivation() {
 
                       {/* First-Party Quality Stats */}
                       <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">1st-Party</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">1st-Party</p>
                         <div className="space-y-2.5">
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Accuracy</p>
-                            <p className="text-base font-mono font-bold text-emerald-500 leading-none">97%</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Accuracy</p>
+                            <p className="text-base font-bold text-emerald-500 leading-none">97%</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Profiles</p>
-                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">1.8M</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Profiles</p>
+                            <p className="text-base font-bold text-[hsl(var(--app-primary))] leading-none">1.8M</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">ROI vs 3rd</p>
-                            <p className="text-base font-mono font-bold text-purple-500 leading-none">8.3x</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">ROI vs 3rd</p>
+                            <p className="text-base font-bold text-purple-500 leading-none">8.3x</p>
                           </div>
                         </div>
                       </div>
@@ -288,7 +340,7 @@ export default function CustomerActivation() {
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <span className="text-[9px] font-mono text-emerald-700 font-semibold">Building unified profiles in real-time…</span>
+                        <span className="text-[9px] text-emerald-700 font-semibold">Building unified profiles in real-time…</span>
                       </motion.div>
                     </div>
 
@@ -296,12 +348,12 @@ export default function CustomerActivation() {
                     <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Unified Profile</p>
-                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">customer_7f3d → sarah.k@gmail.com</p>
+                          <p className="text-[8px] text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Unified Profile</p>
+                          <p className="text-[11px] font-bold text-[hsl(var(--app-text))] mt-0.5">customer_7f3d → sarah.k@gmail.com</p>
                         </div>
                         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
                           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Resolved</span>
+                          <span className="text-[8px] text-emerald-700 font-semibold">Resolved</span>
                         </div>
                       </div>
                       {/* Attribute badges */}
@@ -312,7 +364,7 @@ export default function CustomerActivation() {
                           { label: 'Privacy-Compliant', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
                           { label: 'Real-Time', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
                         ].map((badge) => (
-                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                          <span key={badge.label} className={`text-[7px] font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
                             {badge.label}
                           </span>
                         ))}
@@ -320,8 +372,8 @@ export default function CustomerActivation() {
                       {/* Profile completeness bar */}
                       <div>
                         <div className="flex justify-between mb-1">
-                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Profile Completeness</span>
-                          <span className="text-[8px] font-mono font-bold text-emerald-500">94%</span>
+                          <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Profile Completeness</span>
+                          <span className="text-[8px] font-bold text-emerald-500">94%</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
                           <motion.div
@@ -337,7 +389,7 @@ export default function CustomerActivation() {
 
                     {/* Row 4: Platform health status bar */}
                     <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5 flex items-center justify-between">
-                      <span className="text-[9px] font-mono font-semibold text-[hsl(var(--app-text))]">First-Party Foundation</span>
+                      <span className="text-[9px] font-semibold text-[hsl(var(--app-text))]">First-Party Foundation</span>
                       <div className="flex items-center gap-3">
                         {[
                           { label: 'Sync', color: 'bg-emerald-500' },
@@ -350,10 +402,10 @@ export default function CustomerActivation() {
                               animate={{ opacity: [1, 0.4, 1] }}
                               transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
                             />
-                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{stat.label}</span>
+                            <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{stat.label}</span>
                           </div>
                         ))}
-                        <span className="text-[8px] font-mono font-semibold text-emerald-500">Excellent</span>
+                        <span className="text-[8px] font-semibold text-emerald-500">Excellent</span>
                       </div>
                     </div>
                   </motion.div>
@@ -368,7 +420,7 @@ export default function CustomerActivation() {
                     <div className="flex gap-3 items-stretch">
                       {/* Data Sources panel */}
                       <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Sources</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Data Sources</p>
                         <div className="space-y-2">
                           {[
                             { label: 'Web Session', color: 'bg-blue-500', val: 'Live' },
@@ -390,9 +442,9 @@ export default function CustomerActivation() {
                                   animate={{ scale: [1, 1.4, 1] }}
                                   transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
                                 />
-                                <span className="text-[9px] font-mono text-[hsl(var(--app-text-muted))]">{src.label}</span>
+                                <span className="text-[9px] text-[hsl(var(--app-text-muted))]">{src.label}</span>
                               </div>
-                              <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">{src.val}</span>
+                              <span className="text-[8px] font-medium text-[hsl(var(--app-text))]">{src.val}</span>
                             </motion.div>
                           ))}
                         </div>
@@ -414,7 +466,7 @@ export default function CustomerActivation() {
                             <span className="text-[5px] text-amber-900 font-bold">?</span>
                           </motion.div>
                         </div>
-                        <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">anon_7f3d</p>
+                        <p className="text-[8px] text-[hsl(var(--app-text-muted))]">anon_7f3d</p>
                         <div className="w-full space-y-1">
                           <div className="h-1.5 rounded bg-[hsl(var(--app-border))] overflow-hidden">
                             <motion.div
@@ -425,7 +477,7 @@ export default function CustomerActivation() {
                               viewport={{ once: true }}
                             />
                           </div>
-                          <p className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] text-center">Building…</p>
+                          <p className="text-[7px] text-[hsl(var(--app-text-muted))] text-center">Building…</p>
                         </div>
                       </div>
                     </div>
@@ -444,7 +496,7 @@ export default function CustomerActivation() {
                           animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
                           transition={{ duration: 0.9, repeat: Infinity }}
                         />
-                        <span className="text-[9px] font-mono text-[hsl(var(--app-text-muted))]">Stitching across devices &amp; sessions…</span>
+                        <span className="text-[9px] text-[hsl(var(--app-text-muted))]">Stitching across devices &amp; sessions…</span>
                       </div>
                     </motion.div>
 
@@ -467,8 +519,8 @@ export default function CustomerActivation() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-1.5">
-                            <p className="text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Unified Profile</p>
-                            <span className="text-[7px] font-mono text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5">Live</span>
+                            <p className="text-[10px] font-semibold text-[hsl(var(--app-text))]">Unified Profile</p>
+                            <span className="text-[7px] text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5">Live</span>
                           </div>
                           <div className="grid grid-cols-2 gap-x-3 gap-y-1">
                             {[
@@ -478,8 +530,8 @@ export default function CustomerActivation() {
                               { k: 'LTV est.', v: '$340' },
                             ].map(attr => (
                               <div key={attr.k} className="flex justify-between items-center">
-                                <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">{attr.k}</span>
-                                <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">{attr.v}</span>
+                                <span className="text-[8px] text-[hsl(var(--app-text-muted))]">{attr.k}</span>
+                                <span className="text-[8px] font-medium text-[hsl(var(--app-text))]">{attr.v}</span>
                               </div>
                             ))}
                           </div>
@@ -497,7 +549,7 @@ export default function CustomerActivation() {
                     >
                       <div className="flex items-center gap-1 flex-shrink-0">
                         <div className="w-2 h-2 rounded-full bg-amber-400" />
-                        <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Anonymous</span>
+                        <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Anonymous</span>
                       </div>
                       <div className="flex-1 h-px bg-[hsl(var(--app-border))] relative overflow-hidden">
                         <motion.div
@@ -511,7 +563,7 @@ export default function CustomerActivation() {
                       </div>
                       <div className="flex items-center gap-1 flex-shrink-0">
                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                        <span className="text-[8px] font-mono font-medium text-[hsl(var(--app-text))]">Known</span>
+                        <span className="text-[8px] font-medium text-[hsl(var(--app-text))]">Known</span>
                       </div>
                     </motion.div>
 
@@ -542,7 +594,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Signals & Intent</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Signals & Intent</div>
                         </div>
                         <div className="space-y-2">
                           <div className="flex items-center justify-between">
@@ -610,7 +662,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-sm"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">In‑Session Nudge</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">In‑Session Nudge</div>
                         </div>
                         
                         {/* Pop-up mockup */}
@@ -668,7 +720,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Decision Path</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Decision Path</div>
                         </div>
 
                         <div className="flex items-center justify-center mb-3">
@@ -759,7 +811,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Decision Stack</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Decision Stack</div>
                         </div>
 
                         <div className="flex items-center justify-center mb-3">
@@ -825,7 +877,7 @@ export default function CustomerActivation() {
                     {/* Central Orchestration Hub */}
                     <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
                       <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
+                        <div className="text-[hsl(var(--app-text-muted))] text-xs mb-3">
                           In‑Session Orchestration
                         </div>
                         <motion.div
@@ -845,7 +897,7 @@ export default function CustomerActivation() {
                             priority={true}
                           />
                         </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
+                        <div className="text-[hsl(var(--app-text-muted))] text-[8px] md:text-xs mt-2">
                           Real-time Decisioning
                         </div>
                       </div>
@@ -960,7 +1012,7 @@ export default function CustomerActivation() {
                             animate={{ opacity: [0.6, 1, 0.6] }}
                             transition={{ duration: 2.5, repeat: Infinity }}
                           >
-                            <span className="text-[7px] font-mono text-white font-bold tracking-wide">ADD TO CART</span>
+                            <span className="text-[7px] text-white font-bold tracking-wide">ADD TO CART</span>
                           </motion.div>
                         </div>
                       </motion.div>
@@ -980,7 +1032,7 @@ export default function CustomerActivation() {
                               animate={{ scale: [1, 1.5, 1], opacity: [1, 0.4, 1] }}
                               transition={{ duration: 1.4, repeat: Infinity }}
                             />
-                            <span className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text))]">Live Signals</span>
+                            <span className="text-[8px] font-semibold text-[hsl(var(--app-text))]">Live Signals</span>
                           </div>
                           {[
                             { label: 'Scroll depth', value: '78%', color: 'text-blue-500' },
@@ -996,8 +1048,8 @@ export default function CustomerActivation() {
                               transition={{ delay: 0.3 + si * 0.08 }}
                               viewport={{ once: true }}
                             >
-                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{sig.label}</span>
-                              <span className={`text-[8px] font-mono font-bold ${sig.color}`}>{sig.value}</span>
+                              <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{sig.label}</span>
+                              <span className={`text-[8px] font-bold ${sig.color}`}>{sig.value}</span>
                             </motion.div>
                           ))}
                         </div>
@@ -1021,7 +1073,7 @@ export default function CustomerActivation() {
                         <svg className="w-3 h-3 text-[hsl(var(--app-primary))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <span className="text-[9px] font-mono font-bold text-[hsl(var(--app-primary))]">AI deciding — &lt;100ms</span>
+                        <span className="text-[9px] font-bold text-[hsl(var(--app-primary))]">AI deciding — &lt;100ms</span>
                       </motion.div>
                       <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[hsl(var(--app-primary))]/30" />
                     </motion.div>
@@ -1037,18 +1089,18 @@ export default function CustomerActivation() {
                       <div className="h-0.5 w-full bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))]" />
                       <div className="p-3 flex items-start gap-3">
                         <div className="flex-1">
-                          <p className="text-[8px] font-mono uppercase tracking-widest text-[hsl(var(--app-text-muted))] mb-0.5">Convertive AI — in session</p>
+                          <p className="text-[8px] uppercase tracking-widest text-[hsl(var(--app-text-muted))] mb-0.5">Convertive AI — in session</p>
                           <p className="text-xs sm:text-sm font-title text-[hsl(var(--app-text))] mb-1.5">Complete your order &amp; save 10%</p>
-                          <p className="text-[9px] font-mono text-[hsl(var(--app-text-muted))] mb-2.5">Enter your email to unlock — today only.</p>
+                          <p className="text-[9px] text-[hsl(var(--app-text-muted))] mb-2.5">Enter your email to unlock — today only.</p>
                           <div className="flex items-center gap-2">
                             <motion.div
                               className="flex-1 h-6 rounded-lg bg-black flex items-center justify-center cursor-pointer"
                               whileHover={{ scale: 1.03 }}
                             >
-                              <span className="text-[8px] font-mono text-white font-bold">Claim Offer</span>
+                              <span className="text-[8px] text-white font-bold">Claim Offer</span>
                             </motion.div>
                             <div className="h-6 px-2.5 rounded-lg border border-[hsl(var(--app-border))] flex items-center justify-center">
-                              <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Later</span>
+                              <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Later</span>
                             </div>
                           </div>
                         </div>
@@ -1093,8 +1145,8 @@ export default function CustomerActivation() {
                                 transition={{ duration: 1.2, repeat: Infinity }}
                               />
                             )}
-                            <span className="text-[7px] font-mono font-bold text-[hsl(var(--app-text-muted))]">{ev.t}</span>
-                            <span className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/70">{ev.label}</span>
+                            <span className="text-[7px] font-bold text-[hsl(var(--app-text-muted))]">{ev.t}</span>
+                            <span className="text-[6px] text-[hsl(var(--app-text-muted))]/70">{ev.label}</span>
                           </motion.div>
                           {ei < arr.length - 1 && (
                             <div className="flex-1 h-px bg-[hsl(var(--app-border))] mx-1 mb-4" />
@@ -1144,13 +1196,13 @@ export default function CustomerActivation() {
                           transition={{ duration: 1.4, repeat: Infinity }}
                         >
                           <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                          <span className="text-[7px] font-mono text-red-500">Exit intent detected</span>
+                          <span className="text-[7px] text-red-500">Exit intent detected</span>
                         </motion.div>
                       </motion.div>
 
                       {/* Right: Trigger signals */}
                       <div className="w-28 flex-shrink-0 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-2.5 flex flex-col gap-1.5">
-                        <p className="text-[7px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Signals</p>
+                        <p className="text-[7px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Signals</p>
                         {[
                           { label: 'Exit risk', value: 'High', color: 'text-red-500' },
                           { label: 'Price sens.', value: 'High', color: 'text-amber-500' },
@@ -1165,8 +1217,8 @@ export default function CustomerActivation() {
                             transition={{ delay: 0.15 + i * 0.07 }}
                             viewport={{ once: true }}
                           >
-                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{sig.label}</span>
-                            <span className={`text-[8px] font-mono font-semibold ${sig.color}`}>{sig.value}</span>
+                            <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{sig.label}</span>
+                            <span className={`text-[8px] font-semibold ${sig.color}`}>{sig.value}</span>
                           </motion.div>
                         ))}
                       </div>
@@ -1184,8 +1236,8 @@ export default function CustomerActivation() {
                       <div className="h-1 w-full rounded-t-sm bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] mb-2 -mx-3 -mt-3 w-[calc(100%+1.5rem)] rounded-t-xl" style={{ width: 'calc(100% + 1.5rem)', marginLeft: '-0.75rem', marginRight: '-0.75rem', marginTop: '-0.75rem', borderRadius: '0.75rem 0.75rem 0 0' }} />
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <div>
-                          <p className="text-[10px] font-mono font-bold text-[hsl(var(--app-text))] leading-tight">Wait! Complete your order</p>
-                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Get 10% off — enter email to claim</p>
+                          <p className="text-[10px] font-bold text-[hsl(var(--app-text))] leading-tight">Wait! Complete your order</p>
+                          <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Get 10% off — enter email to claim</p>
                         </div>
                         <motion.div
                           className="w-5 h-5 rounded-full bg-[hsl(var(--app-primary))]/15 flex items-center justify-center flex-shrink-0"
@@ -1198,18 +1250,18 @@ export default function CustomerActivation() {
                       {/* Capture form */}
                       <div className="flex gap-1.5 mb-2">
                         <div className="flex-1 h-6 rounded-lg border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] flex items-center px-2">
-                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">email or phone…</span>
+                          <span className="text-[8px] text-[hsl(var(--app-text-muted))]">email or phone…</span>
                         </div>
                         <motion.div
                           className="h-6 px-2.5 rounded-lg bg-[hsl(var(--app-primary))] flex items-center justify-center cursor-pointer"
                           whileHover={{ scale: 1.03 }}
                         >
-                          <span className="text-[8px] font-mono text-white font-bold">Claim</span>
+                          <span className="text-[8px] text-white font-bold">Claim</span>
                         </motion.div>
                       </div>
                       <div className="flex items-center gap-1">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                        <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">No credit card · Instant discount</span>
+                        <span className="text-[7px] text-[hsl(var(--app-text-muted))]">No credit card · Instant discount</span>
                       </div>
                     </motion.div>
 
@@ -1227,8 +1279,8 @@ export default function CustomerActivation() {
                           <span className="text-[6px] text-amber-600 font-bold">?</span>
                         </div>
                         <div>
-                          <p className="text-[7px] font-mono font-semibold text-[hsl(var(--app-text-muted))]">Anonymous</p>
-                          <p className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/60">anon_7f3d</p>
+                          <p className="text-[7px] font-semibold text-[hsl(var(--app-text-muted))]">Anonymous</p>
+                          <p className="text-[6px] text-[hsl(var(--app-text-muted))]/60">anon_7f3d</p>
                         </div>
                       </div>
                       {/* Arrow */}
@@ -1249,8 +1301,8 @@ export default function CustomerActivation() {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-[7px] font-mono font-semibold text-emerald-600">Identified</p>
-                          <p className="text-[6px] font-mono text-[hsl(var(--app-text-muted))]/60">sarah@…</p>
+                          <p className="text-[7px] font-semibold text-emerald-600">Identified</p>
+                          <p className="text-[6px] text-[hsl(var(--app-text-muted))]/60">sarah@…</p>
                         </div>
                       </div>
                     </motion.div>
@@ -1263,7 +1315,7 @@ export default function CustomerActivation() {
                       transition={{ delay: 1.1 }}
                       viewport={{ once: true }}
                     >
-                      <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] flex-shrink-0">Recovery:</span>
+                      <span className="text-[7px] text-[hsl(var(--app-text-muted))] flex-shrink-0">Recovery:</span>
                       {[
                         { label: 'Email ✓', color: 'bg-blue-500/10 border-blue-500/30 text-blue-600' },
                         { label: 'SMS ✓', color: 'bg-purple-500/10 border-purple-500/30 text-purple-600' },
@@ -1271,7 +1323,7 @@ export default function CustomerActivation() {
                       ].map((pill, i) => (
                         <motion.span
                           key={pill.label}
-                          className={`text-[7px] font-mono rounded-full border px-1.5 py-0.5 ${pill.color}`}
+                          className={`text-[7px] rounded-full border px-1.5 py-0.5 ${pill.color}`}
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 1.15 + i * 0.1 }}
@@ -1309,7 +1361,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-[hsl(var(--app-primary))] to-[hsl(var(--app-secondary))] flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-sm"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Exit-Intent Detection</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Exit-Intent Detection</div>
                         </div>
 
                         {/* Exit popup mockup */}
@@ -1360,7 +1412,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Session Flow</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Session Flow</div>
                         </div>
                         
                         {/* Flow visualization */}
@@ -1444,7 +1496,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded-sm bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-sm"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Live UI Experience</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Live UI Experience</div>
                         </div>
 
                         {/* Phone mockup showing cart recovery */}
@@ -1507,7 +1559,7 @@ export default function CustomerActivation() {
                           <div className="w-4 h-4 rounded bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded"></div>
                           </div>
-                          <div className="text-[8px] md:text-[10px] font-mono font-semibold text-[hsl(var(--app-text))]">Multi-Channel</div>
+                          <div className="text-[8px] md:text-[10px] font-semibold text-[hsl(var(--app-text))]">Multi-Channel</div>
                         </div>
 
                         <div className="flex items-center justify-center mb-3">
@@ -1560,7 +1612,7 @@ export default function CustomerActivation() {
                     {/* Central Recovery Hub */}
                     <div className="absolute z-30 pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
                       <div className="text-center">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-xs mb-3">
+                        <div className="text-[hsl(var(--app-text-muted))] text-xs mb-3">
                           Cart & Browse Recovery
                         </div>
                         <motion.div
@@ -1571,14 +1623,14 @@ export default function CustomerActivation() {
                           transition={{ duration: 0.5, delay: 1.5 }}
                           viewport={{ once: true }}
                         >
-                          <div className="text-black font-mono font-bold text-xs md:text-sm" style={{marginLeft: '50px'}}>CART</div>
+                          <div className="text-black font-bold text-xs md:text-sm" style={{marginLeft: '50px'}}>CART</div>
                           <motion.div
                             className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_40%,_rgba(255,255,255,0.2)_50%,_transparent_60%)]"
                             animate={{ x: [-100, 100] }}
                             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                           />
                         </motion.div>
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-[8px] md:text-xs mt-2">
+                        <div className="text-[hsl(var(--app-text-muted))] text-[8px] md:text-xs mt-2">
                           Smart Recovery Engine
                         </div>
                       </div>
@@ -1659,7 +1711,7 @@ export default function CustomerActivation() {
                     <div className="flex gap-3 items-stretch">
                       {/* Entry Points panel */}
                       <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Entry Points</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Entry Points</p>
                         <div className="space-y-2">
                           {[
                             { label: 'Instagram Story', icon: '📸', color: 'bg-pink-500', textColor: 'text-pink-500', val: 'Tapped' },
@@ -1673,9 +1725,9 @@ export default function CustomerActivation() {
                                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                                   transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
                                 />
-                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{entry.label}</span>
+                                <span className="text-[9px] text-[hsl(var(--app-text))]">{entry.label}</span>
                               </div>
-                              <span className={`text-[8px] font-mono font-semibold ${entry.textColor}`}>{entry.val}</span>
+                              <span className={`text-[8px] font-semibold ${entry.textColor}`}>{entry.val}</span>
                             </div>
                           ))}
                         </div>
@@ -1683,19 +1735,19 @@ export default function CustomerActivation() {
 
                       {/* Context Preserved stats */}
                       <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Context</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Context</p>
                         <div className="space-y-2.5">
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Kept</p>
-                            <p className="text-base font-mono font-bold text-emerald-500 leading-none">100%</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Kept</p>
+                            <p className="text-base font-bold text-emerald-500 leading-none">100%</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Drop-off</p>
-                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">−68%</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Drop-off</p>
+                            <p className="text-base font-bold text-[hsl(var(--app-primary))] leading-none">−68%</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Load</p>
-                            <p className="text-base font-mono font-bold text-purple-500 leading-none">0.8s</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Load</p>
+                            <p className="text-base font-bold text-purple-500 leading-none">0.8s</p>
                           </div>
                         </div>
                       </div>
@@ -1713,7 +1765,7 @@ export default function CustomerActivation() {
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <span className="text-[9px] font-mono text-purple-700 font-semibold">Stitching context across channels…</span>
+                        <span className="text-[9px] text-purple-700 font-semibold">Stitching context across channels…</span>
                       </motion.div>
                     </div>
 
@@ -1721,12 +1773,12 @@ export default function CustomerActivation() {
                     <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
                       <div className="flex items-start justify-between mb-2.5">
                         <div>
-                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Product Page</p>
-                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">Trail Runner Pro — Size 10 (pre-selected)</p>
+                          <p className="text-[8px] text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Product Page</p>
+                          <p className="text-[11px] font-bold text-[hsl(var(--app-text))] mt-0.5">Trail Runner Pro — Size 10 (pre-selected)</p>
                         </div>
                         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
                           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Context kept</span>
+                          <span className="text-[8px] text-emerald-700 font-semibold">Context kept</span>
                         </div>
                       </div>
                       {/* Context badges */}
@@ -1737,7 +1789,7 @@ export default function CustomerActivation() {
                           { label: 'No re-auth', cls: 'bg-blue-100 text-blue-700 border-blue-200' },
                           { label: 'Offer applied', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
                         ].map((badge) => (
-                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                          <span key={badge.label} className={`text-[7px] font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
                             {badge.label}
                           </span>
                         ))}
@@ -1745,8 +1797,8 @@ export default function CustomerActivation() {
                       {/* Checkout readiness bar */}
                       <div>
                         <div className="flex justify-between mb-1">
-                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Checkout Readiness</span>
-                          <span className="text-[8px] font-mono font-bold text-emerald-500">Ready</span>
+                          <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Checkout Readiness</span>
+                          <span className="text-[8px] font-bold text-emerald-500">Ready</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
                           <motion.div
@@ -1776,7 +1828,7 @@ export default function CustomerActivation() {
                                 animate={step.done ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}
                               />
-                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))] whitespace-nowrap">{step.label}</span>
+                              <span className="text-[7px] text-[hsl(var(--app-text-muted))] whitespace-nowrap">{step.label}</span>
                             </div>
                             {i < 3 && (
                               <motion.div
@@ -1803,7 +1855,7 @@ export default function CustomerActivation() {
                     <div className="flex gap-3 items-stretch">
                       {/* Active Tests */}
                       <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Active Tests</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Active Tests</p>
                         <div className="space-y-2">
                           {[
                             { label: 'CTA Color', variants: 'A/B/C', traffic: '33%', color: 'bg-purple-500', textColor: 'text-purple-500' },
@@ -1817,11 +1869,11 @@ export default function CustomerActivation() {
                                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                                   transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
                                 />
-                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{test.label}</span>
+                                <span className="text-[9px] text-[hsl(var(--app-text))]">{test.label}</span>
                               </div>
                               <div className="flex items-center gap-1.5">
-                                <span className={`text-[8px] font-mono font-semibold ${test.textColor}`}>{test.variants}</span>
-                                <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{test.traffic}</span>
+                                <span className={`text-[8px] font-semibold ${test.textColor}`}>{test.variants}</span>
+                                <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{test.traffic}</span>
                               </div>
                             </div>
                           ))}
@@ -1830,19 +1882,19 @@ export default function CustomerActivation() {
 
                       {/* Live Results */}
                       <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col justify-between">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Results</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-1">Results</p>
                         <div className="space-y-2.5">
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Winner</p>
-                            <p className="text-[11px] font-mono font-bold text-emerald-500 leading-none">Variant B</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Winner</p>
+                            <p className="text-[11px] font-bold text-emerald-500 leading-none">Variant B</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">CVR Lift</p>
-                            <p className="text-base font-mono font-bold text-[hsl(var(--app-primary))] leading-none">+12.4%</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">CVR Lift</p>
+                            <p className="text-base font-bold text-[hsl(var(--app-primary))] leading-none">+12.4%</p>
                           </div>
                           <div>
-                            <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Confidence</p>
-                            <p className="text-base font-mono font-bold text-purple-500 leading-none">94%</p>
+                            <p className="text-[8px] text-[hsl(var(--app-text-muted))]">Confidence</p>
+                            <p className="text-base font-bold text-purple-500 leading-none">94%</p>
                           </div>
                         </div>
                       </div>
@@ -1860,7 +1912,7 @@ export default function CustomerActivation() {
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <span className="text-[9px] font-mono text-violet-700 font-semibold">AI detected winner — deploying automatically…</span>
+                        <span className="text-[9px] text-violet-700 font-semibold">AI detected winner — deploying automatically…</span>
                       </motion.div>
                     </div>
 
@@ -1868,8 +1920,8 @@ export default function CustomerActivation() {
                     <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
                       <div className="flex items-start justify-between mb-2.5">
                         <div>
-                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Deployed Winner</p>
-                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">Variant B — Blue CTA + Urgency Copy</p>
+                          <p className="text-[8px] text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Deployed Winner</p>
+                          <p className="text-[11px] font-bold text-[hsl(var(--app-text))] mt-0.5">Variant B — Blue CTA + Urgency Copy</p>
                         </div>
                         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
                           <motion.div
@@ -1877,7 +1929,7 @@ export default function CustomerActivation() {
                             animate={{ opacity: [1, 0.4, 1] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
                           />
-                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">Live</span>
+                          <span className="text-[8px] text-emerald-700 font-semibold">Live</span>
                         </div>
                       </div>
                       {/* Impact badges */}
@@ -1888,7 +1940,7 @@ export default function CustomerActivation() {
                           { label: '100% Traffic', cls: 'bg-purple-100 text-purple-700 border-purple-200' },
                           { label: 'No analyst', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
                         ].map((badge) => (
-                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                          <span key={badge.label} className={`text-[7px] font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
                             {badge.label}
                           </span>
                         ))}
@@ -1896,8 +1948,8 @@ export default function CustomerActivation() {
                       {/* Revenue impact bar */}
                       <div>
                         <div className="flex justify-between mb-1">
-                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Revenue Impact</span>
-                          <span className="text-[8px] font-mono font-bold text-emerald-500">+$2.4K/day</span>
+                          <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Revenue Impact</span>
+                          <span className="text-[8px] font-bold text-emerald-500">+$2.4K/day</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
                           <motion.div
@@ -1927,7 +1979,7 @@ export default function CustomerActivation() {
                                 animate={phase.done ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}
                               />
-                              <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{phase.label}</span>
+                              <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{phase.label}</span>
                             </div>
                             {i < 3 && (
                               <motion.div
@@ -1940,7 +1992,7 @@ export default function CustomerActivation() {
                             )}
                           </React.Fragment>
                         ))}
-                        <span className="text-[8px] font-mono font-semibold text-violet-500 ml-1">Always-On</span>
+                        <span className="text-[8px] font-semibold text-violet-500 ml-1">Always-On</span>
                       </div>
                     </div>
                   </motion.div>
@@ -1955,7 +2007,7 @@ export default function CustomerActivation() {
                     <div className="flex gap-3 items-stretch">
                       {/* Live KPIs */}
                       <div className="flex-1 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Live KPIs</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide mb-2.5">Live KPIs</p>
                         <div className="space-y-2">
                           {[
                             { label: 'Revenue Today', val: '$48.2K', color: 'bg-emerald-500', textColor: 'text-emerald-500' },
@@ -1970,9 +2022,9 @@ export default function CustomerActivation() {
                                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                                   transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.35 }}
                                 />
-                                <span className="text-[9px] font-mono text-[hsl(var(--app-text))]">{kpi.label}</span>
+                                <span className="text-[9px] text-[hsl(var(--app-text))]">{kpi.label}</span>
                               </div>
-                              <span className={`text-[9px] font-mono font-bold ${kpi.textColor}`}>{kpi.val}</span>
+                              <span className={`text-[9px] font-bold ${kpi.textColor}`}>{kpi.val}</span>
                             </div>
                           ))}
                         </div>
@@ -1980,7 +2032,7 @@ export default function CustomerActivation() {
 
                       {/* Smart Alerts */}
                       <div className="w-28 rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-3 flex flex-col gap-2">
-                        <p className="text-[8px] font-mono font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Alerts</p>
+                        <p className="text-[8px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Alerts</p>
                         {[
                           { msg: 'Journey live', color: 'bg-emerald-500', dot: 'text-emerald-600' },
                           { msg: 'Test winner', color: 'bg-blue-500', dot: 'text-blue-600' },
@@ -1995,7 +2047,7 @@ export default function CustomerActivation() {
                             viewport={{ once: true }}
                           >
                             <div className={`w-1.5 h-1.5 rounded-full ${alert.color} flex-shrink-0`} />
-                            <span className="text-[7px] font-mono text-[hsl(var(--app-text))]">{alert.msg}</span>
+                            <span className="text-[7px] text-[hsl(var(--app-text))]">{alert.msg}</span>
                           </motion.div>
                         ))}
                       </div>
@@ -2013,7 +2065,7 @@ export default function CustomerActivation() {
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 1.2, repeat: Infinity }}
                         />
-                        <span className="text-[9px] font-mono text-blue-700 font-semibold">All channels unified in one place</span>
+                        <span className="text-[9px] text-blue-700 font-semibold">All channels unified in one place</span>
                       </motion.div>
                     </div>
 
@@ -2021,8 +2073,8 @@ export default function CustomerActivation() {
                     <div className="rounded-xl border border-[hsl(var(--app-primary))]/30 bg-gradient-to-br from-[hsl(var(--app-primary))]/5 to-[hsl(var(--app-secondary))]/5 p-3.5">
                       <div className="flex items-start justify-between mb-2.5">
                         <div>
-                          <p className="text-[8px] font-mono text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Convertive Command Center</p>
-                          <p className="text-[11px] font-mono font-bold text-[hsl(var(--app-text))] mt-0.5">No more dashboard sprawl — one view</p>
+                          <p className="text-[8px] text-[hsl(var(--app-text-muted))] uppercase tracking-wide">Convertive Command Center</p>
+                          <p className="text-[11px] font-bold text-[hsl(var(--app-text))] mt-0.5">No more dashboard sprawl — one view</p>
                         </div>
                         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-200">
                           <motion.div
@@ -2030,7 +2082,7 @@ export default function CustomerActivation() {
                             animate={{ opacity: [1, 0.4, 1] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
                           />
-                          <span className="text-[8px] font-mono text-emerald-700 font-semibold">All Live</span>
+                          <span className="text-[8px] text-emerald-700 font-semibold">All Live</span>
                         </div>
                       </div>
                       {/* Module badges */}
@@ -2042,7 +2094,7 @@ export default function CustomerActivation() {
                           { label: 'Notifications', cls: 'bg-amber-100 text-amber-700 border-amber-200' },
                           { label: 'Experiments', cls: 'bg-pink-100 text-pink-700 border-pink-200' },
                         ].map((badge) => (
-                          <span key={badge.label} className={`text-[7px] font-mono font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
+                          <span key={badge.label} className={`text-[7px] font-semibold px-1.5 py-0.5 rounded-full border ${badge.cls}`}>
                             {badge.label}
                           </span>
                         ))}
@@ -2050,8 +2102,8 @@ export default function CustomerActivation() {
                       {/* Stack consolidation bar */}
                       <div>
                         <div className="flex justify-between mb-1">
-                          <span className="text-[8px] font-mono text-[hsl(var(--app-text-muted))]">Tools Replaced</span>
-                          <span className="text-[8px] font-mono font-bold text-[hsl(var(--app-primary))]">7 tools → 1</span>
+                          <span className="text-[8px] text-[hsl(var(--app-text-muted))]">Tools Replaced</span>
+                          <span className="text-[8px] font-bold text-[hsl(var(--app-primary))]">7 tools → 1</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-[hsl(var(--app-border))] overflow-hidden">
                           <motion.div
@@ -2067,7 +2119,7 @@ export default function CustomerActivation() {
 
                     {/* Row 4: Module status bar */}
                     <div className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] px-3 py-2.5 flex items-center justify-between">
-                      <span className="text-[9px] font-mono font-semibold text-[hsl(var(--app-text))]">Growth Control Center</span>
+                      <span className="text-[9px] font-semibold text-[hsl(var(--app-text))]">Growth Control Center</span>
                       <div className="flex items-center gap-3">
                         {[
                           { label: 'Data', color: 'bg-emerald-500' },
@@ -2080,27 +2132,24 @@ export default function CustomerActivation() {
                               animate={{ opacity: [1, 0.4, 1] }}
                               transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
                             />
-                            <span className="text-[7px] font-mono text-[hsl(var(--app-text-muted))]">{mod.label}</span>
+                            <span className="text-[7px] text-[hsl(var(--app-text-muted))]">{mod.label}</span>
                           </div>
                         ))}
-                        <span className="text-[8px] font-mono font-semibold text-emerald-500">Online</span>
+                        <span className="text-[8px] font-semibold text-emerald-500">Online</span>
                       </div>
                     </div>
                   </motion.div>
                 ) : ('image' in feature && (feature as any).image) || ('video' in feature && (feature as any).video) ? (
                   // Full image/video display without aspect ratio constraints
                     <motion.div
-                      className="relative rounded-2xl border border-[hsl(var(--app-border))] overflow-hidden bg-[hsl(var(--app-card))]"
-                      whileHover={{ y: -2 }}
+                      className="relative w-full h-full rounded-xl border border-[hsl(var(--app-border))] overflow-hidden bg-[hsl(var(--app-card))]"
                       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                     >
-                      {/* Glow border */}
-                      <div className="pointer-events-none absolute inset-px rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--app-card))_,_hsl(var(--app-card-hover)))]" />
-                      <div className="relative">
+                      <div className="relative w-full h-full">
                         {('video' in feature && (feature as any).video) ? (
                           <video
                             src={(feature as any).video}
-                            className="w-full h-auto"
+                            className="absolute inset-0 w-full h-full object-cover"
                             playsInline
                             muted
                             loop
@@ -2110,10 +2159,9 @@ export default function CustomerActivation() {
                           <Image
                             src={(feature as any).image}
                             alt={(feature as any).alt || feature.title}
-                            width={800}
-                            height={600}
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="w-full h-auto object-contain"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 60vw"
+                            className="object-cover"
                             priority={true}
                           />
                         )}
@@ -2122,8 +2170,7 @@ export default function CustomerActivation() {
                   ) : (
                     // Mock visual layout for features without images/videos
                     <motion.div
-                      className="relative aspect-video rounded-2xl border border-[hsl(var(--app-border))] overflow-hidden bg-[hsl(var(--app-card))]"
-                      whileHover={{ y: -2 }}
+                      className="relative w-full h-full rounded-xl border border-[hsl(var(--app-border))] overflow-hidden bg-[hsl(var(--app-card))]"
                       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                     >
                       {/* Glow border */}
@@ -2139,7 +2186,7 @@ export default function CustomerActivation() {
                           <rect width="100%" height="100%" fill={`url(#grid-${index})`} className="text-[hsl(var(--app-border))]" />
                         </svg>
                         {/* Floating label */}
-                        <motion.div className="absolute left-4 top-4 px-3 py-1 rounded-full text-xs font-mono bg-[hsl(var(--app-background))]/70 border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))]"
+                        <motion.div className="absolute left-4 top-4 px-3 py-1 rounded-full text-xs bg-[hsl(var(--app-background))]/70 border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))]"
                           initial={{ opacity: 0, y: -8 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.1 }}
@@ -2158,40 +2205,20 @@ export default function CustomerActivation() {
                         />
                       </div>
                       <div className="relative z-10 flex h-full items-center justify-center p-2 sm:p-4 md:p-6">
-                        <div className="text-[hsl(var(--app-text-muted))] font-mono text-sm text-center">
+                        <div className="text-[hsl(var(--app-text-muted))] text-sm text-center">
                           {feature.visual}
                         </div>
                       </div>
                     </motion.div>
                   )}
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </div>
-
-        {/* CTA Section */}
-        {/* <motion.div
-          className="text-center mt-20 sm:mt-24"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <motion.button
-            className="relative inline-flex items-center justify-center px-8 py-4 rounded-full font-mono text-lg font-semibold text-[hsl(var(--app-background))] shadow-md"
-            style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--app-primary)), hsl(var(--app-secondary)))' }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <span className="relative z-10">Start Your Customer Journey</span>
-            <motion.span
-              className="absolute inset-0 rounded-full"
-              initial={{ boxShadow: '0 0 0 0 rgba(0,0,0,0)' }}
-              whileHover={{ boxShadow: '0 12px 40px -8px hsl(var(--app-primary)/40%)' }}
-            />
-          </motion.button>
-        </motion.div> */}
       </div>
+
     </div>
   )
 }
