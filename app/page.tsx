@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ProductVideo from "@/components/product-video"
 import Link from "next/link"
 import Footer from "../components/footer"
 import { Button } from "../components/ui/button"
@@ -166,14 +167,7 @@ export default function SyntheticV0PageForDeployment() {
       {/* Product Video */}
       <div className="bg-[hsl(var(--app-background))] px-4 sm:px-6 lg:px-8 pb-12">
         <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-[hsl(var(--app-border))] shadow-xl">
-          <video
-            src="/videos/product_video2.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-auto block"
-          />
+          <ProductVideo src="/videos/product_demo4.mp4" />
         </div>
       </div>
 

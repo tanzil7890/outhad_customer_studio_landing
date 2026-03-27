@@ -95,7 +95,7 @@ export default function CustomerActivation() {
       visual: "Live profile stitching across sessions, devices, and channels."
     },
     {
-      title: "convertiveAI™",
+      title: "Convertive AI™",
       subtitle: "AI for Growth.",
       description: "Employ convertiveAI™, the world's smartest marketing advisor. As you learn Convertive, convertiveAI™ learns your brand, helping you to create on-brand content and creative, personalize journeys, and double down on winning strategies that multiply returns.",
       visual: "Elements from the the Convertive Sage AI interface connected to parts a push notification they control."
