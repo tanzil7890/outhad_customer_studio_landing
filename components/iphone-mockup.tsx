@@ -22,9 +22,9 @@ export default function IPhoneMockup() {
   return (
     <div className="ml-auto mr-auto flex items-center justify-center w-full">
       {/* Mobile Debug - Simplified Version for small screens */}
-      <div className="relative aspect-[9/16] h-[360px] w-auto max-w-full min-w-0 sm:aspect-[1950/3958] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px]">
-        <div className="absolute inset-0 px-[5%] py-[4%]">
-          <div className="bg-white relative h-full w-full overflow-hidden [border-radius:10%/5%]">
+      <div className="relative aspect-[1950/3958] h-[360px] w-auto max-w-full min-w-0 sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px]">
+        <div className="absolute inset-0 px-[4.9%] pt-[10.2%] pb-[5.5%]">
+          <div className="bg-black relative h-full w-full overflow-hidden rounded-[5%]">
             {/* Layer 1 - Home View */}
             <div className={`absolute inset-0 transition-all duration-300 ${currentView === 'home' ? 'opacity-900 translate-x-0' : 'opacity-0 -translate-x-full'} ${animateTransition ? 'scale-95' : 'scale-100'}`}>
               <div className="relative w-full h-full">
@@ -32,7 +32,7 @@ export default function IPhoneMockup() {
                   src="/images/main1.png"
                   alt="Boot Store Home Page"
                   fill
-                  className="z-10 w-full object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               {/* User Avatar Overlay */}
@@ -57,7 +57,7 @@ export default function IPhoneMockup() {
                   src="/images/main2.png"
                   alt="Boot Product Detail Page"
                   fill
-                  className="w-full object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               {/* Cart Badge Overlay */}

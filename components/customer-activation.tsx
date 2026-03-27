@@ -219,7 +219,7 @@ export default function CustomerActivation() {
         {/* Tall scroll space — each feature gets 120vh of scroll distance */}
         <div style={{ height: `${featuresNew.length * 120}vh` }}>
           {/* Sticky viewport — stays pinned while parent scrolls */}
-          <div className="sticky top-[8vh] h-[68vh] overflow-hidden mx-4 sm:mx-8 lg:mx-16 rounded-2xl">
+          <div className="sticky top-[4vh] h-[88vh] overflow-hidden mx-4 sm:mx-8 lg:mx-16 rounded-2xl">
             <div
               className="h-full grid gap-3 lg:gap-4 px-3 sm:px-4 lg:px-6 py-3"
               style={{ gridTemplateColumns: '0.32fr 1fr' }}

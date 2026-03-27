@@ -14,6 +14,7 @@ import WhyUs from "@/components/why-us"
 import BeforeAfterSection from "@/components/before-after-section"
 import CaseStudiesSection from "@/components/case-studies-section"
 import HeroAnimation from "@/components/hero-animation"
+import HeroRoiCalculator from "@/components/hero-roi-calculator"
 import { buildMetadata, serializeJsonLd } from '@/lib/seo'
 import { faqSchema } from '@/lib/schema'
 
@@ -99,69 +100,84 @@ export default function SyntheticV0PageForDeployment() {
       />
 
       {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-48 pb-5 sm:pt-40 sm:pb-16 px-4">
-        <div className="text-center  ">
-          <Link href={"https://gwaycapital.com/"} target="_blank" rel="noopener noreferrer" className="inline-block mb-6 hover:text-[hsl(var(--app-text-muted))]" >
-          <div className="mb-6">
-            Backed by 
-            <img 
-              src="https://gwaycapital.com/wp-content/uploads/2021/05/Gateway.png" 
-              alt="Gateway Capital" 
-              className="inline-block h-10 mx-4 opacity-80"
-            />
-          </div>
-          </Link>
-          <h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[hsl(var(--app-text))] mb-6 leading-tight max-w-6xl mx-auto">
-            Convert anonymous visitors before they leave. {/* <span className="text-[hsl(var(--app-accent))]">Convert Them Now.</span> */}
-          </h1>
-          {/* style={{fontFamily: 'var(--font-labil-grotesk)'}} */}
-          <p className="text-base sm:text-lg md:text-xl text-[hsl(var(--app-text-muted))] mb-8 max-w-4xl mx-auto leading-relaxed tracking-wide" >
-            Convertive uses real-time AI to predict intent and intervene during the live session, converting anonymous visitors into buyers before they ever leave your site.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
-            {/* Add Arrow Image */}
-            <img 
-              src="/images/arrows/arrow-11.svg" 
-              alt="Arrow pointing to Book Demo" 
-              className="w-20 h-20 text-[hsl(var(--app-text-muted))] opacity-70 pointer-events-none hidden sm:block animate-bounce mr-2"
-              style={{
-                filter: 'brightness(0) saturate(100%) invert(21%) sepia(0%) saturate(2%) hue-rotate(346deg) brightness(95%) contrast(86%)',
-                transform: 'scaleY(-1)',
-                transformOrigin: 'center'
-              }}
-            />
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
-              >
-                Book Demo
-              </Button>
-            </Link>
-            <Link href="/roi-calculator">
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
-              >
-                Calculate Your ROI
-              </Button>
-            </Link>
-            <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="Convertive rocket illustration" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '-100px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
-            
-          </div>
+      <div className="bg-[hsl(var(--app-background))] pt-36 pb-10 sm:pt-32 sm:pb-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* <div className="mt-6 text-sm text-[hsl(var(--app-text-muted))] italic max-w-2xl mx-auto">
-            Backed by industry leaders from  
-            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">Amazon</span>, 
-            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">Clorox</span>, and 
-            <span className="font-semibold text-[hsl(var(--app-text))] mx-1">TechGear</span>
-          </div> */}
+            {/* Left — 50% — text content */}
+            <div>
+              <Link href="https://gwaycapital.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center mb-6 hover:opacity-80 transition-opacity">
+                <span className="text-sm text-[hsl(var(--app-text-muted))]">Backed by</span>
+                <img
+                  src="https://gwaycapital.com/wp-content/uploads/2021/05/Gateway.png"
+                  alt="Gateway Capital"
+                  className="inline-block h-8 mx-3 opacity-80"
+                />
+              </Link>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[hsl(var(--app-text))] mb-5 leading-tight">
+                Convert anonymous visitors before they leave.
+              </h1>
+
+              <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] mb-8 leading-relaxed">
+                Convertive uses real-time AI to predict intent and intervene during the live session, converting anonymous visitors into buyers before they ever leave your site.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 items-center">
+                <div className="relative">
+                  <img
+                    src="/images/arrows/arrow-11.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute -left-14 -top-0 h-10 w-auto -rotate-[20deg] opacity-100"
+                  />
+                  <Link href="https://cal.com/tanzil-convertive" target="_blank">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px]"
+                    >
+                      Book Demo
+                    </Button>
+                  </Link>
+                </div>
+                <Link href="/roi-calculator">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-2 border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-surface))] rounded-full transition-all duration-300 px-6 py-3 text-sm font-medium min-h-[44px]"
+                  >
+                    Full ROI Calculator →
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — 50% — ROI calculator */}
+            <div>
+              <HeroRoiCalculator />
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="Convertive rocket illustration" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '500px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
+
+      {/* Product Video */}
+      <div className="bg-[hsl(var(--app-background))] px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-[hsl(var(--app-border))] shadow-xl">
+          <video
+            src="/videos/product_video2.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto block"
+          />
         </div>
       </div>
 
-      <HeroAnimation />
+     
 
 
       <BeforeAfterSection />
@@ -169,6 +185,7 @@ export default function SyntheticV0PageForDeployment() {
       <CustomerActivation />
       <Storylines />
       <HowItWorks />
+      <HeroAnimation />
       <WhyUs />
       <Outcomes />
       <IcpValue />
