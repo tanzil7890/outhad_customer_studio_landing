@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Decisioning - Next-Best-Action Ranking and Predictive Models',
+export const metadata: Metadata = buildMetadata({
+  title: 'Decisioning',
   description:
     'Use predictive intent, value scoring, and next-best-action ranking to choose the strongest in-session intervention for each shopper.',
+  path: '/convertive-ai-engine',
   keywords: [
     'next best action engine',
     'predictive intent model',
@@ -14,10 +17,8 @@ export const metadata: Metadata = {
     'commerce reinforcement learning',
     'real-time conversion optimization',
   ],
-  alternates: {
-    canonical: '/convertive-ai-engine',
-  },
-}
+  image: '/images/convertive-customer-activation-platform/Optimized-Customer-AI-Assistants.webp',
+})
 
 const decisionLayers = [
   {
@@ -44,8 +45,13 @@ const modelUseCases = [
 ]
 
 export default function ConvertiveAIEnginePage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'AI Decisioning', url: absoluteUrl('/convertive-ai-engine') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Decisioning</p>

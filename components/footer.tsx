@@ -1,11 +1,21 @@
 import Link from 'next/link'
-import { Button } from './ui/button'
+
+const footerLinks = [
+  { href: '/convertive-data-platform', label: 'Data Platform' },
+  { href: '/convertive-audiences', label: 'Audiences' },
+  { href: '/convertive-ai-engine', label: 'Decisioning' },
+  { href: '/convertive-journey-orchestration', label: 'Journey Orchestration' },
+  { href: '/convertive-reporting', label: 'Reporting' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/roi-calculator', label: 'ROI Calculator' },
+  { href: '/manifesto', label: 'Manifesto' },
+]
 
 const Footer = () => {
   return (
     <footer className="bg-[hsl(var(--app-surface))] border-t border-[hsl(var(--app-border))] py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           
           {/* Logo/Brand Section */}
           <div className="text-center md:text-left">
@@ -15,6 +25,23 @@ const Footer = () => {
             <p className="text-sm text-[hsl(var(--app-text-muted))] max-w-xs mx-auto md:mx-0">
               Real-time customer activation and personalization platform
             </p>
+          </div>
+
+          <div className="text-center md:text-left">
+            <h4 className="text-sm font-semibold text-[hsl(var(--app-text))] mb-4 font-title">
+              Explore
+            </h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Contact Section */}
@@ -37,7 +64,7 @@ const Footer = () => {
             </h4>
             <div className="flex justify-center md:justify-end space-x-4">
               <Link 
-                href="https://www.linkedin.com/company/convertiveai/"
+                href="https://www.linkedin.com/company/tryconvertive/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"

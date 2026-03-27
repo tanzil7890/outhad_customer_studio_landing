@@ -1,43 +1,30 @@
 import type { Metadata } from 'next'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
-  description: 'Our mission to transform commerce through real-time customer activation, privacy-first data practices, and AI that serves human needs. Read our manifesto on the future of personalized commerce.',
+export const metadata: Metadata = buildMetadata({
+  title: 'Manifesto',
+  description:
+    'Read the Convertive manifesto on customer-first commerce, privacy-aware data practices, and real-time AI for ecommerce growth.',
+  path: '/manifesto',
   keywords: [
     'company manifesto',
     'customer-first commerce',
-    'AI ethics',
-    'privacy-first data',
-    'commerce transformation',
-    'real-time personalization ethics',
-    'responsible AI',
+    'privacy-aware personalization',
+    'responsible AI for ecommerce',
     'customer activation philosophy',
-    'data privacy manifesto',
-    'ethical commerce',
-    'AI transparency',
-    'customer empowerment',
-    'digital commerce future',
-    'human-centered AI'
   ],
-  openGraph: {
-    title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
-    description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
-    url: 'https://tryconvertive.com/manifesto',
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Convertive Manifesto - Our Vision for Customer-First Commerce',
-    description: 'Our mission to transform commerce through real-time customer activation and privacy-first AI.',
-  },
-  alternates: {
-    canonical: '/manifesto',
-  },
-}
+  type: 'article',
+})
 
 export default function ManifestoPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Manifesto', url: absoluteUrl('/manifesto') },
+  ])
   return (
     <div className="min-h-screen pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-[hsl(var(--app-background))]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-3xl mx-auto">
         
         {/* Header */}

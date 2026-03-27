@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Journey Orchestration - Real-Time State and Guardrails',
+export const metadata: Metadata = buildMetadata({
+  title: 'Journey Orchestration',
   description:
     'Coordinate in-session and cross-channel journeys with shared state, suppression logic, and guardrails that prevent conflicting offers.',
+  path: '/convertive-journey-orchestration',
   keywords: [
     'journey orchestration',
     'cross-channel suppression',
@@ -14,10 +17,8 @@ export const metadata: Metadata = {
     'real-time trigger orchestration',
     'in-session journey automation',
   ],
-  alternates: {
-    canonical: '/convertive-journey-orchestration',
-  },
-}
+  image: '/images/convertive-customer-activation-platform/convertive-orchestration.png',
+})
 
 const orchestrationBlocks = [
   {
@@ -44,8 +45,13 @@ const controlPoints = [
 ]
 
 export default function ConvertiveJourneyOrchestrationPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Journey Orchestration', url: absoluteUrl('/convertive-journey-orchestration') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Orchestration</p>

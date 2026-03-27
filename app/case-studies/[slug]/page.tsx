@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Footer from '@/components/footer'
 import { getPublishedCaseStudyBySlugServer } from '@/lib/case-studies-server'
+import { absoluteUrl, buildMetadata, serializeJsonLd } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 
   if (!caseStudy) {
     return {
-      title: 'Case Study Not Found | Convertive',
+      title: 'Case Study Not Found',
       robots: {
         index: false,
         follow: false,
@@ -36,20 +38,20 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     }
   }
 
-  return {
-    title: `${caseStudy.title} | Convertive Case Study`,
+  return buildMetadata({
+    title: `${caseStudy.title} Case Study`,
     description: caseStudy.excerpt,
-    alternates: {
-      canonical: `/case-studies/${caseStudy.slug}`,
-    },
-    openGraph: {
-      title: caseStudy.title,
-      description: caseStudy.excerpt,
-      url: `https://tryconvertive.com/case-studies/${caseStudy.slug}`,
-      type: 'article',
-      images: caseStudy.coverImage ? [{ url: caseStudy.coverImage, alt: caseStudy.title }] : undefined,
-    },
-  }
+    path: `/case-studies/${caseStudy.slug}`,
+    image: caseStudy.coverImage || undefined,
+    type: 'article',
+    keywords: [
+      `${caseStudy.companyName} case study`,
+      'customer activation case study',
+      'real-time personalization case study',
+      caseStudy.industry,
+      ...caseStudy.tags,
+    ].filter(Boolean),
+  })
 }
 
 export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
@@ -61,9 +63,46 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
   }
 
   const publishDate = formatPublishDate(caseStudy.publishedAt)
+  const caseStudySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: caseStudy.title,
+    description: caseStudy.excerpt,
+    datePublished: caseStudy.publishedAt ?? caseStudy.createdAt ?? undefined,
+    dateModified: caseStudy.updatedAt ?? caseStudy.publishedAt ?? caseStudy.createdAt ?? undefined,
+    author: caseStudy.authorName
+      ? {
+          '@type': 'Person',
+          name: caseStudy.authorName,
+        }
+      : undefined,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Convertive',
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/logo-black.png'),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(`/case-studies/${caseStudy.slug}`),
+    image: caseStudy.coverImage ? [caseStudy.coverImage] : undefined,
+    about: [caseStudy.companyName, caseStudy.industry, ...caseStudy.tags].filter(Boolean),
+  }
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Case Studies', url: absoluteUrl('/case-studies') },
+    { name: caseStudy.companyName, url: absoluteUrl(`/case-studies/${caseStudy.slug}`) },
+  ])
 
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd([caseStudySchema, breadcrumbs]),
+        }}
+      />
+
       <section className="pt-36 pb-12 px-4">
         <div className="max-w-4xl mx-auto">
           <nav className="flex items-center gap-2 text-sm text-[hsl(var(--app-text-muted))] mb-8">

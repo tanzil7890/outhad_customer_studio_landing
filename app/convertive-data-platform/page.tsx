@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Data Platform - Real-Time Identity and Event Foundation',
+export const metadata: Metadata = buildMetadata({
+  title: 'Data Platform',
   description:
     'Unify clickstream, source, cart, and profile data in real time. Convertive Data Platform powers anonymous-to-known identity stitching for in-session conversion.',
+  path: '/convertive-data-platform',
   keywords: [
     'real-time data platform',
     'identity stitching',
@@ -14,10 +17,8 @@ export const metadata: Metadata = {
     'event pipeline for ecommerce',
     'in-session conversion data layer',
   ],
-  alternates: {
-    canonical: '/convertive-data-platform',
-  },
-}
+  image: '/images/convertive-customer-activation-platform/customer-profiles.png',
+})
 
 const foundation = [
   {
@@ -44,8 +45,13 @@ const modules = [
 ]
 
 export default function ConvertiveDataPlatformPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Data Platform', url: absoluteUrl('/convertive-data-platform') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">

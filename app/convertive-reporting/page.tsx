@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Reporting - Identity Heatmaps and Lift Diagnostics',
+export const metadata: Metadata = buildMetadata({
+  title: 'Reporting',
   description:
     'Measure in-session performance with identity progression heatmaps, journey diagnostics, and qualified lift reporting across channels.',
+  path: '/convertive-reporting',
   keywords: [
     'identity signal heatmap',
     'journey diagnostics',
@@ -14,10 +17,8 @@ export const metadata: Metadata = {
     'incrementality reporting',
     'real-time journey analytics',
   ],
-  alternates: {
-    canonical: '/convertive-reporting',
-  },
-}
+  image: '/images/convertive-customer-activation-platform/convertive-features.avif',
+})
 
 const reportingPillars = [
   {
@@ -44,8 +45,13 @@ const dashboardModules = [
 ]
 
 export default function ConvertiveReportingPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Reporting', url: absoluteUrl('/convertive-reporting') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Reporting</p>

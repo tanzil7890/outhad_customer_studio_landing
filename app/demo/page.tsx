@@ -1,4 +1,13 @@
-"use client"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Demo',
+  description: 'Book a Convertive demo.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function DemoPage() {
   return (

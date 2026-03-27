@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Convertive Audiences - Session-Aware Segmentation and Identity Progression',
+export const metadata: Metadata = buildMetadata({
+  title: 'Audiences',
   description:
     'Create real-time audiences that update with live behavior. Convertive Audiences combines segmentation with anonymous-to-known identity progression and predictive scoring.',
+  path: '/convertive-audiences',
   keywords: [
     'real-time audiences',
     'session-aware segmentation',
@@ -14,10 +17,8 @@ export const metadata: Metadata = {
     'anonymous identity progression',
     'commerce personalization segments',
   ],
-  alternates: {
-    canonical: '/convertive-audiences',
-  },
-}
+  image: '/images/convertive-customer-activation-platform/segementation_precise_targeting.webp',
+})
 
 const capabilities = [
   {
@@ -54,8 +55,13 @@ const templateExamples = [
 ]
 
 export default function ConvertiveAudiencesPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Audiences', url: absoluteUrl('/convertive-audiences') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Segmentation</p>

@@ -2,23 +2,54 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/footer'
 import { getPublishedCaseStudiesServer } from '@/lib/case-studies-server'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'Convertive Case Studies - Real Results From Real-Time Personalization',
+export const metadata: Metadata = buildMetadata({
+  title: 'Case Studies',
   description:
     'See how brands use Convertive to drive real-time personalization, reduce cart abandonment, and grow conversions with measurable results.',
-  alternates: {
-    canonical: '/case-studies',
-  },
-}
+  path: '/case-studies',
+  keywords: [
+    'ecommerce case studies',
+    'real-time personalization case studies',
+    'customer activation success stories',
+    'conversion optimization examples',
+  ],
+  image: '/images/convertive-customer-activation-platform/hero-home.png',
+})
 
 export default async function CaseStudiesPage() {
   const caseStudies = await getPublishedCaseStudiesServer()
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Convertive Case Studies',
+    url: 'https://tryconvertive.com/case-studies',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: caseStudies.map((caseStudy, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://tryconvertive.com/case-studies/${caseStudy.slug}`,
+        name: caseStudy.title,
+      })),
+    },
+  }
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: absoluteUrl('/') },
+    { name: 'Case Studies', url: absoluteUrl('/case-studies') },
+  ])
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd([itemListSchema, breadcrumbs]) }}
+      />
+
       <section className="pt-40 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1

@@ -1,39 +1,19 @@
 import type { Metadata } from 'next'
+import { buildMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Convertive History - Our Journey in Customer Activation Innovation',
-  description: 'Discover the story behind Convertive and our evolution in real-time customer activation. Learn about our journey, milestones, and vision for the future of personalized commerce.',
+export const metadata: Metadata = buildMetadata({
+  title: 'History',
+  description:
+    'Discover the story behind Convertive and the products that shaped its approach to real-time customer activation and ecommerce AI.',
+  path: '/convertive-history',
   keywords: [
     'company history',
     'Convertive story',
+    'ecommerce AI company journey',
     'customer activation innovation',
-    'AI company journey',
-    'commerce technology evolution',
-    'startup story',
-    'company timeline',
-    'technology milestones',
-    'innovation journey',
-    'company background',
-    'founding story',
-    'business evolution',
-    'technology development',
-    'company culture'
   ],
-  openGraph: {
-    title: 'Convertive History - Our Journey in Customer Activation Innovation',
-    description: 'Discover the story behind Convertive and our evolution in real-time customer activation.',
-    url: 'https://tryconvertive.com/convertive-history',
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Convertive History - Our Journey in Customer Activation Innovation',
-    description: 'Discover the story behind Convertive and our evolution in real-time customer activation.',
-  },
-  alternates: {
-    canonical: '/convertive-history',
-  },
-}
+  type: 'article',
+})
 
 export default function HistoryLayout({
   children,
