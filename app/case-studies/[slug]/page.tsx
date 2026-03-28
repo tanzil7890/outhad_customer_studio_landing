@@ -111,10 +111,10 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             </Link>
             <span>/</span>
             <Link href="/case-studies" className="hover:text-[hsl(var(--app-text))]">
-              Case Studies
+              Blog
             </Link>
             <span>/</span>
-            <span className="text-[hsl(var(--app-text))]">{caseStudy.companyName}</span>
+            <span className="text-[hsl(var(--app-text))]">{caseStudy.slug}</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -153,7 +153,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                 />
               )}
               <div>
-                <p className="text-sm font-medium text-[hsl(var(--app-text))]">{caseStudy.companyName}</p>
+                <p className="text-sm font-medium text-[hsl(var(--app-text))]">{caseStudy.authorName}</p>
                 {publishDate && <p className="text-xs text-[hsl(var(--app-text-muted))]">{publishDate}</p>}
               </div>
             </div>

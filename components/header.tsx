@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from './ui/toast/button'
+import ConvertiveLogo from './convertive-logo'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -39,16 +40,17 @@ export default function Header() {
       <nav className="w-full md:max-w-7xl mx-auto bg-[hsl(var(--app-surface))]/75 backdrop-blur-lg border border-[hsl(var(--app-border))] shadow-sm rounded-none md:rounded-full px-3 sm:px-4 py-2 sm:py-1">
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="flex items-center space-x-2">
+          <ConvertiveLogo />
+          {/* <Link href="/" className="flex items-center space-x-2">
             <Image 
-              src="/logo-black.png"
+              src="/Group 263.png"
               alt="Convertive Logo"
-              width={24}
-              height={24}
-              className="w-5 h-5 sm:w-6 sm:h-6"
+              width={234}
+              height={51}
+              className="h-6 sm:h-7 w-auto"
             />
-            <span className="font-title font-bold sm:text-md hover:text-[hsl(var(--app-text-muted))] transition-colors duration-300">Convertive</span>
-          </Link>
+            
+          </Link> */}
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 rounded-full px-4 py-2 border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))]/40">

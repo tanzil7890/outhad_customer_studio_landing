@@ -827,7 +827,7 @@ export default function RoiCalculatorClient() {
               href="mailto:info@tryconvertive.com"
               className="hover:text-white transition-colors"
             >
-              tanzil@tryconvertive.com
+              info@tryconvertive.com
             </a>
           </div>
         </div>
