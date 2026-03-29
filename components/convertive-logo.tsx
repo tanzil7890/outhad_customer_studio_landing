@@ -1,15 +1,13 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function ConvertiveLogo() {
   return (
     <Link href="/" className="inline-flex items-center gap-2 sm:gap-3 bg-transparent">
       <div className="w-7 h-7 sm:w-8 sm:h-8">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/logo-black.png"
           alt="Convertive"
-          width={32}
-          height={32}
           className="w-full h-full object-contain"
         />
       </div>
