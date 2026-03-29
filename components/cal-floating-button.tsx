@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const SHEET_WEBHOOK = process.env.GOOGLE_APPS_CHATBOT_SCRIPT_URL!
+const SHEET_WEBHOOK = '/api/chatbot-form'
 
 type Message = {
   id: string
@@ -124,7 +124,6 @@ function ContactForm({ onSent }: { onSent: (email: string, body: string) => void
     try {
       await fetch(SHEET_WEBHOOK, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: email.trim(),
