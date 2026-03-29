@@ -14,7 +14,7 @@ export const organizationSchema = {
     '@type': 'ContactPoint',
     contactType: 'sales',
     email: siteConfig.contactEmail,
-    url: 'https://cal.com/tanzil-convertive',
+    url: 'https://tryconvertive.com/demo',
   },
 }
 

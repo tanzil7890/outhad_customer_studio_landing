@@ -128,13 +128,23 @@ export default function CustomerActivation() {
 
   const sectionRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [segmentVh, setSegmentVh] = useState(120)
+
+  useEffect(() => {
+    const updateSegment = () => {
+      setSegmentVh(window.innerWidth < 768 ? 80 : 120)
+    }
+    updateSegment()
+    window.addEventListener('resize', updateSegment)
+    return () => window.removeEventListener('resize', updateSegment)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return
       const sectionTop = sectionRef.current.getBoundingClientRect().top + window.scrollY
       const relativeScroll = window.scrollY - sectionTop
-      const segmentHeight = window.innerHeight * 1.2
+      const segmentHeight = window.innerHeight * (segmentVh / 100)
       let idx = Math.floor(relativeScroll / segmentHeight)
       idx = Math.max(0, Math.min(idx, featuresNew.length - 1))
       setActiveIndex(idx)
@@ -142,7 +152,7 @@ export default function CustomerActivation() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [featuresNew.length])
+  }, [featuresNew.length, segmentVh])
 
   return (
     <div className="bg-[hsl(var(--app-background))] relative z-10">
@@ -216,16 +226,15 @@ export default function CustomerActivation() {
 
       {/* Features Section — Sticky Scroll Tabs */}
       <div ref={sectionRef} className="relative  ">
-        {/* Tall scroll space — each feature gets 120vh of scroll distance */}
-        <div style={{ height: `${featuresNew.length * 120}vh` }}>
+        {/* Tall scroll space — each feature gets segmentVh of scroll distance */}
+        <div style={{ height: `${featuresNew.length * segmentVh}vh` }}>
           {/* Sticky viewport — stays pinned while parent scrolls */}
-          <div className="sticky top-[4vh] h-[88vh] overflow-hidden mx-4 sm:mx-8 lg:mx-16 rounded-2xl shadow-md bg-[hsl(var(--app-background))]">
+          <div className="sticky top-[4vh] h-[88vh] overflow-hidden mx-2 sm:mx-8 lg:mx-16 rounded-2xl shadow-md bg-[hsl(var(--app-background))]">
             <div
-              className="h-full grid gap-3 lg:gap-4 px-3 sm:px-4 lg:px-6 py-3"
-              style={{ gridTemplateColumns: '0.32fr 1fr' }}
+              className="h-full grid gap-2 md:gap-3 lg:gap-4 px-3 sm:px-4 lg:px-6 py-3 grid-rows-[2fr_3fr] md:grid-rows-1 grid-cols-1 md:grid-cols-[0.32fr_1fr]"
             >
               {/* LEFT: stacked text panels, one visible at a time */}
-              <div className="relative rounded-2xl bg-[hsl(var(--app-surface))] p-4 sm:p-6 flex flex-col">
+              <div className="relative rounded-2xl bg-[hsl(var(--app-surface))] p-4 sm:p-6 flex flex-col h-full">
                 <div className="relative flex-1 overflow-hidden">
                   {featuresNew.map((feature, i) => (
                     <div
@@ -236,7 +245,7 @@ export default function CustomerActivation() {
                       <p className="text-xs font-semibold text-[hsl(var(--app-primary))] tracking-[3px] uppercase mb-5">
                         {String(i + 1).padStart(2, '0')} / {String(featuresNew.length).padStart(2, '0')}
                       </p>
-                      <h3 className="text-2xl sm:text-3xl font-semibold text-[hsl(var(--app-text))] leading-tight mb-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[hsl(var(--app-text))] leading-tight mb-3">
                         {feature.title}
                       </h3>
                       <p className="text-base text-[hsl(var(--app-primary))] font-semibold mb-4">{feature.subtitle}</p>

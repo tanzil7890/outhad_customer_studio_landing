@@ -71,7 +71,7 @@ export default function ConvertiveAudiencesPage() {
             behavior, identity progression, and scoring to trigger better actions in-session.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="https://tryconvertive.com/demo" target="_blank">
               <Button className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8">
                 Book Demo
               </Button>

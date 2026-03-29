@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import Script from 'next/script'
 import Header from '../components/header'
 import CalFloatingButton from '../components/cal-floating-button'
+import EngagementModals from '../components/engagement-modals'
 import './globals.css'
 import { siteConfig, serializeJsonLd } from '@/lib/seo'
 import { organizationSchema, softwareApplicationSchema, websiteSchema } from '@/lib/schema'
@@ -108,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`h-full ${manrope.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`h-full overflow-x-clip ${manrope.variable}`} suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
@@ -121,7 +122,7 @@ html {
         `}</style>
       </head>
       <body
-        className="h-full bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
+        className="h-full overflow-x-clip bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
         suppressHydrationWarning
       >
         <script
@@ -156,7 +157,8 @@ html {
 
         <Header />
         <CalFloatingButton />
-        <main className="relative">
+        <EngagementModals />
+        <main className="relative overflow-x-clip">
           {children}
         </main>
       </body>

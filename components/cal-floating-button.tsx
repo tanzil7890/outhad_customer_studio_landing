@@ -1,47 +1,35 @@
-"use client"
+'use client'
 
-import Script from "next/script"
-
-const CAL_NAMESPACE = "30min"
-
-const FLOATING_BUTTON_CONFIG = {
-  calLink: "tanzil-convertive/30min",
-  config: {
-    layout: "month_view",
-    useSlotsViewOnSmallScreen: "true",
-  },
-  buttonText: "Book a Demo",
-  hideButtonIcon: false,
-}
-
-const UI_CONFIG = {
-  hideEventTypeDetails: false,
-  layout: "month_view",
-}
-
-function initCal() {
-  const cal = (window as typeof window & { Cal?: any }).Cal
-  if (typeof cal !== "function") return
-
-  cal("init", CAL_NAMESPACE, { origin: "https://cal.com" })
-  const namespacedCal = cal.ns?.[CAL_NAMESPACE]
-
-  if (typeof namespacedCal === "function") {
-    namespacedCal("floatingButton", FLOATING_BUTTON_CONFIG)
-    namespacedCal("ui", UI_CONFIG)
-    return
-  }
-
-  cal("floatingButton", FLOATING_BUTTON_CONFIG)
-  cal("ui", UI_CONFIG)
-}
+import Link from 'next/link'
 
 export default function CalFloatingButton() {
   return (
-    <Script
-      src="https://app.cal.com/embed/embed.js"
-      strategy="lazyOnload"
-      onLoad={initCal}
-    />
+    <Link
+      href="https://tryconvertive.com/demo"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-2 rounded-full bg-[#10182B] text-white shadow-2xl hover:opacity-90 transition-opacity
+        w-12 h-12 md:w-auto md:h-auto md:px-5 md:py-3"
+      aria-label="Book a Demo"
+    >
+      {/* Mobile: calendar icon */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5 h-5 md:hidden"
+      >
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </svg>
+      {/* Desktop: text */}
+      <span className="hidden md:inline text-sm font-bold">Book a Demo</span>
+    </Link>
   )
 }

@@ -92,7 +92,7 @@ const homeFaqs = [
 
 export default function SyntheticV0PageForDeployment() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -101,7 +101,7 @@ export default function SyntheticV0PageForDeployment() {
       />
 
       {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-36 pb-10 sm:pt-32 sm:pb-16 px-4">
+      <div className="bg-[hsl(var(--app-background))] pt-36 pb-10 sm:pt-32 sm:pb-16 px-4 overflow-x-clip">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -130,9 +130,9 @@ export default function SyntheticV0PageForDeployment() {
                     src="/images/arrows/arrow-11.svg"
                     alt=""
                     aria-hidden="true"
-                    className="absolute -left-14 -top-0 h-10 w-auto -rotate-[20deg] opacity-100"
+                    className="absolute -left-14 -top-0 h-10 w-auto -rotate-[20deg] opacity-100 hidden sm:block"
                   />
-                  <Link href="https://cal.com/tanzil-convertive" target="_blank">
+                  <Link href="https://tryconvertive.com/demo" target="_blank">
                     <Button
                       variant="outline"
                       size="sm"

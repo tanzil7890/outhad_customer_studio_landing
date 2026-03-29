@@ -10,7 +10,7 @@ export default function FinalCta() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">Stop Losing 70% of Your Traffic to Anonymity</h2>
         <p className="mt-3 text-sm sm:text-base text-[hsl(var(--app-text-muted))]">Convert anonymous visitors in-session, before they leave. Real-time AI intervention that captures revenue in milliseconds, not hours later.</p>
         <div className="mt-6 flex items-center justify-center gap-3">
-          <Link href="https://cal.com/tanzil-convertive" target="_blank" className="inline-block bg-black rounded-full">
+          <Link href="https://tryconvertive.com/demo" target="_blank" className="inline-block bg-black rounded-full">
             <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="px-6 py-3 rounded-full text-sm text-[hsl(var(--app-background))]" style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--app-primary)), hsl(var(--app-secondary)))' }}>
               Book Demo
             </motion.button>

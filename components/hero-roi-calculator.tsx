@@ -27,6 +27,18 @@ function useAnimatedNumber(target: number, duration = 500) {
 const fmt = (n: number) => Math.round(n).toLocaleString('en-US')
 const fmtUSD = (n: number) => '$' + Math.round(n).toLocaleString('en-US')
 
+function Tip({ text }: { text: string }) {
+  return (
+    <span className="relative inline-flex items-center ml-1 group cursor-default">
+      <sup className="text-[9px] font-bold opacity-60 group-hover:opacity-100 transition-opacity leading-none">ⓘ</sup>
+      <span className="pointer-events-none absolute left-full top-1/2 -translate-y-1/2 ml-1.5 w-48 rounded-lg bg-white px-2.5 py-1.5 text-[10px] leading-snug text-black opacity-0 group-hover:opacity-100 transition-opacity z-50 text-center shadow-xl border border-[#EAECF0]">
+        {text}
+        <span className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-white" />
+      </span>
+    </span>
+  )
+}
+
 export default function HeroRoiCalculator() {
   const [visitors, setVisitors] = useState(10000)
   const [rate, setRate] = useState(2.0)
@@ -45,12 +57,12 @@ export default function HeroRoiCalculator() {
   const dispNewCustomers = useAnimatedNumber(newCustomers)
 
   return (
-    <div className="w-full rounded-2xl overflow-hidden border-2 border-[hsl(var(--app-border))] shadow-2xl bg-white">
+    <div className="w-full rounded-2xl border-2 border-[hsl(var(--app-border))] shadow-2xl bg-white">
 
       {/* Result header */}
-      <div className="bg-[hsl(var(--app-text))] px-5 py-5 text-[hsl(var(--app-background))]">
+      <div className="bg-[hsl(var(--app-text))] px-5 py-5 text-[hsl(var(--app-background))] rounded-t-2xl overflow-visible">
         <p className="text-xs font-bold uppercase tracking-widest opacity-50 mb-1.5">
-          Your Revenue at Risk
+          Your Revenue at Risk<Tip text="Monthly revenue lost from anonymous visitors who leave without buying (non-converting visitors × avg order value)" />
         </p>
         <div className="flex items-baseline gap-2 mb-3">
           <span className="text-4xl font-black tabular-nums text-[#E63D2D]">
@@ -60,11 +72,11 @@ export default function HeroRoiCalculator() {
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-white/10 rounded-xl px-3 py-2.5">
-            <p className="text-[10px] uppercase tracking-wider opacity-50 mb-0.5">Recoverable / mo</p>
+            <p className="text-[10px] uppercase tracking-wider opacity-50 mb-0.5">Recoverable / mo<Tip text="Estimated monthly revenue Convertive can recover based on your selected lift %" /></p>
             <p className="text-xl font-black tabular-nums text-[#33C0A7]">+{fmtUSD(dispRecovered)}</p>
           </div>
           <div className="bg-white/10 rounded-xl px-3 py-2.5">
-            <p className="text-[10px] uppercase tracking-wider opacity-50 mb-0.5">Annual upside</p>
+            <p className="text-[10px] uppercase tracking-wider opacity-50 mb-0.5">Annual upside<Tip text="Recoverable / mo × 12 months — your projected yearly revenue recovery with Convertive" /></p>
             <p className="text-xl font-black tabular-nums text-[#33C0A7]">+{fmtUSD(dispAnnual)}</p>
           </div>
         </div>
@@ -163,10 +175,10 @@ export default function HeroRoiCalculator() {
       </div>
 
       {/* Footer CTA */}
-      <div className="px-5 py-4 bg-white border-t border-[#EAECF0]">
+      <div className="px-5 py-4 bg-white border-t border-[#EAECF0] rounded-b-2xl">
         <Link
           href="/roi-calculator"
-          className="flex items-center justify-center gap-2 w-full bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] font-bold py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-2 w-full bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] font-bold py-3 rounded-xl text-sm hover:bg-white hover:text-black border-2 border-[hsl(var(--app-text))] transition-colors"
         >
           See Full Breakdown →
         </Link>

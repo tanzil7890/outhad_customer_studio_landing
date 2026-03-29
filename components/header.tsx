@@ -198,7 +198,7 @@ export default function Header() {
                       <p className="text-xs font-semibold text-[hsl(var(--app-text))] mb-1">See it live</p>
                       <p className="text-[10px] text-[hsl(var(--app-text-muted))] leading-snug mb-3">Watch Convertive convert anonymous visitors in real-time.</p>
                       <Link
-                        href="https://cal.com/tanzil-convertive"
+                        href="https://tryconvertive.com/demo"
                         target="_blank"
                         className="block w-full text-center text-[11px] font-semibold bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-lg py-2 hover:opacity-80 transition-opacity"
                       >
@@ -239,7 +239,7 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            <Link href="https://cal.com/tanzil-convertive" target="_blank">
+            <Link href="https://tryconvertive.com/demo" target="_blank">
               <Button 
                 variant="outline"
                 size="sm"
@@ -367,7 +367,7 @@ export default function Header() {
               Case Studies
             </Link>
             
-            <Link href="https://cal.com/tanzil-convertive" target="_blank" onClick={closeMobileMenu}>
+            <Link href="https://tryconvertive.com/demo" target="_blank" onClick={closeMobileMenu}>
               <Button 
                 variant="outline"
                 size="sm"

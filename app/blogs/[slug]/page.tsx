@@ -228,7 +228,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="https://cal.com/tanzil-convertive"
+              href="https://tryconvertive.com/demo"
               target="_blank"
               className="inline-flex items-center justify-center bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
             >
