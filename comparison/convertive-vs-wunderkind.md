@@ -13,7 +13,7 @@ published: true
 
 ## The Honest Setup
 
-Let's be fair about Wunderkind before we compare. It has built one of the most impressive identity networks in ecommerce — over 9 billion device profiles, the ability to recognize anonymous visitors through cross-site matching, and a proven track record sending triggered emails that recover revenue brands would have otherwise lost. That is real, and it works.
+Wunderkind has an identity network that can recognize anonymous visitors through cross-site matching and send triggered emails after they bounce. That recovers some revenue.
 
 But here is the structural problem with how Wunderkind is built: its entire value is delivered *after* your visitor has already left. The shopper browsed. They hesitated. They didn't convert. They hit the back button. And *then* Wunderkind sends an email.
 

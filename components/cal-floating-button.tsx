@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import Script from "next/script"
 
 const CAL_NAMESPACE = "30min"
 
@@ -37,42 +37,11 @@ function initCal() {
 }
 
 export default function CalFloatingButton() {
-  useEffect(() => {
-    const state = window as typeof window & {
-      __convertiveCalLoaded?: boolean
-      __convertiveCalInitialized?: boolean
-      Cal?: any
-    }
-
-    if (state.__convertiveCalInitialized) return
-
-    const markAndInit = () => {
-      if (state.__convertiveCalInitialized) return
-      state.__convertiveCalInitialized = true
-      initCal()
-    }
-
-    if (typeof state.Cal === "function") {
-      markAndInit()
-      return
-    }
-
-    const existingScript = document.querySelector<HTMLScriptElement>('script[data-convertive-cal="true"]')
-    if (existingScript) {
-      existingScript.addEventListener("load", markAndInit, { once: true })
-      return () => existingScript.removeEventListener("load", markAndInit)
-    }
-
-    const script = document.createElement("script")
-    script.src = "https://app.cal.com/embed/embed.js"
-    script.async = true
-    script.dataset.convertiveCal = "true"
-    script.addEventListener("load", markAndInit, { once: true })
-    document.head.appendChild(script)
-
-    return () => script.removeEventListener("load", markAndInit)
-  }, [])
-
-  return null
+  return (
+    <Script
+      src="https://app.cal.com/embed/embed.js"
+      strategy="lazyOnload"
+      onLoad={initCal}
+    />
+  )
 }
-
