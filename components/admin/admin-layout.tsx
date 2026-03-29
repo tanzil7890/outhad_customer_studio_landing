@@ -42,15 +42,15 @@ export default function AdminLayout({
       <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
           <div className="flex items-center gap-6">
-            <a href="/admin/case-studies" className="text-lg font-semibold tracking-tight">
+            <a href="/admin/blogs" className="text-lg font-semibold tracking-tight">
               Convertive <span className="text-zinc-500 font-normal">CMS</span>
             </a>
             <nav className="hidden md:flex items-center gap-1">
               <a
-                href="/admin/case-studies"
+                href="/admin/blogs"
                 className="px-3 py-1.5 rounded-md text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
               >
-                Case Studies
+                Blogs
               </a>
             </nav>
           </div>

@@ -10,34 +10,34 @@ import {
   CaseStudy,
 } from '@/lib/blogs'
 
-export default function CaseStudiesListPage() {
+export default function BlogsListPage() {
   const router = useRouter()
-  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+  const [blogs, setBlogs] = useState<CaseStudy[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all')
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
 
-  const fetchCaseStudies = async () => {
+  const fetchBlogs = async () => {
     setLoading(true)
     try {
       const status = filter === 'all' ? undefined : filter
       const data = await getCaseStudies(status)
-      setCaseStudies(data)
+      setBlogs(data)
     } catch (err) {
-      console.error('Failed to fetch case studies:', err)
+      console.error('Failed to fetch blogs:', err)
     } finally {
       setLoading(false)
     }
   }
 
   useEffect(() => {
-    fetchCaseStudies()
+    fetchBlogs()
   }, [filter])
 
   const handleDelete = async (id: string) => {
     try {
       await deleteCaseStudy(id)
-      setCaseStudies((prev) => prev.filter((cs) => cs.id !== id))
+      setBlogs((prev) => prev.filter((b) => b.id !== id))
       setDeleteConfirm(null)
     } catch (err) {
       console.error('Failed to delete:', err)
@@ -47,7 +47,7 @@ export default function CaseStudiesListPage() {
   const handleTogglePublish = async (id: string, currentStatus: string) => {
     try {
       await togglePublish(id, currentStatus !== 'published')
-      fetchCaseStudies()
+      fetchBlogs()
     } catch (err) {
       console.error('Failed to toggle publish:', err)
     }
@@ -59,17 +59,17 @@ export default function CaseStudiesListPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Case Studies</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">Blogs</h1>
             <p className="text-zinc-500 text-sm mt-1">
-              Manage your customer success stories
+              Manage your blogs
             </p>
           </div>
           <button
-            onClick={() => router.push('/admin/case-studies/new')}
+            onClick={() => router.push('/admin/blogs/new')}
             className="inline-flex items-center gap-2 bg-blue-600 text-white rounded-lg px-4 py-2.5 text-sm font-medium hover:bg-blue-700 transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
-            New Case Study
+            New Blog
           </button>
         </div>
 
@@ -89,7 +89,7 @@ export default function CaseStudiesListPage() {
             </button>
           ))}
           <span className="ml-auto text-xs text-zinc-600 self-center">
-            {caseStudies.length} {caseStudies.length === 1 ? 'study' : 'studies'}
+            {blogs.length} {blogs.length === 1 ? 'blog' : 'blogs'}
           </span>
         </div>
 
@@ -98,12 +98,12 @@ export default function CaseStudiesListPage() {
           <div className="flex items-center justify-center py-20">
             <div className="w-6 h-6 border-2 border-zinc-700 border-t-white rounded-full animate-spin" />
           </div>
-        ) : caseStudies.length === 0 ? (
+        ) : blogs.length === 0 ? (
           <div className="text-center py-20">
             <div className="text-zinc-600 text-4xl mb-4">📝</div>
-            <p className="text-zinc-500 text-sm">No case studies yet.</p>
+            <p className="text-zinc-500 text-sm">No blogs yet.</p>
             <button
-              onClick={() => router.push('/admin/case-studies/new')}
+              onClick={() => router.push('/admin/blogs/new')}
               className="mt-4 text-blue-500 hover:text-blue-400 text-sm underline"
             >
               Create your first one
@@ -114,116 +114,56 @@ export default function CaseStudiesListPage() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-zinc-800">
-                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3">
-                    Title
-                  </th>
-                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3 hidden md:table-cell">
-                    Company
-                  </th>
-                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3 hidden lg:table-cell">
-                    Industry
-                  </th>
-                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3">
-                    Status
-                  </th>
-                  <th className="text-right text-xs font-medium text-zinc-500 px-4 py-3">
-                    Actions
-                  </th>
+                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3">Title</th>
+                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3 hidden md:table-cell">Company</th>
+                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3 hidden lg:table-cell">Industry</th>
+                  <th className="text-left text-xs font-medium text-zinc-500 px-4 py-3">Status</th>
+                  <th className="text-right text-xs font-medium text-zinc-500 px-4 py-3">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {caseStudies.map((cs) => (
+                {blogs.map((b) => (
                   <tr
-                    key={cs.id}
+                    key={b.id}
                     className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors"
                   >
                     <td className="px-4 py-3">
                       <div>
-                        <p className="text-sm font-medium text-white truncate max-w-[300px]">
-                          {cs.title}
-                        </p>
-                        <p className="text-xs text-zinc-600 mt-0.5 truncate max-w-[300px]">
-                          {cs.excerpt}
-                        </p>
+                        <p className="text-sm font-medium text-white truncate max-w-[300px]">{b.title}</p>
+                        <p className="text-xs text-zinc-600 mt-0.5 truncate max-w-[300px]">{b.excerpt}</p>
                       </div>
                     </td>
                     <td className="px-4 py-3 hidden md:table-cell">
                       <div className="flex items-center gap-2">
-                        {cs.companyLogo && (
-                          <img
-                            src={cs.companyLogo}
-                            alt={cs.companyName}
-                            className="w-5 h-5 rounded object-contain"
-                          />
+                        {b.companyLogo && (
+                          <img src={b.companyLogo} alt={b.companyName} className="w-5 h-5 rounded object-contain" />
                         )}
-                        <span className="text-sm text-zinc-400">{cs.companyName}</span>
+                        <span className="text-sm text-zinc-400">{b.companyName}</span>
                       </div>
                     </td>
                     <td className="px-4 py-3 hidden lg:table-cell">
-                      <span className="text-xs text-zinc-500 bg-zinc-800 rounded-full px-2 py-0.5">
-                        {cs.industry}
-                      </span>
+                      <span className="text-xs text-zinc-500 bg-zinc-800 rounded-full px-2 py-0.5">{b.industry}</span>
                     </td>
                     <td className="px-4 py-3">
-                      <span
-                        className={`inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2 py-0.5 ${
-                          cs.status === 'published'
-                            ? 'bg-green-500/10 text-green-400'
-                            : 'bg-yellow-500/10 text-yellow-400'
-                        }`}
-                      >
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full ${
-                            cs.status === 'published' ? 'bg-green-400' : 'bg-yellow-400'
-                          }`}
-                        />
-                        {cs.status}
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2 py-0.5 ${b.status === 'published' ? 'bg-green-500/10 text-green-400' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${b.status === 'published' ? 'bg-green-400' : 'bg-yellow-400'}`} />
+                        {b.status}
                       </span>
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
-                        <button
-                          onClick={() => router.push(`/admin/case-studies/${cs.id}/edit`)}
-                          className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors"
-                        >
-                          Edit
+                        <button onClick={() => router.push(`/admin/blogs/${b.id}/edit`)} className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors">Edit</button>
+                        <button onClick={() => handleTogglePublish(b.id, b.status)} className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors">
+                          {b.status === 'published' ? 'Unpublish' : 'Publish'}
                         </button>
-                        <button
-                          onClick={() => handleTogglePublish(cs.id, cs.status)}
-                          className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors"
-                        >
-                          {cs.status === 'published' ? 'Unpublish' : 'Publish'}
-                        </button>
-                        <button
-                          onClick={() =>
-                            window.open(`/case-studies/${cs.slug}`, '_blank')
-                          }
-                          className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors"
-                        >
-                          View
-                        </button>
-                        {deleteConfirm === cs.id ? (
+                        <button onClick={() => window.open(`/blogs/${b.slug}`, '_blank')} className="text-xs text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-zinc-800 transition-colors">View</button>
+                        {deleteConfirm === b.id ? (
                           <div className="flex items-center gap-1">
-                            <button
-                              onClick={() => handleDelete(cs.id)}
-                              className="text-xs text-red-400 hover:text-red-300 px-2 py-1 rounded hover:bg-red-500/10 transition-colors"
-                            >
-                              Confirm
-                            </button>
-                            <button
-                              onClick={() => setDeleteConfirm(null)}
-                              className="text-xs text-zinc-500 px-2 py-1"
-                            >
-                              Cancel
-                            </button>
+                            <button onClick={() => handleDelete(b.id)} className="text-xs text-red-400 hover:text-red-300 px-2 py-1 rounded hover:bg-red-500/10 transition-colors">Confirm</button>
+                            <button onClick={() => setDeleteConfirm(null)} className="text-xs text-zinc-500 px-2 py-1">Cancel</button>
                           </div>
                         ) : (
-                          <button
-                            onClick={() => setDeleteConfirm(cs.id)}
-                            className="text-xs text-red-500/70 hover:text-red-400 px-2 py-1 rounded hover:bg-red-500/10 transition-colors"
-                          >
-                            Delete
-                          </button>
+                          <button onClick={() => setDeleteConfirm(b.id)} className="text-xs text-red-500/70 hover:text-red-400 px-2 py-1 rounded hover:bg-red-500/10 transition-colors">Delete</button>
                         )}
                       </div>
                     </td>

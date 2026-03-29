@@ -11,12 +11,12 @@ import {
   CaseStudyInput,
 } from '@/lib/blogs'
 
-export default function EditCaseStudyPage() {
+export default function EditBlogPage() {
   const params = useParams()
   const router = useRouter()
   const id = params.id as string
 
-  const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null)
+  const [blog, setBlog] = useState<CaseStudy | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -25,12 +25,12 @@ export default function EditCaseStudyPage() {
       try {
         const data = await getCaseStudyById(id)
         if (!data) {
-          setError('Case study not found')
+          setError('Blog not found')
         } else {
-          setCaseStudy(data)
+          setBlog(data)
         }
       } catch (err) {
-        setError('Failed to load case study')
+        setError('Failed to load blog')
       } finally {
         setLoading(false)
       }
@@ -40,7 +40,7 @@ export default function EditCaseStudyPage() {
 
   const handleUpdate = async (data: CaseStudyInput) => {
     await updateCaseStudy(id, data)
-    router.push('/admin/case-studies')
+    router.push('/admin/blogs')
   }
 
   if (loading) {
@@ -53,13 +53,13 @@ export default function EditCaseStudyPage() {
     )
   }
 
-  if (error || !caseStudy) {
+  if (error || !blog) {
     return (
       <AdminLayout>
         <div className="text-center py-20">
           <p className="text-red-400 text-sm">{error || 'Something went wrong'}</p>
           <button
-            onClick={() => router.push('/admin/case-studies')}
+            onClick={() => router.push('/admin/blogs')}
             className="mt-4 text-blue-500 hover:text-blue-400 text-sm underline"
           >
             Back to list
@@ -74,7 +74,7 @@ export default function EditCaseStudyPage() {
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <button
-            onClick={() => router.push('/admin/case-studies')}
+            onClick={() => router.push('/admin/blogs')}
             className="text-zinc-500 hover:text-white transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -82,15 +82,15 @@ export default function EditCaseStudyPage() {
             </svg>
           </button>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Edit Case Study</h1>
-            <p className="text-zinc-500 text-sm mt-1">{caseStudy.title}</p>
+            <h1 className="text-2xl font-semibold tracking-tight">Edit Blog</h1>
+            <p className="text-zinc-500 text-sm mt-1">{blog.title}</p>
           </div>
         </div>
 
         <CaseStudyForm
-          initialData={caseStudy}
+          initialData={blog}
           onSubmit={handleUpdate}
-          submitLabel="Update Case Study"
+          submitLabel="Update Blog"
         />
       </div>
     </AdminLayout>

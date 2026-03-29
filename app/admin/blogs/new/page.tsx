@@ -5,12 +5,12 @@ import AdminLayout from '@/components/admin/admin-layout'
 import CaseStudyForm from '@/components/admin/blogs-form'
 import { createCaseStudy, CaseStudyInput } from '@/lib/blogs'
 
-export default function NewCaseStudyPage() {
+export default function NewBlogPage() {
   const router = useRouter()
 
   const handleCreate = async (data: CaseStudyInput) => {
     const id = await createCaseStudy(data)
-    router.push('/admin/case-studies')
+    router.push('/admin/blogs')
   }
 
   return (
@@ -18,7 +18,7 @@ export default function NewCaseStudyPage() {
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <button
-            onClick={() => router.push('/admin/case-studies')}
+            onClick={() => router.push('/admin/blogs')}
             className="text-zinc-500 hover:text-white transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -26,14 +26,14 @@ export default function NewCaseStudyPage() {
             </svg>
           </button>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">New Case Study</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">New Blog</h1>
             <p className="text-zinc-500 text-sm mt-1">
-              Create a new customer success story
+              Create a new blog post
             </p>
           </div>
         </div>
 
-        <CaseStudyForm onSubmit={handleCreate} submitLabel="Create Case Study" />
+        <CaseStudyForm onSubmit={handleCreate} submitLabel="Create Blog" />
       </div>
     </AdminLayout>
   )

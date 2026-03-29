@@ -16,7 +16,7 @@ function LoginForm() {
 
   // Redirect if already logged in and admin
   if (!loading && user && isAdminUser) {
-    router.push('/admin/case-studies')
+    router.push('/admin/blogs')
     return null
   }
 
@@ -26,7 +26,7 @@ function LoginForm() {
     setIsLoading(true)
     try {
       await signIn(email, password)
-      router.push('/admin/case-studies')
+      router.push('/admin/blogs')
     } catch (err: any) {
       setError(err.message || 'Login failed')
     } finally {
