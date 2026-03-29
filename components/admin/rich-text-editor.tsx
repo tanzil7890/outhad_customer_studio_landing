@@ -54,7 +54,7 @@ interface RichTextEditorProps {
 export default function RichTextEditor({
   content,
   onChange,
-  placeholder = 'Start writing your case study...',
+  placeholder = 'Start writing your blog post...',
 }: RichTextEditorProps) {
   const editor = useEditor({
     immediatelyRender: false,

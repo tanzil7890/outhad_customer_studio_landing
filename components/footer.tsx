@@ -6,7 +6,7 @@ const footerLinks = [
   { href: '/convertive-ai-engine', label: 'Decisioning' },
   { href: '/convertive-journey-orchestration', label: 'Journey Orchestration' },
   { href: '/convertive-reporting', label: 'Reporting' },
-  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/blogs', label: 'Blogs' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
   { href: '/manifesto', label: 'Manifesto' },
 ]

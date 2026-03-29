@@ -13,7 +13,7 @@ import Integrations from "@/components/integrations"
 import FinalCta from "@/components/final-cta"
 import WhyUs from "@/components/why-us"
 import BeforeAfterSection from "@/components/before-after-section"
-import CaseStudiesSection from "@/components/case-studies-section"
+import BlogsSection from "@/components/blogs-section"
 import HeroAnimation from "@/components/hero-animation"
 import HeroRoiCalculator from "@/components/hero-roi-calculator"
 import { buildMetadata, serializeJsonLd } from '@/lib/seo'
@@ -61,8 +61,8 @@ const platformPages = [
     description: 'Measure identity progression, decision quality, and lift with operator-friendly diagnostics.',
   },
   {
-    href: '/case-studies',
-    title: 'Case Studies',
+    href: '/blogs',
+    title: 'Blogs',
     description: 'Review real customer outcomes and how brands use Convertive to grow conversions.',
   },
 ]
@@ -248,7 +248,7 @@ export default function SyntheticV0PageForDeployment() {
       {/* <PrivacySecurity /> */}
       <FinalCta />
 
-      <CaseStudiesSection />
+      <BlogsSection />
 
       {/* Particle Component Section */}
 

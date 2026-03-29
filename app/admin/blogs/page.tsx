@@ -8,7 +8,7 @@ import {
   deleteCaseStudy,
   togglePublish,
   CaseStudy,
-} from '@/lib/case-studies'
+} from '@/lib/blogs'
 
 export default function CaseStudiesListPage() {
   const router = useRouter()

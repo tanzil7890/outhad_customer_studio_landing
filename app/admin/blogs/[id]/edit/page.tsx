@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import AdminLayout from '@/components/admin/admin-layout'
-import CaseStudyForm from '@/components/admin/case-study-form'
+import CaseStudyForm from '@/components/admin/blogs-form'
 import {
   getCaseStudyById,
   updateCaseStudy,
   CaseStudy,
   CaseStudyInput,
-} from '@/lib/case-studies'
+} from '@/lib/blogs'
 
 export default function EditCaseStudyPage() {
   const params = useParams()

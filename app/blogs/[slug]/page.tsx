@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Footer from '@/components/footer'
-import { getPublishedCaseStudyBySlugServer } from '@/lib/case-studies-server'
+import { getPublishedCaseStudyBySlugServer } from '@/lib/blogs-server'
 import { absoluteUrl, buildMetadata, serializeJsonLd } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const dynamic = 'force-dynamic'
 
-type CaseStudyPageProps = {
+type BlogPageProps = {
   params: Promise<{
     slug: string
   }>
@@ -24,13 +24,13 @@ function formatPublishDate(date: string | null) {
   })
 }
 
-export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { slug } = await params
-  const caseStudy = await getPublishedCaseStudyBySlugServer(slug)
+  const blog = await getPublishedCaseStudyBySlugServer(slug)
 
-  if (!caseStudy) {
+  if (!blog) {
     return {
-      title: 'Case Study Not Found',
+      title: 'Blog Not Found',
       robots: {
         index: false,
         follow: false,
@@ -39,41 +39,41 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   }
 
   return buildMetadata({
-    title: `${caseStudy.title} Case Study`,
-    description: caseStudy.excerpt,
-    path: `/case-studies/${caseStudy.slug}`,
-    image: caseStudy.coverImage || undefined,
+    title: blog.title,
+    description: blog.excerpt,
+    path: `/blogs/${blog.slug}`,
+    image: blog.coverImage || undefined,
     type: 'article',
     keywords: [
-      `${caseStudy.companyName} case study`,
-      'customer activation case study',
-      'real-time personalization case study',
-      caseStudy.industry,
-      ...caseStudy.tags,
+      blog.companyName,
+      'customer activation blog',
+      'real-time personalization blog',
+      blog.industry,
+      ...blog.tags,
     ].filter(Boolean),
   })
 }
 
-export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
+export default async function BlogDetailPage({ params }: BlogPageProps) {
   const { slug } = await params
-  const caseStudy = await getPublishedCaseStudyBySlugServer(slug)
+  const blog = await getPublishedCaseStudyBySlugServer(slug)
 
-  if (!caseStudy) {
+  if (!blog) {
     notFound()
   }
 
-  const publishDate = formatPublishDate(caseStudy.publishedAt)
-  const caseStudySchema = {
+  const publishDate = formatPublishDate(blog.publishedAt)
+  const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: caseStudy.title,
-    description: caseStudy.excerpt,
-    datePublished: caseStudy.publishedAt ?? caseStudy.createdAt ?? undefined,
-    dateModified: caseStudy.updatedAt ?? caseStudy.publishedAt ?? caseStudy.createdAt ?? undefined,
-    author: caseStudy.authorName
+    headline: blog.title,
+    description: blog.excerpt,
+    datePublished: blog.publishedAt ?? blog.createdAt ?? undefined,
+    dateModified: blog.updatedAt ?? blog.publishedAt ?? blog.createdAt ?? undefined,
+    author: blog.authorName
       ? {
           '@type': 'Person',
-          name: caseStudy.authorName,
+          name: blog.authorName,
         }
       : undefined,
     publisher: {
@@ -84,14 +84,14 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         url: absoluteUrl('/logo-black.png'),
       },
     },
-    mainEntityOfPage: absoluteUrl(`/case-studies/${caseStudy.slug}`),
-    image: caseStudy.coverImage ? [caseStudy.coverImage] : undefined,
-    about: [caseStudy.companyName, caseStudy.industry, ...caseStudy.tags].filter(Boolean),
+    mainEntityOfPage: absoluteUrl(`/blogs/${blog.slug}`),
+    image: blog.coverImage ? [blog.coverImage] : undefined,
+    about: [blog.companyName, blog.industry, ...blog.tags].filter(Boolean),
   }
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', url: absoluteUrl('/') },
-    { name: 'Case Studies', url: absoluteUrl('/case-studies') },
-    { name: caseStudy.companyName, url: absoluteUrl(`/case-studies/${caseStudy.slug}`) },
+    { name: 'Blogs', url: absoluteUrl('/blogs') },
+    { name: blog.companyName, url: absoluteUrl(`/blogs/${blog.slug}`) },
   ])
 
   return (
@@ -99,7 +99,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: serializeJsonLd([caseStudySchema, breadcrumbs]),
+          __html: serializeJsonLd([blogSchema, breadcrumbs]),
         }}
       />
 
@@ -110,20 +110,20 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               Home
             </Link>
             <span>/</span>
-            <Link href="/case-studies" className="hover:text-[hsl(var(--app-text))]">
-              Blog
+            <Link href="/blogs" className="hover:text-[hsl(var(--app-text))]">
+              Blogs
             </Link>
             <span>/</span>
-            <span className="text-[hsl(var(--app-text))]">{caseStudy.slug}</span>
+            <span className="text-[hsl(var(--app-text))]">{blog.slug}</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            {caseStudy.industry && (
+            {blog.industry && (
               <span className="text-xs text-[hsl(var(--app-text-muted))] bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-full px-3 py-1">
-                {caseStudy.industry}
+                {blog.industry}
               </span>
             )}
-            {caseStudy.tags.map((tag) => (
+            {blog.tags.map((tag) => (
               <span
                 key={tag}
                 className="text-xs text-[hsl(var(--app-text-muted))] bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-full px-3 py-1"
@@ -136,24 +136,24 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           <h1
             className="text-3xl sm:text-4xl md:text-5xl text-[hsl(var(--app-text))] mb-6 leading-tight"
           >
-            {caseStudy.title}
+            {blog.title}
           </h1>
 
           <p className="text-lg text-[hsl(var(--app-text-muted))] leading-relaxed mb-8">
-            {caseStudy.excerpt}
+            {blog.excerpt}
           </p>
 
           <div className="flex items-center gap-4 pb-8 border-b border-[hsl(var(--app-border))]">
             <div className="flex items-center gap-3">
-              {caseStudy.companyLogo && (
+              {blog.companyLogo && (
                 <img
-                  src={caseStudy.companyLogo}
-                  alt={caseStudy.companyName}
+                  src={blog.companyLogo}
+                  alt={blog.companyName}
                   className="w-8 h-8 rounded-lg object-contain border border-[hsl(var(--app-border))]"
                 />
               )}
               <div>
-                <p className="text-sm font-medium text-[hsl(var(--app-text))]">{caseStudy.authorName}</p>
+                <p className="text-sm font-medium text-[hsl(var(--app-text))]">{blog.authorName}</p>
                 {publishDate && <p className="text-xs text-[hsl(var(--app-text-muted))]">{publishDate}</p>}
               </div>
             </div>
@@ -161,10 +161,10 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         </div>
       </section>
 
-      {caseStudy.metrics.length > 0 && (
+      {blog.metrics.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 pb-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {caseStudy.metrics.map((metric, index) => (
+            {blog.metrics.map((metric, index) => (
               <div
                 key={`${metric.label}-${index}`}
                 className="bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] rounded-xl p-5 text-center"
@@ -186,17 +186,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         </section>
       )}
 
-      {caseStudy.coverImage && (
+      {blog.coverImage && (
         <section className="max-w-5xl mx-auto px-4 pb-12">
           <div className="rounded-2xl overflow-hidden border border-[hsl(var(--app-border))]">
-            <img src={caseStudy.coverImage} alt={caseStudy.title} className="w-full h-auto" />
+            <img src={blog.coverImage} alt={blog.title} className="w-full h-auto" />
           </div>
         </section>
       )}
 
       <section className="max-w-4xl mx-auto px-4 pb-20">
         <article
-          className="case-study-content prose prose-neutral max-w-none
+          className="blog-content prose prose-neutral max-w-none
             prose-headings:text-[hsl(var(--app-text))] prose-headings:font-semibold
             prose-p:text-[hsl(var(--app-text-muted))] prose-p:leading-relaxed prose-p:
             prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-700
@@ -211,7 +211,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             prose-td:border prose-td:border-[hsl(var(--app-border))] prose-td:px-4 prose-td:py-2 prose-td:text-[hsl(var(--app-text-muted))] prose-td:prose-td:text-sm
             prose-hr:border-[hsl(var(--app-border))]
           "
-          dangerouslySetInnerHTML={{ __html: caseStudy.content }}
+          dangerouslySetInnerHTML={{ __html: blog.content }}
         />
       </section>
 
@@ -235,10 +235,10 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               Book a Demo
             </Link>
             <Link
-              href="/case-studies"
+              href="/blogs"
               className="inline-flex items-center justify-center border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] rounded-full px-6 py-3 text-sm font-medium hover:bg-[hsl(var(--app-surface))] transition-colors"
             >
-              More Case Studies
+              More Blogs
             </Link>
           </div>
         </div>

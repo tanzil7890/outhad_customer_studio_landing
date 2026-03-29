@@ -230,10 +230,10 @@ export default function Header() {
               Manifesto
             </Link>
             <Link 
-              href="/case-studies" 
+              href="/blogs"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
-              Case Studies
+              Blogs
             </Link>
           </div>
 

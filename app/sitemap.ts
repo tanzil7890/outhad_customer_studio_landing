@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getPublishedCaseStudiesServer } from '@/lib/case-studies-server'
+import { getPublishedCaseStudiesServer } from '@/lib/blogs-server'
 import { absoluteUrl } from '@/lib/seo'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const publicRoutes = [
     '',
     '/manifesto',
-    '/case-studies',
+    '/blogs',
     '/roi-calculator',
     '/convertive-data-platform',
     '/convertive-journey-orchestration',
@@ -31,12 +31,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? 0.6
           : route === '/manifesto'
             ? 0.7
-            : route === '/case-studies' || route === '/roi-calculator'
+            : route === '/blogs' || route === '/roi-calculator'
               ? 0.8
               : 0.9,
   }))
   const caseStudyEntries = caseStudies.map((caseStudy) => ({
-    url: absoluteUrl(`/case-studies/${caseStudy.slug}`),
+    url: absoluteUrl(`/blogs/${caseStudy.slug}`),
     lastModified: new Date(caseStudy.updatedAt ?? caseStudy.publishedAt ?? caseStudy.createdAt ?? currentDate),
     changeFrequency: 'monthly' as const,
     priority: 0.75,

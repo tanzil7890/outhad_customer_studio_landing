@@ -2,8 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 import AdminLayout from '@/components/admin/admin-layout'
-import CaseStudyForm from '@/components/admin/case-study-form'
-import { createCaseStudy, CaseStudyInput } from '@/lib/case-studies'
+import CaseStudyForm from '@/components/admin/blogs-form'
+import { createCaseStudy, CaseStudyInput } from '@/lib/blogs'
 
 export default function NewCaseStudyPage() {
   const router = useRouter()

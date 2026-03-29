@@ -2,19 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCaseStudies, CaseStudy } from '@/lib/case-studies'
+import { getCaseStudies, CaseStudy } from '@/lib/blogs'
 
-export default function CaseStudiesSection() {
-  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+export default function BlogsSection() {
+  const [blogs, setBlogs] = useState<CaseStudy[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetch() {
       try {
         const data = await getCaseStudies('published')
-        setCaseStudies(data.slice(0, 3))
+        setBlogs(data.slice(0, 3))
       } catch (err) {
-        console.error('Failed to fetch case studies:', err)
+        console.error('Failed to fetch blogs:', err)
       } finally {
         setLoading(false)
       }
@@ -34,7 +34,7 @@ export default function CaseStudiesSection() {
     )
   }
 
-  if (caseStudies.length === 0) return null
+  if (blogs.length === 0) return null
 
   return (
     <section className="bg-[hsl(var(--app-background))] py-20 sm:py-28 px-4">
@@ -56,41 +56,41 @@ export default function CaseStudiesSection() {
 
         {/* Cards Grid */}
         <div className="flex flex-wrap justify-center gap-6">
-          {caseStudies.map((cs) => (
+          {blogs.map((blog) => (
             <Link
-              key={cs.id}
-              href={`/case-studies/${cs.slug}`}
+              key={blog.id}
+              href={`/blogs/${blog.slug}`}
               className="group block w-full md:w-[calc(33.333%-1rem)] md:max-w-sm"
             >
               <article className="bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] rounded-2xl overflow-hidden hover:border-[hsl(var(--app-text))]/30 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
-                {cs.coverImage && (
+                {blog.coverImage && (
                   <div className="aspect-[16/9] overflow-hidden">
                     <img
-                      src={cs.coverImage}
-                      alt={cs.title}
+                      src={blog.coverImage}
+                      alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 )}
                 <div className="p-6 flex flex-col flex-1">
-                  {cs.industry && (
+                  {blog.industry && (
                     <span className="text-xs text-[hsl(var(--app-text-muted))] bg-[hsl(var(--app-surface))] border border-[hsl(var(--app-border))] rounded-full px-3 py-1 w-fit mb-4">
-                      {cs.industry}
+                      {blog.industry}
                     </span>
                   )}
                   <h3
                     className="text-lg font-semibold text-[hsl(var(--app-text))] mb-3 group-hover:text-blue-600 transition-colors line-clamp-2"
                   >
-                    {cs.title}
+                    {blog.title}
                   </h3>
                   <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed line-clamp-3 flex-1">
-                    {cs.excerpt}
+                    {blog.excerpt}
                   </p>
 
                   {/* Metrics preview */}
-                  {cs.metrics && cs.metrics.length > 0 && (
+                  {blog.metrics && blog.metrics.length > 0 && (
                     <div className="flex flex-wrap gap-3 mt-5 pt-5 border-t border-[hsl(var(--app-border))]">
-                      {cs.metrics.slice(0, 2).map((m, i) => (
+                      {blog.metrics.slice(0, 2).map((m, i) => (
                         <div key={i} className="flex-1 min-w-0">
                           <p
                             className="text-xl font-semibold text-[hsl(var(--app-text))]"
@@ -113,10 +113,10 @@ export default function CaseStudiesSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Link
-            href="/case-studies"
+            href="/blogs"
             className="inline-flex items-center gap-2 border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] rounded-full px-6 py-3 text-sm font-medium hover:bg-[hsl(var(--app-surface))] hover:border-[hsl(var(--app-text))]/30 transition-all duration-200"
           >
-            View all case studies
+            View all blogs
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />

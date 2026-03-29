@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import RichTextEditor from './rich-text-editor'
-import { CaseStudyInput, CaseStudyMetric, generateSlug } from '@/lib/case-studies'
+import { CaseStudyInput, CaseStudyMetric, generateSlug } from '@/lib/blogs'
 import { Timestamp } from 'firebase/firestore'
 
 interface CaseStudyFormProps {
@@ -141,7 +141,7 @@ export default function CaseStudyForm({
               URL Slug
             </label>
             <div className="flex items-center gap-2">
-              <span className="text-zinc-600 text-sm">/case-studies/</span>
+              <span className="text-zinc-600 text-sm">/blogs/</span>
               <input
                 type="text"
                 value={slug}
