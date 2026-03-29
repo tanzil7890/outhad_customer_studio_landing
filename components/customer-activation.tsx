@@ -132,7 +132,7 @@ export default function CustomerActivation() {
 
   useEffect(() => {
     const updateSegment = () => {
-      setSegmentVh(window.innerWidth < 768 ? 80 : 120)
+      setSegmentVh(window.innerWidth < 768 ? 65 : 85)
     }
     updateSegment()
     window.addEventListener('resize', updateSegment)
@@ -140,18 +140,38 @@ export default function CustomerActivation() {
   }, [])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-      const sectionTop = sectionRef.current.getBoundingClientRect().top + window.scrollY
-      const relativeScroll = window.scrollY - sectionTop
-      const segmentHeight = window.innerHeight * (segmentVh / 100)
-      let idx = Math.floor(relativeScroll / segmentHeight)
-      idx = Math.max(0, Math.min(idx, featuresNew.length - 1))
-      setActiveIndex(idx)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    if (!sectionRef.current) return
+
+    const segments = Array.from(
+      sectionRef.current.querySelectorAll<HTMLElement>('[data-scroll-segment]')
+    )
+
+    if (!segments.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting)
+        if (!visibleEntries.length) return
+
+        const mostVisibleEntry = visibleEntries.reduce((bestEntry, entry) =>
+          entry.intersectionRatio > bestEntry.intersectionRatio ? entry : bestEntry
+        )
+
+        const nextIndex = Number(mostVisibleEntry.target.getAttribute('data-feature-index'))
+        if (Number.isNaN(nextIndex)) return
+
+        setActiveIndex((currentIndex) => (currentIndex === nextIndex ? currentIndex : nextIndex))
+      },
+      {
+        root: null,
+        rootMargin: '-45% 0px -45% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    )
+
+    segments.forEach((segment) => observer.observe(segment))
+
+    return () => observer.disconnect()
   }, [featuresNew.length, segmentVh])
 
   return (
@@ -225,7 +245,18 @@ export default function CustomerActivation() {
       </div>
 
       {/* Features Section — Sticky Scroll Tabs */}
-      <div ref={sectionRef} className="relative  ">
+      <div ref={sectionRef} className="relative">
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none flex flex-col">
+          {featuresNew.map((feature, index) => (
+            <div
+              key={`${feature.title}-segment`}
+              data-scroll-segment
+              data-feature-index={index}
+              className="shrink-0"
+              style={{ height: `${segmentVh}vh` }}
+            />
+          ))}
+        </div>
         {/* Tall scroll space — each feature gets segmentVh of scroll distance */}
         <div style={{ height: `${featuresNew.length * segmentVh}vh` }}>
           {/* Sticky viewport — stays pinned while parent scrolls */}
@@ -287,7 +318,7 @@ export default function CustomerActivation() {
                 {feature.title === 'Convertive Data Platform' ? (
                   // Clean flex-column layout for Convertive Data Platform
                   <motion.div
-                    className="w-full h-full rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3 overflow-auto"
+                    className="w-full h-full rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))]/50 backdrop-blur-sm p-4 sm:p-5 flex flex-col gap-3 overflow-hidden"
                     transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                   >
                     {/* Row 1: Data Sources + First-Party Quality stats side by side */}
