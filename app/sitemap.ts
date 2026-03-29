@@ -15,15 +15,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/convertive-ai-engine',
     '/convertive-reporting',
     '/convertive-history',
+    '/privacy-policy',
+    '/terms',
   ] as const
   const caseStudies = await getPublishedCaseStudiesServer()
   const staticEntries = publicRoutes.map((route) => ({
     url: route ? absoluteUrl(route) : absoluteUrl('/'),
     lastModified: currentDate,
-    changeFrequency:
-      route === '/manifesto' || route === '/convertive-history'
+    changeFrequency: (
+      route === '/manifesto' || route === '/convertive-history' || route === '/privacy-policy' || route === '/terms'
         ? 'monthly'
-        : 'weekly',
+        : 'weekly'
+    ) as 'monthly' | 'weekly',
     priority:
       route === ''
         ? 1
@@ -31,9 +34,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? 0.6
           : route === '/manifesto'
             ? 0.7
-            : route === '/blogs' || route === '/roi-calculator'
-              ? 0.8
-              : 0.9,
+            : route === '/privacy-policy' || route === '/terms'
+              ? 0.5
+              : route === '/blogs' || route === '/roi-calculator'
+                ? 0.8
+                : 0.9,
   }))
   const caseStudyEntries = caseStudies.map((caseStudy) => ({
     url: absoluteUrl(`/blogs/${caseStudy.slug}`),

@@ -76,3 +76,74 @@ export const faqSchema = (faqs: Array<{ question: string; answer: string }>) => 
     },
   })),
 })
+
+export const videoObjectSchema = ({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  duration,
+}: {
+  name: string
+  description: string
+  thumbnailUrl: string
+  uploadDate: string
+  contentUrl: string
+  duration: string
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  duration,
+  publisher: {
+    '@id': `${siteConfig.url}#organization`,
+  },
+})
+
+export const howToSchema = (steps: Array<{ name: string; text: string }>) => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How Convertive Converts Anonymous Visitors in Real Time',
+  description:
+    'The 4-step process Convertive uses to detect intent, decide the best action, deliver in-session, and capture anonymous visitor identity.',
+  step: steps.map((step, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: step.name,
+    text: step.text,
+  })),
+})
+
+export const featureProductSchema = ({
+  name,
+  description,
+  url,
+  featureList,
+}: {
+  name: string
+  description: string
+  url: string
+  featureList: string[]
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name,
+  description,
+  url,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  isPartOf: {
+    '@type': 'SoftwareApplication',
+    name: `${siteConfig.name} Platform`,
+    url: siteConfig.url,
+  },
+  featureList,
+  provider: {
+    '@id': `${siteConfig.url}#organization`,
+  },
+})

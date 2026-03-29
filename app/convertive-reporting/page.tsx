@@ -3,10 +3,10 @@ import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, featureProductSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Reporting',
+  title: 'Conversion Lift Reporting and Session Journey Analytics',
   description:
     'Measure in-session performance with identity progression heatmaps, journey diagnostics, and qualified lift reporting across channels.',
   path: '/convertive-reporting',
@@ -44,14 +44,51 @@ const dashboardModules = [
   'Latency and delivery health for in-session actions',
 ]
 
+const faqs = [
+  {
+    question: 'How does Convertive measure conversion lift without a third-party testing tool?',
+    answer:
+      'Convertive uses holdout groups built into the journey layer. A controlled percentage of eligible shoppers receives no intervention, and conversion rates are compared to the treated group. Lift is calculated with statistical confidence scores so you know when a result is meaningful versus noise.',
+  },
+  {
+    question: 'What is identity progression reporting?',
+    answer:
+      'Identity progression reporting shows where in the funnel anonymous visitors become known — via email capture, checkout, account login, or other identity events. It highlights which pages and journeys are most effective at advancing identity and where capture opportunities are being missed.',
+  },
+  {
+    question: 'Can I see why a specific shopper received a certain intervention?',
+    answer:
+      'Yes. Journey diagnostics let you inspect individual decision paths — including which signals triggered eligibility, which action was ranked highest, and whether suppression or guardrails modified the outcome. This is useful for debugging unexpected behavior and auditing AI decisions.',
+  },
+  {
+    question: 'How is Convertive reporting different from Google Analytics or platform dashboards?',
+    answer:
+      'GA and platform dashboards measure aggregate channel performance. Convertive Reporting measures the quality of individual decisions within sessions — did the AI pick the right action for each shopper? It is designed to answer operational questions like "are my suppression rules working?" and "which segments respond best to which interventions?"',
+  },
+]
+
 export default function ConvertiveReportingPage() {
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', url: absoluteUrl('/') },
     { name: 'Reporting', url: absoluteUrl('/convertive-reporting') },
   ])
+  const product = featureProductSchema({
+    name: 'Convertive Reporting',
+    description:
+      'Conversion lift reporting and session journey analytics for ecommerce, including identity progression heatmaps, holdout-aware lift measurement, and journey diagnostics.',
+    url: absoluteUrl('/convertive-reporting'),
+    featureList: [
+      'Holdout-aware conversion lift measurement',
+      'Identity progression analytics',
+      'Journey diagnostics by segment',
+      'Action ranking outcome reports',
+      'Suppression and conflict audit logs',
+      'In-session delivery health monitoring',
+    ],
+  })
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd([breadcrumbs, product, faqSchema(faqs)]) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Reporting</p>
@@ -90,6 +127,18 @@ export default function ConvertiveReportingPage() {
               <p key={item} className="text-sm text-[hsl(var(--app-text))]">
                 - {item}
               </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-8">Frequently asked questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="border-b border-[hsl(var(--app-border))] pb-6">
+                <h3 className="text-base font-semibold text-[hsl(var(--app-text))] mb-2">{faq.question}</h3>
+                <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{faq.answer}</p>
+              </div>
             ))}
           </div>
         </section>

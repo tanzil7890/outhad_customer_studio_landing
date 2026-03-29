@@ -11,11 +11,16 @@ const footerLinks = [
   { href: '/manifesto', label: 'Manifesto' },
 ]
 
+const legalLinks = [
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
+]
+
 const Footer = () => {
   return (
     <footer className="bg-[hsl(var(--app-surface))] border-t border-[hsl(var(--app-border))] py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
           
           {/* Logo/Brand Section */}
           <div className="text-center md:text-left">
@@ -33,6 +38,24 @@ const Footer = () => {
             </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
               {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Legal Section */}
+          <div className="text-center md:text-left">
+            <h4 className="text-sm font-semibold text-[hsl(var(--app-text))] mb-4 font-title">
+              Legal
+            </h4>
+            <div className="flex flex-col gap-y-2">
+              {legalLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

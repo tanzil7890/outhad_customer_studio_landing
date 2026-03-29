@@ -3,10 +3,10 @@ import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, featureProductSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Journey Orchestration',
+  title: 'Journey Orchestration for In-Session Ecommerce Conversion',
   description:
     'Coordinate in-session and cross-channel journeys with shared state, suppression logic, and guardrails that prevent conflicting offers.',
   path: '/convertive-journey-orchestration',
@@ -44,14 +44,51 @@ const controlPoints = [
   'Priority overrides for checkout-critical moments',
 ]
 
+const faqs = [
+  {
+    question: 'What does journey orchestration mean in the context of ecommerce?',
+    answer:
+      'Journey orchestration coordinates the sequence, timing, and channel of every message or intervention a shopper receives. In ecommerce, this means making sure an on-site offer, an email, and a retargeting ad aren\'t all firing simultaneously for the same shopper — and that the most relevant action wins based on current session context.',
+  },
+  {
+    question: 'How does Convertive prevent conflicting offers from firing at the same time?',
+    answer:
+      'Convertive uses mutual exclusion rules and suppression logic built into the journey layer. When a shopper is in an active on-site intervention, downstream channels like email and SMS are suppressed. After conversion, stale follow-up sequences are cancelled automatically.',
+  },
+  {
+    question: 'Can Convertive journeys respond to real-time signals mid-session?',
+    answer:
+      'Yes. Journey branch logic re-evaluates as new behavioral events stream in. If a visitor\'s intent score increases because they just viewed a third product in a category, the journey can shift from a passive nudge to an active offer without waiting for the next session.',
+  },
+  {
+    question: 'How does this differ from marketing automation tools like Klaviyo flows or Braze canvases?',
+    answer:
+      'Marketing automation tools build flows around historical profile data and channel-specific events. Convertive Journey Orchestration is session-aware and shared-state — it coordinates in-session on-site actions alongside cross-channel messages from a single orchestration layer, using live behavioral signals not post-session triggers.',
+  },
+]
+
 export default function ConvertiveJourneyOrchestrationPage() {
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', url: absoluteUrl('/') },
     { name: 'Journey Orchestration', url: absoluteUrl('/convertive-journey-orchestration') },
   ])
+  const product = featureProductSchema({
+    name: 'Convertive Journey Orchestration',
+    description:
+      'Session-aware journey orchestration for ecommerce that coordinates on-site interventions and cross-channel messages from shared state with suppression and guardrails.',
+    url: absoluteUrl('/convertive-journey-orchestration'),
+    featureList: [
+      'Shared journey state across channels',
+      'Suppression and mutual exclusion rules',
+      'Adaptive in-session branch logic',
+      'Global frequency caps',
+      'Post-conversion sequence cancellation',
+      'Checkout-critical priority overrides',
+    ],
+  })
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd([breadcrumbs, product, faqSchema(faqs)]) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Orchestration</p>
@@ -90,6 +127,18 @@ export default function ConvertiveJourneyOrchestrationPage() {
               <p key={item} className="text-sm text-[hsl(var(--app-text))]">
                 - {item}
               </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-8">Frequently asked questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="border-b border-[hsl(var(--app-border))] pb-6">
+                <h3 className="text-base font-semibold text-[hsl(var(--app-text))] mb-2">{faq.question}</h3>
+                <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{faq.answer}</p>
+              </div>
             ))}
           </div>
         </section>

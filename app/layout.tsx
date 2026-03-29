@@ -111,6 +111,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full overflow-x-clip ${manrope.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
+        <link rel="alternate" type="application/rss+xml" title="Convertive Blog" href="https://tryconvertive.com/feed.xml" />
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
 html {
@@ -134,6 +139,11 @@ html {
               softwareApplicationSchema,
             ]),
           }}
+        />
+
+        <Script
+          src="https://t.contentsquare.net/uxa/9c510e7e809cb.js"
+          strategy="afterInteractive"
         />
 
         <Script

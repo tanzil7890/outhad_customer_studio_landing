@@ -16,8 +16,8 @@ import BeforeAfterSection from "@/components/before-after-section"
 import BlogsSection from "@/components/blogs-section"
 import HeroAnimation from "@/components/hero-animation"
 import HeroRoiCalculator from "@/components/hero-roi-calculator"
-import { buildMetadata, serializeJsonLd } from '@/lib/seo'
-import { faqSchema } from '@/lib/schema'
+import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { faqSchema, videoObjectSchema, howToSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Real-Time Customer Activation Platform for Ecommerce',
@@ -96,7 +96,36 @@ export default function SyntheticV0PageForDeployment() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: serializeJsonLd(faqSchema(homeFaqs)),
+          __html: serializeJsonLd([
+            faqSchema(homeFaqs),
+            videoObjectSchema({
+              name: 'Convertive Platform Demo: Real-Time Anonymous Visitor Conversion',
+              description:
+                'Watch how Convertive converts anonymous ecommerce visitors before they leave using real-time AI, session-aware audiences, and in-session decisioning.',
+              thumbnailUrl: absoluteUrl('/images/convertive-customer-activation-platform/hero-home.png'),
+              uploadDate: '2024-10-01T00:00:00Z',
+              contentUrl: absoluteUrl('/videos/product_demo4.mp4'),
+              duration: 'PT2M',
+            }),
+            howToSchema([
+              {
+                name: 'Live Detection',
+                text: 'Detect live session signals — scroll depth, product views, cart activity, pause behavior — to identify visitor intent in real time before they leave.',
+              },
+              {
+                name: 'Instant Decision',
+                text: 'Rank the next-best action for each anonymous visitor using current context, predicted value, and intent signals — all within the active session.',
+              },
+              {
+                name: 'In-Session Delivery',
+                text: 'Deliver the chosen personalized intervention on-site during the live session, before the shopper navigates away or abandons.',
+              },
+              {
+                name: 'Anonymous to Known',
+                text: 'Capture visitor identity progressively and stitch anonymous behavioral history into a permanent known profile for future activation.',
+              },
+            ]),
+          ]),
         }}
       />
 

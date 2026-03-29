@@ -3,10 +3,10 @@ import Link from 'next/link'
 import Footer from '../../components/footer'
 import { Button } from '../../components/ui/toast/button'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, featureProductSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Decisioning',
+  title: 'AI Decisioning Engine for In-Session Ecommerce Conversion',
   description:
     'Use predictive intent, value scoring, and next-best-action ranking to choose the strongest in-session intervention for each shopper.',
   path: '/convertive-ai-engine',
@@ -44,14 +44,51 @@ const modelUseCases = [
   'Adaptive strategy updates from observed outcomes',
 ]
 
+const faqs = [
+  {
+    question: 'What makes Convertive\'s AI decisioning different from rule-based personalization?',
+    answer:
+      'Rule-based systems fire triggers based on static conditions — "if cart value > $100, show this offer." Convertive\'s AI decisioning ranks competing actions by predicted outcome for each individual shopper using live session context, value signals, and intent scores. It selects the action most likely to convert, not just the first rule that matches.',
+  },
+  {
+    question: 'How does the next-best-action engine handle multiple competing interventions?',
+    answer:
+      'When multiple journeys or actions are eligible for a shopper, the ranking layer selects one winner based on predicted conversion lift, suppression rules, and channel guardrails. This prevents offer collisions and message fatigue that degrade conversion quality.',
+  },
+  {
+    question: 'Does the AI model learn from our store\'s specific data?',
+    answer:
+      'Yes. The decisioning engine incorporates your store\'s behavioral patterns, conversion signals, and historical outcomes into its scoring. The continuous learning loop updates the policy model as new session outcomes are observed, improving action quality over time.',
+  },
+  {
+    question: 'How do I measure if the AI decisioning is actually lifting conversions?',
+    answer:
+      'Convertive Reporting includes holdout-aware lift measurement that isolates the incremental impact of AI-selected interventions versus control groups. You can see decision quality by segment, channel, and intervention type from the Reporting dashboard.',
+  },
+]
+
 export default function ConvertiveAIEnginePage() {
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', url: absoluteUrl('/') },
     { name: 'AI Decisioning', url: absoluteUrl('/convertive-ai-engine') },
   ])
+  const product = featureProductSchema({
+    name: 'Convertive AI Decisioning Engine',
+    description:
+      'Predictive next-best-action engine for in-session ecommerce conversion, using intent scoring, value ranking, and continuous learning loops.',
+    url: absoluteUrl('/convertive-ai-engine'),
+    featureList: [
+      'Predictive intent and value scoring',
+      'Next-best-action ranking',
+      'Continuous learning loop',
+      'Holdout-aware policy evaluation',
+      'Journey-safe suppression logic',
+      'Offer collision prevention',
+    ],
+  })
   return (
     <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd([breadcrumbs, product, faqSchema(faqs)]) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Decisioning</p>
@@ -90,6 +127,18 @@ export default function ConvertiveAIEnginePage() {
               <p key={item} className="text-sm text-[hsl(var(--app-text))]">
                 - {item}
               </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-8">Frequently asked questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="border-b border-[hsl(var(--app-border))] pb-6">
+                <h3 className="text-base font-semibold text-[hsl(var(--app-text))] mb-2">{faq.question}</h3>
+                <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{faq.answer}</p>
+              </div>
             ))}
           </div>
         </section>

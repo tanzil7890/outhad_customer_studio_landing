@@ -8,6 +8,18 @@ import { breadcrumbSchema } from '@/lib/schema'
 
 export const dynamic = 'force-dynamic'
 
+function isComparisonSlug(slug: string) {
+  return slug.startsWith('convertive-vs-')
+}
+
+function extractCompetitorName(slug: string) {
+  return slug
+    .replace('convertive-vs-', '')
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
+
 type BlogPageProps = {
   params: Promise<{
     slug: string
@@ -38,19 +50,31 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     }
   }
 
+  const competitor = isComparisonSlug(blog.slug) ? extractCompetitorName(blog.slug) : null
+
   return buildMetadata({
     title: blog.title,
     description: blog.excerpt,
     path: `/blogs/${blog.slug}`,
     image: blog.coverImage || undefined,
     type: 'article',
-    keywords: [
-      blog.companyName,
-      'customer activation blog',
-      'real-time personalization blog',
-      blog.industry,
-      ...blog.tags,
-    ].filter(Boolean),
+    keywords: competitor
+      ? [
+          `Convertive vs ${competitor}`,
+          `${competitor} alternative`,
+          `${competitor} competitor`,
+          'ecommerce personalization comparison',
+          'customer activation platform comparison',
+          blog.industry,
+          ...blog.tags,
+        ].filter(Boolean)
+      : [
+          blog.companyName,
+          'customer activation blog',
+          'real-time personalization blog',
+          blog.industry,
+          ...blog.tags,
+        ].filter(Boolean),
   })
 }
 
@@ -63,6 +87,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
   }
 
   const publishDate = formatPublishDate(blog.publishedAt)
+  const competitor = isComparisonSlug(blog.slug) ? extractCompetitorName(blog.slug) : null
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -91,7 +116,10 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', url: absoluteUrl('/') },
     { name: 'Blogs', url: absoluteUrl('/blogs') },
-    { name: blog.companyName, url: absoluteUrl(`/blogs/${blog.slug}`) },
+    {
+      name: competitor ? `Convertive vs ${competitor}` : blog.companyName,
+      url: absoluteUrl(`/blogs/${blog.slug}`),
+    },
   ])
 
   return (
@@ -217,14 +245,15 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
 
       <section className="max-w-4xl mx-auto px-4 pb-24">
         <div className="bg-[hsl(var(--app-card))] border border-[hsl(var(--app-border))] rounded-2xl p-8 sm:p-12 text-center">
-          <h2
-            className="text-2xl sm:text-3xl text-[hsl(var(--app-text))] mb-4"
-          >
-            Ready for similar results?
+          <h2 className="text-2xl sm:text-3xl text-[hsl(var(--app-text))] mb-4">
+            {competitor
+              ? `See Convertive in action — no ${competitor} required`
+              : 'Ready for similar results?'}
           </h2>
           <p className="text-sm text-[hsl(var(--app-text-muted))] mb-6 max-w-lg mx-auto">
-            See how Convertive can transform your customer experience with real-time personalization and AI-driven
-            engagement.
+            {competitor
+              ? `Book a demo and see exactly how Convertive outperforms ${competitor} for real-time anonymous visitor conversion and in-session personalization.`
+              : 'See how Convertive can transform your customer experience with real-time personalization and AI-driven engagement.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -238,7 +267,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
               href="/blogs"
               className="inline-flex items-center justify-center border border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] rounded-full px-6 py-3 text-sm font-medium hover:bg-[hsl(var(--app-surface))] transition-colors"
             >
-              More Blogs
+              {competitor ? 'More Comparisons' : 'More Blogs'}
             </Link>
           </div>
         </div>
