@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import Cal, { getCalApi } from "@calcom/embed-react"
 
 function ExitIntentModal({ onClose }: { onClose: () => void }) {
   return (
@@ -91,47 +92,53 @@ export default function DemoPage() {
     return () => document.removeEventListener('mouseleave', handleMouseLeave)
   }, [exitShown])
 
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "15-min-meeting-inquiry-or-general-chat" })
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" })
+    })()
+  }, [])
+
   return (
     <>
       <AnimatePresence>
         {showExitModal && <ExitIntentModal onClose={() => setShowExitModal(false)} />}
       </AnimatePresence>
 
-      <main className="min-h-screen bg-[#10182B] flex flex-col items-center justify-center px-6 text-center">
+      <main className="min-h-screen bg-[#10182B] flex flex-col items-center px-4 md:px-6 pt-12 md:pt-16 pb-16">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-1.5 bg-[#33C0A7]/15 border border-[#33C0A7]/30 rounded-full px-3 py-1.5 mb-6">
+        <div className="inline-flex items-center gap-1.5 bg-[#33C0A7]/15 border border-[#33C0A7]/30 rounded-full px-3 py-1.5 mb-5 md:mb-6">
           <span className="text-[#33C0A7] text-xs font-bold tracking-wider uppercase">⚡ Live Demo</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight max-w-xl">
+        <h1 className="text-3xl md:text-5xl font-black text-white mb-3 md:mb-4 leading-tight max-w-xl text-center">
           See Convertive convert an anonymous visitor
         </h1>
-        <p className="text-white/50 text-base mb-8 max-w-md leading-relaxed">
-          In 20 minutes, you'll see the in-session AI, live profile building, and cart recovery — all live, on your store's data.
+        <p className="text-white/50 text-sm md:text-base mb-8 md:mb-10 max-w-md leading-relaxed text-center px-2">
+          In 15 minutes, you'll see the in-session AI, live profile building, and cart recovery — all live, on your store's data.
         </p>
 
-        <Link
-          href="https://tryconvertive.com/demo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-white text-[#10182B] font-bold px-8 py-4 rounded-2xl text-base hover:opacity-90 transition-opacity shadow-2xl mb-4"
-        >
-          Book your 20-min demo →
-        </Link>
-
-        <p className="text-white/30 text-xs">No commitment. See live results on your store.</p>
+        {/* Cal.com inline embed — full-bleed on mobile, contained on desktop */}
+        <div className="w-full max-w-6xl -mx-4 md:mx-0 rounded-none md:rounded-2xl overflow-hidden">
+          <Cal
+            namespace="15-min-meeting-inquiry-or-general-chat"
+            calLink="tanzil-convertive/15-min-meeting-inquiry-or-general-chat"
+            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+          />
+        </div>
 
         {/* Stats strip */}
-        <div className="grid grid-cols-3 gap-6 mt-14 max-w-sm w-full">
+        <div className="grid grid-cols-3 gap-3 md:gap-6 mt-10 md:mt-14 max-w-xs md:max-w-sm w-full">
           {[
             { stat: '97%', label: 'of visitors are anonymous' },
             { stat: '70%', label: 'cart abandonment rate' },
             { stat: '<100ms', label: 'in-session response time' },
           ].map(({ stat, label }) => (
             <div key={stat} className="text-center">
-              <p className="text-2xl font-black text-[#33C0A7]">{stat}</p>
-              <p className="text-[10px] text-white/40 leading-snug mt-1">{label}</p>
+              <p className="text-xl md:text-2xl font-black text-[#33C0A7]">{stat}</p>
+              <p className="text-[9px] md:text-[10px] text-white/40 leading-snug mt-1">{label}</p>
             </div>
           ))}
         </div>
