@@ -15,7 +15,7 @@ Create app/terms/page.tsx with terms of service content
 Add "Legal" column to components/footer.tsx with Privacy Policy + Terms links
 Add both to app/sitemap.ts
 
-
+create .md a blog post which I can post for good seo
 Wave 3 — Content Strategy (No-Code, High Long-Term Impact)
 Blog Topic Cluster Architecture (via Firebase Admin Panel)
 Publish these educational posts to capture top-of-funnel traffic:
