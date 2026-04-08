@@ -111,6 +111,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full overflow-x-clip ${manrope.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-head"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M2W73R5V');`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -130,6 +142,16 @@ html {
         className="h-full overflow-x-clip bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
         suppressHydrationWarning
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M2W73R5V"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
