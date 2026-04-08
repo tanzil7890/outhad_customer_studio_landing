@@ -194,13 +194,12 @@ export default function Header() {
                     </div>
 
                     {/* CTA Box */}
-                    <div className="mt-auto rounded-xl bg-gradient-to-br from-[hsl(var(--app-primary))]/10 to-[hsl(var(--app-secondary))]/10 border border-[hsl(var(--app-primary))]/20 p-3.5">
-                      <p className="text-xs font-semibold text-[hsl(var(--app-text))] mb-1">See it live</p>
-                      <p className="text-[10px] text-[hsl(var(--app-text-muted))] leading-snug mb-3">Watch Convertive convert anonymous visitors in real-time.</p>
+                    <div className="mt-auto rounded-xl bg-[#FDF0E0] border border-[#EBBF94] p-3.5">
+                      <p className="text-xs font-semibold text-[#1A1410] mb-1">See it live</p>
+                      <p className="text-[10px] text-[#5C4E44] leading-snug mb-3">Watch Convertive convert anonymous visitors in real-time.</p>
                       <Link
-                        href="https://tryconvertive.com/demo"
-                        target="_blank"
-                        className="block w-full text-center text-[11px] font-semibold bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-lg py-2 hover:opacity-80 transition-opacity"
+                        href="/demo"
+                        className="block w-full text-center text-[11px] font-semibold bg-[#1A1410] text-[#F5F0EB] rounded-lg py-2 hover:bg-[#2D2420] transition-colors"
                       >
                         Book Demo →
                       </Link>
@@ -239,11 +238,11 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
-            <Link href="https://tryconvertive.com/demo" target="_blank">
-              <Button 
+            <Link href="/demo">
+              <Button
                 variant="outline"
                 size="sm"
-                className="bg-transparent border border-[hsl(var(--app-text))]/10 text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] rounded-full transition-colors duration-200 text-xs sm:text-sm"
+                className="bg-[#1A1410] border-transparent text-[#F5F0EB] hover:bg-[#2D2420] rounded-full transition-colors duration-200 text-xs sm:text-sm font-semibold"
               >
                 Book Demo
               </Button>
@@ -367,11 +366,11 @@ export default function Header() {
               Case Studies
             </Link>
             
-            <Link href="https://tryconvertive.com/demo" target="_blank" onClick={closeMobileMenu}>
-              <Button 
+            <Link href="/demo" onClick={closeMobileMenu}>
+              <Button
                 variant="outline"
                 size="sm"
-                className="bg-transparent hover:bg-[hsl(var(--app-text))] text-[hsl(var(--app-text))] hover:text-[hsl(var(--app-background))] border border-[hsl(var(--app-text))]/70 rounded-full font-medium transition-colors duration-200 text-sm mt-2 mx-2"
+                className="bg-[#1A1410] border-transparent text-[#F5F0EB] hover:bg-[#2D2420] rounded-full font-semibold transition-colors duration-200 text-sm mt-2 mx-2"
               >
                 Book Demo
               </Button>

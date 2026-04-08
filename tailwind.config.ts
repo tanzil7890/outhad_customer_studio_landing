@@ -61,7 +61,28 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			/* ── Convertive Brand Tokens ── */
+  			brand: {
+  				primary: '#1A1410',
+  				hover:   '#2D2420',
+  				subtle:  '#EDE5DE',
+  			},
+  			copper: {
+  				100: '#FDF0E0',
+  				200: '#F7E4D0',
+  				300: '#EBBF94',
+  				400: '#C87941',
+  				500: '#A86331',
+  				600: '#7A4420',
+  			},
+  			surface: {
+  				canvas: '#FAFAF8',
+  				base:   '#FFFFFF',
+  				warm:   '#FDF8F4',
+  				hover:  '#F5EFE8',
+  				sunken: '#F0E8E0',
+  			},
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

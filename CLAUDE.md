@@ -6,6 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is "SimpleConvertiveStealth" - a Next.js landing page for Convertive, a Customer Activation Platform that uses data and AI. The application features an animated hero section with particle effects, orbiting circles, and animated beams connecting floating feature cards.
 
+Warm Black + Copper
+
+"The Premium Enterprise"
+
+Primary: #1A1410 (warm black — brown undertone, not blue) Accent: #C87941 (copper/bronze) Highlight: #FDF0E0 (warm cream for surfaces) Text: #F5F0EB (on dark)
 ## Development Commands
 
 ```bash

@@ -25,7 +25,7 @@ function ExitIntentModal({ onClose }: { onClose: () => void }) {
         transition={{ type: 'spring', stiffness: 320, damping: 30 }}
       >
         {/* Dark top */}
-        <div className="bg-[#10182B] px-6 pt-6 pb-5 text-white">
+        <div className="bg-[#1A1410] px-6 pt-6 pb-5 text-white">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-white/40 hover:text-white/80 transition-colors text-xl leading-none"
@@ -61,7 +61,7 @@ function ExitIntentModal({ onClose }: { onClose: () => void }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="flex items-center justify-center w-full bg-[#10182B] text-white font-bold text-sm py-3 rounded-xl hover:opacity-90 transition-opacity mb-2"
+            className="flex items-center justify-center w-full bg-[#1A1410] text-white font-bold text-sm py-3 rounded-xl hover:opacity-90 transition-opacity mb-2"
           >
             See it live — takes 20 min →
           </Link>
@@ -105,22 +105,22 @@ export default function DemoPage() {
         {showExitModal && <ExitIntentModal onClose={() => setShowExitModal(false)} />}
       </AnimatePresence>
 
-      <main className="min-h-screen bg-[#10182B] flex flex-col items-center px-4 md:px-6 pt-12 md:pt-16 pb-16">
+      <main className="min-h-screen bg-[#FAFAF8] flex flex-col items-center px-4 md:px-6 pt-12 md:pt-16 pb-16">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-1.5 bg-[#33C0A7]/15 border border-[#33C0A7]/30 rounded-full px-3 py-1.5 mb-5 md:mb-6">
-          <span className="text-[#33C0A7] text-xs font-bold tracking-wider uppercase">⚡ Live Demo</span>
+        <div className="inline-flex items-center gap-1.5 bg-[#F7E4D0] border border-[#EBBF94] rounded-full px-3 py-1.5 mb-5 md:mb-6">
+          <span className="text-[#7A4420] text-xs font-bold tracking-wider uppercase">⚡ Live Demo</span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-black text-white mb-3 md:mb-4 leading-tight max-w-xl text-center">
+        <h1 className="text-3xl md:text-5xl font-black text-[#1A1410] mb-3 md:mb-4 leading-tight max-w-xl text-center">
           See Convertive convert an anonymous visitor
         </h1>
-        <p className="text-white/50 text-sm md:text-base mb-8 md:mb-10 max-w-md leading-relaxed text-center px-2">
+        <p className="text-[#5C4E44] text-sm md:text-base mb-8 md:mb-10 max-w-md leading-relaxed text-center px-2">
           In 15 minutes, you'll see the in-session AI, live profile building, and cart recovery — all live, on your store's data.
         </p>
 
         {/* Cal.com inline embed — full-bleed on mobile, contained on desktop */}
-        <div className="w-full max-w-6xl -mx-4 md:mx-0 rounded-none md:rounded-2xl overflow-hidden">
+        <div className="w-full max-w-6xl -mx-4 md:mx-0 rounded-none md:rounded-2xl overflow-hidden border border-[#E8DDD4]">
           <Cal
             namespace="15-min-meeting-inquiry-or-general-chat"
             calLink="tanzil-convertive/15-min-meeting-inquiry-or-general-chat"
@@ -130,15 +130,15 @@ export default function DemoPage() {
         </div>
 
         {/* Stats strip */}
-        <div className="grid grid-cols-3 gap-3 md:gap-6 mt-10 md:mt-14 max-w-xs md:max-w-sm w-full">
+        <div className="grid grid-cols-3 gap-3 md:gap-8 mt-10 md:mt-14 max-w-xs md:max-w-sm w-full">
           {[
             { stat: '97%', label: 'of visitors are anonymous' },
             { stat: '70%', label: 'cart abandonment rate' },
             { stat: '<100ms', label: 'in-session response time' },
           ].map(({ stat, label }) => (
             <div key={stat} className="text-center">
-              <p className="text-xl md:text-2xl font-black text-[#33C0A7]">{stat}</p>
-              <p className="text-[9px] md:text-[10px] text-white/40 leading-snug mt-1">{label}</p>
+              <p className="text-xl md:text-2xl font-black text-[#C87941]">{stat}</p>
+              <p className="text-[9px] md:text-[10px] text-[#9C8B7E] leading-snug mt-1">{label}</p>
             </div>
           ))}
         </div>
