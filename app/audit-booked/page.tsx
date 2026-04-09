@@ -33,7 +33,7 @@ export default function AuditBookedPage() {
           {[
             'We review your store and traffic setup before the call',
             '15-minute session — live on your data',
-            'You'll see the exact moments where revenue is being left behind',
+            "You'll see the exact moments where revenue is being left behind",
           ].map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-sm text-[#5C4E44]">
               <span className="text-[#C87941] font-black shrink-0 mt-0.5">{i + 1}</span>
