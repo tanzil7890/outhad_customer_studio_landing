@@ -96,6 +96,14 @@ export default function DemoPage() {
     (async function () {
       const cal = await getCalApi({ namespace: "15-min-meeting-inquiry-or-general-chat" })
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" })
+      cal("on", {
+        action: "bookingSuccessful",
+        callback: () => {
+          if (typeof window !== 'undefined' && (window as any).lintrk) {
+            ;(window as any).lintrk('track', { conversion_id: 25171748 })
+          }
+        },
+      })
     })()
   }, [])
 

@@ -1,12 +1,14 @@
 'use client'
 
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import RoiCalculatorEmbed from '@/components/roi-calculator-embed'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 }
 
 const stagger = {
@@ -15,6 +17,19 @@ const stagger = {
 }
 
 export default function LinkedInLandingPage() {
+  const router = useRouter()
+  const [form, setForm] = useState({ email: '', company: '', role: '', website: '' })
+  const [submitting, setSubmitting] = useState(false)
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setSubmitting(true)
+    if (typeof window !== 'undefined' && (window as any).lintrk) {
+      ;(window as any).lintrk('track', { conversion_id: 25171748 })
+    }
+    router.push('/audit-booked')
+  }
+
   return (
     <main className="bg-[#FAFAF8] min-h-screen">
 
@@ -276,15 +291,50 @@ export default function LinkedInLandingPage() {
                 ))}
               </motion.ul>
 
-              <motion.div variants={fadeUp}>
-                <Link
-                  href="/demo"
-                  className="inline-flex items-center justify-center gap-2 bg-[#C87941] text-white font-bold px-8 py-4 rounded-xl text-sm md:text-base hover:bg-[#A86331] transition-colors shadow-lg"
+              <motion.form
+                variants={fadeUp}
+                onSubmit={handleSubmit}
+                className="w-full max-w-sm space-y-3"
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder="Work email"
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  className="w-full bg-[#2D2420] border border-[#3D3028] text-[#F5F0EB] placeholder-[#7A6558] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C87941] transition-colors"
+                />
+                <input
+                  type="text"
+                  required
+                  placeholder="Company"
+                  value={form.company}
+                  onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
+                  className="w-full bg-[#2D2420] border border-[#3D3028] text-[#F5F0EB] placeholder-[#7A6558] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C87941] transition-colors"
+                />
+                <input
+                  type="text"
+                  placeholder="Role (e.g. Head of Ecommerce)"
+                  value={form.role}
+                  onChange={e => setForm(f => ({ ...f, role: e.target.value }))}
+                  className="w-full bg-[#2D2420] border border-[#3D3028] text-[#F5F0EB] placeholder-[#7A6558] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C87941] transition-colors"
+                />
+                <input
+                  type="url"
+                  placeholder="Website (https://...)"
+                  value={form.website}
+                  onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+                  className="w-full bg-[#2D2420] border border-[#3D3028] text-[#F5F0EB] placeholder-[#7A6558] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C87941] transition-colors"
+                />
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full bg-[#C87941] text-white font-bold px-8 py-4 rounded-xl text-sm hover:bg-[#A86331] transition-colors shadow-lg disabled:opacity-60"
                 >
-                  Book the Audit →
-                </Link>
-                <p className="mt-3 text-[#7A6558] text-xs">No commitment · 15 minutes · Live on your store's data</p>
-              </motion.div>
+                  {submitting ? 'Sending…' : 'Request my audit →'}
+                </button>
+                <p className="text-[#7A6558] text-xs">No commitment · 15 minutes · Live on your store's data</p>
+              </motion.form>
             </div>
 
             {/* Right — stat card */}
