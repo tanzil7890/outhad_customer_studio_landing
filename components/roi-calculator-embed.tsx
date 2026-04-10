@@ -61,7 +61,7 @@ export default function RoiCalculatorEmbed() {
 
   return (
     <section className="bg-[#F5EFE8] border-y border-[#E8DDD4] py-20 md:py-28 px-4">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
         {/* Header */}
         <div className="mb-10">
@@ -175,6 +175,22 @@ export default function RoiCalculatorEmbed() {
               </div>
               <p className="text-xs text-[#9C8B7E] mt-2 text-center">
                 Convertive clients typically see <span className="font-medium text-[#5C4E44]">0.3–0.8%</span> lift in the first 60 days
+              </p>
+            </div>
+
+            {/* Quick Summary */}
+            <div className="bg-[#F7E4D0] rounded-xl p-4 border border-[#EBBF94]">
+              <p className="text-[#7A4420] text-xs font-bold uppercase tracking-wider mb-2">
+                Quick Summary
+              </p>
+              <p className="text-sm text-[#1A1410] leading-relaxed">
+                With <strong>{fmt(visitors)}</strong> monthly visitors at a{' '}
+                <strong>{rate}%</strong> conversion rate, you&apos;re losing{' '}
+                <strong className="text-[#8B2020]">{fmt(anonymousLost)}</strong> potential
+                customers every month. Recovering just <strong>{lift.toFixed(1)}%</strong>{' '}
+                means{' '}
+                <strong className="text-[#C87941]">+{fmtUSD(revenueRecovered)}</strong>{' '}
+                in monthly revenue.
               </p>
             </div>
           </motion.div>
