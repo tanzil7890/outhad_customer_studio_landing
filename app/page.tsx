@@ -130,14 +130,14 @@ export default function SyntheticV0PageForDeployment() {
       />
 
       {/* Hero Content */}
-      <div className="bg-[hsl(var(--app-background))] pt-36 pb-10 sm:pt-32 sm:pb-16 px-4 overflow-x-clip">
+      <div className="bg-[#FAFAF8] pt-36 pb-10 sm:pt-32 sm:pb-16 px-4 overflow-x-clip">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* Left — 50% — text content */}
             <div>
               <Link href="https://gwaycapital.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center mb-6 hover:opacity-80 transition-opacity">
-                <span className="text-sm text-[hsl(var(--app-text-muted))]">Backed by</span>
+                <span className="text-sm text-[#9C8B7E]">Backed by</span>
                 <img
                   src="https://gwaycapital.com/wp-content/uploads/2021/05/Gateway.png"
                   alt="Gateway Capital"
@@ -145,11 +145,11 @@ export default function SyntheticV0PageForDeployment() {
                 />
               </Link>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[hsl(var(--app-text))] mb-5 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#1A1410] mb-5 leading-tight">
                 Convert anonymous visitors before they leave.
               </h1>
 
-              <p className="text-base sm:text-lg text-[hsl(var(--app-text-muted))] mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-[#9C8B7E] mb-8 leading-relaxed">
                 Convertive uses real-time AI to predict intent and intervene during the live session, converting anonymous visitors into buyers before they ever leave your site.
               </p>
 
@@ -165,7 +165,7 @@ export default function SyntheticV0PageForDeployment() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px]"
+                      className="bg-[#1A1410] text-[#F5F0EB] border-2 border-[#1A1410] hover:bg-[#F5F0EB] hover:text-[#1A1410] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px]"
                     >
                       Book Demo
                     </Button>
@@ -175,7 +175,7 @@ export default function SyntheticV0PageForDeployment() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-2 border-[hsl(var(--app-border))] text-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-surface))] rounded-full transition-all duration-300 px-6 py-3 text-sm font-medium min-h-[44px]"
+                    className="border-2 border-[#E8DDD4] text-[#1A1410] hover:bg-[#F5EFE8] rounded-full transition-all duration-300 px-6 py-3 text-sm font-medium min-h-[44px]"
                   >
                     Full ROI Calculator →
                   </Button>
@@ -194,8 +194,8 @@ export default function SyntheticV0PageForDeployment() {
       <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="Convertive rocket illustration" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '500px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
 
       {/* Product Video */}
-      <div className="bg-[hsl(var(--app-background))] px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-[hsl(var(--app-border))] shadow-xl">
+      <div className="bg-[#FAFAF8] px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-[#E8DDD4] shadow-xl">
           <ProductVideo src="/videos/product_demo4.mp4" />
         </div>
       </div>
@@ -214,13 +214,13 @@ export default function SyntheticV0PageForDeployment() {
       <IcpValue />
       <Integrations />
 
-      <section className="bg-[hsl(var(--app-surface))]/50 py-16 sm:py-20">
+      <section className="bg-[#F5EFE8] py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[#1A1410]">
               Explore the Convertive platform
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-[hsl(var(--app-text-muted))] leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-[#9C8B7E] leading-relaxed">
               Each page below explains one part of the system in more detail so search engines and buyers can
               understand how Convertive turns live shopper behavior into conversion growth.
             </p>
@@ -230,14 +230,14 @@ export default function SyntheticV0PageForDeployment() {
             {platformPages.map((page) => (
               <article
                 key={page.href}
-                className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-background))] p-6"
+                className="rounded-2xl border border-[#E8DDD4] bg-white p-6"
               >
-                <h3 className="text-xl font-title text-[hsl(var(--app-text))]">
+                <h3 className="text-xl font-title text-[#1A1410]">
                   <Link href={page.href} className="hover:underline underline-offset-4">
                     {page.title}
                   </Link>
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[hsl(var(--app-text-muted))]">
+                <p className="mt-3 text-sm leading-relaxed text-[#9C8B7E]">
                   {page.description}
                 </p>
               </article>
@@ -249,10 +249,10 @@ export default function SyntheticV0PageForDeployment() {
       <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[hsl(var(--app-text))]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-[#1A1410]">
               Frequently asked questions
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-[hsl(var(--app-text-muted))]">
+            <p className="mt-4 text-base sm:text-lg text-[#9C8B7E]">
               These answers cover the core problems Convertive solves and reinforce the main topics this site should
               rank for.
             </p>
@@ -262,10 +262,10 @@ export default function SyntheticV0PageForDeployment() {
             {homeFaqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/40 p-6"
+                className="rounded-2xl border border-[#E8DDD4] bg-[#FAFAF8] p-6"
               >
-                <h3 className="text-lg sm:text-xl font-title text-[hsl(var(--app-text))]">{faq.question}</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed text-[hsl(var(--app-text-muted))]">
+                <h3 className="text-lg sm:text-xl font-title text-[#1A1410]">{faq.question}</h3>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#9C8B7E]">
                   {faq.answer}
                 </p>
               </article>

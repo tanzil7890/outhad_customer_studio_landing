@@ -87,24 +87,24 @@ export default function ConvertiveJourneyOrchestrationPage() {
     ],
   })
   return (
-    <div className="min-h-screen bg-[hsl(var(--app-background))] pt-44 sm:pt-52">
+    <div className="min-h-screen bg-[#FAFAF8] pt-44 sm:pt-52">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd([breadcrumbs, product, faqSchema(faqs)]) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center lg:text-left mb-14">
-          <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--app-text-muted))]">Orchestration</p>
-          <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl text-[hsl(var(--app-text))] font-title">Convertive Journey Orchestration</h1>
-          <p className="mt-6 text-lg text-[hsl(var(--app-text-muted))] max-w-4xl leading-relaxed">
+          <p className="text-xs uppercase tracking-widest text-[#C87941] font-bold">Orchestration</p>
+          <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl text-[#1A1410] font-title">Convertive Journey Orchestration</h1>
+          <p className="mt-6 text-lg text-[#9C8B7E] max-w-4xl leading-relaxed">
             Run coherent, session-aware journeys across web, checkout, email, SMS, and ads. Convertive coordinates
             message timing, suppression, and branching so shoppers see one intelligent sequence.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link href="https://tryconvertive.com/demo" target="_blank">
-              <Button className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8">
+              <Button className="bg-[#1A1410] text-[#F5F0EB] rounded-lg px-8 hover:bg-[#2D2420] transition-colors">
                 Book Demo
               </Button>
             </Link>
             <Link href="/roi-calculator">
-              <Button variant="outline" className="rounded-full px-8">
+              <Button variant="outline" className="rounded-lg px-8 border-[#1A1410] text-[#1A1410] hover:bg-[#F5EFE8]">
                 Calculate Your ROI
               </Button>
             </Link>
@@ -113,31 +113,32 @@ export default function ConvertiveJourneyOrchestrationPage() {
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-14">
           {orchestrationBlocks.map((item) => (
-            <article key={item.title} className="rounded-xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/60 p-5">
-              <h2 className="text-xl font-title text-[hsl(var(--app-text))]">{item.title}</h2>
-              <p className="mt-3 text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{item.text}</p>
+            <article key={item.title} className="rounded-xl border border-[#E8DDD4] bg-white p-6 hover:border-[#D4C4B8] hover:shadow-sm transition-all">
+              <h2 className="text-xl font-title text-[#1A1410]">{item.title}</h2>
+              <p className="mt-3 text-sm text-[#9C8B7E] leading-relaxed">{item.text}</p>
             </article>
           ))}
         </section>
 
-        <section className="mb-16 rounded-2xl border border-[hsl(var(--app-border))] bg-[hsl(var(--app-surface))]/40 p-8">
-          <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-4">Operational controls that protect conversion quality</h2>
+        <section className="mb-16 rounded-2xl border border-[#E8DDD4] bg-[#FAFAF8] p-8">
+          <h2 className="text-3xl font-title text-[#1A1410] mb-4">Operational controls that protect conversion quality</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {controlPoints.map((item) => (
-              <p key={item} className="text-sm text-[hsl(var(--app-text))]">
-                - {item}
-              </p>
+              <div key={item} className="flex items-start gap-2.5 text-sm">
+                <span className="text-[#C87941] font-bold shrink-0 mt-0.5">→</span>
+                <span className="text-[#1A1410]">{item}</span>
+              </div>
             ))}
           </div>
         </section>
 
         <section className="mb-16">
-          <h2 className="text-3xl font-title text-[hsl(var(--app-text))] mb-8">Frequently asked questions</h2>
+          <h2 className="text-3xl font-title text-[#1A1410] mb-8">Frequently asked questions</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.question} className="border-b border-[hsl(var(--app-border))] pb-6">
-                <h3 className="text-base font-semibold text-[hsl(var(--app-text))] mb-2">{faq.question}</h3>
-                <p className="text-sm text-[hsl(var(--app-text-muted))] leading-relaxed">{faq.answer}</p>
+              <div key={faq.question} className="border-b border-[#F2ECE6] pb-6">
+                <h3 className="text-base font-semibold text-[#1A1410] mb-2">{faq.question}</h3>
+                <p className="text-sm text-[#9C8B7E] leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
