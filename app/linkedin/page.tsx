@@ -85,6 +85,7 @@ export default function LinkedInLandingPage() {
       try {
         await fetch(scriptUrl, {
           method: 'POST',
+          mode: 'no-cors',
           body: JSON.stringify({
             ...form,
             submittedAt: new Date().toISOString(),
