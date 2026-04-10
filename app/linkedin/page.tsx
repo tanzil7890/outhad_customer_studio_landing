@@ -26,6 +26,7 @@ export default function LinkedInLandingPage() {
     setSubmitting(true)
     if (typeof window !== 'undefined' && (window as any).lintrk) {
       ;(window as any).lintrk('track', { conversion_id: 25171748 })
+      ;(window as any).lintrk('track', { conversion_id: 25171724 })
     }
     router.push('/audit-booked')
   }
