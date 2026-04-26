@@ -9,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/manifesto',
     '/blogs',
     '/roi-calculator',
+    '/audit',
     '/convertive-data-platform',
     '/convertive-journey-orchestration',
     '/convertive-audiences',
@@ -37,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             ? 0.7
             : route === '/privacy-policy' || route === '/terms'
               ? 0.5
-              : route === '/blogs' || route === '/roi-calculator'
+              : route === '/blogs' || route === '/roi-calculator' || route === '/audit'
                 ? 0.8
                 : 0.9,
   }))

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Audit Request Received | Convertive',
+  title: 'ROI Audit Report Request Received | Convertive',
   robots: { index: false },
 }
 
@@ -19,11 +19,11 @@ export default function AuditBookedPage() {
       <p className="text-[#C87941] text-xs font-bold tracking-widest uppercase mb-3">Request received</p>
 
       <h1 className="text-4xl md:text-5xl font-black text-[#1A1410] leading-tight mb-4 max-w-lg">
-        We'll be in touch shortly.
+        Your ROI audit report is on the way.
       </h1>
 
       <p className="text-[#5C4E44] text-base md:text-lg leading-relaxed mb-10 max-w-md">
-        We've got your audit request. Expect a calendar invite within one business day — we'll show you exactly where anonymous traffic is leaking revenue on your store.
+        We&apos;ve got your details. Expect your custom 2-slide ROI audit report in your inbox within 12 hours — modeled on your store, your traffic, your stack.
       </p>
 
       {/* What to expect */}
@@ -31,9 +31,9 @@ export default function AuditBookedPage() {
         <p className="text-[#1A1410] font-bold text-sm mb-4">What happens next</p>
         <ul className="space-y-3">
           {[
-            'We review your store and traffic setup before the call',
-            '15-minute session — live on your data',
-            "You'll see the exact moments where revenue is being left behind",
+            'We pull live signals from your store and stack',
+            'Our team models your anonymous-traffic loss and recoverable revenue',
+            'A 2-slide ROI audit report lands in your inbox within 12 hours',
           ].map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-sm text-[#5C4E44]">
               <span className="text-[#C87941] font-black shrink-0 mt-0.5">{i + 1}</span>

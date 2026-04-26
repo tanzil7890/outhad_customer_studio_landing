@@ -8,6 +8,7 @@ const footerLinks = [
   { href: '/convertive-reporting', label: 'Reporting' },
   { href: '/blogs', label: 'Blogs' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
+  { href: '/audit', label: 'Free ROI Audit Report' },
   { href: '/manifesto', label: 'Manifesto' },
 ]
 
