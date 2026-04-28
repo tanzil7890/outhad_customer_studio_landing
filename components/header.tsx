@@ -10,6 +10,17 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false)
+  const [isInsightsDropdownOpen, setIsInsightsDropdownOpen] = useState(false)
+  const [isMobileInsightsOpen, setIsMobileInsightsOpen] = useState(false)
+
+  const insightsLinks = [
+    { href: '/the-mechanism', name: 'The Mechanism', desc: 'How in-session decisioning works' },
+    { href: '/the-methodology', name: 'The Methodology', desc: 'Measuring anonymous session leakage' },
+    { href: '/the-audit', name: 'The Audit', desc: 'Find revenue leaks in 7 steps' },
+    { href: '/the-metrics', name: 'The Metrics', desc: 'KPIs for in-session revenue' },
+    { href: '/comparison', name: 'The Comparison', desc: 'vs CDPs, popups, retargeting, replay' },
+    { href: '/manifesto', name: 'The Manifesto', desc: 'The anonymous conversion problem' },
+  ]
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -33,6 +44,22 @@ export default function Header() {
 
   const toggleMobileProducts = () => {
     setIsMobileProductsOpen((v) => !v)
+  }
+
+  const handleInsightsMouseEnter = () => {
+    setIsInsightsDropdownOpen(true)
+  }
+
+  const handleInsightsMouseLeave = () => {
+    setIsInsightsDropdownOpen(false)
+  }
+
+  const toggleInsightsDropdown = () => {
+    setIsInsightsDropdownOpen(!isInsightsDropdownOpen)
+  }
+
+  const toggleMobileInsights = () => {
+    setIsMobileInsightsOpen((v) => !v)
   }
 
   return (
@@ -222,13 +249,42 @@ export default function Header() {
             >
               How it works
             </Link>
+
+            {/* Insights dropdown */}
+            <div className="relative group" onMouseEnter={handleInsightsMouseEnter} onMouseLeave={handleInsightsMouseLeave}>
+              <button
+                onClick={toggleInsightsDropdown}
+                className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm flex items-center gap-1"
+              >
+                Insights
+                <svg className={`w-3 h-3 transition-transform duration-200 ${isInsightsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[420px] bg-[hsl(var(--app-background))] border border-[hsl(var(--app-border))] rounded-2xl shadow-xl transition-all duration-200 ${isInsightsDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                <div className="p-4">
+                  <p className="text-[10px] font-semibold text-[hsl(var(--app-text-muted))] uppercase tracking-widest mb-3 px-1">Thought Leadership</p>
+                  <div className="grid grid-cols-1 gap-1">
+                    {insightsLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:bg-[hsl(var(--app-surface))]/60 hover:border-[hsl(var(--app-border))] transition-all duration-150"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#C87941] flex-shrink-0 mt-1.5" />
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium text-[hsl(var(--app-text))] leading-snug">{item.name}</p>
+                          <p className="text-[11px] text-[hsl(var(--app-text-muted))] leading-snug mt-0.5">{item.desc}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <Link
-              href="/manifesto"
-              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
-            >
-              Manifesto
-            </Link>
-            <Link 
               href="/blogs"
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
             >
@@ -351,13 +407,35 @@ export default function Header() {
             >
               How it works
             </Link>
-            <Link
-              href="/manifesto"
-              onClick={closeMobileMenu}
-              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
+
+            {/* Mobile Insights collapsible */}
+            <button
+              onClick={toggleMobileInsights}
+              className="flex items-center justify-between px-2 py-2 rounded-lg text-[hsl(var(--app-text))] bg-[hsl(var(--app-surface))]/50 border border-[hsl(var(--app-border))]"
+              aria-expanded={isMobileInsightsOpen}
+              aria-controls="mobile-insights-panel"
             >
-              Manifesto
-            </Link>
+              <span className="font-medium">Insights</span>
+              <svg className={`w-4 h-4 transition-transform ${isMobileInsightsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              id="mobile-insights-panel"
+              className={`grid grid-cols-1 gap-2 px-1 transition-[grid-template-rows,opacity] duration-300 ${isMobileInsightsOpen ? 'opacity-100' : 'opacity-0 hidden'}`}
+            >
+              {insightsLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2 rounded-md border border-[hsl(var(--app-border))] bg-[hsl(var(--app-card))] hover:bg-[hsl(var(--app-card-hover))]"
+                >
+                  <div className="text-sm font-medium text-[hsl(var(--app-text))]">{item.name}</div>
+                  <div className="text-xs text-[hsl(var(--app-text-muted))]">{item.desc}</div>
+                </Link>
+              ))}
+            </div>
             <Link 
               href="/case-studies" 
               onClick={closeMobileMenu}

@@ -3,16 +3,17 @@ import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Manifesto',
+  title: 'The Manifesto: Ecommerce Has an Anonymous Conversion Problem',
   description:
-    'Read the Convertive manifesto on customer-first commerce, privacy-aware data practices, and real-time AI for ecommerce growth.',
+    'Ecommerce does not have a traffic problem. It has an anonymous conversion problem. The Convertive manifesto on real-time intent, hyper-personalization, autonomous optimization, and converting visitors before they bounce.',
   path: '/manifesto',
   keywords: [
-    'company manifesto',
+    'anonymous conversion problem',
+    'ecommerce manifesto',
+    'in-session personalization philosophy',
+    'real-time intent activation',
     'customer-first commerce',
-    'privacy-aware personalization',
     'responsible AI for ecommerce',
-    'customer activation philosophy',
   ],
   type: 'article',
 })
@@ -28,19 +29,26 @@ export default function ManifestoPage() {
       <div className="max-w-3xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[hsl(var(--app-text))] mb-4 font-title">
-            Convertive Manifesto
+        <div className="text-center mb-12">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#C87941] font-bold mb-4">The Manifesto</p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[hsl(var(--app-text))] mb-6 font-title leading-tight">
+            Ecommerce does not have a traffic problem. It has an anonymous conversion problem.
           </h1>
+          <p className="text-sm text-[hsl(var(--app-text-muted))] max-w-xl mx-auto">
+            Roughly 70% of carts are abandoned. ~95% of sessions stay anonymous. The leak is not the top of the funnel.
+          </p>
         </div>
 
         {/* Manifesto Content */}
         <div className="space-y-12">
-          
+
           {/* Opening Statement */}
           <div className="mb-12">
             <p className="text-lg text-[hsl(var(--app-text))] leading-relaxed">
               At Convertive, we believe every digital action—every click, scroll, and hesitation—is a signal of intent, not noise. We exist to listen in real time and transform that intent into immersive, predictive commerce, delivered across web, mobile, email, SMS, and ads without delay.
+            </p>
+            <p className="mt-4 text-lg text-[hsl(var(--app-text))] leading-relaxed">
+              Most of the stack waits hours or days to act. By then the visitor is gone, retargeting is the only play, and CAC has already been paid twice. The fix is not more traffic. It is converting the traffic you already have — while the session is still live.
             </p>
           </div>
 

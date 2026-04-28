@@ -19,6 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/privacy-policy',
     '/terms',
     '/how-it-works',
+    '/the-mechanism',
+    '/the-methodology',
+    '/the-audit',
+    '/the-metrics',
+    '/comparison',
   ] as const
   const caseStudies = await getPublishedCaseStudiesServer()
   const staticEntries = publicRoutes.map((route) => ({

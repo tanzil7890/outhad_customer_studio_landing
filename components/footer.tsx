@@ -6,10 +6,15 @@ const footerLinks = [
   { href: '/convertive-ai-engine', label: 'Decisioning' },
   { href: '/convertive-journey-orchestration', label: 'Journey Orchestration' },
   { href: '/convertive-reporting', label: 'Reporting' },
+  { href: '/the-mechanism', label: 'The Mechanism' },
+  { href: '/the-methodology', label: 'The Methodology' },
+  { href: '/the-audit', label: 'The Audit' },
+  { href: '/the-metrics', label: 'The Metrics' },
+  { href: '/comparison', label: 'The Comparison' },
+  { href: '/manifesto', label: 'The Manifesto' },
   { href: '/blogs', label: 'Blogs' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
   { href: '/audit', label: 'Free ROI Audit Report' },
-  { href: '/manifesto', label: 'Manifesto' },
 ]
 
 const legalLinks = [
