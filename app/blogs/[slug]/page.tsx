@@ -225,18 +225,18 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
       <section className="max-w-4xl mx-auto px-4 pb-20">
         <article
           className="blog-content prose prose-neutral max-w-none
-            prose-headings:text-[hsl(var(--app-text))] prose-headings:font-semibold
-            prose-p:text-[hsl(var(--app-text-muted))] prose-p:leading-relaxed prose-p:
+            prose-headings:text-[#1A1410] prose-headings:font-semibold
+            prose-p:text-[#1A1410] prose-p:leading-relaxed
             prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-700
-            prose-strong:text-[hsl(var(--app-text))]
-            prose-li:text-[hsl(var(--app-text-muted))] prose-li:
-            prose-blockquote:border-l-[hsl(var(--app-text))] prose-blockquote:text-[hsl(var(--app-text-muted))]
-            prose-code:text-[hsl(var(--app-text))] prose-code:bg-[hsl(var(--app-surface))] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+            prose-strong:text-[#1A1410]
+            prose-li:text-[#1A1410]
+            prose-blockquote:border-l-[#1A1410] prose-blockquote:text-[#1A1410]
+            prose-code:text-[#1A1410] prose-code:bg-[hsl(var(--app-surface))] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
             prose-pre:bg-[hsl(var(--app-surface))] prose-pre:border prose-pre:border-[hsl(var(--app-border))]
             prose-img:rounded-xl prose-img:border prose-img:border-[hsl(var(--app-border))]
             prose-table:border-collapse
-            prose-th:bg-[hsl(var(--app-surface))] prose-th:border prose-th:border-[hsl(var(--app-border))] prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:text-[hsl(var(--app-text))] prose-th:prose-th:text-sm
-            prose-td:border prose-td:border-[hsl(var(--app-border))] prose-td:px-4 prose-td:py-2 prose-td:text-[hsl(var(--app-text-muted))] prose-td:prose-td:text-sm
+            prose-th:bg-[hsl(var(--app-surface))] prose-th:border prose-th:border-[hsl(var(--app-border))] prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:text-[#1A1410] prose-th:text-sm
+            prose-td:border prose-td:border-[hsl(var(--app-border))] prose-td:px-4 prose-td:py-2 prose-td:text-[#1A1410] prose-td:text-sm
             prose-hr:border-[hsl(var(--app-border))]
           "
           dangerouslySetInnerHTML={{ __html: blog.content }}
