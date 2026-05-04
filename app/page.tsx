@@ -153,19 +153,19 @@ export default function SyntheticV0PageForDeployment() {
                 Convertive uses real-time AI to predict intent and intervene during the live session, converting anonymous visitors into buyers before they ever leave your site.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 items-center">
+              <div className="flex flex-row flex-wrap gap-2 sm:gap-3 items-center pl-8 sm:pl-14">
                 <div className="relative">
                   <img
                     src="/images/arrows/arrow-11.svg"
                     alt=""
                     aria-hidden="true"
-                    className="absolute -left-14 -top-0 h-10 w-auto -rotate-[20deg] opacity-100 hidden sm:block"
+                    className="absolute -left-8 sm:-left-14 -top-0 h-8 sm:h-10 w-auto -rotate-[20deg] opacity-100"
                   />
                   <Link href="https://tryconvertive.com/demo" target="_blank">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-[#1A1410] text-[#F5F0EB] border-2 border-[#1A1410] hover:bg-[#F5F0EB] hover:text-[#1A1410] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px]"
+                      className="bg-[#1A1410] text-[#F5F0EB] border-2 border-[#1A1410] hover:bg-[#F5F0EB] hover:text-[#1A1410] rounded-full transition-all duration-300 shadow-lg px-4 sm:px-6 py-3 text-xs sm:text-sm font-medium min-h-[44px] whitespace-nowrap"
                     >
                       Book Demo
                     </Button>
@@ -175,11 +175,30 @@ export default function SyntheticV0PageForDeployment() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-2 border-[#E8DDD4] text-[#1A1410] hover:bg-[#F5EFE8] rounded-full transition-all duration-300 px-6 py-3 text-sm font-medium min-h-[44px]"
+                    className="border-2 border-[#E8DDD4] text-[#1A1410] hover:bg-[#F5EFE8] rounded-full transition-all duration-300 px-4 sm:px-6 py-3 text-xs sm:text-sm font-medium min-h-[44px] whitespace-nowrap"
                   >
                     Full ROI Calculator →
                   </Button>
                 </Link>
+              </div>
+
+              {/* Member of AWS Startup, NVIDIA Inception program */}
+              <div className="mt-6 flex flex-col items-left sm:items-start gap-3">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#9C8B7E] font-semibold">
+                  Member of
+                </p>
+                <div className="flex flex-wrap items-center justify-left sm:justify-start gap-4 sm:gap-6 md:gap-7 max-w-full">
+                  <img
+                    src="/images/aws_startup.png"
+                    alt="AWS Startup member"
+                    className="h-10 sm:h-11 md:h-12 w-auto max-w-[130px] sm:max-w-none object-contain"
+                  />
+                  <img
+                    src="/images/Nvidia_Inception_program.png"
+                    alt="NVIDIA Inception Program member"
+                    className="h-14 sm:h-16 md:h-20 w-auto max-w-[180px] sm:max-w-none object-contain"
+                  />
+                </div>
               </div>
             </div>
 
@@ -193,6 +212,7 @@ export default function SyntheticV0PageForDeployment() {
       </div>
       <img src="https://cdn.prod.website-files.com/6350808bc45bd0c902af10e6/66e47654be5d3e3979ea567e_rocket-illustration-updated.avif" loading="eager" width="387" height="Auto" alt="Convertive rocket illustration" className="am-rocket-illustration absolute z-20 hidden md:block" style={{opacity: 1, width: '300px', top: '500px', right: '0px', animation: 'float 3s ease-in-out infinite'}} />
 
+      
       {/* Product Video */}
       <div className="bg-[#FAFAF8] px-4 sm:px-6 lg:px-8 pb-12">
         <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-[#E8DDD4] shadow-xl">
