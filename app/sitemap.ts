@@ -24,6 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/the-audit',
     '/the-metrics',
     '/comparison',
+    '/careers',
+    '/careers/growth-partnerships-intern-la',
+    '/careers/growth-partnerships-intern-ny',
   ] as const
   const caseStudies = await getPublishedCaseStudiesServer()
   const staticEntries = publicRoutes.map((route) => ({

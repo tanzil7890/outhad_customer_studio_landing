@@ -290,6 +290,12 @@ export default function Header() {
             >
               Blogs
             </Link>
+            <Link
+              href="/careers"
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-sm"
+            >
+              Careers
+            </Link>
           </div>
 
           {/* Desktop CTA Button */}
@@ -436,14 +442,21 @@ export default function Header() {
                 </Link>
               ))}
             </div>
-            <Link 
-              href="/case-studies" 
+            <Link
+              href="/case-studies"
               onClick={closeMobileMenu}
               className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
             >
               Case Studies
             </Link>
-            
+            <Link
+              href="/careers"
+              onClick={closeMobileMenu}
+              className="text-[hsl(var(--app-text-muted))] hover:text-[hsl(var(--app-text))] transition-colors duration-300 font-medium text-base px-2 py-1"
+            >
+              Careers
+            </Link>
+
             <Link href="/demo" onClick={closeMobileMenu}>
               <Button
                 variant="outline"

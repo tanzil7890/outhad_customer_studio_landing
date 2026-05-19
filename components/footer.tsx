@@ -15,6 +15,7 @@ const footerLinks = [
   { href: '/blogs', label: 'Blogs' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
   { href: '/audit', label: 'Free ROI Audit Report' },
+  { href: '/careers', label: 'Careers' },
 ]
 
 const legalLinks = [

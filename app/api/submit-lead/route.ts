@@ -2,12 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const ROI_URL = process.env.GOOGLE_APPS_SCRIPT_URL
 const AUDIT_URL = process.env.GOOGLE_APPS_SCRIPT_AUDIT_URL
+const CAREERS_URL = process.env.GOOGLE_APPS_SCRIPT_CAREERS_URL
+
+function resolveTarget(source: string | undefined): string | undefined {
+  if (source === 'anonymous-traffic-audit') return AUDIT_URL
+  if (source === 'careers-la' || source === 'careers-ny') return CAREERS_URL ?? ROI_URL
+  return ROI_URL
+}
 
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json()
-    const target =
-      data.source === 'anonymous-traffic-audit' ? AUDIT_URL : ROI_URL
+    const target = resolveTarget(data.source)
 
     console.log('[submit-lead] source=%s target=%s', data.source, target ? 'set' : 'MISSING')
 
