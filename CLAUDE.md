@@ -53,6 +53,52 @@ npm run lint
   - `global/` - Global utility components (analytics, container, icons, images, wrapper)
 
 - `lib/utils.ts` - Utility functions (cn class merger)
+- `lib/markdown.ts` - Zero-dependency frontmatter parser + Markdown renderer
+- `lib/blogs-server.ts` - Reads the blogs content store (server-only)
+
+- `content/blogs/` - Blogs, case studies, and competitor comparisons as markdown
+
+### Content (Blogs & Case Studies)
+
+Blogs content lives in `content/blogs/*.md` — one markdown file per post, read at
+build time by `lib/blogs-server.ts`. There is no CMS, database, or runtime fetch;
+publishing is a commit + deploy.
+
+To add a post, create `content/blogs/<slug>.md`:
+
+```markdown
+---
+title: "Post title"
+slug: "post-slug"          # optional, defaults to the filename
+excerpt: "Card + meta description copy."
+industry: "Ecommerce"
+tags: ["tag one", "tag two"]
+coverImage: ""             # optional absolute URL
+companyName: ""            # case studies only
+companyLogo: ""
+authorName: "Convertive Team"
+authorEmail: ""
+status: published          # or `draft` to hide it from the site
+publishedAt: 2026-04-03
+createdAt: 2026-04-03
+updatedAt: 2026-04-03
+metrics:                   # optional, rendered as the stat row
+  - label: "Conversion Lift"
+    value: "+32%"
+    description: "From 2.1% to 2.77%"
+---
+
+Body markdown. Headings, tables, lists, blockquotes, code, images, and raw HTML
+blocks are all supported. Do not repeat the title as an `# h1` — the page
+template renders it.
+```
+
+Conventions:
+- Posts are ordered newest-first by `createdAt`.
+- A slug starting with `convertive-vs-` is treated as a competitor comparison and
+  appears in the Platform Comparisons section on `/blogs` and on `/comparison`.
+- `/blogs`, `/blogs/[slug]`, `/comparison`, `/sitemap.xml`, and the homepage
+  Customer Stories section are all prerendered from this directory.
 
 ### Key Features
 
@@ -102,6 +148,8 @@ npm run lint
 - Custom CSS variables provide color consistency across components
 - Mobile-specific optimizations prevent zoom on form inputs
 - All text elements allow selection for better UX
+- No Firebase/Firestore: blogs content is local markdown, so no runtime data
+  fetch and no environment variables are needed to render any page
 
 
 

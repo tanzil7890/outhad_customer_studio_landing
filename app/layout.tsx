@@ -126,7 +126,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
         <link rel="alternate" type="application/rss+xml" title="Convertive Blog" href="https://tryconvertive.com/feed.xml" />
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
