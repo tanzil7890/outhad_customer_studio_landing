@@ -4,27 +4,9 @@ import { siteConfig } from '@/lib/seo'
 const productLinks = [
   { href: '/convertive', label: 'Convertive' },
   { href: '/outhad-studio', label: 'Outhad Studio' },
-  { href: '/convertive-data-platform', label: 'Data Platform' },
-  { href: '/convertive-audiences', label: 'Audiences' },
-  { href: '/convertive-ai-engine', label: 'Decisioning' },
-  { href: '/convertive-journey-orchestration', label: 'Journey Orchestration' },
-  { href: '/convertive-reporting', label: 'Reporting' },
-]
-
-const resourceLinks = [
-  { href: '/blogs', label: 'Blogs' },
-  { href: '/comparison', label: 'Comparisons' },
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/the-mechanism', label: 'The Mechanism' },
-  { href: '/the-methodology', label: 'The Methodology' },
-  { href: '/the-metrics', label: 'The Metrics' },
-  { href: '/the-audit', label: 'The Audit' },
-  { href: '/roi-calculator', label: 'ROI Calculator' },
 ]
 
 const companyLinks = [
-  { href: '/manifesto', label: 'Manifesto' },
-  { href: '/convertive-history', label: 'History' },
   { href: '/careers', label: 'Careers' },
   { href: '/demo', label: 'Talk to us' },
   { href: '/privacy-policy', label: 'Privacy Policy' },
@@ -33,7 +15,6 @@ const companyLinks = [
 
 const linkColumns = [
   { heading: 'Products', links: productLinks },
-  { heading: 'Resources', links: resourceLinks },
   { heading: 'Company', links: companyLinks },
 ]
 
@@ -41,7 +22,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#1A1410] border-t border-[#3D3028] py-14 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <p className="text-sm font-bold tracking-[0.18em] uppercase text-[#F5F0EB] leading-tight">Outhad</p>
