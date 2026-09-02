@@ -4,7 +4,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "SimpleConvertiveStealth" - a Next.js landing page for Convertive, a Customer Activation Platform that uses data and AI. The application features an animated hero section with particle effects, orbiting circles, and animated beams connecting floating feature cards.
+This is the Next.js website for **Outhad AI**, a research and product lab. The brand structure is:
+
+- **Outhad AI** — the company / research lab. Owns the site and the root page.
+- **Convertive** — the commercial product: real-time customer activation for ecommerce.
+- **Outhad Studio** — an agent orchestration layer and builder.
+
+Route structure follows from that:
+
+- `/` — the lab homepage. Deliberately minimal (physera.ai-style): headline, thesis,
+  four cards covering the two products and two research areas, contact. No animation,
+  no imagery, ~105 kB First Load JS. Keep it this way — new marketing sections belong
+  on a product page, not here.
+- `/convertive` — the full Convertive product page (hero, product video, customer
+  activation deep-dive, outcomes, integrations, blogs). This is where the animated,
+  heavier marketing components live.
+- `/outhad-studio` — the Outhad Studio product page.
+- The `/convertive-*` and `/the-*` pages are Convertive feature and SEO pages, reachable
+  from the footer rather than the header.
+
+The header is intentionally 5 links wide; the footer carries the long tail of pages.
 
 Warm Black + Copper
 
