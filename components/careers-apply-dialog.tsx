@@ -68,7 +68,7 @@ export default function CareersApplyDialog({ roleSlug, roleTitle, location }: Pr
       if (resumeFile.size > MAX_RESUME_BYTES) {
         setStatus('error')
         setErrorMessage(
-          `Resume too large (max ${(MAX_RESUME_BYTES / (1024 * 1024)).toFixed(0)}MB). Email it to info@tryconvertive.com instead.`,
+          `Resume too large (max ${(MAX_RESUME_BYTES / (1024 * 1024)).toFixed(0)}MB). Email it to info@outhad.com instead.`,
         )
         return
       }
@@ -78,7 +78,7 @@ export default function CareersApplyDialog({ roleSlug, roleTitle, location }: Pr
         resumeMimeType = resumeFile.type || 'application/octet-stream'
       } catch {
         setStatus('error')
-        setErrorMessage('Could not read resume file. Email it to info@tryconvertive.com instead.')
+        setErrorMessage('Could not read resume file. Email it to info@outhad.com instead.')
         return
       }
     }
@@ -124,8 +124,8 @@ export default function CareersApplyDialog({ roleSlug, roleTitle, location }: Pr
       setStatus('error')
       setErrorMessage(
         err instanceof Error
-          ? `${err.message}. You can also email info@tryconvertive.com directly.`
-          : 'Submission failed. Email info@tryconvertive.com directly.',
+          ? `${err.message}. You can also email info@outhad.com directly.`
+          : 'Submission failed. Email info@outhad.com directly.',
       )
     }
   }
@@ -160,7 +160,7 @@ export default function CareersApplyDialog({ roleSlug, roleTitle, location }: Pr
             <p className="text-2xl font-title text-[#1A1410]">Thanks — application received.</p>
             <p className="mt-3 text-sm text-[#5C4E44] max-w-md mx-auto">
               We will review and reach out by email within 5 business days. If you have not heard back, ping{' '}
-              <a href="mailto:info@tryconvertive.com" className="text-[#C87941] underline">info@tryconvertive.com</a>.
+              <a href="mailto:info@outhad.com" className="text-[#C87941] underline">info@outhad.com</a>.
             </p>
             <div className="mt-6">
               <Button

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/toast/button'
 import CareersApplyDialog from '@/components/careers-apply-dialog'
-import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { buildMetadata, serializeJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 import {
   careerRoles,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: RoutePageProps): Promise<Meta
 
   return buildMetadata({
     title: `${role.title} — ${role.city}`,
-    description: `Part-time ${role.title} at Convertive in ${role.city}. Help connect with DTC brands and Shopify agencies. ${role.compensation}, ${role.hours}. Remote with occasional in-person meetings.`,
+    description: `Part-time ${role.title} at Outhad AI in ${role.city}. Help connect with DTC brands and Shopify agencies. ${role.compensation}, ${role.hours}. Remote with occasional in-person meetings.`,
     path: `/careers/${role.slug}`,
     image: '/images/careers_og_convertive.png',
     keywords: [
@@ -67,13 +67,13 @@ export default async function RoleDetailPage({ params }: RoutePageProps) {
     '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: `${role.title} — ${role.city}`,
-    description: `Part-time Growth & Partnerships Intern at Convertive helping connect with DTC brands and Shopify agencies in ${role.city}.`,
+    description: `Part-time Growth & Partnerships Intern at Outhad AI helping connect with DTC brands and Shopify agencies in ${role.city} for Convertive.`,
     datePosted: new Date().toISOString().split('T')[0],
     employmentType: 'INTERN',
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Convertive',
-      sameAs: 'https://tryconvertive.com',
+      name: siteConfig.name,
+      sameAs: siteConfig.url,
     },
     jobLocation: {
       '@type': 'Place',
@@ -121,7 +121,7 @@ export default async function RoleDetailPage({ params }: RoutePageProps) {
             {role.title}: {role.city}
           </h1>
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-[#5C4E44]">
-            Convertive (By Outhad) · {role.location}
+            Outhad AI · Convertive · {role.location}
           </p>
 
           <div className="mt-4 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2">
@@ -240,7 +240,7 @@ export default async function RoleDetailPage({ params }: RoutePageProps) {
           <h2 className="text-base sm:text-lg font-semibold text-[#1A1410] mb-3">Pre-Application Questions</h2>
           <p className="text-xs text-[#5C4E44] mb-4 leading-relaxed">
             Prepare written answers — include them when you submit the Apply form, or email along with your resume to{' '}
-            <a href="mailto:careers@tryconvertive.com" className="text-[#C87941] underline break-all">careers@tryconvertive.com</a>.
+            <a href="mailto:careers@outhad.com" className="text-[#C87941] underline break-all">careers@outhad.com</a>.
           </p>
           <ol className="space-y-3 list-decimal pl-5">
             <li className="text-sm text-[#1A1410] leading-relaxed">
@@ -258,7 +258,7 @@ export default async function RoleDetailPage({ params }: RoutePageProps) {
         <section className="mb-8 sm:mb-10 rounded-2xl border border-[#1A1410] bg-[#1A1410] text-[#F5F0EB] p-6 sm:p-8 text-center">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-title text-[#FDF0E0]">Ready to apply?</h2>
           <p className="mt-3 text-xs sm:text-sm text-[#C4A898] max-w-md mx-auto leading-relaxed">
-            Submit the form below or email <a href="mailto:careers@tryconvertive.com" className="text-[#EBBF94] underline break-all">careers@tryconvertive.com</a> directly.
+            Submit the form below or email <a href="mailto:careers@outhad.com" className="text-[#EBBF94] underline break-all">careers@outhad.com</a> directly.
           </p>
           <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
             <CareersApplyDialog

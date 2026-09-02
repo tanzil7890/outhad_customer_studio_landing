@@ -2,17 +2,18 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/toast/button'
-import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
+import { buildMetadata, serializeJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
 import { breadcrumbSchema, faqSchema } from '@/lib/schema'
 import { careerRoles } from './roles'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Careers — Growth & Partnerships Internships in LA and NYC',
   description:
-    'Join Convertive as a part-time Growth & Partnerships Intern in Los Angeles or New York. Work directly with the founder on early go-to-market, connect with DTC brands and Shopify agencies. $18–$25/hr plus meeting bonuses.',
+    'Join Outhad AI as a part-time Growth & Partnerships Intern in Los Angeles or New York. Work directly with the founder on early go-to-market for Convertive, connecting with DTC brands and Shopify agencies. $18–$25/hr plus meeting bonuses.',
   path: '/careers',
   image: '/images/careers_og_convertive.png',
   keywords: [
+    'outhad ai careers',
     'convertive careers',
     'growth partnerships intern los angeles',
     'growth partnerships intern new york',
@@ -46,7 +47,7 @@ const faqs = [
   {
     question: 'What is the application process?',
     answer:
-      'Open the role page, submit the Apply form (or email careers@tryconvertive.com). Include your resume plus answers to: (1) Three ecommerce/DTC brands in your city that Convertive should talk to — and why. (2) A short LinkedIn message inviting a Head of Ecommerce to a 15-minute conversation about anonymous traffic and conversion.',
+      'Open the role page, submit the Apply form (or email careers@outhad.com). Include your resume plus answers to: (1) Three ecommerce/DTC brands in your city that Convertive should talk to — and why. (2) A short LinkedIn message inviting a Head of Ecommerce to a 15-minute conversation about anonymous traffic and conversion.',
   },
 ]
 
@@ -65,8 +66,8 @@ export default function CareersPage() {
     employmentType: 'INTERN',
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Convertive',
-      sameAs: 'https://tryconvertive.com',
+      name: siteConfig.name,
+      sameAs: siteConfig.url,
     },
     jobLocation: {
       '@type': 'Place',
@@ -110,9 +111,10 @@ export default function CareersPage() {
             Help us build the ecommerce network in LA and NYC.
           </h1>
           <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-[#5C4E44] max-w-3xl leading-relaxed mx-auto lg:mx-0">
-            Convertive is an in-session AI engine that helps ecommerce brands convert anonymous website traffic into
-            buyers in real time. We are hiring two part-time Growth & Partnerships Interns — one in Los Angeles, one in
-            New York — to help us connect with DTC brands, Shopify agencies, and ecommerce operators.
+            Outhad AI is a research and product lab. Convertive, our commercial product, is an in-session AI engine
+            that helps ecommerce brands convert anonymous website traffic into buyers in real time. We are hiring two
+            part-time Growth & Partnerships Interns — one in Los Angeles, one in New York — to help us connect with
+            DTC brands, Shopify agencies, and ecommerce operators.
           </p>
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
             <Link href="#open-roles" className="w-full sm:w-auto">
@@ -120,9 +122,9 @@ export default function CareersPage() {
                 See open roles
               </Button>
             </Link>
-            <Link href="mailto:careers@tryconvertive.com" className="w-full sm:w-auto">
+            <Link href="mailto:careers@outhad.com" className="w-full sm:w-auto">
               <Button variant="outline" className="w-full sm:w-auto rounded-lg px-6 sm:px-8 border-[#1A1410] text-[#1A1410] hover:bg-[#F5EFE8] break-all">
-                careers@tryconvertive.com
+                careers@outhad.com
               </Button>
             </Link>
           </div>
@@ -130,12 +132,13 @@ export default function CareersPage() {
 
         {/* About Convertive */}
         <section className="mb-12 sm:mb-16 rounded-2xl border border-[#E8DDD4] bg-[#1A1410] text-[#F5F0EB] p-6 sm:p-8 lg:p-10">
-          <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#EBBF94] font-bold">About Convertive</p>
-          <h2 className="mt-2 text-xl sm:text-2xl lg:text-3xl font-title">In-session AI for ecommerce</h2>
+          <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#EBBF94] font-bold">About Outhad AI</p>
+          <h2 className="mt-2 text-xl sm:text-2xl lg:text-3xl font-title">Applied intelligence for the live session</h2>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[#C4A898] leading-relaxed max-w-3xl">
-            Most marketing tools chase shoppers after they leave. Convertive helps brands act while the shopper is still
-            on the site by using live behavioral data to predict intent, personalize the session, and trigger the next
-            best action across web, checkout, email, SMS, and ads.
+            We build systems that decide in milliseconds. Convertive applies that to ecommerce: most marketing tools
+            chase shoppers after they leave, while Convertive acts on live behavioral data to predict intent,
+            personalize the session, and trigger the next best action across web, checkout, email, SMS, and ads.
+            Outhad Studio is the orchestration layer those agent systems are built on.
           </p>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#C4A898] leading-relaxed max-w-3xl">
             Backed by gener8tor, Gateway Capital Partners, and industry experts from Amazon, Clorox, and more.
@@ -197,7 +200,7 @@ export default function CareersPage() {
         <section className="rounded-2xl border border-[#1A1410] bg-[#1A1410] text-[#F5F0EB] p-6 sm:p-8 lg:p-12 text-center">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-title text-[#FDF0E0]">Questions before applying?</h2>
           <p className="mt-3 text-xs sm:text-sm text-[#C4A898] max-w-xl mx-auto leading-relaxed">
-            Email <a href="mailto:careers@tryconvertive.com" className="text-[#EBBF94] underline break-all">careers@tryconvertive.com</a> — short notes get faster replies than long ones.
+            Email <a href="mailto:careers@outhad.com" className="text-[#EBBF94] underline break-all">careers@outhad.com</a> — short notes get faster replies than long ones.
           </p>
         </section>
       </div>
