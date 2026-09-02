@@ -6,6 +6,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date()
   const publicRoutes = [
     '',
+    '/convertive',
+    '/outhad-studio',
     '/manifesto',
     '/blogs',
     '/roi-calculator',
