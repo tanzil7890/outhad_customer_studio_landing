@@ -2,11 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Footer from '@/components/footer'
-import { getPublishedCaseStudyBySlugServer } from '@/lib/blogs-server'
+import { getPublishedCaseStudyBySlugServer, getPublishedCaseStudySlugs } from '@/lib/blogs-server'
 import { absoluteUrl, buildMetadata, serializeJsonLd } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
-export const dynamic = 'force-dynamic'
+export async function generateStaticParams() {
+  const slugs = await getPublishedCaseStudySlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 function isComparisonSlug(slug: string) {
   return slug.startsWith('convertive-vs-')

@@ -1,38 +1,9 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCaseStudies, CaseStudy } from '@/lib/blogs'
+import { getPublishedCaseStudiesServer } from '@/lib/blogs-server'
 
-export default function BlogsSection() {
-  const [blogs, setBlogs] = useState<CaseStudy[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    async function fetch() {
-      try {
-        const data = await getCaseStudies('published')
-        setBlogs(data.slice(0, 3))
-      } catch (err) {
-        console.error('Failed to fetch blogs:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetch()
-  }, [])
-
-  if (loading) {
-    return (
-      <section className="bg-[hsl(var(--app-background))] py-20 sm:py-28 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-center py-16">
-            <div className="w-6 h-6 border-2 border-[hsl(var(--app-border))] border-t-[hsl(var(--app-text))] rounded-full animate-spin" />
-          </div>
-        </div>
-      </section>
-    )
-  }
+export default async function BlogsSection() {
+  const allBlogs = await getPublishedCaseStudiesServer()
+  const blogs = allBlogs.slice(0, 3)
 
   if (blogs.length === 0) return null
 

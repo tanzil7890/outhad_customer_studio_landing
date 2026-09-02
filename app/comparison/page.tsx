@@ -6,8 +6,6 @@ import { getPublishedCaseStudiesServer } from '@/lib/blogs-server'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
 import { breadcrumbSchema, faqSchema } from '@/lib/schema'
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = buildMetadata({
   title: 'The Comparison: Anonymous Intent Activation vs CDPs, Popups, Retargeting, Session Replay',
   description:

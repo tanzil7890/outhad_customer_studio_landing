@@ -5,8 +5,6 @@ import { getPublishedCaseStudiesServer } from '@/lib/blogs-server'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = buildMetadata({
   title: 'Blogs',
   description:
@@ -125,7 +123,7 @@ export default async function BlogsPage() {
         )}
       </section>
 
-      {/* Platform Comparisons — auto-populated from CMS when slugs start with convertive-vs- */}
+      {/* Platform Comparisons — auto-populated from content/blogs when slugs start with convertive-vs- */}
       {comparisons.length > 0 && (
         <section className="max-w-6xl mx-auto px-4 pb-24">
           <div className="mb-10">
