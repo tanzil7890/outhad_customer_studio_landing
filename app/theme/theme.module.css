@@ -1,0 +1,387 @@
+/*
+ * Brand sheet styling. Tokens are scoped to .sheet rather than :root so this
+ * page cannot leak variables into the rest of the site. The site has no dark
+ * mode, so this stays single-theme and paints every colour explicitly.
+ */
+
+.sheet {
+  --ground: #fafaf8;
+  --panel: #ffffff;
+  --ink: #1a1410;
+  --muted: #9c8b7e;
+  --line: #e8ddd4;
+  --copper: #c87941;
+
+  max-width: 940px;
+  margin: 0 auto;
+  /* Extra top padding clears the site's fixed header. */
+  padding: 128px 24px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  background: var(--ground);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.sheet * {
+  box-sizing: border-box;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---- masthead ---- */
+.masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.nameSm {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.sub {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.subOnDark {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a6558;
+  line-height: 1.4;
+}
+
+.title {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+  margin: 0;
+  max-width: 22ch;
+}
+
+.lede {
+  font-size: 17px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ---- sections ---- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.note {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.code {
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+}
+
+.codeSm {
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 12.5px;
+}
+
+/* Fixed specimen grounds — paired literals, independent of any theme. */
+.specLight {
+  background: #fafaf8;
+  color: #1a1410;
+}
+
+.specDark {
+  background: #1a1410;
+  color: #f5f0eb;
+}
+
+.specCream {
+  background: #fdf0e0;
+  color: #1a1410;
+}
+
+.heroSpecimen {
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+}
+
+@media (min-width: 720px) {
+  .heroSpecimen {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.heroSpecimen > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  min-height: 220px;
+}
+
+/* ---- size ladder ---- */
+.ladder {
+  border: 1px solid var(--line);
+  padding: 40px 28px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.rung {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.px {
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 11px;
+  color: #9c8b7e;
+  font-variant-numeric: tabular-nums;
+}
+
+.use {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9c8b7e;
+}
+
+/* ---- construction ---- */
+.build {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .build {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+.buildFrame {
+  border: 1px solid var(--line);
+  padding: 24px;
+  background: #fafaf8;
+}
+
+.buildSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.spec {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 20px;
+  align-items: baseline;
+}
+
+.spec dt {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.spec dd {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* ---- alternates ---- */
+.alts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+@media (min-width: 620px) {
+  .alts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alt {
+  background: var(--panel);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stage {
+  background: #fafaf8;
+  border: 1px solid #e8ddd4;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.alt h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.alt p {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 1px solid var(--copper);
+  padding: 2px 6px;
+}
+
+/* ---- files ---- */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.table th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.path {
+  font-family: var(--font-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.what {
+  color: var(--muted);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+
+.close {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.close p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
