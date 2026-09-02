@@ -19,16 +19,18 @@ export const metadata: Metadata = buildMetadata({
   ],
 })
 
+const isExternal = (href: string) => /^https?:\/\//.test(href)
+
 const work = [
   {
     name: 'Convertive',
-    href: '/convertive',
+    href: 'https://www.tryconvertive.com/',
     description:
       'Real-time customer activation for ecommerce. Predicts intent from live behavior and intervenes during the session — before an anonymous visitor leaves.',
   },
   {
     name: 'Outhad Studio',
-    href: '/outhad-studio',
+    href: 'https://studio.outhad.com/',
     description:
       'An orchestration layer and builder for agent systems. Compose, deploy, and supervise multi-agent workflows without rebuilding the plumbing each time.',
   },
@@ -94,18 +96,31 @@ export default function Home() {
                 </>
               )
 
-              return item.href ? (
-                <Link
+              if (!item.href) {
+                return (
+                  <div key={item.name} className="group bg-[hsl(var(--app-background))] p-8">
+                    {body}
+                  </div>
+                )
+              }
+
+              const cardClassName =
+                'group block bg-[hsl(var(--app-background))] p-8 hover:bg-[hsl(var(--app-surface))] transition-colors duration-200'
+
+              return isExternal(item.href) ? (
+                <a
                   key={item.name}
                   href={item.href}
-                  className="group block bg-[hsl(var(--app-background))] p-8 hover:bg-[hsl(var(--app-surface))] transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClassName}
                 >
                   {body}
-                </Link>
+                </a>
               ) : (
-                <div key={item.name} className="group bg-[hsl(var(--app-background))] p-8">
+                <Link key={item.name} href={item.href} className={cardClassName}>
                   {body}
-                </div>
+                </Link>
               )
             })}
           </div>
