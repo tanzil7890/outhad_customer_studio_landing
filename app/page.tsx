@@ -160,10 +160,6 @@ export default function Home() {
                 <Link href="/careers" className="text-[#C87941] hover:underline">
                   We are hiring
                 </Link>
-                {' · '}
-                <Link href="/blogs" className="hover:text-[#1A1410] transition-colors">
-                  Writing
-                </Link>
               </p>
             </div>
             <Link

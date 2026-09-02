@@ -7,7 +7,6 @@ import OuthadLogo from './outhad-logo'
 const navLinks = [
   { href: '/convertive', label: 'Convertive' },
   { href: '/outhad-studio', label: 'Outhad Studio' },
-  { href: '/blogs', label: 'Blogs' },
   { href: '/careers', label: 'Careers' },
 ]
 
