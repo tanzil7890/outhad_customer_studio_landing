@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Outhad AI">
+  <title>Outhad AI</title>
+  <!-- Solid tile so the mark holds at 16px against light or dark browser chrome -->
+  <rect width="32" height="32" rx="7" fill="#1A1410" />
+  <g transform="translate(3.8 3.8) scale(0.763)">
+    <path d="M27 20 A7 7 0 0 1 20 27 L12 27 A7 7 0 0 1 5 20 L5 12 A7 7 0 0 1 12 5 L20 5 A7 7 0 0 1 27 12" fill="none" stroke="#FDF0E0" stroke-width="4.2" />
+    <rect x="24.9" y="11.6" width="4.2" height="8.8" fill="#C87941" />
+  </g>
+</svg>

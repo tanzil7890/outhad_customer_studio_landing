@@ -54,12 +54,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: [
-      { url: '/logo-black.ico', type: 'image/x-icon' },
-      { url: '/logo-black.png', type: 'image/png' },
-    ],
-    shortcut: '/logo-black.ico',
-    apple: '/logo-black.ico',
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   manifest: '/manifest.webmanifest',
   openGraph: {

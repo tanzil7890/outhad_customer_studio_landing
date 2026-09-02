@@ -109,7 +109,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
       name: 'Convertive',
       logo: {
         '@type': 'ImageObject',
-        url: absoluteUrl('/logo-black.png'),
+        url: absoluteUrl('/outhad-mark.svg'),
       },
     },
     mainEntityOfPage: absoluteUrl(`/blogs/${blog.slug}`),

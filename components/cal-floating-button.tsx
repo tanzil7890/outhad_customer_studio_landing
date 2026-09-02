@@ -268,7 +268,7 @@ export default function CalFloatingButton() {
               {/* Header */}
               <div className="bg-[#10182B] px-4 py-3 flex items-center gap-3 shrink-0">
                 <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
-                  <Image src="/logo-black.png" alt="Convertive" width={28} height={28} className="object-contain" />
+                  <Image src="/outhad-mark.svg" alt="Outhad AI" width={28} height={28} className="object-contain" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white text-sm font-bold leading-none">Convertive</p>

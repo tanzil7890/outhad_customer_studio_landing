@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { siteConfig } from '@/lib/seo'
+import OuthadMark from './outhad-mark'
 
 const productLinks = [
   { href: '/convertive', label: 'Convertive' },
@@ -25,10 +26,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <p className="text-sm font-bold tracking-[0.18em] uppercase text-[#F5F0EB] leading-tight">Outhad</p>
-            <p className="text-[9px] tracking-[0.18em] uppercase text-[#7A6558] leading-tight mb-4">
-              AI Research Lab
-            </p>
+            <div className="flex items-center gap-2.5 mb-4 text-[#F5F0EB]">
+              <OuthadMark className="w-6 h-6 shrink-0" />
+              <span className="flex flex-col">
+                <span className="text-sm font-bold tracking-[0.18em] uppercase leading-tight">Outhad</span>
+                <span className="text-[9px] tracking-[0.18em] uppercase text-[#7A6558] leading-tight">
+                  AI Research Lab
+                </span>
+              </span>
+            </div>
             <p className="text-sm text-[#C4A898] max-w-[22ch] leading-relaxed">
               Applied intelligence for the live session.
             </p>

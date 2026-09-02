@@ -6,7 +6,7 @@ export const organizationSchema = {
   '@id': `${siteConfig.url}#organization`,
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: absoluteUrl('/logo-black.png'),
+  logo: absoluteUrl('/outhad-mark.svg'),
   description: siteConfig.description,
   email: siteConfig.contactEmail,
   sameAs: [siteConfig.social.linkedin, siteConfig.social.x],
