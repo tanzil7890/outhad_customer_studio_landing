@@ -41,8 +41,8 @@ export default function NotFound() {
         </div>
 
         <Link
-          href="https://tryconvertive.com/demo"
-          target="_blank"
+          href="/demo"
+         
           className="mt-10 inline-flex items-center justify-center bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] rounded-full px-8 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Book a Demo

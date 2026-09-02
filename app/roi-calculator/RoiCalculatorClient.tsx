@@ -242,8 +242,8 @@ export default function RoiCalculatorClient() {
               See My Revenue at Risk ↓
             </button>
             <a
-              href="https://tryconvertive.com/demo"
-              target="_blank"
+              href="/demo"
+             
               rel="noopener noreferrer"
               className="bg-[hsl(var(--app-text))] text-[hsl(var(--app-background))] border-2 border-[hsl(var(--app-text))] hover:bg-[hsl(var(--app-background))] hover:text-[hsl(var(--app-text))] rounded-full transition-all duration-300 shadow-lg px-6 py-3 text-sm font-medium min-h-[44px] min-w-[120px]"
             >
@@ -816,18 +816,18 @@ export default function RoiCalculatorClient() {
               Privacy Policy
             </a> */}
             <a
-              href="https://tryconvertive.com/demo"
-              target="_blank"
+              href="/demo"
+             
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
               Book a Call
             </a>
             <a
-              href="mailto:info@tryconvertive.com"
+              href="mailto:info@outhad.com"
               className="hover:text-white transition-colors"
             >
-              info@tryconvertive.com
+              info@outhad.com
             </a>
           </div>
         </div>

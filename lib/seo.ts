@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const siteConfig = {
   name: 'Outhad AI',
   tagline: 'Applied intelligence for the live session.',
-  url: 'https://tryconvertive.com',
+  url: 'https://www.outhad.com',
   ogImage: '/images/convertive-customer-activation-platform/hero-home.png',
   description:
     'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive and Outhad Studio.',
@@ -11,7 +11,8 @@ export const siteConfig = {
     convertive: 'Convertive',
     studio: 'Outhad Studio',
   },
-  contactEmail: 'info@tryconvertive.com',
+  contactEmail: 'info@outhad.com',
+  careersEmail: 'careers@outhad.com',
   social: {
     linkedin: 'https://www.linkedin.com/company/tryconvertive/',
     x: 'https://x.com/convertiveai',

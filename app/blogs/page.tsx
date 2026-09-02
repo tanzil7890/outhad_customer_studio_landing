@@ -72,13 +72,13 @@ export default async function BlogsPage() {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Convertive Blogs',
-    url: 'https://tryconvertive.com/blogs',
+    url: absoluteUrl('/blogs'),
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: blogs.map((blog, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        url: `https://tryconvertive.com/blogs/${blog.slug}`,
+        url: absoluteUrl(`/blogs/${blog.slug}`),
         name: blog.title,
       })),
     },

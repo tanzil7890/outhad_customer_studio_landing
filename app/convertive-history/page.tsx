@@ -87,9 +87,9 @@ export default function ConvertiveHistoryPage() {
                     Build, test, and ship AI agents that connect to your stack with ready-made connectors and actions. Chain tools, call APIs, and automate multi-step workflows across data sources like Salesforce, Slack, Shopify, Snowflake, Stripe, and more.
                   </p>
                   <div className="mt-4 flex items-center gap-3">
-                    <span className="text-xs text-[#9C8B7E]">studio.tryconvertive.com</span>
+                    <span className="text-xs text-[#9C8B7E]">studio.outhad.com</span>
                     <a
-                      href="https://studio.tryconvertive.com/"
+                      href="https://studio.outhad.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ml-auto inline-flex items-center gap-1 text-[#C87941] text-sm hover:underline underline-offset-4"

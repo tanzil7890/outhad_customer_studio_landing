@@ -98,7 +98,7 @@ export default function ConvertiveReportingPage() {
             journey-level lift. Reporting is designed for both operators and leadership.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link href="https://tryconvertive.com/demo" target="_blank">
+            <Link href="/demo">
               <Button className="bg-[#1A1410] text-[#F5F0EB] rounded-lg px-8 hover:bg-[#2D2420] transition-colors">
                 Book Demo
               </Button>

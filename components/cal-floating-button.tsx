@@ -31,7 +31,7 @@ function getBotReply(input: string): Message {
       id: Date.now().toString(),
       from: 'bot',
       text: "Let's get you booked in. It's a quick 20-minute call where we show Convertive running live on a real store.",
-      link: { label: 'Book a Demo →', href: 'https://tryconvertive.com/demo' },
+      link: { label: 'Book a Demo →', href: '/demo' },
       quickReplies: ['How does it work?', 'Pricing'],
     }
   }

@@ -161,7 +161,7 @@ export default function SyntheticV0PageForDeployment() {
                     aria-hidden="true"
                     className="absolute -left-8 sm:-left-14 -top-0 h-8 sm:h-10 w-auto -rotate-[20deg] opacity-100"
                   />
-                  <Link href="https://tryconvertive.com/demo" target="_blank">
+                  <Link href="/demo">
                     <Button
                       variant="outline"
                       size="sm"

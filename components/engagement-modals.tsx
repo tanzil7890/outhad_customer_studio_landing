@@ -14,7 +14,7 @@ function shouldSkip(path: string) {
 const PAGE_MESSAGES: Record<string, { text: string; cta?: { label: string; href: string } }> = {
   '/convertive-ai-engine': {
     text: "You're reading about AI decisioning. It fires in under 100ms — before your shopper hits the back button.",
-    cta: { label: 'See it in action →', href: 'https://tryconvertive.com/demo' },
+    cta: { label: 'See it in action →', href: '/demo' },
   },
   '/convertive-data-platform': {
     text: 'Every anonymous click becomes a live profile. No login required. No delay.',
@@ -22,19 +22,19 @@ const PAGE_MESSAGES: Record<string, { text: string; cta?: { label: string; href:
   },
   '/convertive-audiences': {
     text: "These audiences update from live session behavior — not yesterday's warehouse snapshot.",
-    cta: { label: 'See the platform →', href: 'https://tryconvertive.com/demo' },
+    cta: { label: 'See the platform →', href: '/demo' },
   },
   '/convertive-journey-orchestration': {
     text: 'Web → Email → SMS → Ads. One brain. One decision. No tool-switching.',
-    cta: { label: 'Book a demo →', href: 'https://tryconvertive.com/demo' },
+    cta: { label: 'Book a demo →', href: '/demo' },
   },
   '/convertive-reporting': {
     text: 'Every conversion traced back to the exact in-session moment it happened.',
-    cta: { label: 'See reporting →', href: 'https://tryconvertive.com/demo' },
+    cta: { label: 'See reporting →', href: '/demo' },
   },
   '/manifesto': {
     text: "You're reading our thinking. We'd love to know yours.",
-    cta: { label: 'Book 20 min →', href: 'https://tryconvertive.com/demo' },
+    cta: { label: 'Book 20 min →', href: '/demo' },
   },
 }
 
