@@ -6,9 +6,10 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = buildMetadata({
   title: 'Terms of Service',
   description:
-    'Review the Convertive Terms of Service governing your use of the Convertive customer activation platform, website, and related services.',
+    'Review the Outhad AI Terms of Service governing your use of the Convertive customer activation platform, Outhad Studio, our website, and related services.',
   path: '/terms',
   keywords: [
+    'Outhad AI terms of service',
     'Convertive terms of service',
     'terms and conditions',
     'user agreement',
@@ -39,9 +40,10 @@ export default function TermsPage() {
 
           <section>
             <p>
-              Please read these Terms of Service (&quot;Terms&quot;) carefully before using the Convertive website at
-              tryconvertive.com and the Convertive customer activation platform (&quot;Service&quot;) operated by
-              Convertive (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
+              Please read these Terms of Service (&quot;Terms&quot;) carefully before using the Outhad AI website at
+              outhad.com and the services operated by Outhad AI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;),
+              including the Convertive customer activation platform and Outhad Studio (together, the
+              &quot;Service&quot;).
             </p>
             <p className="mt-4">
               By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part
@@ -62,10 +64,11 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-[hsl(var(--app-text))] mb-3">2. Description of Service</h2>
             <p>
-              Convertive provides a real-time customer activation platform for ecommerce businesses, including
-              anonymous visitor identification, session-aware audience segmentation, AI-powered decisioning,
-              journey orchestration, and conversion analytics (&quot;Service&quot;). The Service is provided on a
-              subscription basis as described in your order or agreement with Convertive.
+              Outhad AI provides Convertive, a real-time customer activation platform for ecommerce businesses,
+              including anonymous visitor identification, session-aware audience segmentation, AI-powered
+              decisioning, journey orchestration, and conversion analytics; and Outhad Studio, an agent
+              orchestration layer and builder. The Service is provided on a subscription basis as described in your
+              order or agreement with Outhad AI.
             </p>
           </section>
 
@@ -106,12 +109,12 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-[hsl(var(--app-text))] mb-3">5. Intellectual Property</h2>
             <p>
               The Service and its original content, features, and functionality are and will remain the exclusive
-              property of Convertive and its licensors. Our trademarks and trade dress may not be used in connection
-              with any product or service without the prior written consent of Convertive.
+              property of Outhad AI and its licensors. Our trademarks and trade dress may not be used in connection
+              with any product or service without the prior written consent of Outhad AI.
             </p>
             <p className="mt-3">
               You retain all rights to data you upload or generate through the Service (&quot;Customer Data&quot;).
-              By using the Service, you grant Convertive a limited, non-exclusive license to process Customer Data
+              By using the Service, you grant Outhad AI a limited, non-exclusive license to process Customer Data
               solely to provide and improve the Service.
             </p>
           </section>
@@ -167,7 +170,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-[hsl(var(--app-text))] mb-3">10. Indemnification</h2>
             <p>
-              You agree to defend, indemnify, and hold harmless Convertive and its officers, directors, employees,
+              You agree to defend, indemnify, and hold harmless Outhad AI and its officers, directors, employees,
               and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs,
               expenses, or fees arising out of or relating to your violation of these Terms or your use of the Service.
             </p>
@@ -182,8 +185,8 @@ export default function TermsPage() {
             </p>
             <p className="mt-3">
               You may terminate your account at any time by contacting us at{' '}
-              <a href="mailto:info@tryconvertive.com" className="text-[hsl(var(--app-text))] underline">
-                info@tryconvertive.com
+              <a href="mailto:info@outhad.com" className="text-[hsl(var(--app-text))] underline">
+                info@outhad.com
               </a>
               . Termination does not entitle you to any refund of prepaid fees.
             </p>
@@ -212,14 +215,14 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-[hsl(var(--app-text))] mb-3">14. Contact Us</h2>
             <p>If you have questions about these Terms, please contact us:</p>
             <div className="mt-3 space-y-1">
-              <p><strong className="text-[hsl(var(--app-text))]">Convertive</strong></p>
+              <p><strong className="text-[hsl(var(--app-text))]">Outhad AI</strong></p>
               <p>
                 Email:{' '}
-                <a href="mailto:info@tryconvertive.com" className="text-[hsl(var(--app-text))] underline">
-                  info@tryconvertive.com
+                <a href="mailto:info@outhad.com" className="text-[hsl(var(--app-text))] underline">
+                  info@outhad.com
                 </a>
               </p>
-              <p>Website: <a href="https://tryconvertive.com" className="text-[hsl(var(--app-text))] underline">tryconvertive.com</a></p>
+              <p>Website: <a href="https://www.outhad.com" className="text-[hsl(var(--app-text))] underline">outhad.com</a></p>
             </div>
           </section>
 

@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import Footer from '../../components/footer'
+import Footer from '@/components/footer'
 import { buildMetadata, serializeJsonLd, absoluteUrl } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Privacy Policy',
   description:
-    'Read the Convertive Privacy Policy to understand how we collect, use, and protect your personal data in compliance with GDPR, CCPA, and applicable privacy laws.',
+    'Read the Outhad AI Privacy Policy to understand how we collect, use, and protect your personal data in compliance with GDPR, CCPA, and applicable privacy laws.',
   path: '/privacy-policy',
   keywords: [
+    'Outhad AI privacy policy',
     'Convertive privacy policy',
     'data privacy',
     'GDPR compliance',
@@ -39,9 +40,10 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <p>
-              Convertive (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the website at tryconvertive.com and provides
-              the Convertive customer activation platform (&quot;Service&quot;). This Privacy Policy explains how we
-              collect, use, disclose, and safeguard your information when you visit our website or use our Service.
+              Outhad AI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the website at outhad.com and provides
+              the Convertive customer activation platform and Outhad Studio (together, the &quot;Service&quot;). This
+              Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit
+              our website or use our Service.
             </p>
             <p className="mt-4">
               By accessing or using the Service, you agree to the collection and use of information in accordance with
@@ -152,8 +154,8 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p className="mt-3">
               To exercise any of these rights, please contact us at{' '}
-              <a href="mailto:info@tryconvertive.com" className="text-[hsl(var(--app-text))] underline">
-                info@tryconvertive.com
+              <a href="mailto:info@outhad.com" className="text-[hsl(var(--app-text))] underline">
+                info@outhad.com
               </a>
               . We will respond to your request within 30 days.
             </p>
@@ -199,14 +201,14 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-semibold text-[hsl(var(--app-text))] mb-3">12. Contact Us</h2>
             <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
             <div className="mt-3 space-y-1">
-              <p><strong className="text-[hsl(var(--app-text))]">Convertive</strong></p>
+              <p><strong className="text-[hsl(var(--app-text))]">Outhad AI</strong></p>
               <p>
                 Email:{' '}
-                <a href="mailto:info@tryconvertive.com" className="text-[hsl(var(--app-text))] underline">
-                  info@tryconvertive.com
+                <a href="mailto:info@outhad.com" className="text-[hsl(var(--app-text))] underline">
+                  info@outhad.com
                 </a>
               </p>
-              <p>Website: <a href="https://tryconvertive.com" className="text-[hsl(var(--app-text))] underline">tryconvertive.com</a></p>
+              <p>Website: <a href="https://www.outhad.com" className="text-[hsl(var(--app-text))] underline">outhad.com</a></p>
             </div>
           </section>
 
