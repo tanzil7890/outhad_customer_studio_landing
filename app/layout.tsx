@@ -19,12 +19,16 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Real-Time Customer Activation Platform`,
-    template: '%s | Convertive',
+    default: `${siteConfig.name} | Applied Intelligence Research Lab`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
+    'Outhad AI',
+    'AI research lab',
+    'applied intelligence',
+    'agent orchestration',
     'real-time personalization',
     'customer activation platform',
     'ecommerce personalization software',
@@ -36,9 +40,9 @@ export const metadata: Metadata = {
     'real-time audience segmentation',
     'identity stitching for ecommerce',
   ],
-  authors: [{ name: 'Convertive' }],
-  creator: 'Convertive',
-  publisher: 'Convertive',
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   category: 'technology',
   referrer: 'origin-when-cross-origin',
   formatDetection: {
@@ -59,7 +63,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.webmanifest',
   openGraph: {
-    title: `${siteConfig.name} | Real-Time Customer Activation Platform`,
+    title: `${siteConfig.name} | Applied Intelligence Research Lab`,
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: 'Convertive',
@@ -76,7 +80,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} | Real-Time Customer Activation Platform`,
+    title: `${siteConfig.name} | Applied Intelligence Research Lab`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: '@convertiveai',

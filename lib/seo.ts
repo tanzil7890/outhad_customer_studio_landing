@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
 
 export const siteConfig = {
-  name: 'Convertive',
+  name: 'Outhad AI',
+  tagline: 'Applied intelligence for the live session.',
   url: 'https://tryconvertive.com',
   ogImage: '/images/convertive-customer-activation-platform/hero-home.png',
   description:
-    'Convertive helps ecommerce teams convert anonymous visitors with real-time customer activation, session-aware decisioning, and in-session personalization.',
+    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive and Outhad Studio.',
+  products: {
+    convertive: 'Convertive',
+    studio: 'Outhad Studio',
+  },
   contactEmail: 'info@tryconvertive.com',
   social: {
     linkedin: 'https://www.linkedin.com/company/tryconvertive/',
@@ -21,6 +26,12 @@ type MetadataInput = {
   image?: string
   type?: 'website' | 'article'
   noIndex?: boolean
+  /**
+   * Social titles are suffixed with the site name by default. Set false when
+   * `title` already carries the brand — e.g. the root page, which Next does not
+   * apply the layout's title template to.
+   */
+  appendSiteName?: boolean
 }
 
 export function absoluteUrl(path = '/') {
@@ -35,9 +46,10 @@ export function buildMetadata({
   image = siteConfig.ogImage,
   type = 'website',
   noIndex = false,
+  appendSiteName = true,
 }: MetadataInput): Metadata {
   const url = absoluteUrl(path)
-  const fullTitle = `${title} | ${siteConfig.name}`
+  const fullTitle = appendSiteName ? `${title} | ${siteConfig.name}` : title
   const imageUrl = absoluteUrl(image)
 
   return {

@@ -14,14 +14,14 @@ export const organizationSchema = {
     '@type': 'ContactPoint',
     contactType: 'sales',
     email: siteConfig.contactEmail,
-    url: 'https://tryconvertive.com/demo',
+    url: absoluteUrl('/demo'),
   },
 }
 
 export const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: `${siteConfig.name} Platform`,
+  name: siteConfig.products.convertive,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   description: siteConfig.description,
@@ -139,7 +139,7 @@ export const featureProductSchema = ({
   operatingSystem: 'Web',
   isPartOf: {
     '@type': 'SoftwareApplication',
-    name: `${siteConfig.name} Platform`,
+    name: siteConfig.products.convertive,
     url: siteConfig.url,
   },
   featureList,
