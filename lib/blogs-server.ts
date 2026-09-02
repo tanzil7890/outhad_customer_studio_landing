@@ -1,5 +1,10 @@
 import 'server-only'
 
+import fs from 'node:fs'
+import path from 'node:path'
+
+import { parseFrontmatter, renderMarkdown, type Frontmatter } from './markdown'
+
 export interface PublicCaseStudyMetric {
   label: string
   value: string
@@ -26,138 +31,143 @@ export interface PublicCaseStudy {
   updatedAt: string | null
 }
 
-type FirestoreValue =
-  | { stringValue: string }
-  | { integerValue: string }
-  | { doubleValue: number }
-  | { booleanValue: boolean }
-  | { timestampValue: string }
-  | { nullValue: null }
-  | { arrayValue: { values?: FirestoreValue[] } }
-  | { mapValue: { fields?: Record<string, FirestoreValue> } }
+const CONTENT_DIR = path.join(process.cwd(), 'content', 'blogs')
 
-type FirestoreDocument = {
-  name?: string
-  fields?: Record<string, FirestoreValue>
+// ─── Frontmatter coercion ─────────────────────────────────────
+
+function readString(data: Frontmatter, key: string, fallback = ''): string {
+  const value = data[key]
+  if (value === null || value === undefined) return fallback
+  return String(value)
 }
 
-const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
-const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
-const baseUrl =
-  projectId && apiKey
-    ? `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery?key=${apiKey}`
-    : null
-
-function parseFirestoreValue(value: FirestoreValue | undefined): unknown {
-  if (!value) return null
-  if ('stringValue' in value) return value.stringValue
-  if ('integerValue' in value) return Number(value.integerValue)
-  if ('doubleValue' in value) return value.doubleValue
-  if ('booleanValue' in value) return value.booleanValue
-  if ('timestampValue' in value) return value.timestampValue
-  if ('nullValue' in value) return null
-  if ('arrayValue' in value) {
-    return (value.arrayValue.values ?? []).map((item) => parseFirestoreValue(item))
+function readStringArray(data: Frontmatter, key: string): string[] {
+  const value = data[key]
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item).trim()).filter(Boolean)
   }
-  if ('mapValue' in value) {
-    return Object.fromEntries(
-      Object.entries(value.mapValue.fields ?? {}).map(([key, item]) => [key, parseFirestoreValue(item)])
-    )
+  if (typeof value === 'string' && value.trim() !== '') {
+    return value
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean)
   }
-  return null
+  return []
 }
 
-function parseCaseStudy(document: FirestoreDocument): PublicCaseStudy {
-  const data = parseFirestoreValue({ mapValue: { fields: document.fields ?? {} } }) as Record<string, unknown>
+function readMetrics(data: Frontmatter): PublicCaseStudyMetric[] {
+  const value = data.metrics
+  if (!Array.isArray(value)) return []
+
+  return value
+    .map((entry): PublicCaseStudyMetric | null => {
+      if (typeof entry !== 'object' || entry === null) return null
+      const item = entry as Record<string, unknown>
+      const label = item.label === undefined || item.label === null ? '' : String(item.label)
+      const metricValue = item.value === undefined || item.value === null ? '' : String(item.value)
+      if (!label && !metricValue) return null
+
+      const metric: PublicCaseStudyMetric = { label, value: metricValue }
+      if (item.description !== undefined && item.description !== null) {
+        metric.description = String(item.description)
+      }
+      return metric
+    })
+    .filter((metric): metric is PublicCaseStudyMetric => metric !== null)
+}
+
+/** Frontmatter dates are authored as `YYYY-MM-DD`; normalize to full ISO strings. */
+function readDate(data: Frontmatter, key: string): string | null {
+  const raw = readString(data, key)
+  if (!raw) return null
+  const parsed = new Date(raw.length === 10 ? `${raw}T00:00:00.000Z` : raw)
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString()
+}
+
+function toCaseStudy(fileName: string, raw: string): PublicCaseStudy {
+  const { data, body } = parseFrontmatter(raw)
+  const fallbackSlug = fileName.replace(/\.md$/i, '')
+  const publishedAt = readDate(data, 'publishedAt')
+  const createdAt = readDate(data, 'createdAt') ?? publishedAt
+  const status = readString(data, 'status', 'published') === 'draft' ? 'draft' : 'published'
 
   return {
-    id: document.name?.split('/').pop() ?? '',
-    title: String(data.title ?? ''),
-    slug: String(data.slug ?? ''),
-    excerpt: String(data.excerpt ?? ''),
-    content: String(data.content ?? ''),
-    coverImage: String(data.coverImage ?? ''),
-    companyName: String(data.companyName ?? ''),
-    companyLogo: String(data.companyLogo ?? ''),
-    industry: String(data.industry ?? ''),
-    tags: Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [],
-    metrics: Array.isArray(data.metrics)
-      ? data.metrics.map((metric) => {
-          const item = typeof metric === 'object' && metric !== null ? (metric as Record<string, unknown>) : {}
-
-          return {
-            label: String(item.label ?? ''),
-            value: String(item.value ?? ''),
-            description: item.description ? String(item.description) : undefined,
-          }
-        })
-      : [],
-    status: data.status === 'draft' ? 'draft' : 'published',
-    authorName: String(data.authorName ?? ''),
-    authorEmail: String(data.authorEmail ?? ''),
-    publishedAt: typeof data.publishedAt === 'string' ? data.publishedAt : null,
-    createdAt: typeof data.createdAt === 'string' ? data.createdAt : null,
-    updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : null,
+    id: fallbackSlug,
+    title: readString(data, 'title'),
+    slug: readString(data, 'slug', fallbackSlug),
+    excerpt: readString(data, 'excerpt'),
+    content: renderMarkdown(body),
+    coverImage: readString(data, 'coverImage'),
+    companyName: readString(data, 'companyName'),
+    companyLogo: readString(data, 'companyLogo'),
+    industry: readString(data, 'industry'),
+    tags: readStringArray(data, 'tags'),
+    metrics: readMetrics(data),
+    status,
+    authorName: readString(data, 'authorName', 'Convertive Team'),
+    authorEmail: readString(data, 'authorEmail'),
+    publishedAt,
+    createdAt,
+    updatedAt: readDate(data, 'updatedAt') ?? createdAt,
   }
 }
 
-async function runQuery(structuredQuery: Record<string, unknown>) {
-  if (!baseUrl) return []
+// ─── Content store ────────────────────────────────────────────
 
-  const response = await fetch(baseUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ structuredQuery }),
-    cache: 'no-store',
-  })
+let cache: PublicCaseStudy[] | null = null
 
-  if (!response.ok) {
-    console.error('Failed to fetch case studies from Firestore:', response.status, response.statusText)
-    return []
+function sortKey(caseStudy: PublicCaseStudy): number {
+  const date = caseStudy.createdAt ?? caseStudy.publishedAt
+  return date ? new Date(date).getTime() : 0
+}
+
+/**
+ * Reads every markdown file in `content/blogs`. Cached per process — content is
+ * part of the deployment, so it cannot change between requests.
+ */
+function loadAll(): PublicCaseStudy[] {
+  if (cache) return cache
+
+  let fileNames: string[] = []
+  try {
+    fileNames = fs.readdirSync(CONTENT_DIR).filter((name) => name.toLowerCase().endsWith('.md'))
+  } catch {
+    console.warn(`No blogs content directory found at ${CONTENT_DIR}`)
+    cache = []
+    return cache
   }
 
-  const rows = (await response.json()) as Array<{ document?: FirestoreDocument }>
-  return rows
-    .map((row) => row.document)
-    .filter((document): document is FirestoreDocument => Boolean(document?.fields))
+  const caseStudies = fileNames
+    .map((fileName) => {
+      try {
+        return toCaseStudy(fileName, fs.readFileSync(path.join(CONTENT_DIR, fileName), 'utf8'))
+      } catch (error) {
+        console.error(`Failed to parse blog content file ${fileName}:`, error)
+        return null
+      }
+    })
+    .filter((caseStudy): caseStudy is PublicCaseStudy => caseStudy !== null && Boolean(caseStudy.slug))
+
+  // Newest first, matching the previous `orderBy('createdAt', 'desc')` query.
+  caseStudies.sort((a, b) => sortKey(b) - sortKey(a) || a.slug.localeCompare(b.slug))
+
+  cache = caseStudies
+  return cache
 }
 
 export async function getPublishedCaseStudiesServer(): Promise<PublicCaseStudy[]> {
-  const documents = await runQuery({
-    from: [{ collectionId: 'caseStudies' }],
-    where: {
-      fieldFilter: {
-        field: { fieldPath: 'status' },
-        op: 'EQUAL',
-        value: { stringValue: 'published' },
-      },
-    },
-    orderBy: [{ field: { fieldPath: 'createdAt' }, direction: 'DESCENDING' }],
-  })
-
-  return documents.map(parseCaseStudy)
+  return loadAll().filter((caseStudy) => caseStudy.status === 'published')
 }
 
 export async function getPublishedCaseStudyBySlugServer(slug: string): Promise<PublicCaseStudy | null> {
-  const documents = await runQuery({
-    from: [{ collectionId: 'caseStudies' }],
-    where: {
-      fieldFilter: {
-        field: { fieldPath: 'slug' },
-        op: 'EQUAL',
-        value: { stringValue: slug },
-      },
-    },
-    limit: 1,
-  })
-
-  const caseStudy = documents[0] ? parseCaseStudy(documents[0]) : null
-
-  if (!caseStudy || caseStudy.status !== 'published') {
-    return null
-  }
-
+  const caseStudy = loadAll().find((entry) => entry.slug === slug)
+  if (!caseStudy || caseStudy.status !== 'published') return null
   return caseStudy
+}
+
+/** Slugs for `generateStaticParams` on /blogs/[slug]. */
+export async function getPublishedCaseStudySlugs(): Promise<string[]> {
+  return loadAll()
+    .filter((caseStudy) => caseStudy.status === 'published')
+    .map((caseStudy) => caseStudy.slug)
 }
