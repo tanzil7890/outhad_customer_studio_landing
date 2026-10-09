@@ -5,6 +5,7 @@ import OuthadMark from './outhad-mark'
 const productLinks = [
   { href: '/convertive', label: 'Convertive' },
   { href: '/outhad-studio', label: 'Outhad Studio' },
+  { href: 'https://kcode.outhad.com/', label: 'KoraCode' },
 ]
 
 const companyLinks = [
@@ -13,6 +14,8 @@ const companyLinks = [
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
 ]
+
+const isExternal = (href: string) => /^https?:\/\//.test(href)
 
 const linkColumns = [
   { heading: 'Products', links: productLinks },
@@ -57,6 +60,8 @@ const Footer = () => {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      target={isExternal(link.href) ? '_blank' : undefined}
+                      rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
                       className="text-sm text-[#C4A898] hover:text-[#F5F0EB] transition-colors duration-200"
                     >
                       {link.label}

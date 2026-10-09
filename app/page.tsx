@@ -7,7 +7,7 @@ export const metadata: Metadata = buildMetadata({
   title: `${siteConfig.name} | Applied Intelligence Research Lab`,
   appendSiteName: false,
   description:
-    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive and Outhad Studio.',
+    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive, Outhad Studio, and KoraCode.',
   path: '/',
   keywords: [
     'Outhad AI',
@@ -16,6 +16,8 @@ export const metadata: Metadata = buildMetadata({
     'real-time decisioning',
     'agent orchestration',
     'multi-agent systems',
+    'agentic harness',
+    'browser agent',
   ],
 })
 
@@ -33,6 +35,12 @@ const work = [
     href: 'https://studio.outhad.com/',
     description:
       'An orchestration layer and builder for agent systems. Compose, deploy, and supervise multi-agent workflows without rebuilding the plumbing each time.',
+  },
+  {
+    name: 'KoraCode',
+    href: 'https://kcode.outhad.com/',
+    description:
+      'An open-source agentic harness for the browser. Describe a web task from the terminal and it drives a real browser — step by step, in view, and asking before anything irreversible.',
   },
   {
     name: 'Streaming decisions & RL',
@@ -76,7 +84,11 @@ export default function Home() {
       <section className="px-6 pb-24 sm:pb-32">
         <div className="max-w-3xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[hsl(var(--app-border))] border border-[hsl(var(--app-border))]">
-            {work.map((item) => {
+            {work.map((item, index) => {
+              // An odd card count would leave an empty, border-coloured cell in the
+              // two-column grid, so the last card takes the full row instead.
+              const span = work.length % 2 === 1 && index === work.length - 1 ? ' sm:col-span-2' : ''
+
               const body = (
                 <>
                   <div className="flex items-baseline justify-between gap-3 mb-3">
@@ -98,14 +110,13 @@ export default function Home() {
 
               if (!item.href) {
                 return (
-                  <div key={item.name} className="group bg-[hsl(var(--app-background))] p-8">
+                  <div key={item.name} className={`group bg-[hsl(var(--app-background))] p-8${span}`}>
                     {body}
                   </div>
                 )
               }
 
-              const cardClassName =
-                'group block bg-[hsl(var(--app-background))] p-8 hover:bg-[hsl(var(--app-surface))] transition-colors duration-200'
+              const cardClassName = `group block bg-[hsl(var(--app-background))] p-8 hover:bg-[hsl(var(--app-surface))] transition-colors duration-200${span}`
 
               return isExternal(item.href) ? (
                 <a

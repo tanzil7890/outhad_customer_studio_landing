@@ -9,11 +9,14 @@ This is the Next.js website for **Outhad AI**, a research and product lab. The b
 - **Outhad AI** — the company / research lab. Owns the site and the root page.
 - **Convertive** — the commercial product: real-time customer activation for ecommerce.
 - **Outhad Studio** — an agent orchestration layer and builder.
+- **KoraCode** (`kcode`) — an open-source agentic harness that drives a real browser
+  from the terminal. Lives entirely at <https://kcode.outhad.com/>; there is no page for
+  it on this site, so the homepage card and footer link point there.
 
 Route structure follows from that:
 
 - `/` — the lab homepage. Deliberately minimal (physera.ai-style): headline, thesis,
-  four cards covering the two products and two research areas, contact. No animation,
+  five cards covering the three products and two research areas, contact. No animation,
   no imagery, ~105 kB First Load JS. Keep it this way — new marketing sections belong
   on a product page, not here.
 - `/convertive` — the full Convertive product page (hero, product video, customer
