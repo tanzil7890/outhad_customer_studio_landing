@@ -1,7 +1,7 @@
 /** Homepage concepts under review. Delete this registry once one is promoted to `/`. */
 export const VARIANTS = [
   { id: '1', path: '/1', label: 'Live theater', tone: 'light' },
-  { id: '2', path: '/2', label: 'Cinematic', tone: 'dark' },
+  { id: '2', path: '/2', label: 'Ghosts', tone: 'dark' },
   { id: '3', path: '/3', label: 'Mirror', tone: 'light' },
 ] as const
 

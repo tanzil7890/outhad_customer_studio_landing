@@ -418,3 +418,42 @@ export const MIRROR = {
   disclaimer:
     'A toy model running in your browser, for illustration. Convertive’s engine uses models trained on your store’s data.',
 }
+
+/** Concept 2 ("Ghosts"): words for the interactive ghost floor and the one-take story. */
+export const GHOSTS = {
+  hero: {
+    lines: ['Most of your shoppers', 'leave like ghosts.'],
+    lede:
+      'No name. No trace. Convertive reads every anonymous visitor while they’re still on your site, picks the next best action in under 100 milliseconds, and gives the ghost a name before the tab closes.',
+    hint: 'Hover to read a ghost. Click one to catch it.',
+    hintTouch: 'Tap a ghost to catch it.',
+    catch: 'Catch a ghost',
+    film: 'Watch the film',
+    disclaimer: 'Illustrative simulation',
+  },
+  // The film's narration, so the page and the film tell the story in the same words.
+  story: {
+    follow: { title: 'Follow one.', sub: 'One shopper, from an Instagram ad. Scroll to follow her.' },
+    read: { title: 'From her very first click, Convertive reads every move.', sub: 'Where she came from. What she wants. When she starts to hesitate.' },
+    leave: { title: 'Thirty-two seconds in, she’s about to leave.', sub: 'Exit risk 82%. Her cursor is heading for the tab bar.' },
+    freeze: { title: 'So Convertive stops the clock.', sub: 'It weighs every next move and picks the one most likely to work.' },
+    name: { title: 'One offer. One email. And the ghost has a name.', sub: 'Her whole anonymous session is stitched to a known profile and sent to your ESP.' },
+    order: { title: 'Forty-seven seconds. Order placed.', sub: 'From a visitor who had no name 47 seconds ago.' },
+  },
+  grid: {
+    eyebrow: 'Every session',
+    lines: ['Now imagine that for every visitor,', 'in every session.'],
+    lede: 'Each tile is one live session on your store. Switch Convertive on and watch what changes.',
+    off: 'Convertive off',
+    on: 'Convertive on',
+    note: 'Illustrative simulation, not measured results.',
+  },
+  window: {
+    eyebrow: 'The window',
+    lines: ['Ghosts don’t wait.'],
+    lede: 'The clock started when you scrolled here. This is how long each part of a typical stack takes to respond to one anonymous shopper.',
+  },
+  method: { eyebrow: 'How it works', lines: ['Detect. Decide. Deliver. Capture.'], lede: 'One loop, inside every live session.' },
+  machinery: { eyebrow: 'The platform', lines: ['The machinery behind every decision.'] },
+  film: { eyebrow: 'The film', lines: ['Ghosts, in forty-eight seconds.'], lede: 'The same story, told as a film. Sound on.' },
+}
