@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Manrope } from 'next/font/google'
-import { GeistMono } from 'geist/font/mono'
 import Script from 'next/script'
 import Header from '../components/header'
 import CalFloatingButton from '../components/cal-floating-button'
@@ -100,7 +99,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#f4efe7',
+  themeColor: '#FAFAF8',
 }
 
 export default function RootLayout({
@@ -123,17 +122,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MGZL5X3R');`,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
         <link rel="alternate" type="application/rss+xml" title="Convertive Blog" href="https://tryconvertive.com/feed.xml" />
-        <link rel="stylesheet" href="/fonts/stylesheet.css" />
         <style>{`
 html {
   font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-manrope);
-  --: ${GeistMono.variable};
   --font-manrope: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 }
         `}</style>
