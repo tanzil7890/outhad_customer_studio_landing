@@ -142,7 +142,7 @@ export default function MethodSteps() {
   const Widget = WIDGETS[step.key]
 
   return (
-    <section className="py-24 sm:py-32">
+    <section id="how-it-works" className="scroll-mt-24 py-24 sm:py-32">
       <div className={container}>
         <SectionHeading eyebrow={METHOD.eyebrow} lines={METHOD.lines} lede={METHOD.lede} />
         <div ref={ref} className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">

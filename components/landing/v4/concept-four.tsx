@@ -236,7 +236,7 @@ export default function ConceptFour() {
       </section>
 
       {/* How it works: the loop */}
-      <section className="py-24 sm:py-32">
+      <section id="how-it-works" className="scroll-mt-24 py-24 sm:py-32">
         <div className={container}>
           <p className={cn(eyebrow, 'text-center')}>{EMBER.loop.eyebrow}</p>
           <h2 className={cn(h2, 'mx-auto mt-4 max-w-3xl text-center')}>{EMBER.loop.heading}</h2>

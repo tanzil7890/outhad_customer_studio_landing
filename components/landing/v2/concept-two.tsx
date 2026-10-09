@@ -185,7 +185,7 @@ export default function ConceptTwo() {
       </section>
 
       {/* Method */}
-      <section className="border-t border-night-line py-28 sm:py-36">
+      <section id="how-it-works" className="scroll-mt-24 border-t border-night-line py-28 sm:py-36">
         <div className={container}>
           <SectionHeading tone="dark" eyebrow={GHOSTS.method.eyebrow} lines={GHOSTS.method.lines} lede={GHOSTS.method.lede} />
           <ol className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-night-line sm:grid-cols-2 lg:grid-cols-4">
