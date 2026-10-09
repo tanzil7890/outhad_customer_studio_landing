@@ -9,13 +9,26 @@ let calPromise: Promise<CalApi> | null = null
 let calReady = false
 
 /**
+ * getCalApi resolves immediately with a queueing stub even if embed.js never loads
+ * (blocked, offline). The script registers <cal-modal-box> when it actually runs,
+ * so treat that as the readiness signal.
+ */
+function whenEmbedLoaded(timeoutMs = 8000): Promise<void> {
+  return Promise.race([
+    customElements.whenDefined('cal-modal-box').then(() => undefined),
+    new Promise<void>((_, reject) => setTimeout(() => reject(new Error('Cal embed did not load')), timeoutMs)),
+  ])
+}
+
+/**
  * Lazily load the Cal.com embed once per page lifetime. Uses its own namespace
  * (not /demo's inline embed namespace) so booking callbacks never double-fire.
  */
 export function loadCal(): Promise<CalApi> {
   if (!calPromise) {
     calPromise = getCalApi({ namespace: BOOK_DEMO.calNamespace })
-      .then((cal) => {
+      .then(async (cal) => {
+        await whenEmbedLoaded()
         cal('ui', {
           hideEventTypeDetails: false,
           layout: 'month_view',
