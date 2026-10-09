@@ -1,5 +1,8 @@
 import type { Config } from "tailwindcss";
 
+// Brand colors read RGB channels from app/globals.css so `/<alpha>` modifiers work.
+const c = (name: string) => `rgb(var(--c-${name}) / <alpha-value>)`;
+
 // all in fixtures is set to tailwind v3 as interims solutions
 
 const config: Config = {
@@ -7,6 +10,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
@@ -62,27 +66,61 @@ const config: Config = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-  			/* ── Convertive Brand Tokens ── */
+  			/* ── Convertive Brand Tokens (see BRAND_KIT_LIGHT.MD) ── */
   			brand: {
-  				primary: '#1A1410',
-  				hover:   '#2D2420',
-  				subtle:  '#EDE5DE',
+  				primary: c('brand'),
+  				hover:   c('brand-hover'),
+  				subtle:  c('brand-subtle'),
   			},
   			copper: {
-  				100: '#FDF0E0',
-  				200: '#F7E4D0',
-  				300: '#EBBF94',
-  				400: '#C87941',
-  				500: '#A86331',
-  				600: '#7A4420',
+  				100: c('copper-100'),
+  				200: c('copper-200'),
+  				300: c('copper-300'),
+  				400: c('copper-400'),
+  				500: c('copper-500'),
+  				600: c('copper-600'),
   			},
   			surface: {
-  				canvas: '#FAFAF8',
-  				base:   '#FFFFFF',
-  				warm:   '#FDF8F4',
-  				hover:  '#F5EFE8',
-  				sunken: '#F0E8E0',
+  				canvas: c('surface-canvas'),
+  				base:   c('surface-base'),
+  				warm:   c('surface-warm'),
+  				hover:  c('surface-hover'),
+  				sunken: c('surface-sunken'),
   			},
+  			ink: {
+  				DEFAULT:     c('ink'),
+  				secondary:   c('ink-secondary'),
+  				muted:       c('ink-muted'),
+  				disabled:    c('ink-disabled'),
+  				placeholder: c('ink-placeholder'),
+  			},
+  			line: {
+  				DEFAULT: c('line'),
+  				strong:  c('line-strong'),
+  				subtle:  c('line-subtle'),
+  			},
+  			night: {
+  				DEFAULT: c('night'),
+  				raised:  c('night-raised'),
+  				line:    c('night-line'),
+  				text:    c('night-text'),
+  				soft:    c('night-soft'),
+  				muted:   c('night-muted'),
+  				copper:  c('night-copper'),
+  			},
+  			success: {
+  				DEFAULT: c('success'),
+  				bg:      c('success-bg'),
+  				soft:    c('success-soft'),
+  			},
+  			warning: {
+  				DEFAULT: c('warning'),
+  				bg:      c('warning-bg'),
+  				soft:    c('warning-soft'),
+  			},
+  		},
+  		fontFamily: {
+  			display: ['var(--font-nib)', 'Georgia', 'Times New Roman', 'serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -106,6 +144,18 @@ const config: Config = {
   					height: '0'
   				}
   			},
+  			marquee: {
+  				from: { transform: 'translateX(0)' },
+  				to: { transform: 'translateX(-50%)' }
+  			},
+  			'line-rise': {
+  				from: { transform: 'translateY(105%)' },
+  				to: { transform: 'translateY(0)' }
+  			},
+  			'fade-up': {
+  				from: { opacity: '0', transform: 'translateY(12px)' },
+  				to: { opacity: '1', transform: 'translateY(0)' }
+  			},
   			orbit: {
   				'0%': {
   					transform: 'rotate(var(--angle)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1))'
@@ -118,7 +168,10 @@ const config: Config = {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			orbit: 'orbit calc(var(--duration) * 1s) linear infinite'
+  			orbit: 'orbit calc(var(--duration) * 1s) linear infinite',
+  			marquee: 'marquee var(--marquee-duration, 40s) linear infinite',
+  			'line-rise': 'line-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both',
+  			'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both'
   		}
   	}
   },
