@@ -139,7 +139,7 @@ html {
         `}</style>
       </head>
       <body
-        className="h-full overflow-x-clip bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
+        className="min-h-full overflow-x-clip bg-[hsl(var(--app-background))] text-[hsl(var(--app-text))] antialiased"
         suppressHydrationWarning
       >
         {/* Google Tag Manager (noscript) */}

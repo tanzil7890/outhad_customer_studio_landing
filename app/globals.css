@@ -134,13 +134,8 @@ html {
 
   body {
     @apply bg-background text-foreground;
-    /* Improve touch scrolling on iOS */
-    -webkit-overflow-scrolling: touch;
-    /* Ensure proper scrolling */
+    /* Let the viewport own scrolling; horizontal overflow is clipped on html/body via overflow-x-clip */
     min-height: 100%;
-    /* Allow normal scrolling behavior */
-    overflow-x: hidden;
-    overflow-y: auto;
   }
   
   /* Allow text selection on text elements */
