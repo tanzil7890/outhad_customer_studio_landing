@@ -42,7 +42,7 @@ export default function SectionHeading({
 }) {
   const s = styles[tone]
   return (
-    <div className={cn(align === 'center' && 'mx-auto text-center', 'max-w-3xl', className)}>
+    <div className={cn(align === 'center' && 'mx-auto text-center', tone === 'editorial' ? 'max-w-4xl' : 'max-w-3xl', className)}>
       {(eyebrow || number) && (
         <p className={cn(s.eyebrow, 'mb-4 flex items-center gap-3', align === 'center' && 'justify-center')}>
           {number && <span className="font-display text-sm normal-case tracking-normal">N°{number}</span>}

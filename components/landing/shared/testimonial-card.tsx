@@ -28,7 +28,8 @@ export default function TestimonialCard({
       {placeholder && (
         <span
           className={cn(
-            'absolute right-5 top-5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider',
+            'rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider',
+            editorial ? '-mb-4 self-start' : 'absolute right-5 top-5',
             dark ? 'bg-night text-night-muted' : 'bg-surface-sunken text-ink-muted',
           )}
         >

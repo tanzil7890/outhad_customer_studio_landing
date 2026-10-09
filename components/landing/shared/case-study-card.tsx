@@ -49,7 +49,7 @@ export default function CaseStudyCard({ study, tone = 'light' }: { study: CaseSt
             <dt className={cn('text-sm', dark ? 'text-night-soft' : 'text-ink-secondary')}>{metric.label}</dt>
             <dd
               className={cn(
-                'text-3xl font-extrabold tabular-nums tracking-tight',
+                editorial ? 'font-display text-4xl font-normal tabular-nums' : 'text-3xl font-extrabold tabular-nums tracking-tight',
                 metric.kind === 'money'
                   ? dark
                     ? 'text-night-copper'
