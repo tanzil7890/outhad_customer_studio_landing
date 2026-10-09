@@ -4,7 +4,7 @@
 //   --clean       also render a variant without burned-in subtitles (47 seconds)
 //   --captioned   also render a variant with burned-in subtitles (Ghosts)
 //   --no-music    narration only (Ghosts)
-//   --publish     copy the web MP4 (CRF 25), VTT and poster to ../public/videos/
+//   --publish     copy the web MP4s (Opus main + AAC fallback), VTT and poster to ../public/videos/
 import { spawn } from 'node:child_process'
 import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
@@ -105,6 +105,9 @@ for (const variant of variants) {
 
 // Lighter encode for the website; the CRF 20 master is kept for uploads to social platforms.
 await run('ffmpeg', ['-v', 'error', '-y', '-i', path.join(OUT, `${NAME}.mp4`), '-c:v', 'libx264', '-preset', 'slow', '-crf', '25', '-tune', 'animation', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', path.join(OUT, `${NAME}-web.mp4`)])
+// Same picture with an Opus soundtrack (from the lossless mix). Players without an AAC decoder,
+// such as VS Code's built-in preview and open-source Chromium, otherwise play it silently.
+await run('ffmpeg', ['-v', 'error', '-y', '-i', path.join(OUT, `${NAME}-web.mp4`), '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'libopus', '-b:a', '160k', '-ac', '2', '-ar', '48000', '-shortest', '-movflags', '+faststart', path.join(OUT, `${NAME}-web-opus.mp4`)])
 
 await writeFile(path.join(OUT, `${NAME}.vtt`), film.vtt)
 // Poster: the money moment.
@@ -117,7 +120,8 @@ await close()
 
 if (args.has('--publish')) {
   const dest = path.resolve(ROOT, '../public/videos')
-  await copyFile(path.join(OUT, `${NAME}-web.mp4`), path.join(dest, `${NAME}.mp4`))
+  await copyFile(path.join(OUT, `${NAME}-web-opus.mp4`), path.join(dest, `${NAME}.mp4`))
+  await copyFile(path.join(OUT, `${NAME}-web.mp4`), path.join(dest, `${NAME}-aac.mp4`))
   for (const file of [`${NAME}.vtt`, `${NAME}-poster.jpg`]) await copyFile(path.join(OUT, file), path.join(dest, file))
   console.log(`Published to ${path.relative(process.cwd(), dest)}`)
 }

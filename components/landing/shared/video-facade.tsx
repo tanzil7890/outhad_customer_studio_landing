@@ -24,15 +24,11 @@ export default function VideoFacade({ tone = 'light', className }: { tone?: Tone
       )}
     >
       {active ? (
-        <video
-          className="h-full w-full"
-          src={VIDEO.src}
-          poster={VIDEO.poster}
-          controls
-          autoPlay
-          playsInline
-          preload="none"
-        />
+        <video className="h-full w-full" poster={VIDEO.poster} controls autoPlay playsInline preload="none">
+          {VIDEO.sources.map((source) => (
+            <source key={source.src} src={source.src} type={source.type} />
+          ))}
+        </video>
       ) : (
         <button
           type="button"

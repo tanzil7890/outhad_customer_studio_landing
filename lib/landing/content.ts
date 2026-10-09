@@ -238,7 +238,12 @@ export const INTEGRATIONS = {
 
 // "Ghosts" film, rendered from video/ (see video/README.md). Captions ship as a .vtt alongside.
 export const VIDEO = {
-  src: '/videos/convertive-film.mp4',
+  // Same picture, two soundtracks: Opus (open codec: Chrome, Firefox, Edge, Safari 17+,
+  // VS Code's preview) first, AAC as the fallback for older Safari/iOS.
+  sources: [
+    { src: '/videos/convertive-film.mp4', type: 'video/mp4; codecs="avc1.640032, opus"' },
+    { src: '/videos/convertive-film-aac.mp4', type: 'video/mp4; codecs="avc1.640032, mp4a.40.2"' },
+  ],
   poster: '/videos/convertive-film-poster.jpg',
   title: 'Watch the film',
   duration: '0:48',
