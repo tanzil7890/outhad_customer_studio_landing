@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 import { FPS, clamp, tw } from './anim'
-import { CUES } from './captions'
+import { CUES, type Cue } from './captions'
 import { Convert, Decide, Deliver, Detect, Without } from './scenes/Product'
 import { End, Platform, Why } from './scenes/Closing'
 import { Meet } from './scenes/Meet'
@@ -53,7 +53,12 @@ export function Film({ frame, subtitles = true }: { frame: number } & FilmOption
 const endStart = sceneById('end').start / FPS
 
 function Subtitle({ seconds }: { seconds: number }) {
-  const cue = CUES.find((c) => seconds >= c.start && seconds < c.end && c.start < endStart)
+  return <SubtitleOverlay seconds={seconds} cues={CUES.filter((c) => c.start < endStart)} />
+}
+
+/** Burned-in subtitle for whichever cue is active. */
+export function SubtitleOverlay({ seconds, cues }: { seconds: number; cues: Cue[] }) {
+  const cue = cues.find((c) => seconds >= c.start && seconds < c.end)
   if (!cue) return null
   const o = tw(seconds, cue.start, cue.start + 0.15) * (1 - tw(seconds, cue.end - 0.15, cue.end))
   return (

@@ -2,14 +2,17 @@
 //   node scripts/stills.mjs 3.5 12 40.2        -> seconds
 //   node scripts/stills.mjs --scene decide      -> 5 frames across one scene
 //   node scripts/stills.mjs --every 2           -> one frame every 2 seconds
+//   add --film ghost to review the "Ghosts" film
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { build, OUT } from './build.mjs'
 import { openFilm } from './capture.mjs'
 
 const args = process.argv.slice(2)
+const filmIdx = args.indexOf('--film')
+const filmId = filmIdx > -1 ? args.splice(filmIdx, 2)[1] : 'forty-seven'
 await build()
-const { film, frame, close } = await openFilm()
+const { film, frame, close } = await openFilm({ film: filmId })
 const dir = path.join(OUT, 'stills')
 await mkdir(dir, { recursive: true })
 

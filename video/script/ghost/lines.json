@@ -1,0 +1,12 @@
+[
+  { "id": "hook", "vo": "Every day, thousands of shoppers walk through your store." },
+  { "id": "ghosts", "vo": "Almost all of them leave like ghosts. No name. No trace." },
+  { "id": "follow", "vo": "Follow one." },
+  { "id": "read", "vo": "From her very first click, Convertive reads every move. Where she came from. What she wants. When she starts to hesitate." },
+  { "id": "leave", "vo": "Thirty-two seconds in, she's about to leave." },
+  { "id": "freeze", "vo": "So Convertive stops the clock. It weighs every next move, and picks the one most likely to work. In forty-one milliseconds." },
+  { "id": "name", "vo": "One offer. One email. And the ghost has a name." },
+  { "id": "sale", "vo": "Forty-seven seconds. Order placed." },
+  { "id": "scale", "vo": "Now imagine that, for every visitor, in every session." },
+  { "id": "end", "vo": "Convertive. Convert anonymous visitors before they leave." }
+]

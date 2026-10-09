@@ -1,6 +1,14 @@
 import { FPS } from './anim'
 import { SCENES } from './timeline'
 
+/** Any narrated beat: global start frame, narration offset (s) and length (s). */
+export interface NarratedBeat {
+  start: number
+  voAt: number
+  voDur: number
+  text: string
+}
+
 export interface Cue {
   /** Global seconds. */
   start: number
@@ -34,18 +42,22 @@ function chunk(text: string): string[] {
 }
 
 /** Cue timing is proportional to characters across each narration line. */
-export const CUES: Cue[] = SCENES.flatMap((scene) => {
-  const parts = chunk(scene.text)
-  const total = parts.reduce((n, p) => n + p.length + 6, 0)
-  const voStart = scene.start / FPS + scene.voAt
-  let acc = 0
-  return parts.map((text, i) => {
-    const start = voStart + (acc / total) * scene.voDur
-    acc += text.length + 6
-    const end = i === parts.length - 1 ? voStart + scene.voDur + 0.25 : voStart + (acc / total) * scene.voDur
-    return { start, end, text }
+export function makeCues(beats: NarratedBeat[]): Cue[] {
+  return beats.flatMap((scene) => {
+    const parts = chunk(scene.text)
+    const total = parts.reduce((n, p) => n + p.length + 6, 0)
+    const voStart = scene.start / FPS + scene.voAt
+    let acc = 0
+    return parts.map((text, i) => {
+      const start = voStart + (acc / total) * scene.voDur
+      acc += text.length + 6
+      const end = i === parts.length - 1 ? voStart + scene.voDur + 0.25 : voStart + (acc / total) * scene.voDur
+      return { start, end, text }
+    })
   })
-})
+}
+
+export const CUES: Cue[] = makeCues(SCENES)
 
 const stamp = (sec: number) => {
   const ms = Math.round(sec * 1000)

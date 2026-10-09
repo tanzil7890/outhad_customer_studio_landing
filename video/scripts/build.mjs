@@ -1,5 +1,6 @@
 import { build as esbuild } from 'esbuild'
-import { cp, mkdir, writeFile } from 'node:fs/promises'
+import { execFileSync } from 'node:child_process'
+import { access, cp, mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -24,6 +25,12 @@ export async function build() {
   await cp(path.join(ROOT, 'node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2'), path.join(BUILD, 'manrope.woff2'))
   await cp(path.join(ROOT, 'public/logo-mark.png'), path.join(BUILD, 'logo-mark.png'))
   await cp(path.join(OUT, 'vo-mix.wav'), path.join(BUILD, 'vo-mix.wav')).catch(() => {})
+  await cp(path.join(OUT, 'ghost-mix.wav'), path.join(BUILD, 'ghost-mix.wav')).catch(() => {})
+  // Static film-grain texture (offset per frame in the film for animated grain).
+  const noise = path.join(BUILD, 'noise.png')
+  await access(noise).catch(() =>
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'nullsrc=s=256x256,geq=lum=random(1)*255:cb=128:cr=128', '-frames:v', '1', '-pix_fmt', 'gray', noise]),
+  )
   await writeFile(
     path.join(BUILD, 'index.html'),
     `<!doctype html>
