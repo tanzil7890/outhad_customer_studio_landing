@@ -37,25 +37,31 @@ export default function StoryLedger() {
             {withTimeline.beats.map((beat, i) => {
               const reached = i <= tl.index
               return (
-                <tr
-                  key={beat.id}
-                  className={cn(
-                    'border-b border-ink/15 align-top transition-opacity duration-500 motion-reduce:transition-none',
-                    reached ? 'opacity-100' : 'opacity-30',
-                  )}
-                >
-                  <th scope="row" className="py-6 pl-6 pr-4 font-display text-2xl font-normal tabular-nums text-ink">
+                <tr key={beat.id} className="border-b border-ink/15 align-top">
+                  <th
+                    scope="row"
+                    className={cn('py-6 pl-6 pr-4 font-display text-2xl font-normal tabular-nums transition-colors duration-500', reached ? 'text-ink' : 'text-ink-muted')}
+                  >
                     {formatClock(beat.at)}
                   </th>
                   <td className="py-6 pr-6">
-                    <p className="font-display text-2xl leading-snug text-ink">{beat.title}</p>
-                    <p className="mt-2 text-base leading-relaxed text-ink-secondary">{beat.shopper}</p>
+                    <p className={cn('font-display text-2xl leading-snug transition-colors duration-500', reached ? 'text-ink' : 'text-ink-muted')}>
+                      {beat.title}
+                    </p>
+                    <p className={cn('mt-2 text-base leading-relaxed transition-colors duration-500', reached ? 'text-ink-secondary' : 'text-ink-muted')}>
+                      {beat.shopper}
+                    </p>
                     <p className="mt-3 text-sm leading-relaxed text-ink-secondary md:hidden">
                       <span className="font-semibold text-ink">Convertive: </span>
                       {beat.engine}
                     </p>
                   </td>
-                  <td className="hidden py-6 text-base leading-relaxed text-ink-secondary md:table-cell">
+                  <td
+                    className={cn(
+                      'hidden py-6 text-base leading-relaxed transition-colors duration-500 md:table-cell',
+                      reached ? 'text-ink-secondary' : 'text-ink-muted',
+                    )}
+                  >
                     {beat.engine}
                     {i === last && (
                       <span className="mt-4 block">
@@ -83,7 +89,7 @@ export default function StoryLedger() {
           Without Convertive, at {formatClock(closed.at)} she closes the tab.
         </p>
         <p className="mt-4 text-base leading-relaxed text-ink-secondary">{withoutTimeline.outcome.summary}</p>
-        <p className="mt-6 font-display text-6xl font-light text-ink-muted">$0</p>
+        <p className="mt-6 font-display text-6xl font-normal text-ink-muted">$0</p>
       </aside>
     </div>
   )

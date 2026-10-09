@@ -92,7 +92,7 @@ export default function ConceptThree() {
             </p>
           </div>
           <div className="lg:col-span-4 lg:col-start-9 lg:pt-20">
-            <p className="font-display text-[9rem] font-light leading-none tracking-tight text-ink sm:text-[11rem]">97</p>
+            <p className="font-display text-[9rem] font-normal leading-none tracking-tight text-ink sm:text-[11rem]">97</p>
             <p className="mt-2 border-t border-ink/80 pt-4 text-lg text-ink-secondary">
               of every 100 visitors {PROBLEM.stat.label.replace('visitors ', '')}.
             </p>
@@ -135,15 +135,15 @@ export default function ConceptThree() {
         <SectionHeading tone="editorial" number="04" eyebrow={METHOD.eyebrow} lines={METHOD.lines} lede={METHOD.lede} />
         <ol className="mt-14 grid gap-x-16 gap-y-12 md:grid-cols-2">
           {METHOD.steps.map((step, i) => (
-            <Reveal key={step.key} delay={i * 0.06}>
-              <li className="border-t border-ink/15 pt-6">
+            <li key={step.key} className="border-t border-ink/15 pt-6">
+              <Reveal delay={i * 0.06}>
                 <p className="font-display text-3xl text-ink">
                   <span className="mr-3 italic text-ink-muted">{ROMAN[i]}.</span>
                   {step.title}
                 </p>
                 <p className="mt-3 text-lg leading-relaxed text-ink-secondary">{step.body}</p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ol>
       </Section>

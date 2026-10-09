@@ -122,7 +122,7 @@ body:has([data-page-tone="dark"]) {
     --c-surface-sunken: 240 232 224;
     --c-ink: 26 20 16;
     --c-ink-secondary: 92 78 68;        /* #5C4E44 — use for body/lede text (AA on canvas) */
-    --c-ink-muted: 156 139 126;         /* #9C8B7E — captions/labels only */
+    --c-ink-muted: 119 102 89;          /* #776659 — brand #9C8B7E darkened to pass WCAG AA (4.5:1) on all light surfaces */
     --c-ink-disabled: 196 180 168;
     --c-ink-placeholder: 184 168 156;
     --c-line: 232 221 212;
@@ -134,7 +134,7 @@ body:has([data-page-tone="dark"]) {
     --c-night-line: 61 48 40;           /* #3D3028 */
     --c-night-text: 245 240 235;        /* #F5F0EB */
     --c-night-soft: 196 168 152;        /* #C4A898 */
-    --c-night-muted: 122 101 88;        /* #7A6558 */
+    --c-night-muted: 160 139 125;       /* #A08B7D — brand #7A6558 lightened to pass WCAG AA on night surfaces */
     --c-night-copper: 224 154 104;      /* #E09A68 lightened copper for dark bg */
     --c-success: 26 92 64;              /* #1A5C40 */
     --c-success-bg: 212 244 232;

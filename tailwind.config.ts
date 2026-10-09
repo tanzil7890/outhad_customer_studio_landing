@@ -149,7 +149,7 @@ const config: Config = {
   				to: { transform: 'translateX(-50%)' }
   			},
   			'line-rise': {
-  				from: { transform: 'translateY(105%)' },
+  				from: { transform: 'translateY(60%)' },
   				to: { transform: 'translateY(0)' }
   			},
   			'fade-up': {

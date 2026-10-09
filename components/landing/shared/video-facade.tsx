@@ -38,7 +38,6 @@ export default function VideoFacade({ tone = 'light', className }: { tone?: Tone
           type="button"
           onClick={() => setActive(true)}
           className="group absolute inset-0 h-full w-full min-h-0 min-w-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-ink/40"
-          aria-label={`Play the ${VIDEO.title.toLowerCase()} (${VIDEO.duration})`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={VIDEO.poster} alt="" className="h-full w-full object-cover" loading="lazy" />
@@ -48,6 +47,7 @@ export default function VideoFacade({ tone = 'light', className }: { tone?: Tone
               <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden />
             </span>
             <span className="text-sm font-semibold">
+              <span className="sr-only">Play </span>
               {VIDEO.title} <span className="font-normal text-night-soft">· {VIDEO.duration}</span>
             </span>
           </span>

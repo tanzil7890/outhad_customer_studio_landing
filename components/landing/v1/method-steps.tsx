@@ -77,7 +77,7 @@ function DeliverWidget() {
     >
       <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Before you go</p>
       <p className="mt-2 text-xl font-bold leading-snug">{STORY.offer.copy}</p>
-      <div className="mt-4 flex h-11 items-center rounded-lg px-3 text-[15px] text-ink-placeholder ring-1 ring-line-strong">
+      <div className="mt-4 flex h-11 items-center rounded-lg px-3 text-[15px] text-ink-muted ring-1 ring-line-strong">
         Email address
       </div>
       <div className="mt-2 flex h-11 items-center justify-center rounded-lg bg-ink text-[15px] font-semibold text-white">

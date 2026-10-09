@@ -4,7 +4,7 @@ import { formatClock, type Timeline } from '@/lib/landing/story'
 export default function StoryTranscript({ timeline, title }: { timeline: Timeline; title: string }) {
   return (
     <div className="sr-only">
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <ol>
         {timeline.beats.map((beat) => (
           <li key={beat.id}>

@@ -105,8 +105,7 @@ export default function ConceptTwo() {
               const row = WINDOW.rows.find((r) => r.key === key)!
               const convertive = key === 'convertive'
               return (
-                <Reveal key={key} delay={i * 0.05}>
-                  <div className="flex flex-col-reverse gap-3">
+                <Reveal key={key} delay={i * 0.05} className="flex flex-col-reverse gap-3">
                     <dt className={cn('text-lg', convertive ? 'text-night-text' : 'text-night-soft')}>{row.label}</dt>
                     <dd
                       className={cn(
@@ -116,7 +115,6 @@ export default function ConceptTwo() {
                     >
                       {row.display}.
                     </dd>
-                  </div>
                 </Reveal>
               )
             })}
@@ -155,13 +153,13 @@ export default function ConceptTwo() {
           <SectionHeading tone="dark" eyebrow={METHOD.eyebrow} lines={METHOD.lines} lede={METHOD.lede} />
           <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {METHOD.steps.map((step, i) => (
-              <Reveal key={step.key} delay={i * 0.06}>
-                <li className="border-t border-night-text/60 pt-6">
+              <li key={step.key} className="border-t border-night-text/60 pt-6">
+                <Reveal delay={i * 0.06}>
                   <p className="text-sm tabular-nums text-night-muted">0{i + 1}</p>
                   <p className="mt-2 text-2xl font-semibold text-night-text">{step.title}</p>
                   <p className="mt-3 text-base leading-relaxed text-night-soft">{step.body}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
 

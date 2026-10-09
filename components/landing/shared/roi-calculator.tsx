@@ -125,7 +125,7 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
                     className="sr-only"
                   />
                   <span className="text-sm font-semibold">{s.label}</span>
-                  <span className="text-xs opacity-80">+{Math.round(s.lift * 100)}%</span>
+                  <span className="text-xs">+{Math.round(s.lift * 100)}%</span>
                 </label>
               )
             })}

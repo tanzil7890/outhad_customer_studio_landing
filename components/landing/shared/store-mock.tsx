@@ -240,7 +240,7 @@ export default function StoreMock({ screen, className }: Props) {
               <div
                 className={cn(
                   'mt-4 flex h-11 items-center rounded-lg px-3 text-[14px] ring-1',
-                  sheet === 'capture' ? 'text-ink ring-ink' : 'text-ink-placeholder ring-line-strong',
+                  sheet === 'capture' ? 'text-ink ring-ink' : 'text-ink-muted ring-line-strong',
                 )}
               >
                 {sheet === 'capture' ? 'sarah.k@gmail.com' : 'Email address'}
