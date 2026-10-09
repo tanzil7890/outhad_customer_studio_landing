@@ -12,11 +12,15 @@ This is the Next.js website for **Outhad AI**, a research and product lab. The b
 - **KoraCode** (`kcode`) — an open-source agentic harness that drives a real browser
   from the terminal. Lives entirely at <https://kcode.outhad.com/>; there is no page for
   it on this site, so the homepage card and footer link point there.
+- **Outhad ContextKit** — an open-source agentic memory layer: long-term memory for AI
+  agents (temporal-causal graph memory, PII encryption, adaptive chunking). Shipped as
+  the `outhad-contextkitai` Python package; the site links to
+  <https://pypi.org/project/outhad-contextkitai/>.
 
 Route structure follows from that:
 
 - `/` — the lab homepage. Deliberately minimal (physera.ai-style): headline, thesis,
-  five cards covering the three products and two research areas, contact. No animation,
+  five cards covering the four products and one research area, contact. No animation,
   no imagery, ~105 kB First Load JS. Keep it this way — new marketing sections belong
   on a product page, not here.
 - `/convertive` — the full Convertive product page (hero, product video, customer

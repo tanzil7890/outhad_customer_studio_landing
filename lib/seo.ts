@@ -6,11 +6,12 @@ export const siteConfig = {
   url: 'https://www.outhad.com',
   ogImage: '/images/convertive-customer-activation-platform/hero-home.png',
   description:
-    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive, Outhad Studio, and KoraCode.',
+    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive, Outhad Studio, KoraCode, and ContextKit.',
   products: {
     convertive: 'Convertive',
     studio: 'Outhad Studio',
     koracode: 'KoraCode',
+    contextkit: 'Outhad ContextKit',
   },
   contactEmail: 'info@outhad.com',
   careersEmail: 'careers@outhad.com',

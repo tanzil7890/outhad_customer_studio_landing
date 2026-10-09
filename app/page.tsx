@@ -7,7 +7,7 @@ export const metadata: Metadata = buildMetadata({
   title: `${siteConfig.name} | Applied Intelligence Research Lab`,
   appendSiteName: false,
   description:
-    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive, Outhad Studio, and KoraCode.',
+    'Outhad AI is a research and product lab building systems that decide in milliseconds — and the orchestration layer that puts them to work. Makers of Convertive, Outhad Studio, KoraCode, and ContextKit.',
   path: '/',
   keywords: [
     'Outhad AI',
@@ -18,6 +18,8 @@ export const metadata: Metadata = buildMetadata({
     'multi-agent systems',
     'agentic harness',
     'browser agent',
+    'agentic memory layer',
+    'long-term memory for AI agents',
   ],
 })
 
@@ -43,16 +45,16 @@ const work = [
       'An open-source agentic harness for the browser. Describe a web task from the terminal and it drives a real browser — step by step, in view, and asking before anything irreversible.',
   },
   {
+    name: 'Outhad ContextKit',
+    href: 'https://pypi.org/project/outhad-contextkitai/',
+    description:
+      'An open-source agentic memory layer. Agents carry persistent context across users and sessions — a temporal, causal knowledge graph that recalls only what matters, with PII encryption built in.',
+  },
+  {
     name: 'Streaming decisions & RL',
     href: null,
     description:
       'Decisioning under hard latency budgets: models that have to answer in milliseconds, improved by a continuous optimization loop rather than a nightly batch.',
-  },
-  {
-    name: 'Memory & identity',
-    href: null,
-    description:
-      'Persistent context across anonymous and known sessions — profiles that resolve identity and carry forward what has already been learned.',
   },
 ]
 
