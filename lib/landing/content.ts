@@ -138,6 +138,30 @@ export const WINDOW = {
   quote: 'Triggers react to time. Decisioning reacts to intent.',
 }
 
+export const CONTRAST = {
+  eyebrow: 'Triggers vs decisioning',
+  columns: [
+    {
+      title: 'Triggers',
+      subtitle: 'React to time',
+      points: [
+        'If a cart sits for an hour, send an email.',
+        'The same rule fires for every shopper.',
+        'Needs an email address it usually does not have.',
+      ],
+    },
+    {
+      title: 'Decisioning',
+      subtitle: 'Reacts to intent',
+      points: [
+        'Exit risk is high and she checked shipping twice: rank the eligible actions now.',
+        'Each shopper gets the action with the highest expected lift.',
+        'Works on anonymous visitors, inside the same session.',
+      ],
+    },
+  ],
+}
+
 export const METHOD = {
   eyebrow: 'How it works',
   lines: ['Detect. Decide. Deliver. Capture.'],

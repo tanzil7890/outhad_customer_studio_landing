@@ -12,6 +12,11 @@ html {
   }
 }
 
+/* Dark pages (e.g. the cinematic homepage concept) keep overscroll areas warm black */
+body:has([data-page-tone="dark"]) {
+  background-color: rgb(var(--c-night));
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
