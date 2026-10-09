@@ -236,11 +236,12 @@ export const INTEGRATIONS = {
   items: ['Shopify', 'BigCommerce', 'SFCC', 'Magento / Adobe', 'GA4', 'Segment', 'Klaviyo', 'Iterable', 'Meta Ads', 'Google Ads'],
 }
 
+// Rendered from video/ (see video/README.md). Subtitles are burned in; the .vtt is published alongside.
 export const VIDEO = {
-  src: '/videos/product_demo4.mp4',
-  poster: '/videos/product-demo-poster.jpg',
-  title: 'Product walkthrough',
-  duration: '0:50',
+  src: '/videos/convertive-demo.mp4',
+  poster: '/videos/convertive-demo-poster.jpg',
+  title: 'Watch the 47 seconds',
+  duration: '1:14',
 }
 
 export const PROOF = {
