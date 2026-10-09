@@ -37,6 +37,11 @@ import GhostStory from './ghost-story'
 import GhostWindow from './ghost-window'
 import SessionGrid from './session-grid'
 
+// Placeholder proof never renders on the live page; each item appears once it is real.
+const customerLogos = CUSTOMER_LOGOS.filter((logo) => !logo.placeholder)
+const testimonials = TESTIMONIALS.filter((testimonial) => !testimonial.placeholder)
+const caseStudies = CASE_STUDIES.filter((study) => !study.placeholder)
+
 const CURSOR = 'M0 0 L0 16 L4.4 12.2 L7.4 18.4 L10 17.2 L7.1 11.2 L12.4 11.2 Z'
 
 /** Small line drawings for Detect / Decide / Deliver / Capture, in the ghost language. */
@@ -84,7 +89,7 @@ function MethodGlyph({ step }: { step: (typeof METHOD.steps)[number]['key'] }) {
   )
 }
 
-/** Concept 2: "Ghosts". Anonymous shoppers are ghosts; the page lets you read one, catch one, and follow one. */
+/** The homepage ("Ghosts", promoted from concept 2). Anonymous shoppers are ghosts; the page lets you read one, catch one, and follow one. */
 export default function ConceptTwo() {
   return (
     <div data-page-tone="dark" className="bg-night text-night-text">
@@ -125,7 +130,7 @@ export default function ConceptTwo() {
       <section className="border-y border-night-line py-12">
         <div className={cn(container, 'space-y-10')}>
           <TrustRow tone="dark" />
-          <LogoStrip logos={CUSTOMER_LOGOS} tone="dark" />
+          {customerLogos.length > 0 && <LogoStrip logos={customerLogos} tone="dark" />}
         </div>
       </section>
 
@@ -255,22 +260,28 @@ export default function ConceptTwo() {
         </div>
       </section>
 
-      {/* Proof */}
-      <section className="border-t border-night-line py-28 sm:py-36">
-        <div className={container}>
-          <SectionHeading tone="dark" eyebrow={PROOF.eyebrow} lines={PROOF.lines} lede={PROOF.lede} />
-          <Reveal className="mt-14">
-            <TestimonialCard testimonial={TESTIMONIALS[0]} tone="dark" />
-          </Reveal>
-          <div className="mt-5 grid gap-5 md:grid-cols-3">
-            {CASE_STUDIES.map((study, i) => (
-              <Reveal key={study.company} delay={i * 0.08}>
-                <CaseStudyCard study={study} tone="dark" />
+      {/* Proof (only once there is real proof to show) */}
+      {(testimonials.length > 0 || caseStudies.length > 0) && (
+        <section className="border-t border-night-line py-28 sm:py-36">
+          <div className={container}>
+            <SectionHeading tone="dark" eyebrow={PROOF.eyebrow} lines={PROOF.lines} lede={PROOF.lede} />
+            {testimonials[0] && (
+              <Reveal className="mt-14">
+                <TestimonialCard testimonial={testimonials[0]} tone="dark" />
               </Reveal>
-            ))}
+            )}
+            {caseStudies.length > 0 && (
+              <div className="mt-5 grid gap-5 md:grid-cols-3">
+                {caseStudies.map((study, i) => (
+                  <Reveal key={study.company} delay={i * 0.08}>
+                    <CaseStudyCard study={study} tone="dark" />
+                  </Reveal>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ROI */}
       <section id="roi" className="scroll-mt-24 border-t border-night-line py-28 sm:py-36">

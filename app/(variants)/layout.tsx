@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Footer from '@/components/footer'
-import ConceptSwitcher from '@/components/landing/shared/concept-switcher'
 import LandingShell from '@/components/landing/shared/landing-shell'
 
 // Homepage concepts under review: never indexed. Not listed in app/sitemap.ts, and
@@ -15,7 +14,6 @@ export default function VariantsLayout({ children }: { children: ReactNode }) {
     <LandingShell>
       {children}
       <Footer />
-      <ConceptSwitcher />
     </LandingShell>
   )
 }

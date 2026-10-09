@@ -1,22 +1,26 @@
-/** Homepage concepts under review. Delete this registry once one is promoted to `/`. */
+/**
+ * Landing pages with their own look: the homepage ("Ghosts", promoted from
+ * concept 2) and the remaining concepts, which stay reachable by URL (noindex,
+ * no switcher). Drives the header skin, the page tone and the analytics label.
+ */
 
 /** How the shared site header dresses itself on a page (see components/header.tsx). */
 export type HeaderSkin = 'default' | 'theater' | 'ghosts' | 'mirror' | 'ember'
 
 export const VARIANTS = [
   {
+    id: 'home',
+    path: '/',
+    label: 'Ghosts',
+    tone: 'dark',
+    header: { skin: 'ghosts', howItWorks: '#how-it-works', extra: { label: 'Follow one ghost', href: '#session', live: false } },
+  },
+  {
     id: '1',
     path: '/1',
     label: 'Live theater',
     tone: 'light',
     header: { skin: 'theater', howItWorks: '#how-it-works', extra: { label: 'Watch a session', href: '#session', live: true } },
-  },
-  {
-    id: '2',
-    path: '/2',
-    label: 'Ghosts',
-    tone: 'dark',
-    header: { skin: 'ghosts', howItWorks: '#how-it-works', extra: { label: 'Follow one ghost', href: '#session', live: false } },
   },
   {
     id: '3',

@@ -22,7 +22,7 @@ export const INSIGHTS_NAV: NavLink[] = [
 ]
 
 export const PRIMARY_LINKS: NavLink[] = [
-  { href: '/#storylines', name: 'How it works' },
+  { href: '/#how-it-works', name: 'How it works' },
   { href: '/blogs', name: 'Blogs' },
   { href: '/careers', name: 'Careers' },
 ]

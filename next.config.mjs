@@ -6,6 +6,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    // Concept 2 ("Ghosts") was promoted to the homepage.
+    return [{ source: '/2', destination: '/', permanent: false }]
+  },
   images: {
     remotePatterns: [
       {
