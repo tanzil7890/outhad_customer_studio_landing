@@ -13,9 +13,8 @@ export default function FaqList({
   className?: string
 }) {
   const dark = tone === 'dark'
-  const editorial = tone === 'editorial'
   return (
-    <div className={cn('divide-y border-y', dark ? 'divide-night-line border-night-line' : 'divide-line border-line', editorial && 'divide-ink/20 border-ink/80', className)}>
+    <div className={cn('divide-y border-y', dark ? 'divide-night-line border-night-line' : 'divide-line border-line', className)}>
       {faqs.map((faq) => (
         <details key={faq.question} className="group">
           <summary
@@ -24,12 +23,7 @@ export default function FaqList({
               dark ? 'focus-visible:ring-night-text focus-visible:ring-offset-night' : 'focus-visible:ring-ink',
             )}
           >
-            <span
-              className={cn(
-                editorial ? 'font-display text-2xl leading-snug' : 'text-lg font-semibold',
-                dark ? 'text-night-text' : 'text-ink',
-              )}
-            >
+            <span className={cn('text-lg font-semibold', dark ? 'text-night-text' : 'text-ink')}>
               {faq.question}
             </span>
             <Plus

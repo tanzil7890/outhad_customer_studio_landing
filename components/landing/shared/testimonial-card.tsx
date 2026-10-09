@@ -13,36 +13,27 @@ export default function TestimonialCard({
 }) {
   const { quote, name, role, company, avatar, metric, placeholder } = testimonial
   const dark = tone === 'dark'
-  const editorial = tone === 'editorial'
 
   return (
     <figure
       className={cn(
-        'relative flex h-full flex-col justify-between gap-8',
-        editorial ? 'border-t border-ink pt-8' : 'rounded-3xl p-8 sm:p-10',
-        !editorial && (dark ? 'bg-night-raised' : 'bg-surface-base ring-1 ring-line'),
-        placeholder && !editorial && (dark ? 'ring-0 outline-dashed outline-1 outline-night-line' : 'border border-dashed border-line-strong ring-0'),
+        'relative flex h-full flex-col justify-between gap-8 rounded-3xl p-8 sm:p-10',
+        dark ? 'bg-night-raised' : 'bg-surface-base ring-1 ring-line',
+        placeholder && (dark ? 'ring-0 outline-dashed outline-1 outline-night-line' : 'border border-dashed border-line-strong ring-0'),
         className,
       )}
     >
       {placeholder && (
         <span
           className={cn(
-            'rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider',
-            editorial ? '-mb-4 self-start' : 'absolute right-5 top-5',
+            'absolute right-5 top-5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider',
             dark ? 'bg-night text-night-muted' : 'bg-surface-sunken text-ink-muted',
           )}
         >
           Placeholder
         </span>
       )}
-      <blockquote
-        className={cn(
-          editorial
-            ? 'font-display text-3xl italic leading-[1.2] text-ink sm:text-4xl'
-            : cn('text-xl font-medium leading-snug sm:text-2xl', dark ? 'text-night-text' : 'text-ink'),
-        )}
-      >
+      <blockquote className={cn('text-xl font-medium leading-snug sm:text-2xl', dark ? 'text-night-text' : 'text-ink')}>
         “{quote}”
       </blockquote>
       <figcaption className="flex items-end justify-between gap-6">

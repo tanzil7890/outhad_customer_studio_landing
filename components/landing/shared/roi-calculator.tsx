@@ -28,16 +28,11 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
   )
 
   const dark = tone === 'dark'
-  const editorial = tone === 'editorial'
 
   const label = cn('text-sm font-medium', dark ? 'text-night-soft' : 'text-ink-secondary')
   const field = cn(
-    'flex h-12 items-center gap-2 px-4 transition-colors focus-within:ring-2',
-    editorial ? 'rounded-none border-b border-ink/60 bg-transparent px-0 focus-within:ring-0 focus-within:border-ink' : 'rounded-xl border',
-    !editorial &&
-      (dark
-        ? 'border-night-line bg-night focus-within:ring-night-text/50'
-        : 'border-line bg-surface-sunken focus-within:ring-ink/30'),
+    'flex h-12 items-center gap-2 rounded-xl border px-4 transition-colors focus-within:ring-2',
+    dark ? 'border-night-line bg-night focus-within:ring-night-text/50' : 'border-line bg-surface-sunken focus-within:ring-ink/30',
   )
   const input = cn(
     'w-full min-w-0 bg-transparent text-base font-semibold tabular-nums outline-none',
@@ -77,9 +72,8 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
   return (
     <div
       className={cn(
-        'grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14',
-        editorial ? '' : 'rounded-3xl p-6 sm:p-10',
-        !editorial && (dark ? 'bg-night-raised ring-1 ring-night-line' : 'bg-surface-base ring-1 ring-line'),
+        'grid gap-10 rounded-3xl p-6 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14',
+        dark ? 'bg-night-raised ring-1 ring-night-line' : 'bg-surface-base ring-1 ring-line',
         className,
       )}
     >
@@ -93,9 +87,8 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
           <legend className={label}>Scenario (relative lift on conversion)</legend>
           <div
             className={cn(
-              'grid grid-cols-3 gap-1 p-1',
-              editorial ? 'rounded-none border border-ink/60' : 'rounded-xl',
-              !editorial && (dark ? 'bg-night' : 'bg-surface-sunken'),
+              'grid grid-cols-3 gap-1 rounded-xl p-1',
+              dark ? 'bg-night' : 'bg-surface-sunken',
             )}
           >
             {ROI.scenarios.map((s) => {
@@ -104,8 +97,7 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
                 <label
                   key={s.key}
                   className={cn(
-                    'relative flex cursor-pointer flex-col items-center justify-center px-2 py-2 text-center transition-colors has-[:focus-visible]:ring-2',
-                    editorial ? 'rounded-none' : 'rounded-lg',
+                    'relative flex cursor-pointer flex-col items-center justify-center rounded-lg px-2 py-2 text-center transition-colors has-[:focus-visible]:ring-2',
                     checked
                       ? dark
                         ? 'bg-night-text text-night'
@@ -133,7 +125,7 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
         </fieldset>
       </div>
 
-      <div className={cn('flex flex-col', editorial && 'border-t border-ink/80 pt-8 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0')}>
+      <div className="flex flex-col">
         <p className={label}>Estimated added revenue</p>
         <p className="mt-2 flex items-baseline gap-2" aria-live="polite">
           <CountUp
@@ -142,7 +134,6 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
             duration={0.6}
             className={cn(
               'text-5xl font-extrabold tracking-tight sm:text-6xl',
-              editorial && 'font-display font-normal',
               dark ? 'text-night-copper' : 'text-copper-400',
             )}
           />
@@ -176,10 +167,7 @@ export default function RoiCalculator({ tone = 'light', className }: { tone?: To
         <p className={cn('mt-2 text-xs', dark ? 'text-night-muted' : 'text-ink-muted')}>{ROI.disclaimer}</p>
 
         <div className="mt-8 lg:mt-auto lg:pt-8">
-          <BookDemoButton
-            location="roi-calculator"
-            variant={dark ? 'onDark' : editorial ? 'editorial' : 'primary'}
-          >
+          <BookDemoButton location="roi-calculator" variant={dark ? 'onDark' : 'primary'}>
             See it on your traffic
           </BookDemoButton>
         </div>

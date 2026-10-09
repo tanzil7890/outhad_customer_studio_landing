@@ -17,9 +17,8 @@ export default function VideoFacade({ tone = 'light', className }: { tone?: Tone
   return (
     <div
       className={cn(
-        'relative aspect-video w-full overflow-hidden bg-white',
-        tone === 'editorial' ? 'rounded-none ring-1 ring-ink/80' : 'rounded-3xl ring-1',
-        tone !== 'editorial' && (dark ? 'ring-night-line' : 'ring-line'),
+        'relative aspect-video w-full overflow-hidden rounded-3xl bg-white ring-1',
+        dark ? 'ring-night-line' : 'ring-line',
         className,
       )}
     >

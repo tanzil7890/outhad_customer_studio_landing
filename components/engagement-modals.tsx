@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const SKIP_PATHS = ['/demo', '/roi-calculator', '/admin']
+// /3 ("Mirror") reads the visitor's session itself, so the generic "we tracked you" cards would compete with it.
+const SKIP_PATHS = ['/demo', '/roi-calculator', '/admin', '/3']
 
 function shouldSkip(path: string) {
   return SKIP_PATHS.some((p) => path === p || path.startsWith(p + '/'))

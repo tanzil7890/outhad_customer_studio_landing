@@ -9,7 +9,7 @@ import { BOOK_DEMO } from '@/lib/landing/content'
 import { isCalReady, loadCal, openCal, pushDataLayer } from '@/lib/landing/cal'
 import { variantForPath } from '@/lib/landing/variants'
 
-type Variant = 'primary' | 'outline' | 'onDark' | 'onDarkOutline' | 'editorial' | 'link'
+type Variant = 'primary' | 'outline' | 'onDark' | 'onDarkOutline' | 'link'
 
 const variants: Record<Variant, string> = {
   primary:
@@ -20,8 +20,6 @@ const variants: Record<Variant, string> = {
     'rounded-full bg-night-text text-night hover:bg-white focus-visible:ring-night-text focus-visible:ring-offset-night',
   onDarkOutline:
     'rounded-full border border-night-text/40 text-night-text hover:bg-night-raised focus-visible:ring-night-text focus-visible:ring-offset-night',
-  editorial:
-    'rounded-none bg-ink text-night-text hover:bg-brand-hover tracking-wide focus-visible:ring-ink focus-visible:ring-offset-surface-canvas',
   link: 'text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink focus-visible:ring-ink',
 }
 

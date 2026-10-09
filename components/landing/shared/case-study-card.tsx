@@ -6,15 +6,13 @@ import type { Tone } from './tone'
 
 export default function CaseStudyCard({ study, tone = 'light' }: { study: CaseStudy; tone?: Tone }) {
   const dark = tone === 'dark'
-  const editorial = tone === 'editorial'
 
   const body = (
     <article
       className={cn(
-        'relative flex h-full flex-col gap-6',
-        editorial ? 'border-t border-ink/80 pt-6' : 'rounded-3xl p-7',
-        !editorial && (dark ? 'bg-night-raised' : 'bg-surface-base ring-1 ring-line'),
-        study.placeholder && !editorial && (dark ? 'outline-dashed outline-1 outline-night-line' : 'border border-dashed border-line-strong ring-0'),
+        'relative flex h-full flex-col gap-6 rounded-3xl p-7',
+        dark ? 'bg-night-raised' : 'bg-surface-base ring-1 ring-line',
+        study.placeholder && (dark ? 'outline-dashed outline-1 outline-night-line' : 'border border-dashed border-line-strong ring-0'),
       )}
     >
       <div className="flex items-start justify-between gap-4">
@@ -36,10 +34,7 @@ export default function CaseStudyCard({ study, tone = 'light' }: { study: CaseSt
         )}
       </div>
       <h3
-        className={cn(
-          editorial ? 'font-display text-2xl font-normal leading-tight' : 'text-lg font-semibold leading-snug',
-          dark ? 'text-night-text' : 'text-ink',
-        )}
+className={cn('text-lg font-semibold leading-snug', dark ? 'text-night-text' : 'text-ink')}
       >
         {study.headline}
       </h3>
@@ -49,7 +44,7 @@ export default function CaseStudyCard({ study, tone = 'light' }: { study: CaseSt
             <dt className={cn('text-sm', dark ? 'text-night-soft' : 'text-ink-secondary')}>{metric.label}</dt>
             <dd
               className={cn(
-                editorial ? 'font-display text-4xl font-normal tabular-nums' : 'text-3xl font-extrabold tabular-nums tracking-tight',
+                'text-3xl font-extrabold tabular-nums tracking-tight',
                 metric.kind === 'money'
                   ? dark
                     ? 'text-night-copper'

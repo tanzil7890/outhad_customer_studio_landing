@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import {
   CASE_STUDIES,
@@ -7,226 +7,239 @@ import {
   FINAL,
   HERO,
   INTEGRATIONS,
-  METHOD,
+  MIRROR,
   PLATFORM,
   PROBLEM,
   PROOF,
   ROI,
-  SESSION,
   TESTIMONIALS,
   WINDOW,
 } from '@/lib/landing/content'
+import { STORY } from '@/lib/landing/story'
 import BookDemoButton from '../shared/book-demo-button'
 import CaseStudyCard from '../shared/case-study-card'
 import FaqList from '../shared/faq-list'
 import LineReveal from '../shared/line-reveal'
 import LogoStrip from '../shared/logo-strip'
+import Marquee from '../shared/marquee'
 import { Reveal } from '../shared/reveal'
 import RoiCalculator from '../shared/roi-calculator'
 import SectionHeading from '../shared/section-heading'
+import StoryTranscript from '../shared/story-transcript'
 import TestimonialCard from '../shared/testimonial-card'
 import TrustRow from '../shared/trust-row'
 import VideoFacade from '../shared/video-facade'
 import { container } from '../shared/layout'
-import EventTicker from './event-ticker'
-import { nib } from './fonts'
-import StoryLedger from './story-ledger'
+import Dossier from './dossier'
+import FreezeDialog from './freeze-dialog'
+import LensOverlay from './lens-overlay'
+import LiveMethod from './live-method'
+import LivePlatform from './live-platform'
+import LiveWindow from './live-window'
+import { FinalHeading, HeroLede, KnownSentence, LeaveButton, TrailStrip } from './live-copy'
+import SessionPill from './session-pill'
+import SessionProvider from './session-provider'
+import SessionStrip from './session-strip'
+import SignalCapture from './signal-capture'
+import { ReadTag } from './ui'
 
-const ROMAN = ['i', 'ii', 'iii', 'iv']
-
-function Section({ children, className, id }: { children: React.ReactNode; className?: string; id?: string }) {
+/** A section the reader tracks: it counts as read after a few seconds in view. */
+function Tracked({ id, label, className, children }: { id: string; label: string; className?: string; children: ReactNode }) {
   return (
-    <section id={id} className={cn('border-t border-ink/80 py-20 sm:py-28', className)}>
-      <div className={container}>{children}</div>
+    <section id={id} data-read-id={id} data-read-label={label} className={cn('scroll-mt-24', className)}>
+      {children}
     </section>
   )
 }
 
-/** Concept 3 — "Editorial": a calm, typographic long read. */
+/** Concept 3: "Mirror". The page reads the visitor's own anonymous session and explains Convertive with it. */
 export default function ConceptThree() {
   return (
-    <div className={cn(nib.variable, 'bg-surface-warm text-ink')}>
-      {/* Masthead + hero */}
-      <section className="pb-14 pt-32 sm:pt-36">
-        <div className={container}>
-          <div className="flex items-center justify-between border-b border-ink/80 pb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-secondary">
-            <span>Convertive</span>
-            <span className="hidden sm:inline">{HERO.eyebrow}</span>
-            <span>N°00</span>
-          </div>
-          <LineReveal
-            lines={HERO.lines}
-            className="mt-12 font-display text-[3.1rem] font-normal leading-[0.98] tracking-[-0.02em] text-ink sm:text-7xl lg:text-[7.25rem]"
-          />
+    <SessionProvider>
+      <div className="bg-surface-warm text-ink">
+        {/* Hero */}
+        <Tracked id="top" label="Right now, you’re anonymous" className="relative overflow-x-clip pb-20 pt-32 sm:pt-36 lg:pb-28">
           <div
-            className="mt-12 grid animate-fade-up gap-10 motion-reduce:animate-none lg:grid-cols-12"
-            style={{ animationDelay: '0.3s' }}
-          >
-            <p className="text-xl leading-relaxed text-ink-secondary lg:col-span-6 lg:text-[1.375rem]">{HERO.lede}</p>
-            <div className="flex flex-col items-start gap-5 lg:col-span-5 lg:col-start-8">
-              <BookDemoButton location="hero" variant="editorial" size="xl" />
-              <a
-                href="#arithmetic"
-                className="min-h-0 min-w-0 text-base text-ink underline decoration-ink/30 underline-offset-[6px] transition-colors hover:decoration-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
-              >
-                Estimate your upside →
-              </a>
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgb(var(--c-ink)/0.09)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(75%_65%_at_60%_35%,black,transparent)]"
+          />
+          <div className={cn(container, 'relative grid items-center gap-14 lg:grid-cols-12 lg:gap-10')}>
+            <div className="lg:col-span-7">
+              <p className="mb-6 animate-fade-up text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted motion-reduce:animate-none">
+                {HERO.eyebrow}
+              </p>
+              <LineReveal
+                lines={MIRROR.hero.lines}
+                className="text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.035em] text-ink sm:text-6xl lg:text-[4.1rem] xl:text-[4.6rem]"
+              />
+              <div className="animate-fade-up motion-reduce:animate-none" style={{ animationDelay: '0.25s' }}>
+                <HeroLede className="mt-8 max-w-xl text-lg leading-relaxed text-ink-secondary lg:text-xl" />
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <BookDemoButton location="hero" />
+                  <LeaveButton />
+                </div>
+                <p className="mt-6 hidden text-[13px] text-ink-muted lg:block">Or just move your cursor toward the tab bar.</p>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <Dossier />
             </div>
           </div>
-          <div className="mt-16">
-            <EventTicker />
-          </div>
-          <div className="mt-10">
-            <TrustRow tone="editorial" />
-          </div>
-        </div>
-      </section>
+        </Tracked>
 
-      {/* N°01 The problem */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <SectionHeading tone="editorial" number="01" eyebrow={PROBLEM.eyebrow} lines={PROBLEM.lines} />
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-secondary first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-ink">
-              {PROBLEM.body}
-            </p>
+        {/* Trust */}
+        <section className="border-y border-line bg-surface-base py-12">
+          <div className={cn(container, 'space-y-10')}>
+            <TrustRow />
+            <LogoStrip logos={CUSTOMER_LOGOS} />
           </div>
-          <div className="lg:col-span-4 lg:col-start-9 lg:pt-20">
-            <p className="font-display text-[9rem] font-normal leading-none tracking-tight text-ink sm:text-[11rem]">97</p>
-            <p className="mt-2 border-t border-ink/80 pt-4 text-lg text-ink-secondary">
-              of every 100 visitors {PROBLEM.stat.label.replace('visitors ', '')}.
-            </p>
-          </div>
-        </div>
-      </Section>
+        </section>
 
-      {/* N°02 Forty-seven seconds */}
-      <Section id="session">
-        <SectionHeading tone="editorial" number="02" eyebrow={SESSION.eyebrow} lines={SESSION.lines} lede="One illustrative session, read top to bottom." />
-        <div className="mt-14">
-          <StoryLedger />
-        </div>
-      </Section>
-
-      {/* N°03 The window */}
-      <Section>
-        <SectionHeading tone="editorial" number="03" eyebrow={WINDOW.eyebrow} lines={WINDOW.lines} lede={WINDOW.lede} />
-        <dl className="mt-14 grid border-t border-ink/80 md:grid-cols-3">
-          {WINDOW.rows.map((row, i) => (
-            <div
-              key={row.key}
-              className={cn('flex flex-col-reverse gap-3 py-8 md:px-8', i > 0 && 'border-t border-ink/15 md:border-l md:border-t-0', i === 0 && 'md:pl-0')}
-            >
-              <dt className="text-base leading-relaxed text-ink-secondary">{row.label}</dt>
-              <dd className={cn('font-display text-5xl leading-none sm:text-6xl', row.key === 'convertive' ? 'text-ink' : 'text-ink-muted')}>
-                {row.short}
-              </dd>
+        {/* What we know without your name */}
+        <Tracked id="known" label="What we know" className="py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={MIRROR.known.eyebrow} lines={MIRROR.known.lines} badge={<ReadTag id="known" />} />
+            <KnownSentence className="mt-10 max-w-5xl text-2xl font-semibold leading-[1.6] tracking-tight text-ink-secondary sm:text-[2rem]" />
+            <TrailStrip className="mt-12" />
+            <div className="mt-20 grid gap-12 border-t border-line pt-14 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <h3 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+                  {PROBLEM.lines[0]} <span className="text-ink-secondary">{PROBLEM.lines[1]}</span>
+                </h3>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-secondary">{PROBLEM.body}</p>
+              </div>
+              <div className="lg:col-span-4 lg:col-start-9">
+                <p className="text-6xl font-extrabold tracking-tight text-ink">{PROBLEM.stat.display}</p>
+                <p className="mt-2 text-lg text-ink-secondary">{PROBLEM.stat.label}</p>
+                <p className="mt-6 border-t border-line pt-6 text-base leading-relaxed text-ink-secondary">{MIRROR.known.bridge}</p>
+              </div>
             </div>
-          ))}
-        </dl>
-        <p className="mt-2 text-[13px] text-ink-muted">Bounce-window and batch-latency figures are industry ranges.</p>
-        <blockquote className="mx-auto mt-20 max-w-4xl text-center font-display text-4xl italic leading-tight text-ink sm:text-5xl">
-          “{WINDOW.quote}”
-        </blockquote>
-      </Section>
+          </div>
+        </Tracked>
 
-      {/* N°04 The method */}
-      <Section>
-        <SectionHeading tone="editorial" number="04" eyebrow={METHOD.eyebrow} lines={METHOD.lines} lede={METHOD.lede} />
-        <ol className="mt-14 grid gap-x-16 gap-y-12 md:grid-cols-2">
-          {METHOD.steps.map((step, i) => (
-            <li key={step.key} className="border-t border-ink/15 pt-6">
-              <Reveal delay={i * 0.06}>
-                <p className="font-display text-3xl text-ink">
-                  <span className="mr-3 italic text-ink-muted">{ROMAN[i]}.</span>
-                  {step.title}
-                </p>
-                <p className="mt-3 text-lg leading-relaxed text-ink-secondary">{step.body}</p>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
-      </Section>
+        {/* The window, measured on you */}
+        <Tracked id="window" label="The window" className="border-y border-line bg-surface-base py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={MIRROR.window.eyebrow} lines={MIRROR.window.lines} lede={MIRROR.window.lede} badge={<ReadTag id="window" />} />
+            <div className="mt-16">
+              <LiveWindow />
+            </div>
+            <blockquote className="mt-20 max-w-4xl text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+              “{WINDOW.quote}”
+            </blockquote>
+          </div>
+        </Tracked>
 
-      {/* N°05 Evidence */}
-      <Section>
-        <SectionHeading tone="editorial" number="05" eyebrow={PROOF.eyebrow} lines={PROOF.lines} lede={PROOF.lede} />
-        <Reveal className="mt-14">
-          <TestimonialCard testimonial={TESTIMONIALS[0]} tone="editorial" />
-        </Reveal>
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
-          {CASE_STUDIES.map((study) => (
-            <CaseStudyCard key={study.company} study={study} tone="editorial" />
-          ))}
-        </div>
-        <LogoStrip logos={CUSTOMER_LOGOS} tone="editorial" className="mt-16" />
-      </Section>
+        {/* How it works, on you */}
+        <Tracked id="method" label="How it works" className="py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={MIRROR.method.eyebrow} lines={MIRROR.method.lines} lede={MIRROR.method.lede} badge={<ReadTag id="method" />} />
+            <div className="mt-10">
+              <LiveMethod />
+            </div>
+          </div>
+        </Tracked>
 
-      {/* N°06 The arithmetic */}
-      <Section id="arithmetic" className="scroll-mt-24">
-        <SectionHeading tone="editorial" number="06" eyebrow={ROI.eyebrow} lines={ROI.lines} lede={ROI.lede} />
-        <RoiCalculator tone="editorial" className="mt-14" />
-      </Section>
+        {/* From you to Sarah */}
+        <Tracked id="sarah" label="Sarah’s session" className="border-y border-line bg-surface-base py-24 sm:py-32">
+          <div className={container}>
+            <StoryTranscript timeline={STORY.timelines.with} title="Sarah’s session with Convertive" />
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
+              <SectionHeading eyebrow={MIRROR.sarah.eyebrow} lines={MIRROR.sarah.lines} badge={<ReadTag id="sarah" />} />
+              <p className="text-lg leading-relaxed text-ink-secondary">{MIRROR.sarah.lede}</p>
+            </div>
+            <div aria-hidden className="mt-14">
+              <SessionStrip />
+            </div>
+            <Reveal className="mt-16">
+              <SignalCapture kind="film" id="film" className="scroll-mt-28">
+                <VideoFacade />
+              </SignalCapture>
+            </Reveal>
+          </div>
+        </Tracked>
 
-      {/* N°07 The platform */}
-      <Section>
-        <SectionHeading tone="editorial" number="07" eyebrow={PLATFORM.eyebrow} lines={PLATFORM.lines} lede={PLATFORM.lede} />
-        <div className="mt-14 grid gap-14 lg:grid-cols-2">
-          <ol className="space-y-6">
-            {PLATFORM.modules.map((module, i) => (
-              <li key={module.href}>
-                <Link
-                  href={module.href}
-                  className="group block min-h-0 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+        {/* Platform + integrations */}
+        <Tracked id="platform" label="The platform" className="py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={PLATFORM.eyebrow} lines={PLATFORM.lines} lede={MIRROR.platform.lede} badge={<ReadTag id="platform" />} />
+            <div className="mt-14">
+              <LivePlatform />
+            </div>
+            <div className="mt-24 grid gap-10 lg:grid-cols-2 lg:items-end">
+              <SectionHeading eyebrow={INTEGRATIONS.eyebrow} lines={INTEGRATIONS.lines} />
+              <p className="text-lg leading-relaxed text-ink-secondary">{INTEGRATIONS.lede}</p>
+            </div>
+            <Marquee label="Integrations" className="mt-10">
+              {INTEGRATIONS.items.map((item) => (
+                <span
+                  key={item}
+                  className="mr-3 inline-flex h-14 items-center rounded-full bg-surface-base px-6 text-base font-semibold text-ink-secondary ring-1 ring-line"
                 >
-                  <span className="flex items-baseline gap-3">
-                    <span className="font-display text-2xl text-ink group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
-                      {module.title}
-                    </span>
-                    <span aria-hidden className="mb-1.5 flex-1 border-b border-dotted border-ink/40" />
-                    <span className="font-display text-xl tabular-nums text-ink-secondary">{String(i + 1).padStart(2, '0')}</span>
-                  </span>
-                  <span className="mt-1 block max-w-md text-base leading-relaxed text-ink-secondary">{module.description}</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-          <div>
-            <VideoFacade tone="editorial" />
-            <p className="mt-10 font-display text-3xl leading-snug text-ink">
-              {INTEGRATIONS.lines[0]} <span className="italic text-ink-secondary">{INTEGRATIONS.lines[1]}</span>
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink-secondary">{INTEGRATIONS.lede}</p>
-            <p className="mt-6 text-base leading-loose text-ink">{INTEGRATIONS.items.join(' · ')}</p>
+                  {item}
+                </span>
+              ))}
+            </Marquee>
           </div>
-        </div>
-      </Section>
+        </Tracked>
 
-      {/* N°08 Questions */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <SectionHeading tone="editorial" number="08" eyebrow="Questions" lines={['Asked and answered.']} />
+        {/* Proof */}
+        <Tracked id="proof" label="Evidence" className="border-y border-line bg-surface-base py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={PROOF.eyebrow} lines={PROOF.lines} lede={PROOF.lede} />
+            <div className="mt-14 grid gap-5 md:grid-cols-3">
+              {CASE_STUDIES.map((study, i) => (
+                <Reveal key={study.company} delay={i * 0.08}>
+                  <CaseStudyCard study={study} />
+                </Reveal>
+              ))}
+            </div>
+            <Reveal className="mt-5">
+              <TestimonialCard testimonial={TESTIMONIALS[0]} />
+            </Reveal>
           </div>
-          <div className="lg:col-span-8">
-            <FaqList faqs={FAQS} tone="editorial" />
-          </div>
-        </div>
-      </Section>
+        </Tracked>
 
-      {/* Colophon */}
-      <section className="border-t-4 border-double border-ink bg-surface-canvas py-24 sm:py-32">
-        <div className={cn(container, 'text-center')}>
-          <SectionHeading tone="editorial" lines={FINAL.lines} align="center" className="max-w-5xl" />
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink-secondary">{FINAL.lede}</p>
-          <div className="mt-10 flex justify-center">
-            <BookDemoButton location="final-cta" variant="editorial" size="xl" />
+        {/* ROI */}
+        <Tracked id="roi" label="The arithmetic" className="py-24 sm:py-32">
+          <div className={container}>
+            <SectionHeading eyebrow={ROI.eyebrow} lines={ROI.lines} lede={ROI.lede} badge={<ReadTag id="roi" />} />
+            <SignalCapture kind="roi" className="mt-14">
+              <RoiCalculator />
+            </SignalCapture>
           </div>
-          <p className="mt-20 text-[11px] uppercase tracking-[0.22em] text-ink-muted">
-            Set in Nib Pro and Manrope · Convertive, {new Date().getFullYear()}
-          </p>
-        </div>
-      </section>
-    </div>
+        </Tracked>
+
+        {/* FAQ */}
+        <Tracked id="faq" label="Questions" className="border-t border-line py-24 sm:py-32">
+          <div className={cn(container, 'grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]')}>
+            <div className="lg:sticky lg:top-32 lg:self-start">
+              <SectionHeading eyebrow="Questions" lines={['What buyers ask first.']} />
+            </div>
+            <SignalCapture kind="faq">
+              <FaqList faqs={FAQS} />
+            </SignalCapture>
+          </div>
+        </Tracked>
+
+        {/* Final CTA */}
+        <section data-lens-tone="dark" className="bg-night py-24 text-night-text sm:py-32">
+          <div className={cn(container, 'flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between')}>
+            <div className="max-w-3xl">
+              <FinalHeading className="text-3xl font-semibold leading-[1.08] tracking-tight text-night-text sm:text-4xl lg:text-5xl" />
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-night-soft">{FINAL.lede}</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <BookDemoButton location="final-cta" variant="onDark" size="xl" />
+              <LeaveButton tone="dark" className="h-14 px-7 text-base" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <LensOverlay />
+      <FreezeDialog />
+      <SessionPill />
+    </SessionProvider>
   )
 }

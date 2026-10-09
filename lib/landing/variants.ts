@@ -2,7 +2,7 @@
 export const VARIANTS = [
   { id: '1', path: '/1', label: 'Live theater', tone: 'light' },
   { id: '2', path: '/2', label: 'Cinematic', tone: 'dark' },
-  { id: '3', path: '/3', label: 'Editorial', tone: 'light' },
+  { id: '3', path: '/3', label: 'Mirror', tone: 'light' },
 ] as const
 
 export type PageTone = 'light' | 'dark'

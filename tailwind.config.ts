@@ -119,9 +119,6 @@ const config: Config = {
   				soft:    c('warning-soft'),
   			},
   		},
-  		fontFamily: {
-  			display: ['var(--font-nib)', 'Georgia', 'Times New Roman', 'serif'],
-  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

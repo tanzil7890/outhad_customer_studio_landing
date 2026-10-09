@@ -14,8 +14,7 @@ export default function LogoStrip({ logos, tone = 'light', className }: { logos:
             'flex h-16 items-center justify-center px-4',
             logo.placeholder &&
               cn(
-                'border border-dashed text-[13px] font-medium',
-                tone === 'editorial' ? 'rounded-none' : 'rounded-xl',
+                'rounded-xl border border-dashed text-[13px] font-medium',
                 dark ? 'border-night-line text-night-muted' : 'border-line-strong text-ink-muted',
               ),
           )}

@@ -361,3 +361,60 @@ export const FINAL = {
   lines: ['Your highest-value customer', 'is on your site right now.'],
   lede: 'Not in yesterday’s abandoned-cart email. See what Convertive would do with them in a 15-minute demo.',
 }
+
+/**
+ * Concept 3 ("Mirror"): the page reads the visitor's own session in their
+ * browser. Live values are filled in client-side; these are the fixed words.
+ */
+export const MIRROR = {
+  hero: {
+    lines: ['Right now, you’re an', 'anonymous visitor.'],
+    ledeStart: 'We don’t know your name. But in',
+    ledeEnd:
+      'we’ve learned where you came from, what you’ve read and how close you are to leaving. Convertive reads every shopper on your store this way, and acts before they go.',
+    leave: 'Try to leave',
+    privacy: 'Computed in your browser. Nothing is stored or sent.',
+  },
+  known: {
+    eyebrow: 'Without your name',
+    lines: ['Here’s what we already know.'],
+    bridge:
+      'Your shoppers leave this same trail on every visit. Most stacks can’t read it until tonight’s sync, and can’t act on it at all without an email address.',
+  },
+  freeze: {
+    eyebrow: 'Clock stopped',
+    titles: {
+      exit: 'You were about to leave.',
+      button: 'You tried to leave.',
+      return: 'Welcome back.',
+    },
+    lede: 'So Convertive stopped the clock and weighed every next move it could make for you.',
+    production: 'In production, Convertive goes from event to rendered action in under 100 ms.',
+    leave: 'Leave anyway',
+    leaveNote: 'We’ll remember where you stopped, in this tab only.',
+  },
+  window: {
+    eyebrow: 'The window, measured on you',
+    lines: ['Most tools would meet you tomorrow.'],
+    lede: 'Your time on this page, live, against the moments that decide a sale. Log scale.',
+  },
+  method: {
+    eyebrow: 'How it works, on you',
+    lines: ['Detect. Decide. Deliver. Capture.'],
+    lede: 'The loop Convertive runs inside every shopper’s session, running on yours right now.',
+  },
+  sarah: {
+    eyebrow: 'From you to your shoppers',
+    lines: ['You’re not shopping.', 'Sarah is.'],
+    lede: 'Same engine, on a store. One anonymous shopper from an Instagram ad, forty-seven seconds from landing to order.',
+  },
+  platform: {
+    lede: 'Five modules sharing one live profile. Here is each of them working on your visit.',
+  },
+  final: {
+    fallback: 'You’ve been anonymous this whole visit.',
+    line2: 'Your shoppers don’t have to be.',
+  },
+  disclaimer:
+    'A toy model running in your browser, for illustration. Convertive’s engine uses models trained on your store’s data.',
+}
