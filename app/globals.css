@@ -29,6 +29,12 @@ body:has([data-page-tone="dark"]) {
   }
 }
 
+/* Tabbed panels keep every panel in the HTML and hide the rest with the hidden attribute;
+   it must beat display utilities like `grid` and `flex` on these pages. */
+[data-page-tone='dark'] [hidden]:not([hidden='until-found']) {
+  display: none !important;
+}
+
 /* Product pages: a packet travelling down the event pipeline */
 @keyframes pipe-x {
   from { left: -33%; }

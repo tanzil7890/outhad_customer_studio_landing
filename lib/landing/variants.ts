@@ -31,6 +31,23 @@ export const VARIANTS = [
     tone: 'dark' as const,
     header: { skin: 'ghosts' as const, extra: { label: 'See it live', href: '#demo', live: true } },
   })),
+  // The six Insights articles, same dark look; their page link is the free audit.
+  ...(
+    [
+      ['mechanism', '/the-mechanism', 'The Mechanism'],
+      ['methodology', '/the-methodology', 'The Methodology'],
+      ['audit', '/the-audit', 'The Audit'],
+      ['metrics', '/the-metrics', 'The Metrics'],
+      ['comparison', '/comparison', 'The Comparison'],
+      ['manifesto', '/manifesto', 'The Manifesto'],
+    ] as const
+  ).map(([id, path, label]) => ({
+    id,
+    path,
+    label,
+    tone: 'dark' as const,
+    header: { skin: 'ghosts' as const, extra: { label: 'Free audit', href: '/audit', live: false } },
+  })),
   {
     id: '1',
     path: '/1',
