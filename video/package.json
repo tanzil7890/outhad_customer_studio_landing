@@ -1,0 +1,27 @@
+{
+  "name": "convertive-demo-video",
+  "private": true,
+  "type": "module",
+  "description": "Source for the Convertive product demo film. Scenes are React components rendered as a pure function of the frame number, captured with headless Chrome and encoded with ffmpeg.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && open .build/index.html",
+    "stills": "node scripts/stills.mjs",
+    "render": "node scripts/render.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "lucide-react": "0.454.0",
+    "react": "19.1.4",
+    "react-dom": "19.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
+    "playwright-core": "^1.64.0",
+    "typescript": "^7.0.2"
+  }
+}
