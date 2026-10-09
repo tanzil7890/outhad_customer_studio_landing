@@ -236,12 +236,12 @@ export const INTEGRATIONS = {
   items: ['Shopify', 'BigCommerce', 'SFCC', 'Magento / Adobe', 'GA4', 'Segment', 'Klaviyo', 'Iterable', 'Meta Ads', 'Google Ads'],
 }
 
-// Rendered from video/ (see video/README.md). Subtitles are burned in; the .vtt is published alongside.
+// "Ghosts" film, rendered from video/ (see video/README.md). Captions ship as a .vtt alongside.
 export const VIDEO = {
-  src: '/videos/convertive-demo.mp4',
-  poster: '/videos/convertive-demo-poster.jpg',
-  title: 'Watch the 47 seconds',
-  duration: '1:14',
+  src: '/videos/convertive-film.mp4',
+  poster: '/videos/convertive-film-poster.jpg',
+  title: 'Watch the film',
+  duration: '0:48',
 }
 
 export const PROOF = {
