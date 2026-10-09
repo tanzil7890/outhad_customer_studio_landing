@@ -366,7 +366,7 @@ export default function CalFloatingButton() {
         onClick={() => setOpen((v) => !v)}
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
-        className={`fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center ${onDark ? 'bg-[#F5F0EB] text-[#1A1410] ring-1 ring-[#3D3028]' : 'bg-[#1A1410] text-[#F5F0EB]'} ${open ? 'hidden md:flex' : 'flex'}`}
+        className={`fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center ${onDark ? 'bg-[#F5F0EB] text-[#1A1410] ring-1 ring-[#3D3028]' : 'bg-[#1A1410] text-[#F5F0EB] ring-1 ring-[#F5F0EB]/20'} ${open ? 'hidden md:flex' : 'flex'}`}
         aria-label={open ? 'Close chat' : 'Open chat'}
       >
         <AnimatePresence mode="wait" initial={false}>

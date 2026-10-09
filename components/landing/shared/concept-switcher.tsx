@@ -14,7 +14,7 @@ export default function ConceptSwitcher() {
     <nav
       aria-label="Homepage concepts"
       className={cn(
-        'fixed bottom-5 left-1/2 z-40 flex -translate-x-1/2 items-center gap-1 rounded-full p-1 pl-4 text-sm shadow-lg ring-1 backdrop-blur-md',
+        'fixed bottom-5 left-20 z-40 flex items-center gap-1 rounded-full p-1 pl-4 text-sm shadow-lg ring-1 backdrop-blur-md',
         dark ? 'bg-night-raised/90 text-night-soft ring-night-line' : 'bg-white/90 text-ink-secondary ring-line',
       )}
     >
