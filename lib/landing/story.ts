@@ -212,6 +212,20 @@ export const STORY = {
   timelines: { with: withTimeline, without: withoutTimeline },
 } as const
 
+/**
+ * Illustrative breakdown of the 41 ms decision at 0:32, used by the bullet-time
+ * scene in Concept 2. Stage times are milliseconds after the exit-intent event
+ * and end at `decision.latencyMs`.
+ */
+export const DECISION_PIPELINE: { ms: number; label: string; detail: string }[] = [
+  { ms: 0, label: 'Event received', detail: 'Cursor heading for the tab bar' },
+  { ms: 4, label: 'Profile updated', detail: `anon_7f3d · 6 page views · $${PRODUCT.price} cart` },
+  { ms: 11, label: 'Features computed', detail: 'Intent 0.81 · price-sensitive · exit risk 82%' },
+  { ms: 19, label: 'Eligible actions', detail: 'Frequency caps and suppression applied' },
+  { ms: 33, label: 'Scored by expected lift', detail: '0.82 · 0.61 · 0.12' },
+  { ms: withTimeline.decision!.latencyMs, label: 'Rendered', detail: `“${OFFER.copy}”` },
+]
+
 export function beatIndexAt(beats: StoryBeat[], t: number): number {
   let index = 0
   for (let i = 0; i < beats.length; i++) {
