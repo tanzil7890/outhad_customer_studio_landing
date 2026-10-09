@@ -15,6 +15,22 @@ export const VARIANTS = [
     tone: 'dark',
     header: { skin: 'ghosts', howItWorks: '#how-it-works', extra: { label: 'Follow one ghost', href: '#session', live: false } },
   },
+  // The five platform product pages share the homepage's dark "Ghosts" look.
+  ...(
+    [
+      ['data-platform', '/convertive-data-platform', 'Data Platform'],
+      ['audiences', '/convertive-audiences', 'Audiences'],
+      ['ai-engine', '/convertive-ai-engine', 'AI Engine'],
+      ['journey-orchestration', '/convertive-journey-orchestration', 'Journey Orchestration'],
+      ['reporting', '/convertive-reporting', 'Reporting'],
+    ] as const
+  ).map(([id, path, label]) => ({
+    id,
+    path,
+    label,
+    tone: 'dark' as const,
+    header: { skin: 'ghosts' as const, extra: { label: 'See it live', href: '#demo', live: true } },
+  })),
   {
     id: '1',
     path: '/1',

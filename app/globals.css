@@ -29,6 +29,16 @@ body:has([data-page-tone="dark"]) {
   }
 }
 
+/* Product pages: a packet travelling down the event pipeline */
+@keyframes pipe-x {
+  from { left: -33%; }
+  to { left: 100%; }
+}
+@keyframes pipe-y {
+  from { top: -33%; }
+  to { top: 100%; }
+}
+
 @keyframes float {
   0%, 100% { 
     transform: translateY(0px) translateX(0px) rotate(0deg);
