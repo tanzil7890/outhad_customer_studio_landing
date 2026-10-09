@@ -4,6 +4,8 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import { toneForPath } from '@/lib/landing/variants'
 
 const SHEET_WEBHOOK = '/api/chatbot-form'
 
@@ -31,8 +33,18 @@ function getBotReply(input: string): Message {
       id: Date.now().toString(),
       from: 'bot',
       text: "Let's get you booked in. It's a quick 20-minute call where we show Convertive running live on a real store.",
-      link: { label: 'Book a Demo →', href: 'https://tryconvertive.com/demo' },
+      link: { label: 'Book a Demo →', href: '/demo' },
       quickReplies: ['How does it work?', 'Pricing'],
+    }
+  }
+
+  if (q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('plan') || q.includes('how much')) {
+    return {
+      id: Date.now().toString(),
+      from: 'bot',
+      text: "Pricing scales with your monthly visitor volume. Most brands hit positive ROI in the first month. Book a call and we'll walk through the numbers for your store specifically.",
+      link: { label: 'Calculate my ROI →', href: '/roi-calculator' },
+      quickReplies: ['Book a demo'],
     }
   }
 
@@ -63,16 +75,6 @@ function getBotReply(input: string): Message {
     }
   }
 
-  if (q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('plan') || q.includes('how much')) {
-    return {
-      id: Date.now().toString(),
-      from: 'bot',
-      text: "Pricing scales with your monthly visitor volume. Most brands hit positive ROI in the first month. Book a call and we'll walk through the numbers for your store specifically.",
-      link: { label: 'Calculate my ROI →', href: '/roi-calculator' },
-      quickReplies: ['Book a demo'],
-    }
-  }
-
   if (q.includes('integrat') || q.includes('shopify') || q.includes('klaviyo') || q.includes('connect') || q.includes('plugin')) {
     return {
       id: Date.now().toString(),
@@ -86,7 +88,7 @@ function getBotReply(input: string): Message {
     return {
       id: Date.now().toString(),
       from: 'bot',
-      text: "Brands using Convertive typically see a 3–7% conversion rate lift. Our ROI calculator can show you what that means for your visitor volume.",
+      text: "Results depend on your traffic, conversion rate and offer. Our ROI calculator shows what a lift is worth at your visitor volume, and a demo walks through it on your store.",
       link: { label: 'Calculate my ROI →', href: '/roi-calculator' },
       quickReplies: ['Book a demo'],
     }
@@ -141,7 +143,7 @@ function ContactForm({ onSent }: { onSent: (email: string, body: string) => void
 
   if (sent) {
     return (
-      <p className="text-xs text-[#33C0A7] font-semibold mt-1">
+      <p className="text-xs text-[#1A5C40] font-semibold mt-1">
         ✓ Message sent! We'll get back to you soon.
       </p>
     )
@@ -155,7 +157,7 @@ function ContactForm({ onSent }: { onSent: (email: string, body: string) => void
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email"
-        className="w-full text-[16px] md:text-xs rounded-lg border border-black/10 bg-[#F8F7F4] px-3 py-2 text-[#10182B] placeholder:text-black/30 outline-none focus:border-[#33C0A7] transition-colors"
+        className="w-full text-[16px] md:text-xs rounded-lg border border-[#E8DDD4] bg-[#F0E8E0] px-3 py-2 text-[#1A1410] placeholder:text-[#B8A89C] outline-none focus:border-[#D4C4B8] transition-colors"
       />
       <textarea
         required
@@ -163,12 +165,12 @@ function ContactForm({ onSent }: { onSent: (email: string, body: string) => void
         onChange={(e) => setBody(e.target.value)}
         placeholder="Describe your query..."
         rows={3}
-        className="w-full text-[16px] md:text-xs rounded-lg border border-black/10 bg-[#F8F7F4] px-3 py-2 text-[#10182B] placeholder:text-black/30 outline-none focus:border-[#33C0A7] transition-colors resize-none"
+        className="w-full text-[16px] md:text-xs rounded-lg border border-[#E8DDD4] bg-[#F0E8E0] px-3 py-2 text-[#1A1410] placeholder:text-[#B8A89C] outline-none focus:border-[#D4C4B8] transition-colors resize-none"
       />
       <button
         type="submit"
         disabled={!email.trim() || !body.trim() || loading}
-        className="w-full bg-[#10182B] text-white text-xs font-bold py-2.5 rounded-lg hover:bg-[#1e2d4a] active:bg-[#1e2d4a] disabled:opacity-30 transition-all"
+        className="w-full bg-[#1A1410] text-white text-xs font-bold py-2.5 rounded-lg hover:bg-[#2D2420] active:bg-[#2D2420] disabled:opacity-30 transition-all"
       >
         {loading ? 'Sending…' : 'Submit'}
       </button>
@@ -179,6 +181,7 @@ function ContactForm({ onSent }: { onSent: (email: string, body: string) => void
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function CalFloatingButton() {
   const [open, setOpen] = useState(false)
+  const onDark = toneForPath(usePathname()) === 'dark'
   const [messages, setMessages] = useState<Message[]>([WELCOME])
   const [input, setInput] = useState('')
   const [unread, setUnread] = useState(false)
@@ -261,12 +264,12 @@ export default function CalFloatingButton() {
               style={{ maxHeight: 'min(82vh, 540px)' }}
             >
               {/* Mobile drag handle */}
-              <div className="flex justify-center pt-2.5 pb-1 bg-[#10182B] md:hidden">
+              <div className="flex justify-center pt-2.5 pb-1 bg-[#1A1410] md:hidden">
                 <div className="w-10 h-1 rounded-full bg-white/20" />
               </div>
 
               {/* Header */}
-              <div className="bg-[#10182B] px-4 py-3 flex items-center gap-3 shrink-0">
+              <div className="bg-[#1A1410] px-4 py-3 flex items-center gap-3 shrink-0">
                 <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
                   <Image src="/logo-black.png" alt="Convertive" width={28} height={28} className="object-contain" />
                 </div>
@@ -284,14 +287,14 @@ export default function CalFloatingButton() {
               </div>
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto bg-[#F8F7F4] px-4 py-4 space-y-3 min-h-0 overscroll-contain">
+              <div className="flex-1 overflow-y-auto bg-[#FAFAF8] px-4 py-4 space-y-3 min-h-0 overscroll-contain">
                 {messages.map((msg) => (
                   <div key={msg.id} className={`flex flex-col gap-1.5 ${msg.from === 'user' ? 'items-end' : 'items-start'}`}>
                     <div
                       className={`rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed max-w-[90%] w-full ${
                         msg.from === 'user'
-                          ? 'bg-[#10182B] text-white rounded-br-sm max-w-[85%] w-auto'
-                          : 'bg-white text-[#10182B] border border-black/6 rounded-bl-sm shadow-sm'
+                          ? 'bg-[#1A1410] text-white rounded-br-sm max-w-[85%] w-auto'
+                          : 'bg-white text-[#1A1410] border border-[#E8DDD4] rounded-bl-sm shadow-sm'
                       }`}
                     >
                       {msg.text}
@@ -305,7 +308,7 @@ export default function CalFloatingButton() {
                         href={msg.link.href}
                         target={msg.link.href.startsWith('http') ? '_blank' : undefined}
                         rel={msg.link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-xs font-bold text-[#33C0A7] hover:text-[#2aab94] active:opacity-70 transition-colors underline underline-offset-2"
+                        className="text-xs font-bold text-[#1A1410] hover:text-[#5C4E44] active:opacity-70 transition-colors underline underline-offset-2"
                       >
                         {msg.link.label}
                       </Link>
@@ -317,7 +320,7 @@ export default function CalFloatingButton() {
                           <button
                             key={reply}
                             onClick={() => sendMessage(reply)}
-                            className="text-[11px] font-semibold px-3 py-2 min-h-[34px] rounded-full bg-white border border-[#10182B]/12 text-[#10182B] hover:bg-[#10182B] hover:text-white active:bg-[#10182B] active:text-white transition-colors shadow-sm"
+                            className="text-[11px] font-semibold px-3 py-2 min-h-[34px] rounded-full bg-white border border-[#1A1410]/12 text-[#1A1410] hover:bg-[#1A1410] hover:text-white active:bg-[#1A1410] active:text-white transition-colors shadow-sm"
                           >
                             {reply}
                           </button>
@@ -339,12 +342,12 @@ export default function CalFloatingButton() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask a question..."
-                  className="flex-1 text-[16px] md:text-sm text-[#10182B] placeholder:text-black/30 bg-transparent outline-none min-w-0"
+                  className="flex-1 text-[16px] md:text-sm text-[#1A1410] placeholder:text-[#B8A89C] bg-transparent outline-none min-w-0"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="w-10 h-10 md:w-8 md:h-8 rounded-full bg-[#10182B] text-white flex items-center justify-center shrink-0 hover:bg-[#1e2d4a] active:bg-[#1e2d4a] disabled:opacity-30 transition-all"
+                  className="w-10 h-10 md:w-8 md:h-8 rounded-full bg-[#1A1410] text-white flex items-center justify-center shrink-0 hover:bg-[#2D2420] active:bg-[#2D2420] disabled:opacity-30 transition-all"
                   aria-label="Send"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 -translate-x-px">
@@ -363,7 +366,7 @@ export default function CalFloatingButton() {
         onClick={() => setOpen((v) => !v)}
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
-        className={`fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-[#10182B] text-white shadow-2xl flex items-center justify-center ${open ? 'hidden md:flex' : 'flex'}`}
+        className={`fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center ${onDark ? 'bg-[#F5F0EB] text-[#1A1410] ring-1 ring-[#3D3028]' : 'bg-[#1A1410] text-[#F5F0EB]'} ${open ? 'hidden md:flex' : 'flex'}`}
         aria-label={open ? 'Close chat' : 'Open chat'}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -399,7 +402,7 @@ export default function CalFloatingButton() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
-              className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#33C0A7] border-2 border-white"
+              className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#C87941] border-2 border-white"
             />
           )}
         </AnimatePresence>
