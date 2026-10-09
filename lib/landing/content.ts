@@ -457,3 +457,71 @@ export const GHOSTS = {
   machinery: { eyebrow: 'The platform', lines: ['The machinery behind every decision.'] },
   film: { eyebrow: 'The film', lines: ['Ghosts, in forty-eight seconds.'], lede: 'The same story, told as a film. Sound on.' },
 }
+
+/** Concept 4 ("Ember"): a bright, Flint-like product marketing page. Facts come from the blocks above. */
+export const EMBER = {
+  announcement: {
+    label: 'The film',
+    title: 'Ghosts: one anonymous shopper becomes a customer in 47 seconds.',
+  },
+  hero: {
+    secondary: 'See it on a live session',
+  },
+  wall: {
+    label: 'Moments Convertive renders inside live sessions (illustrative stores)',
+  },
+  moments: {
+    heading: 'One engine. Two moments that win the sale.',
+    decide: {
+      tag: 'Decisioning',
+      cta: 'See how it decides',
+      href: '/convertive-ai-engine',
+      title: 'The right move, before the tab closes.',
+      body: 'Convertive scores every eligible action for this shopper, right now, and renders the winner in under 100 ms: an offer, a shipping nudge, a size helper, a bundle. Caps and suppression keep it from getting noisy.',
+    },
+    identity: {
+      tag: 'Identity',
+      cta: 'See identity stitching',
+      href: '/convertive-data-platform',
+      title: 'Converts the visitors Klaviyo never sees. Then hands them to Klaviyo.',
+    },
+  },
+  meet: {
+    eyebrow: 'Meet Convertive',
+    statement: 'Your tools tell you who left. Convertive tells you who’s leaving, then acts.',
+    rows: [
+      {
+        key: 'decide',
+        title: 'The right action for every shopper',
+        body: 'Every session should get the move built for that moment: who the shopper is, what brought them, how close they are to leaving. Convertive reads the session and picks the action with the highest expected lift.',
+        chip: 'Convertive is reading the session',
+      },
+      {
+        key: 'profile',
+        title: 'One live profile, not five tools',
+        body: 'Data, audiences, decisioning, orchestration and reporting share one live profile, so every decision sees the whole session, from the first anonymous click to the known customer.',
+        chip: 'Stitching identity',
+      },
+      {
+        key: 'learn',
+        title: 'Every decision teaches the next',
+        body: 'Every outcome, sale or bounce, feeds back into the model, so the next shopper gets a better decision than the last. Reporting shows identity progression, decision quality and lift.',
+        chip: 'Outcome recorded',
+      },
+    ],
+  },
+  loop: {
+    eyebrow: 'How it works',
+    heading: 'You set the guardrails. Convertive runs the loop.',
+    connect: {
+      title: 'Connect',
+      body: 'Convertive layers on top of your storefront and the tools you already run, from Shopify to Klaviyo. We handle the setup with you. Live in days, not months.',
+    },
+    pill: 'Every session makes the next decision better',
+  },
+  final: {
+    checklist: ['Live in days, not months', 'Works on top of your current stack', 'Decides in under 100 ms', 'We handle the setup with you'],
+    formLabel: 'See Convertive on your traffic',
+    placeholder: 'Work email',
+  },
+}
