@@ -12,6 +12,12 @@ html {
   }
 }
 
+/* Concept 4 ("Ember") sets its own type: headings follow the page font instead of the global Manrope 600 */
+[data-concept='ember'] :is(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 /* Dark pages (e.g. the cinematic homepage concept) keep overscroll areas warm black */
 body:has([data-page-tone="dark"]) {
   background-color: rgb(var(--c-night));

@@ -61,9 +61,10 @@ export function isCalReady() {
   return calReady
 }
 
-export async function openCal() {
+/** Opens the booking modal; `prefill.email` fills Cal's email field. */
+export async function openCal(prefill?: { email?: string }) {
   const cal = await loadCal()
-  cal('modal', { calLink: BOOK_DEMO.calLink, config: { layout: 'month_view' } })
+  cal('modal', { calLink: BOOK_DEMO.calLink, config: { layout: 'month_view', ...(prefill?.email ? { email: prefill.email } : {}) } })
 }
 
 export function pushDataLayer(payload: Record<string, unknown>) {

@@ -118,6 +118,23 @@ const config: Config = {
   				bg:      c('warning-bg'),
   				soft:    c('warning-soft'),
   			},
+  			/* ── Concept 4 ("Ember"): vivid copper + complementary pastels ── */
+  			ember: {
+  				DEFAULT: '#FF5B1F', /* signature; ink text on it (5.9:1) */
+  				deep:    '#C2400E', /* ember text on white (5.2:1) */
+  				glow:    '#FF8A50',
+  				soft:    '#FFE3D4',
+  			},
+  			pastel: {
+  				apricot: '#FFD6C2',
+  				teal:    '#5FCBBB',
+  				sky:     '#D4E6FF',
+  				lilac:   '#E7DDFF',
+  				mint:    '#D2F4E0',
+  				butter:  '#FFEFB0',
+  				paper:   '#F7F5F2',
+  				line:    '#ECE7E2',
+  			},
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -153,6 +170,14 @@ const config: Config = {
   				from: { opacity: '0', transform: 'translateY(12px)' },
   				to: { opacity: '1', transform: 'translateY(0)' }
   			},
+  			marker: {
+  				from: { transform: 'scaleX(0)' },
+  				to: { transform: 'scaleX(1)' }
+  			},
+  			'ember-flow': {
+  				from: { backgroundPosition: '0% 50%' },
+  				to: { backgroundPosition: '200% 50%' }
+  			},
   			orbit: {
   				'0%': {
   					transform: 'rotate(var(--angle)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1))'
@@ -168,7 +193,9 @@ const config: Config = {
   			orbit: 'orbit calc(var(--duration) * 1s) linear infinite',
   			marquee: 'marquee var(--marquee-duration, 40s) linear infinite',
   			'line-rise': 'line-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both',
-  			'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both'
+  			'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+  			marker: 'marker 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both',
+  			'ember-flow': 'ember-flow 6s linear infinite'
   		}
   	}
   },
