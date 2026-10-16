@@ -51,17 +51,17 @@ const work = [
       'An open-source agentic memory layer. Agents carry persistent context across users and sessions — a temporal, causal knowledge graph that recalls only what matters, with PII encryption built in.',
   },
   {
+    name: 'Synor',
+    href: null,
+    description:
+      'Incremental data pipelines for AI and data systems. It can power AI indexing, RAG ingestion, document extraction, knowledge graphs, conventional ETL, and stream-to-store workflows without introducing a separate pipeline DSL.',
+  },
+  {
     name: 'Streaming decisions & RL',
     href: null,
     badge: 'Soon',
     description:
       'Decisioning under hard latency budgets: models that have to answer in milliseconds, improved by a continuous optimization loop rather than a nightly batch.',
-  },
-  {
-    name: 'Synor',
-    href: null,
-    description:
-      'Incremental data pipelines for AI and data systems. It can power AI indexing, RAG ingestion, document extraction, knowledge graphs, conventional ETL, and stream-to-store workflows without introducing a separate pipeline DSL.',
   },
 ]
 
