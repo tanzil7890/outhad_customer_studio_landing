@@ -34,7 +34,7 @@ const work = [
   },
   {
     name: 'Outhad Studio',
-    href: 'https://studio.outhad.com/',
+    href: '/outhad-studio',
     description:
       'An orchestration layer and builder for agent systems. Compose, deploy, and supervise multi-agent workflows without rebuilding the plumbing each time.',
   },
