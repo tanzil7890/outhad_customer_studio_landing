@@ -16,13 +16,16 @@ This is the Next.js website for **Outhad AI**, a research and product lab. The b
   agents (temporal-causal graph memory, PII encryption, adaptive chunking). Shipped as
   the `outhad-contextkitai` Python package; its site is <https://contextkit.outhad.com/>,
   which the homepage card and footer link point to.
+- **Synor** — incremental data pipelines for AI and data systems (AI indexing, RAG
+  ingestion, document extraction, knowledge graphs, ETL, stream-to-store). No public
+  site yet, so its homepage card does not link anywhere.
 
 Route structure follows from that:
 
 - `/` — the lab homepage. Deliberately minimal (physera.ai-style): headline, thesis,
-  five cards covering the four products and one research area, contact. No animation,
-  no imagery, ~105 kB First Load JS. Keep it this way — new marketing sections belong
-  on a product page, not here.
+  six cards covering the five products and one research area (labelled Soon),
+  contact. No animation, no imagery, ~105 kB First Load JS. Keep it this way — new
+  marketing sections belong on a product page, not here.
 - `/convertive` — the full Convertive product page (hero, product video, customer
   activation deep-dive, outcomes, integrations, blogs). This is where the animated,
   heavier marketing components live.

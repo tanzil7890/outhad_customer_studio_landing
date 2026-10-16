@@ -53,8 +53,15 @@ const work = [
   {
     name: 'Streaming decisions & RL',
     href: null,
+    badge: 'Soon',
     description:
       'Decisioning under hard latency budgets: models that have to answer in milliseconds, improved by a continuous optimization loop rather than a nightly batch.',
+  },
+  {
+    name: 'Synor',
+    href: null,
+    description:
+      'Incremental data pipelines for AI and data systems. It can power AI indexing, RAG ingestion, document extraction, knowledge graphs, conventional ETL, and stream-to-store workflows without introducing a separate pipeline DSL.',
   },
 ]
 
@@ -103,6 +110,11 @@ export default function Home() {
                         className="text-[hsl(var(--app-text-muted))] group-hover:text-[#C87941] transition-all duration-200 group-hover:translate-x-0.5"
                       >
                         →
+                      </span>
+                    )}
+                    {item.badge && (
+                      <span className="shrink-0 bg-[#F7E4D0] border border-[#EBBF94] px-1.5 py-0.5 text-[10px] leading-none tracking-[0.18em] uppercase text-[#7A4420]">
+                        {item.badge}
                       </span>
                     )}
                   </div>
