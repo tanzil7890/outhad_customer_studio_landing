@@ -5,10 +5,12 @@ import Link from 'next/link'
 import OuthadLogo from './outhad-logo'
 
 const navLinks = [
-  { href: '/convertive', label: 'Convertive' },
+  { href: 'https://www.tryconvertive.com/', label: 'Convertive' },
   { href: '/outhad-studio', label: 'Outhad Studio' },
   { href: '/careers', label: 'Careers' },
 ]
+
+const isExternal = (href: string) => /^https?:\/\//.test(href)
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -27,6 +29,8 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                target={isExternal(link.href) ? '_blank' : undefined}
+                rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
                 className="text-sm text-[hsl(var(--app-text-muted))] hover:text-[#1A1410] transition-colors duration-200"
               >
                 {link.label}
@@ -71,6 +75,8 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                target={isExternal(link.href) ? '_blank' : undefined}
+                rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
                 onClick={closeMobileMenu}
                 className="py-2.5 text-base text-[#1A1410]"
               >
