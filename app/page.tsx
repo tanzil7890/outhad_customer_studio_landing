@@ -46,7 +46,7 @@ const work = [
   },
   {
     name: 'Outhad ContextKit',
-    href: 'https://pypi.org/project/outhad-contextkitai/',
+    href: 'https://contextkit.outhad.com/',
     description:
       'An open-source agentic memory layer. Agents carry persistent context across users and sessions — a temporal, causal knowledge graph that recalls only what matters, with PII encryption built in.',
   },

@@ -14,8 +14,8 @@ This is the Next.js website for **Outhad AI**, a research and product lab. The b
   it on this site, so the homepage card and footer link point there.
 - **Outhad ContextKit** — an open-source agentic memory layer: long-term memory for AI
   agents (temporal-causal graph memory, PII encryption, adaptive chunking). Shipped as
-  the `outhad-contextkitai` Python package; the site links to
-  <https://pypi.org/project/outhad-contextkitai/>.
+  the `outhad-contextkitai` Python package; its site is <https://contextkit.outhad.com/>,
+  which the homepage card and footer link point to.
 
 Route structure follows from that:
 

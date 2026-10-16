@@ -6,7 +6,7 @@ const productLinks = [
   { href: '/convertive', label: 'Convertive' },
   { href: '/outhad-studio', label: 'Outhad Studio' },
   { href: 'https://kcode.outhad.com/', label: 'KoraCode' },
-  { href: 'https://pypi.org/project/outhad-contextkitai/', label: 'ContextKit' },
+  { href: 'https://contextkit.outhad.com/', label: 'ContextKit' },
 ]
 
 const companyLinks = [
